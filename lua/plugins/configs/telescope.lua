@@ -6,11 +6,12 @@ local M = {}
 --
 -- local async = require("plenary.async")
 -- local telescope = require("telescope.builtin")
+local themes = require("telescope.themes")
 
 M.opts = {
 	defaults = vim.tbl_extend(
 		"force",
-		require("telescope.themes").get_dropdown(), -- or get_cursor, get_ivy
+		themes.get_dropdown(), -- or get_cursor, get_ivy
 		{
 			prompt_prefix = "   ",
 			initial_mode = "normal",
@@ -102,9 +103,10 @@ M.init = function()
 end
 
 M.config = function(opts)
-	require("telescope").setup(opts)
-	-- for _, ext in ipairs(opts.extensions) do
-	-- 	telescope.load_extension(ext)
+	local telescope = require("telescope")
+	telescope.setup(opts)
+	telescope.load_extension("fzf")
+	-- for _, ext in ipairs({"fzf"}) do
 	-- end
 end
 

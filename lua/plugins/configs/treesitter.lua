@@ -1,6 +1,7 @@
 local M = {}
 
 M.opts = {
+	parser_install_dir = "$HOME/.local/share/treesitter",
 	auto_install = false,
 	sync_install = false,
 	autotag = { enable = true },

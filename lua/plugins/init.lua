@@ -197,6 +197,7 @@ local plugins = {
 			return require("plugins.configs.treesitter").opts
 		end,
 		config = function(_, opts)
+			vim.opt.runtimepath:append("$HOME/.local/share/treesitter")
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
