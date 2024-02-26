@@ -1,0 +1,30 @@
+return {
+	ensure_installed = {
+		"astro",
+		"rust",
+		"gomod",
+		"gosum",
+		"go",
+		"lua",
+		"html",
+		"css",
+		"json",
+		"javascript",
+		"typescript",
+		"tsx",
+		"c",
+		"sql",
+		"markdown",
+		"markdown_inline",
+		"vim",
+		"vimdoc",
+		"query",
+	},
+	auto_install = false,
+	autotag = {
+		enable = true,
+	},
+	highlight = {
+		enable = true,
+	},
+}
