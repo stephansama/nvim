@@ -3,16 +3,15 @@ local M = {}
 local highlight = {
 	"RainbowRed",
 	"RainbowYellow",
+	"RainbowGreen",
 	"RainbowBlue",
 	"RainbowOrange",
-	"RainbowGreen",
 	"RainbowViolet",
 	"RainbowCyan",
 }
 
-M.opts = {}
-
--- M.opts = { indent = { highlight = highlight } }
+-- M.opts = {}
+M.opts = { indent = { highlight = highlight } }
 -- M.opts = {
 -- 	-- indentLine_enabled = 1,
 -- 	filetype_exclude = {
@@ -39,9 +38,9 @@ M.config = function(opts)
 	-- create the highlight groups in the highlight setup hook, so they are reset
 	-- every time the colorscheme changes
 	hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-		vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-		vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-		vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+		vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#8a0f19" })
+		vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#ba8013" })
+		vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#3d820a" })
 		vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
 		vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
 		vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })

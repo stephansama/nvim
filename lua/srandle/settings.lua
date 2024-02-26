@@ -3,10 +3,12 @@ vim.bo.tabstop = 4
 
 vim.opt.conceallevel = 1
 vim.opt.signcolumn = "yes"
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 5
 
 vim.opt.tabstop = 4
+vim.opt.clipboard = "unnamedplus"
 
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {

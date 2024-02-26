@@ -77,7 +77,7 @@ local plugins = {
 		opts = function()
 			return require("plugins.configs.indent-blankline").opts
 		end,
-		config = function(opts)
+		config = function(_, opts)
 			require("plugins.configs.indent-blankline").config(opts)
 		end,
 	},
@@ -121,19 +121,32 @@ local plugins = {
 			require("plugins.configs.neo-tree").config()
 		end,
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+		lazy = false,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
 		cmd = "Telescope",
-		init = function()
-			require("plugins.configs.telescope").init()
-		end,
 		opts = function()
 			return require("plugins.configs.telescope").opts
 		end,
 		config = function(_, opts)
 			require("plugins.configs.telescope").config(opts)
+		end,
+		init = function()
+			require("plugins.configs.telescope").init()
+		end,
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = false,
+		config = function()
+			require("plugins.configs.harpoon").config()
 		end,
 	},
 	{

@@ -3,6 +3,54 @@ local lspconfig = require("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+local on_attach = function(c,b) end
+
+local servers = {
+  "bashls",
+  "marksman",
+  "mdx_analyzer",
+  "yamlls",
+  "jsonls",
+  -- web
+  "astro",
+  "svelte",
+  "html",
+  "htmx",
+  "cssls",
+  "cssmodules_ls",
+  "eslint",
+  "tsserver",
+  "tailwindcss",
+  "sqlls",
+  -- systems
+  -- "gopls",
+  "dockerls",
+  "clangd",
+  -- c
+  "cmake",
+}
+
+for _, lsp in ipairs(servers) do
+  if lsp == "tailwindcss" then
+    lspconfig[lsp].setup {
+      capabilities = capabilities,
+      on_attach = function(c, b)
+        require("tailwindcss-colors").buf_attach(b)
+        on_attach(c, b)
+      end,
+    }
+    goto continue
+  end
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+  ::continue::
+end
+
+
+
+
 lspconfig.lua_ls.setup({
 	on_attach = function(c, b) end,
 	capabilities = capabilities,

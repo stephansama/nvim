@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 
 -- Yank / Paste
-vim.keymap.set({ "n", "x" }, "y", '"*y')
-vim.keymap.set({ "n", "x" }, "Y", "y$")
-vim.keymap.set("n", "p", "pgvy")
+-- vim.keymap.set({ "n", "x" }, "y", '"*y')
+-- vim.keymap.set({ "n", "x" }, "Y", "y$")
+vim.keymap.set("v", "p", "pgvy")
 
 -- Visual
 vim.keymap.set("v", "<", "<gv")
