@@ -1,16 +1,17 @@
 local M = {}
 
-M.lspoptions = {
+M.lspopts = {
 	automatic_installation = false,
 	ensure_installed = {
 		"astro",
+		"gopls",
 		"bashls",
 		"lua_ls",
 		"tsserver",
 	},
 }
 
-M.options = {
+M.opts = {
 	-- ensure_installed = { "lua-language-server" }, -- not an option from mason.nvim
 	PATH = "skip",
 	ui = {

@@ -10,7 +10,6 @@ local highlight = {
 	"RainbowCyan",
 }
 
--- M.opts = {}
 M.opts = { indent = { highlight = highlight } }
 -- M.opts = {
 -- 	-- indentLine_enabled = 1,

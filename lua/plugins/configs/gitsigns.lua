@@ -9,9 +9,9 @@ require("gitsigns").setup({
 		end
 
 		-- Navigation
-		map("n", "]c", function()
+		map("n", "]h", function()
 			if vim.wo.diff then
-				return "]c"
+				return "]h"
 			end
 			vim.schedule(function()
 				gs.next_hunk()
@@ -19,9 +19,9 @@ require("gitsigns").setup({
 			return "<Ignore>"
 		end, { expr = true })
 
-		map("n", "[c", function()
+		map("n", "[h", function()
 			if vim.wo.diff then
-				return "[c"
+				return "[h"
 			end
 			vim.schedule(function()
 				gs.prev_hunk()

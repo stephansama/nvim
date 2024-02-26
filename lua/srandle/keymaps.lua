@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 -- Yank / Paste
 -- vim.keymap.set({ "n", "x" }, "y", '"*y')
 -- vim.keymap.set({ "n", "x" }, "Y", "y$")
-vim.keymap.set("v", "p", "pgvy")
+vim.keymap.set({ "v", "n", "x" }, "p", "pgvy")
 
 -- Visual
 vim.keymap.set("v", "<", "<gv")
@@ -54,12 +54,12 @@ vim.keymap.set("n", "O", "O<ESC>zz")
 vim.keymap.set("n", "<ESC>", vim.cmd.noh)
 vim.keymap.set("n", "<leader>x", vim.cmd.q)
 vim.keymap.set("n", "<leader>d", vim.cmd.bd)
-vim.keymap.set("n", "<leader>w", vim.cmd.w)
+vim.keymap.set("n", "<leader>w", vim.cmd.w, { desc = "Save file" })
 
 -- netrw fallback
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>ll", vim.cmd.Lazy)
-vim.keymap.set("n", "<leader>lm", vim.cmd.Mason)
+vim.keymap.set("n", "<leader>ll", vim.cmd.Lazy, { desc = "Open :Lazy" })
+vim.keymap.set("n", "<leader>lm", vim.cmd.Mason, { desc = "Open :Mason" })
 
 -- go to link
 vim.keymap.set("n", "gl", function()

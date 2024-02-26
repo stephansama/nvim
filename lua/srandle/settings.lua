@@ -1,3 +1,4 @@
+vim.o.scrolloff = 8
 vim.wo.relativenumber = true
 vim.bo.tabstop = 4
 

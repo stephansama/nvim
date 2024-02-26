@@ -10,7 +10,7 @@ local plugins = {
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
 		opts = function()
-			return require("plugins.configs.mason").options
+			return require("plugins.configs.mason").opts
 		end,
 		config = function(_, opts)
 			require("plugins.configs.mason").config(opts)
@@ -19,8 +19,8 @@ local plugins = {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
-		options = function()
-			return require("plugins.configs.mason").lspoptions
+		opts = function()
+			return require("plugins.configs.mason").lspopts
 		end,
 		config = function(opts)
 			require("plugins.configs.mason").lspconfig(opts)
@@ -122,25 +122,6 @@ local plugins = {
 		end,
 	},
 	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-		lazy = false,
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
-		cmd = "Telescope",
-		opts = function()
-			return require("plugins.configs.telescope").opts
-		end,
-		config = function(_, opts)
-			require("plugins.configs.telescope").config(opts)
-		end,
-		init = function()
-			require("plugins.configs.telescope").init()
-		end,
-	},
-	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -213,15 +194,41 @@ local plugins = {
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 		dependencies = { "windwp/nvim-ts-autotag" },
 		opts = function()
-			return require("plugins.configs.treesitter")
+			return require("plugins.configs.treesitter").opts
 		end,
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		lazy = false,
+		init = function()
+			require("plugins.configs.treesitter").context_init()
+		end,
+		config = function()
+			require("plugins.configs.treesitter").context_config()
+		end,
+	},
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+		lazy = false,
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+		cmd = "Telescope",
+		opts = function()
+			return require("plugins.configs.telescope").opts
+		end,
+		config = function(_, opts)
+			require("plugins.configs.telescope").config(opts)
+		end,
+		init = function()
+			require("plugins.configs.telescope").init()
+		end,
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -301,6 +308,7 @@ local plugins = {
 	{
 		"rest-nvim/rest.nvim",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
+		ft = "rest",
 		config = function()
 			require("plugins.configs.rest")
 		end,
