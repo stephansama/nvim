@@ -22,8 +22,9 @@ M.opts = {
 
 	window = {
 		completion = {
-			side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
-			winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+			side_padding = 1,
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+			border = border("CmpCompBorder"),
 			scrollbar = false,
 		},
 		documentation = {
@@ -36,8 +37,6 @@ M.opts = {
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-
-	formatting = formatting_style,
 
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),

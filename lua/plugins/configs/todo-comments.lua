@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>tt", vim.cmd.TodoTelescope)
+vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope initial_mode=normal<CR>")

@@ -1,10 +1,5 @@
 vim.g.mapleader = " "
 
--- Yank / Paste
--- vim.keymap.set({ "n", "x" }, "y", '"*y')
--- vim.keymap.set({ "n", "x" }, "Y", "y$")
-vim.keymap.set({ "v", "n", "x" }, "p", "pgvy")
-
 -- Visual
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -16,8 +11,6 @@ vim.keymap.set("n", "Q", "@q")
 ---- window positioning
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 ---- quick actions
 vim.keymap.set("n", "cw", "ciw")
@@ -37,8 +30,8 @@ vim.keymap.set("n", 'v"', 'vi"')
 vim.keymap.set("n", "%", "%zz")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
-vim.keymap.set({ "n", "x" }, "H", "^zz")
-vim.keymap.set({ "n", "x" }, "L", "$zz")
+vim.keymap.set({ "n", "o" }, "H", "^zz")
+vim.keymap.set({ "n", "o" }, "L", "$zz")
 vim.keymap.set("n", "j", "gjzz")
 vim.keymap.set("n", "k", "gkzz")
 vim.keymap.set("n", "G", "Gzz")

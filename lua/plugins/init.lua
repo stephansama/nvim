@@ -1,10 +1,23 @@
 local plugins = {
 	{
-		"navarasu/onedark.nvim",
+		"olimorris/onedarkpro.nvim",
+		priority = 1000,
+		lazy = false,
 		init = function()
-			require("plugins.configs.onedark")
+			require("onedarkpro").setup({
+				options = {
+					transparency = true,
+				},
+			})
+			vim.cmd([[colorscheme onedark]])
 		end,
 	},
+	-- {
+	-- 	"navarasu/onedark.nvim",
+	-- 	init = function()
+	-- 		require("plugins.configs.onedark")
+	-- 	end,
+	-- },
 	{ "nvim-lua/plenary.nvim", lazy = false },
 	{
 		"williamboman/mason.nvim",
@@ -19,10 +32,11 @@ local plugins = {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
+		lazy = false,
 		opts = function()
 			return require("plugins.configs.mason").lspopts
 		end,
-		config = function(opts)
+		config = function(_, opts)
 			require("plugins.configs.mason").lspconfig(opts)
 		end,
 	},
@@ -37,7 +51,7 @@ local plugins = {
 		end,
 		config = function()
 			require("lint").linters_by_ft = {
-				markdown = { "vale" },
+				-- markdown = { "vale" },
 			}
 		end,
 	},
@@ -57,18 +71,27 @@ local plugins = {
 		init = function()
 			vim.keymap.set("n", "<leader>ti", function()
 				require("lsp-inlayhints").toggle()
-			end)
+			end, { desc = "Toggle inlay hints" })
+			-- vim.cmd([[hi LspInlayHint guifg=#A9A9A9 guibg=none]])
 		end,
 		config = function()
 			require("lsp-inlayhints").setup()
 		end,
 	},
+	-- GIT
 	{
 		"lewis6991/gitsigns.nvim",
 		init = function()
 			require("plugins.configs.gitsigns")
 		end,
 	},
+	-- {
+	-- 	"sindrets/diffview.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require("diffview").setup()
+	-- 	end,
+	-- },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -135,6 +158,11 @@ local plugins = {
 		lazy = false,
 		init = function()
 			vim.g.VM_leader = "<space>"
+			vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)")
+			vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)")
+			-- vim.g.VM_maps = {}
+			-- vim.g.VM_maps["Select Cursor Down"] = "<C-j>"
+			-- vim.g.VM_maps["Select Cursor Up"] = "<C-k>"
 		end,
 	},
 	{
@@ -264,6 +292,8 @@ local plugins = {
 		lazy = false,
 		config = function()
 			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+			vim.g.undotree_WindowLayout = 3
+			vim.g.undotree_SetFocusWhenToggle = 1
 		end,
 	},
 	-- AI

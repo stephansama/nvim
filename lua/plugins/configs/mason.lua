@@ -1,26 +1,44 @@
 local M = {}
 
 M.lspopts = {
-	automatic_installation = false,
+	automatic_installation = true,
 	ensure_installed = {
-		"astro",
-		"gopls",
 		"bashls",
 		"lua_ls",
+		"dockerls",
+		"docker_compose_language_service",
+		"jsonls",
+		"yamlls",
+		"lemminx", --xml
+		"marksman",
+		-- web dev
+		"html",
+		"cssls",
+		"astro",
+		"eslint",
+		"svelte",
+		"graphql",
+		"emmet_ls",
 		"tsserver",
+		"cssmodules_ls",
+		"tailwindcss",
+		-- systems
+		"clangd",
+		"taplo", -- toml
+		"cmake",
+		"gopls",
 	},
 }
 
 M.opts = {
-	-- ensure_installed = { "lua-language-server" }, -- not an option from mason.nvim
-	PATH = "skip",
+	PATH = "prepend",
+	registries = { "github:mason-org/mason-registry" },
 	ui = {
 		icons = {
 			package_pending = " ",
 			package_installed = "󰄳 ",
 			package_uninstalled = " 󰚌",
 		},
-
 		keymaps = {
 			toggle_server_expand = "<CR>",
 			install_server = "i",
@@ -32,8 +50,6 @@ M.opts = {
 			cancel_installation = "<C-c>",
 		},
 	},
-
-	-- max_concurrent_installers = 10,
 }
 
 M.config = function(opts)

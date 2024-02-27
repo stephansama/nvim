@@ -13,7 +13,7 @@ M.config = function()
 		end
 
 		require("telescope.pickers")
-			.new({}, {
+			.new(require("telescope.themes").get_dropdown({}), {
 				prompt_title = "Harpoon",
 				previewer = conf.file_previewer({}),
 				sorter = conf.generic_sorter({}),
@@ -22,10 +22,6 @@ M.config = function()
 			:find()
 	end
 
-	vim.keymap.set("n", "<leader>h", function()
-		toggle_telescope(harpoon:list())
-	end, { desc = "Open harpoon window" })
-
 	vim.keymap.set("n", "<leader>r", function()
 		harpoon:list():remove()
 	end, { desc = "Remove from harpoon" })
@@ -33,9 +29,11 @@ M.config = function()
 	vim.keymap.set("n", "<leader>a", function()
 		harpoon:list():append()
 	end, { desc = "Append to harpoon" })
-	-- vim.keymap.set("n", "<C-e>", function()
-	-- 	harpoon.ui:toggle_quick_menu(harpoon:list())
-	-- end)
+
+	-- p for primagen
+	vim.keymap.set("n", "<leader>p", function()
+		toggle_telescope(harpoon:list())
+	end, { desc = "Open harpoon window" })
 
 	vim.keymap.set("n", "<leader>1", function()
 		harpoon:list():select(1)
@@ -49,14 +47,6 @@ M.config = function()
 	vim.keymap.set("n", "<leader>4", function()
 		harpoon:list():select(4)
 	end, { desc = "Select harpoon buffer 4" })
-
-	-- Toggle previous & next buffers stored within Harpoon list
-	vim.keymap.set("n", "<leader>`", function()
-		harpoon:list():prev()
-	end, { desc = "Select prev harpoon buffer" })
-	vim.keymap.set("n", "<leader><Taharpoon b>", function()
-		harpoon:list():next()
-	end, { desc = "Select next harpoon buffer" })
 end
 
 return M
