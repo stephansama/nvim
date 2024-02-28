@@ -1,4 +1,5 @@
 vim.o.scrolloff = 8
+vim.wo.number = true
 vim.wo.relativenumber = true
 vim.bo.tabstop = 4
 
@@ -25,6 +26,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
 	end,
 })
+
+vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
 
 vim.filetype.add({
 	extension = {

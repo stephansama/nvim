@@ -12,6 +12,40 @@ local plugins = {
 			vim.cmd([[colorscheme onedark]])
 		end,
 	},
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+		config = function()
+			require("dashboard").setup({
+				config = {
+					project = {
+						enable = true,
+						limit = 4,
+						-- icon = "your icon",
+						label = "Recent directories",
+						action = "Telescope find_files cwd=",
+					},
+					mru = { limit = 5 },
+					footer = {}, -- footer
+					header = {
+						"        ▄▄▄▄▄███████████████████▄▄▄▄▄     ",
+						"      ▄██████████▀▀▀▀▀▀▀▀▀▀██████▀████▄   ",
+						"     █▀████████▄             ▀▀████ ▀██▄  ",
+						"    █▄▄██████████████████▄▄▄         ▄██▀ ",
+						"     ▀█████████████████████████▄    ▄██▀  ",
+						"       ▀████▀▀▀▀▀▀▀▀▀▀▀▀█████████▄▄██▀    ",
+						"         ▀███▄              ▀██████▀      ",
+						"           ▀██████▄        ▄████▀         ",
+						"              ▀█████▄▄▄▄▄▄▄███▀           ",
+						"                ▀████▀▀▀████▀             ",
+						"                  ▀███▄███▀               ",
+						"                     ▀█▀                  ",
+					},
+				},
+			})
+		end,
+	},
 	-- {
 	-- 	"navarasu/onedark.nvim",
 	-- 	init = function()
@@ -85,13 +119,32 @@ local plugins = {
 			require("plugins.configs.gitsigns")
 		end,
 	},
-	-- {
-	-- 	"sindrets/diffview.nvim",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		require("diffview").setup()
-	-- 	end,
-	-- },
+	{
+		"sindrets/diffview.nvim",
+		lazy = false,
+		init = function()
+			vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
+			vim.keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<CR>")
+		end,
+		config = function()
+			require("diffview").setup({
+				view = {
+					default = {
+						layout = "diff2_vertical",
+					},
+				},
+				file_panel = {
+					listing_style = "tree",
+					tree_options = { flatten_dirs = false, folder_statuses = "only_folded" },
+					win_config = {
+						position = "right",
+						width = 35,
+						win_opts = {},
+					},
+				},
+			})
+		end,
+	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -160,9 +213,6 @@ local plugins = {
 			vim.g.VM_leader = "<space>"
 			vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)")
 			vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)")
-			-- vim.g.VM_maps = {}
-			-- vim.g.VM_maps["Select Cursor Down"] = "<C-j>"
-			-- vim.g.VM_maps["Select Cursor Up"] = "<C-k>"
 		end,
 	},
 	{
@@ -174,9 +224,32 @@ local plugins = {
 				"L3MON4D3/LuaSnip",
 				dependencies = "rafamadriz/friendly-snippets",
 				opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-				-- config = function(_, opts)
-				-- require("plugins.configs.others").luasnip(opts)
-				-- end,
+				config = function(_, opts)
+					require("luasnip").config.set_config(opts)
+
+					-- vscode format
+					require("luasnip.loaders.from_vscode").lazy_load()
+					require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
+
+					-- snipmate format
+					require("luasnip.loaders.from_snipmate").load()
+					require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
+
+					-- lua format
+					require("luasnip.loaders.from_lua").load()
+					require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path or "" })
+
+					vim.api.nvim_create_autocmd("InsertLeave", {
+						callback = function()
+							if
+								require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+								and not require("luasnip").session.jump_active
+							then
+								require("luasnip").unlink_current()
+							end
+						end,
+					})
+				end,
 			},
 			{
 				"windwp/nvim-autopairs",
@@ -274,18 +347,14 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		opts = {},
 	},
 	{
 		"numToStr/Comment.nvim",
+		lazy = false,
 		config = function()
 			require("Comment").setup()
 		end,
-		lazy = false,
 	},
 	{
 		"mbbill/undotree",

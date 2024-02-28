@@ -17,6 +17,7 @@ M.opts = {
 		"html",
 		"http",
 		"astro",
+		"jsdoc",
 		"javascript",
 		"typescript",
 		"tsx",

@@ -24,10 +24,12 @@ M.config = function()
 
 	vim.keymap.set("n", "<leader>r", function()
 		harpoon:list():remove()
+		print("Remove from harpoon")
 	end, { desc = "Remove from harpoon" })
 
 	vim.keymap.set("n", "<leader>a", function()
 		harpoon:list():append()
+		print("Append to harpoon")
 	end, { desc = "Append to harpoon" })
 
 	-- p for primagen
