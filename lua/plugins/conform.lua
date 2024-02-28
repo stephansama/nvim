@@ -4,6 +4,8 @@ local conform_config = {
 		-- Conform will run multiple formatters sequentially
 		css = { { "prettierd", "prettier" } },
 		html = { { "prettierd", "prettier" } },
+		astro = { { "prettierd", "prettier" } },
+		svelte = { { "prettierd", "prettier" } },
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		javascriptreact = { { "prettierd", "prettier" } },

@@ -1,5 +1,13 @@
 return {
 	{
+		"dhruvasagar/vim-table-mode",
+		ft = "md",
+		event = "VeryLazy",
+		config = function()
+			vim.keymap.set("n", "<leader>mt", vim.cmd.TableModeEnable, { desc = "Enable Table Mode" })
+		end,
+	},
+	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },

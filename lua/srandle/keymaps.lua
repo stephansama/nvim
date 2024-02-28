@@ -3,14 +3,24 @@ vim.g.mapleader = " "
 -- Visual
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+---- move line
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Normal
 ---- replay macro
 vim.keymap.set("n", "Q", "@q")
 
+---- navgiate buffers
+vim.keymap.set("n", "(", ":bprevious<CR>")
+vim.keymap.set("n", ")", ":bnext<CR>")
+
 ---- window positioning
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-]>", "<C-w>>")
+-- FIX: shrink window
+-- vim.keymap.set("n", "<C-[>", "<C-w><S-,>")
 
 ---- quick actions
 vim.keymap.set("n", "cw", "ciw")

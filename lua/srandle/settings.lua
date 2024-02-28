@@ -4,11 +4,13 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.opt.conceallevel = 1
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.opt.signcolumn = "yes"
 vim.opt.foldmethod = "expr"
 vim.opt.clipboard = "unnamedplus"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 5
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.tabstop = 4
 
 -- WARN: remove with lsp-inlayhints
