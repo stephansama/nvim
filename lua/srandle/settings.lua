@@ -1,17 +1,17 @@
 vim.o.scrolloff = 8
+vim.bo.tabstop = 4
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.bo.tabstop = 4
 
 vim.opt.conceallevel = 1
 vim.opt.signcolumn = "yes"
 vim.opt.foldmethod = "expr"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 5
-
 vim.opt.tabstop = 4
-vim.opt.clipboard = "unnamedplus"
 
+-- WARN: remove with lsp-inlayhints
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = "LspAttach_inlayhints",

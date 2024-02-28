@@ -1,5 +1,3 @@
-local M = {}
-
 local cmp = require("cmp")
 
 local function border(hl_name)
@@ -15,7 +13,7 @@ local function border(hl_name)
 	}
 end
 
-M.opts = {
+return {
 	completion = {
 		completeopt = "menu,menuone",
 	},
@@ -82,13 +80,3 @@ M.opts = {
 		{ name = "path" },
 	},
 }
-
-M.autopairs = function(opts)
-	require("nvim-autopairs").setup(opts)
-
-	-- setup cmp for autopairs
-	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-	require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-end
-
-return M

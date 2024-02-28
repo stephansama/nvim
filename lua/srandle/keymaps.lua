@@ -65,7 +65,7 @@ vim.keymap.set("n", "gl", function()
 	end
 end)
 
--- TODO: enable when lsp inlay hints are available nvim 0.10.0>
+-- PERF: enable when lsp inlay hints are available nvim 0.10.0>
 -- vim.keymap.set("n", "<leader>ti", function()
 -- 	vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
 -- end)

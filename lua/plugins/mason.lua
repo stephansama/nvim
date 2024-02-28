@@ -1,6 +1,4 @@
-local M = {}
-
-M.lspopts = {
+local mason_lspconfig = {
 	automatic_installation = true,
 	ensure_installed = {
 		"bashls",
@@ -13,6 +11,7 @@ M.lspopts = {
 		"marksman",
 		-- web dev
 		"html",
+		"htmx",
 		"cssls",
 		"astro",
 		"eslint",
@@ -30,7 +29,7 @@ M.lspopts = {
 	},
 }
 
-M.opts = {
+local mason_config = {
 	PATH = "prepend",
 	registries = { "github:mason-org/mason-registry" },
 	ui = {
@@ -52,18 +51,25 @@ M.opts = {
 	},
 }
 
-M.config = function(opts)
-	require("mason").setup(opts)
-	-- custom nvchad cmd to install all mason binaries listed
-	vim.api.nvim_create_user_command("MasonInstallAll", function()
-		if opts.ensure_installed and #opts.ensure_installed > 0 then
-			vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
-		end
-	end, {})
-end
-
-M.lspconfig = function(opts)
-	require("mason-lspconfig").setup(opts)
-end
-
-return M
+return {
+	{
+		"williamboman/mason.nvim",
+		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+		config = function()
+			require("mason").setup(mason_config)
+			vim.api.nvim_create_user_command("MasonInstallAll", function()
+				if opts.ensure_installed and #opts.ensure_installed > 0 then
+					vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+				end
+			end, {})
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim" },
+		lazy = false,
+		config = function()
+			require("mason-lspconfig").setup(mason_lspconfig)
+		end,
+	},
+}

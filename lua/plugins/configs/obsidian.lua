@@ -1,4 +1,4 @@
-require("obsidian").setup({
+return {
 	templates = { subdir = "Templates" },
 	completion = { nvim_cmp = true }, -- Set to false to disable completion.
 	open_app_foreground = true,
@@ -24,4 +24,4 @@ require("obsidian").setup({
 			opts = { buffer = true },
 		},
 	},
-})
+}

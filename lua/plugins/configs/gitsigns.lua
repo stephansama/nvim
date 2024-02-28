@@ -1,4 +1,4 @@
-require("gitsigns").setup({
+return {
 	on_attach = function(bufnr)
 		local gs = package.loaded.gitsigns
 
@@ -96,4 +96,4 @@ require("gitsigns").setup({
 	yadm = {
 		enable = false,
 	},
-})
+}
