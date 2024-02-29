@@ -31,6 +31,9 @@ return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	init = function()
+		vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
+	end,
 	config = function()
 		require("dashboard").setup(options)
 	end,

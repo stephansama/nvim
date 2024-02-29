@@ -1,8 +1,23 @@
 return {
 	popup_border_style = "rounded",
-	close_if_last_window = false,
+	close_if_last_window = true,
 	enable_git_status = true,
 	enable_diagnostics = true,
+	event_handlers = {
+		{
+			event = "file_opened",
+			handler = function()
+				require("neo-tree.command").execute({ action = "close" })
+			end,
+		},
+	},
+	filesystem = {
+		filtered_items = {
+			visible = false,
+			hide_dotfiles = false,
+			hide_gitignored = true,
+		},
+	},
 	icon = {
 		folder_closed = "",
 		folder_open = "",

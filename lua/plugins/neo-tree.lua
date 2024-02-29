@@ -30,7 +30,7 @@ return {
 	},
 	init = function()
 		vim.keymap.set("n", "\\", "<cmd>Neotree reveal toggle position=right<CR>")
-		vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal toggle position=current<CR>")
+		vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal toggle position=right<CR>")
 	end,
 	config = function()
 		require("neo-tree").setup(require("plugins.configs.neo-tree"))

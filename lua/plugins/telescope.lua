@@ -12,7 +12,9 @@ local telescope_config = {
 	},
 	pickers = {
 		keymaps = insert_picker,
-		find_files = insert_picker,
+		find_files = vim.tbl_deep_extend("force", insert_picker, {
+			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+		}),
 		live_grep = insert_picker,
 		grep_string = insert_picker,
 		oldfiles = normal_picker,
@@ -35,14 +37,14 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		init = function()
+			vim.keymap.set("n", "<leader><Tab>", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Find keymaps" })
-			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", { desc = "Find files" })
+			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 			vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Find word" })
 			vim.keymap.set("n", "<leader>fe", "<cmd>Telescope grep_string<CR>", { desc = "Find exact word" })
 			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find oldfiles" })
-			vim.keymap.set("n", "<leader><Tab>", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
-			vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Find within git status" })
 			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols" })
+			vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Find within git status" })
 			vim.keymap.set(
 				"n",
 				"<leader>s",

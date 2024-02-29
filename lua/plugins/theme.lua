@@ -28,4 +28,12 @@ return {
 			})
 		end,
 	},
+	{
+		"gelguy/wilder.nvim",
+		lazy = false,
+		dependencies = { "romgrk/fzy-lua-native" },
+		config = function()
+			require("plugins.configs.wilder")
+		end,
+	},
 }

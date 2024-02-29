@@ -3,6 +3,9 @@ return {
 		"dhruvasagar/vim-table-mode",
 		ft = "md",
 		event = "VeryLazy",
+		init = function()
+			vim.g.table_mode_tableize_map = ""
+		end,
 		config = function()
 			vim.keymap.set("n", "<leader>mt", vim.cmd.TableModeEnable, { desc = "Enable Table Mode" })
 		end,
@@ -20,7 +23,7 @@ return {
 	},
 	{
 		"epwalsh/obsidian.nvim",
-		version = "*", -- recommended, use latest release instead of latest commit
+		version = "*",
 		lazy = true,
 		ft = "markdown",
 		dependencies = { "nvim-lua/plenary.nvim" },

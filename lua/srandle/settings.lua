@@ -29,8 +29,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
-
 vim.filetype.add({
 	extension = {
 		postcss = "css",

@@ -49,6 +49,4 @@
 - [telescope-fzf-native.nvim](https://www.github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [telescope.nvim](https://www.github.com/nvim-telescope/telescope.nvim)
 
-## Configs
-
 
