@@ -9,7 +9,9 @@ local highlight = {
 }
 
 local ibl_config = {
-	indent = { highlight = highlight },
+	-- use to switch back to every line being colored
+	-- indent = { highlight = highlight },
+	scope = { highlight = highlight },
 	exclude = {
 		buftypes = { "terminal", "nofile", "quickfix", "prompt" },
 		filetypes = {
