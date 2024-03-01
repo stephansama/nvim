@@ -1,4 +1,5 @@
 vim.o.scrolloff = 8
+vim.o.shiftwidth = 4
 vim.bo.tabstop = 4
 vim.wo.number = true
 vim.wo.relativenumber = true
