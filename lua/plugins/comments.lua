@@ -1,7 +1,7 @@
 return {
 	{
 		"folke/todo-comments.nvim",
-		ft = "*,!nvdash",
+		ft = "*,!nvdash,!dashboard",
 		lazy = false,
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		init = function()

@@ -10,10 +10,10 @@ return {
 	},
 	init = function()
 		local Terminal = require("toggleterm.terminal").Terminal
-		local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-		vim.keymap.set("n", "<leader>go", function()
-			lazygit:toggle()
-		end, { desc = "Open Lazygit terminal" })
+		local nodeTerminal = Terminal:new({ cmd = "node", hidden = true })
+		vim.keymap.set("n", "<leader>no", function()
+			nodeTerminal:toggle()
+		end, { desc = "Open Node terminal" })
 	end,
 	config = function(_, opts)
 		require("toggleterm").setup(opts)
