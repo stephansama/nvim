@@ -12,8 +12,14 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "Q", "@q")
 
 ---- navgiate buffers
-vim.keymap.set("n", "(", ":bprevious<CR>")
-vim.keymap.set("n", ")", ":bnext<CR>")
+vim.keymap.set("n", "(", function()
+	vim.cmd.bprevious()
+	print("Previous Buffer")
+end)
+vim.keymap.set("n", ")", function()
+	vim.cmd.bnext()
+	print("Next Buffer")
+end)
 
 ---- window positioning
 vim.keymap.set("n", "<C-h>", "<C-w>h")

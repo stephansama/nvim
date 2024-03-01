@@ -22,4 +22,4 @@ wilder.set_option(
 	))
 )
 
-wilder.setup({ modes = { ":" } })
+wilder.setup({ modes = { ":" }, enable_cmdline_enter = 0 })
