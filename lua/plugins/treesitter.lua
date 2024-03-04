@@ -6,6 +6,15 @@ local treesitter_config = {
 	sync_install = false,
 	autotag = { enable = true },
 	highlight = { enable = true },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<leader>ss",
+			scope_incremental = "<leader>sc",
+			node_incremental = "<leader>si",
+			node_decremental = "<leader>sd",
+		},
+	},
 	ensure_installed = {
 		"c",
 		"rust",

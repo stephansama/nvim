@@ -1,14 +1,16 @@
 return {
 	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		-- opts = { transparent = true },
+	},
+	{
 		"olimorris/onedarkpro.nvim",
 		priority = 1000,
 		lazy = false,
-		init = function()
-			require("onedarkpro").setup({
-				options = {
-					transparency = true,
-				},
-			})
+		opts = { options = { transparency = true } },
+		init = function(_, opts)
+			require("onedarkpro").setup(opts)
 			vim.cmd([[colorscheme onedark]])
 		end,
 	},

@@ -1,3 +1,4 @@
 require("srandle.settings")
-require("srandle.keymaps")
+require("srandle.leader")
 require("srandle.lazy")
+require("srandle.keymaps")

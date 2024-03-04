@@ -1,3 +1,5 @@
+local expand_keymaps = require("utils").expand_keymaps
+
 return {
 	"ThePrimeagen/harpoon",
 	branch = "harpoon2",
@@ -25,32 +27,52 @@ return {
 				:find()
 		end
 
-		vim.keymap.set("n", "<leader>r", function()
-			harpoon:list():remove()
-			print("Remove from harpoon")
-		end, { desc = "Remove from harpoon" })
-
-		vim.keymap.set("n", "<leader>a", function()
-			harpoon:list():append()
-			print("Append to harpoon")
-		end, { desc = "Append to harpoon" })
-
-		-- p for primagen
-		vim.keymap.set("n", "<leader>p", function()
+		local harpoon_list = function()
 			toggle_telescope(harpoon:list())
-		end, { desc = "Open harpoon window" })
+		end
 
-		vim.keymap.set("n", "<leader>1", function()
-			harpoon:list():select(1)
-		end, { desc = "Select harpoon buffer 1" })
-		vim.keymap.set("n", "<leader>2", function()
-			harpoon:list():select(2)
-		end, { desc = "Select harpoon buffer 2" })
-		vim.keymap.set("n", "<leader>3", function()
-			harpoon:list():select(3)
-		end, { desc = "Select harpoon buffer 3" })
-		vim.keymap.set("n", "<leader>4", function()
-			harpoon:list():select(4)
-		end, { desc = "Select harpoon buffer 4" })
+		local harpoon_select = function(number)
+			local buffer_name = "buffer " .. number
+			return {
+				function()
+					harpoon:list():select(number)
+					print("Switched to " .. buffer_name)
+				end,
+				"Select harpoon " .. buffer_name,
+			}
+		end
+
+		local harpoon_modify = function(direction)
+			local description = string.upper(direction)
+				.. " "
+				.. ((direction == "append") and "to" or "from")
+				.. " harpoon"
+			local action = function()
+				if direction == "append" then
+					harpoon:list():append()
+				else
+					harpoon:list():remove()
+				end
+			end
+			return {
+				function()
+					action()
+					print(description)
+				end,
+				description,
+			}
+		end
+
+		expand_keymaps({
+			n = {
+				["<leader>R"] = harpoon_modify("remove"),
+				["<leader>a"] = harpoon_modify("append"),
+				["<leader>p"] = { harpoon_list, "Open harpoon list" },
+				["<leader>1"] = harpoon_select(1),
+				["<leader>2"] = harpoon_select(2),
+				["<leader>3"] = harpoon_select(3),
+				["<leader>4"] = harpoon_select(4),
+			},
+		})
 	end,
 }

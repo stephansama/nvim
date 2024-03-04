@@ -1,18 +1,29 @@
-vim.o.scrolloff = 8
-vim.o.shiftwidth = 4
-vim.bo.tabstop = 4
-vim.wo.number = true
-vim.wo.relativenumber = true
+local expand_settings = require("utils").expand_settings
 
-vim.opt.conceallevel = 1
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.signcolumn = "yes"
-vim.opt.foldmethod = "expr"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.foldlevel = 5
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.tabstop = 4
+expand_settings({
+	o = { scrolloff = 8, shiftwidth = 4 },
+	wo = { number = true, relativenumber = true },
+	bo = { tabstop = 4 },
+	opt = {
+		clipboard = "unnamedplus",
+		signcolumn = "yes",
+		splitbelow = false,
+		splitright = true,
+		conceallevel = 1,
+		foldmethod = "expr",
+		foldlevel = 5,
+		foldexpr = "nvim_treesitter#foldexpr()",
+		tabstop = 4,
+	},
+})
+
+vim.filetype.add({
+	extension = {
+		mdx = "markdown",
+		pcss = "css",
+		postcss = "css",
+	},
+})
 
 -- WARN: remove with lsp-inlayhints
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
@@ -28,11 +39,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		require("lsp-inlayhints").on_attach(client, bufnr)
 		vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
 	end,
-})
-
-vim.filetype.add({
-	extension = {
-		postcss = "css",
-		pcss = "css",
-	},
 })

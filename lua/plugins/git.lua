@@ -25,5 +25,4 @@ return {
 			require("diffview").setup(diffview_config)
 		end,
 	},
-	-- TODO: install tpope/vim-fugitive
 }

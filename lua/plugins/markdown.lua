@@ -1,7 +1,7 @@
 return {
 	{
 		"dhruvasagar/vim-table-mode",
-		ft = "md",
+		ft = "markdown",
 		event = "VeryLazy",
 		init = function()
 			vim.g.table_mode_tableize_map = ""

@@ -54,6 +54,7 @@ local servers = {
 	"marksman",
 	"mdx_analyzer",
 	"yamlls",
+	"lua_ls",
 	"jsonls",
 	-- web
 	"astro",
@@ -79,8 +80,8 @@ for _, lsp in ipairs(servers) do
 		lspconfig[lsp].setup {
 			capabilities = capabilities,
 			on_attach = function(c, b)
-				require("tailwindcss-colors").buf_attach(b)
 				on_attach(c, b)
+				require("tailwindcss-colors").buf_attach(b)
 			end,
 		}
 		goto continue
@@ -91,6 +92,20 @@ for _, lsp in ipairs(servers) do
 	}
 	::continue::
 end
+
+lspconfig.jsonls.setup {
+	on_attach = on_attach,
+	settings = {
+		json = {
+			schemas = {
+				{
+					fileMatch = { 'package.json' },
+					url = 'https://json.schemastore.org/package.json',
+				},
+			},
+		},
+	},
+}
 
 lspconfig.lua_ls.setup({
 	on_attach = on_attach,

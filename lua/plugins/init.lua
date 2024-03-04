@@ -2,7 +2,7 @@ return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "TabbyML/vim-tabby", lazy = false },
-	{ "bfontaine/Brewfile.vim", lazy = false },
+	{ "bfontaine/Brewfile.vim", ft = "Brewfile" },
 	{
 		"RRethy/vim-illuminate",
 		lazy = false,

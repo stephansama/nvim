@@ -36,6 +36,14 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 		},
+		{ -- add completion for package.json sort of similar to crates.nvim from rust
+			"David-Kunz/cmp-npm",
+			ft = "json",
+			dependencies = { "nvim-lua/plenary.nvim" },
+			config = function()
+				require("cmp-npm").setup({})
+			end,
+		},
 		{
 			-- snippet plugin
 			"L3MON4D3/LuaSnip",

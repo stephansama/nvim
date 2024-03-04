@@ -1,87 +1,75 @@
-vim.g.mapleader = " "
+local expand_keymaps = require("utils").expand_keymaps
 
--- Visual
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
----- move line
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+expand_keymaps({
+	n = {
+		["<ESC>"] = { vim.cmd.noh, "Escape" },
+		["Q"] = { "@q", "Replay quick macro" },
 
--- Normal
----- replay macro
-vim.keymap.set("n", "Q", "@q")
+		-- leader functions
+		["<leader>w"] = { vim.cmd.w, "Save buffer" },
+		["<leader>x"] = { vim.cmd.q, "Close window" },
+		["<leader>d"] = { vim.cmd.bd, "Delete buffer" },
+		["<leader>ll"] = { vim.cmd.Lazy, "Load lazy plugin manager" },
+		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
 
----- navgiate buffers
-vim.keymap.set("n", "(", function()
-	vim.cmd.bprevious()
-	print("Previous Buffer")
-end)
-vim.keymap.set("n", ")", function()
-	vim.cmd.bnext()
-	print("Next Buffer")
-end)
+		-- quick actions
+		["cw"] = { "ciw", "Change word" },
+		["c'"] = { "ci'", "Change single quotes" },
+		['c"'] = { 'ci"', "Change double quotes" },
+		["dw"] = { "diw", "Delete word" },
+		["d'"] = { "di'", "Delete single quotes" },
+		['d"'] = { 'di"', "Delete double quotes" },
+		["yw"] = { "yiw", "Yank word" },
+		["y'"] = { "yi'", "Yank single quotes" },
+		['y"'] = { 'yi"', "Yank double quotes" },
+		["vw"] = { "viw", "Visually select word" },
+		["v'"] = { "vi'", "Visually select single quotes" },
+		['v"'] = { 'vi"', "Visually select double quotes" },
 
----- window positioning
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-]>", "<C-w>>")
--- FIX: shrink window
--- vim.keymap.set("n", "<C-[>", "<C-w><S-,>")
+		-- centered motions
+		["%"] = { "%zz" },
+		["{"] = { "{zz" },
+		["}"] = { "}zz" },
+		["j"] = { "gjzz" },
+		["k"] = { "gkzz" },
+		["gg"] = { "ggzz" },
+		["G"] = { "Gzz" },
+		["o"] = { "o<ESC>zz" },
+		["O"] = { "O<ESC>zz" },
+		["u"] = { "uzz" },
+		["<C-r>"] = { "<C-r>zz" },
+		["<C-d>"] = { "<C-d>zz" },
+		["<C-u>"] = { "<C-u>zz" },
 
----- quick actions
-vim.keymap.set("n", "cw", "ciw")
-vim.keymap.set("n", "c'", "ci'")
-vim.keymap.set("n", 'c"', 'ci"')
-vim.keymap.set("n", "dw", "diw")
-vim.keymap.set("n", "d'", "di'")
-vim.keymap.set("n", 'd"', 'di"')
-vim.keymap.set("n", "yw", "yiw")
-vim.keymap.set("n", "y'", "yi'")
-vim.keymap.set("n", 'y"', 'yi"')
-vim.keymap.set("n", "vw", "viw")
-vim.keymap.set("n", "v'", "vi'")
-vim.keymap.set("n", 'v"', 'vi"')
+		-- navigate windows
+		["<C-h>"] = { "<C-w>h", "Navigate window left" },
+		["<C-l>"] = { "<C-w>l", "Navigate window left" },
+		["<C-]>"] = { "<C-w>>", "Increase window size" },
 
----- centered motions
-vim.keymap.set("n", "%", "%zz")
-vim.keymap.set("n", "{", "{zz")
-vim.keymap.set("n", "}", "}zz")
-vim.keymap.set({ "n", "o" }, "H", "^zz")
-vim.keymap.set({ "n", "o" }, "L", "$zz")
-vim.keymap.set("n", "j", "gjzz")
-vim.keymap.set("n", "k", "gkzz")
-vim.keymap.set("n", "G", "Gzz")
-vim.keymap.set("n", "gg", "ggzz")
-vim.keymap.set("n", "u", "uzz")
-vim.keymap.set("n", "<C-r>", "<C-r>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "o", "o<ESC>zz")
-vim.keymap.set("n", "O", "O<ESC>zz")
-
--- leader functions
-vim.keymap.set("n", "<ESC>", vim.cmd.noh)
-vim.keymap.set("n", "<leader>x", vim.cmd.q)
-vim.keymap.set("n", "<leader>d", vim.cmd.bd)
-vim.keymap.set("n", "<leader>w", vim.cmd.w, { desc = "Save file" })
-
--- netrw fallback
--- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>ll", vim.cmd.Lazy, { desc = "Open :Lazy" })
-vim.keymap.set("n", "<leader>lm", vim.cmd.Mason, { desc = "Open :Mason" })
-
--- go to link
-vim.keymap.set("n", "gl", function()
-	local uri = vim.fn.matchstr(vim.fn.getline("."), "[a-z]*:\\/\\/[^ >,;]*")
-	print(uri)
-	if uri ~= "" then
-		vim.fn.system("open '" .. uri .. "'")
-	else
-		print("No URI found in line.")
-	end
-end)
-
--- PERF: enable when lsp inlay hints are available nvim 0.10.0>
--- vim.keymap.set("n", "<leader>ti", function()
--- 	vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
--- end)
+		-- navigate buffers
+		["("] = {
+			function()
+				vim.cmd.bprevious()
+				print("Previous Buffer")
+			end,
+			"Navigate to previous buffer",
+		},
+		[")"] = {
+			function()
+				vim.cmd.bnext()
+				print("Next Buffer")
+			end,
+			"Navigate to previous buffer",
+		},
+	},
+	v = {
+		["<"] = { "<gv", "Indent Left" },
+		[">"] = { ">gv", "Indent Left" },
+		["J"] = { ":m '>+1<CR>gv=gv", "Move line up" },
+		["K"] = { ":m '<-2<CR>gv=gv", "Move line down" },
+	},
+	[{ "n", "o" }] = {
+		["H"] = { "^zz", "Move to beginning of line" },
+		["L"] = { "$zz", "Move to end of line" },
+	},
+})
