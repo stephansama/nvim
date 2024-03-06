@@ -13,7 +13,7 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
-		ft = "*",
+		ft = { "*", "!dashboard" },
 		config = function()
 			require("Comment").setup()
 		end,

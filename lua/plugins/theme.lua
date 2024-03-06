@@ -1,14 +1,11 @@
 return {
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		-- opts = { transparent = true },
-	},
+	{ "rebelot/kanagawa.nvim", lazy = false },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
 	{
 		"olimorris/onedarkpro.nvim",
 		priority = 1000,
 		lazy = false,
-		opts = { options = { transparency = true } },
+		opts = { options = { transparency = true, lualine_transparency = true } },
 		init = function(_, opts)
 			require("onedarkpro").setup(opts)
 			vim.cmd([[colorscheme onedark]])

@@ -11,11 +11,20 @@ return {
 			end,
 		},
 	},
+	window = {
+		mappings = { ["<ESC>"] = "" },
+	},
 	filesystem = {
 		filtered_items = {
 			visible = false,
 			hide_dotfiles = false,
 			hide_gitignored = true,
+		},
+		window = {
+			mappings = {
+				["/"] = "",
+				["f"] = "fuzzy_finder",
+			},
 		},
 	},
 	icon = {

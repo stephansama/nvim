@@ -1,3 +1,4 @@
+local expand_actions = require("utils").expand_actions
 local header = [[
         ▄▄▄▄▄███████████████████▄▄▄▄▄     
       ▄██████████▀▀▀▀▀▀▀▀▀▀██████▀████▄   
@@ -13,70 +14,29 @@ local header = [[
                      ▀█▀                  
 ]]
 
-header = string.rep("\n", 8) .. header .. string.rep("\n", 2)
+-- add padding to header
+header = string.rep("\n", 2) .. header .. string.rep("\n", 2)
 
 local options = {
 	theme = "doom",
 	-- hide = { statusline = false },
 	config = {
 		header = vim.split(header, "\n"),
-		footer = { "We have the technology 🔬" },
-		center = {
-			{
-				action = "Telescope find_files",
-				desc = " Find file",
-				icon = " ",
-				key = "f",
-			},
-			{
-				action = "Telescope live_grep",
-				desc = " Find text",
-				icon = " ",
-				key = "t",
-			},
-			-- {
-			-- 	action = "ene | startinsert",
-			-- 	desc = " New file",
-			-- 	icon = " ",
-			-- 	key = "n",
-			-- },
-			{
-				action = "Telescope oldfiles",
-				desc = " Recent files",
-				icon = " ",
-				key = "r",
-			},
-			{
-				action = ":cd $OBSIDIAN",
-				desc = " Switch to obsidian",
-				icon = " ",
-				key = "o",
-			},
-			{
-				action = ":cd $NVCONF",
-				desc = " Switch to nvim config",
-				icon = " ",
-				key = "c",
-			},
-			{
-				action = "Lazy",
-				desc = " Lazy",
-				icon = "󰒲 ",
-				key = "l",
-			},
-			{
-				action = "Mason",
-				desc = " Mason",
-				icon = " ",
-				key = "m",
-			},
-			{
-				action = "qa",
-				desc = " Quit",
-				icon = " ",
-				key = "q",
-			},
-		},
+		footer = function()
+			local stats = require("lazy").stats()
+			local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+			return { " loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+		end,
+		center = expand_actions({
+			{ " ", "f", "Find file", "Telescope find_files" },
+			{ " ", "w", "Find text", "Telescope live_grep" },
+			{ " ", "r", "Recent files", "Telescope oldfiles" },
+			{ " ", "o", "Switch to obsidian", "cd $OBSIDIAN" },
+			{ " ", "c", "Switch to config", "cd $NVCONF" },
+			{ "󰒲 ", "l", "Lazy", "Lazy" },
+			{ " ", "m", "Mason", "Mason" },
+			{ " ", "q", "Quit", vim.cmd.qa },
+		}),
 	},
 }
 
