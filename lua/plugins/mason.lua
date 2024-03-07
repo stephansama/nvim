@@ -1,30 +1,38 @@
 local mason_lspconfig = {
 	automatic_installation = true,
 	ensure_installed = {
-		"bashls",
-		"lua_ls",
+		"marksman",
+		-- docker
 		"dockerls",
 		"docker_compose_language_service",
-		"jsonls",
-		"yamlls",
-		"lemminx", --xml
-		"marksman",
-		-- web dev
+		-- HTML
 		"html",
+		"emmet_ls",
+		-- scripting
+		"bashls",
+		"lua_ls",
+		-- javascript
 		"htmx",
-		"cssls",
 		"astro",
+		"vuels",
 		"eslint",
 		"svelte",
-		"graphql",
-		"emmet_ls",
 		"tsserver",
+		-- css
+		"cssls",
 		"cssmodules_ls",
 		"tailwindcss",
 		-- systems
 		"clangd",
-		"taplo", -- toml
 		"cmake",
+		-- data formats
+		"taplo", -- toml
+		"jsonls",
+		"yamlls",
+		"lemminx", --xml
+		"graphql",
+		-- golang
+		"templ",
 		"gopls",
 	},
 }
@@ -32,12 +40,21 @@ local mason_lspconfig = {
 local mason_config = {
 	PATH = "prepend",
 	registries = { "github:mason-org/mason-registry" },
+	ensure_installed = {
+		"codelldb",
+		"stylua",
+	},
 	ui = {
 		icons = {
-			package_pending = " ",
-			package_installed = "󰄳 ",
-			package_uninstalled = " 󰚌",
+			package_pending = "➜",
+			package_installed = "✓",
+			package_uninstalled = "✗",
 		},
+		-- icons = {
+		-- 	package_pending = " ",
+		-- 	package_installed = "󰄳 ",
+		-- 	package_uninstalled = " 󰚌",
+		-- },
 		keymaps = {
 			toggle_server_expand = "<CR>",
 			install_server = "i",

@@ -1,5 +1,12 @@
 return {
-	templates = { subdir = "Templates" },
+	templates = {
+		subdir = "Templates",
+		substitutions = {
+			clipboard = function()
+				return vim.fn.getreg('"')
+			end,
+		},
+	},
 	completion = { nvim_cmp = true }, -- Set to false to disable completion.
 	open_app_foreground = true,
 	workspaces = {

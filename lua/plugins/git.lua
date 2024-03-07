@@ -16,7 +16,8 @@ return {
 	},
 	{
 		"sindrets/diffview.nvim",
-		lazy = false,
+		lazy = true,
+		ft = "*,!dashboard",
 		init = function()
 			vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open Diffview" })
 			vim.keymap.set("n", "<leader>gx", "<cmd>DiffviewClose<CR>", { desc = "Close Diffview" })

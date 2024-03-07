@@ -11,6 +11,7 @@ expand_keymaps({
 		["<leader>d"] = { vim.cmd.bd, "Delete buffer" },
 		["<leader>ll"] = { vim.cmd.Lazy, "Load lazy plugin manager" },
 		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
+		["<leader>lo"] = { ":%bd|e#<CR>", "Close all except for current buffer" },
 
 		-- quick actions
 		["cw"] = { "ciw", "Change word" },
@@ -40,10 +41,13 @@ expand_keymaps({
 		["<C-r>"] = { "<C-r>zz" },
 		["<C-d>"] = { "<C-d>zz" },
 		["<C-u>"] = { "<C-u>zz" },
+		["``"] = { "``zz" },
 
 		-- navigate windows
+		["<C-k>"] = { "<C-w>k", "Navigate window up" },
+		["<C-j>"] = { "<C-w>j", "Navigate window down" },
 		["<C-h>"] = { "<C-w>h", "Navigate window left" },
-		["<C-l>"] = { "<C-w>l", "Navigate window left" },
+		["<C-l>"] = { "<C-w>l", "Navigate window right" },
 		["<C-]>"] = { "<C-w>>", "Increase window size" },
 
 		-- navigate buffers

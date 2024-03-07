@@ -15,8 +15,11 @@ return {
 		lazy = false,
 		init = function()
 			vim.g.VM_leader = "<space>"
-			vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)")
-			vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)")
+			-- macOS specific keybindings
+			vim.keymap.set("n", "∆", "<Plug>(VM-Add-Cursor-Down)")
+			vim.keymap.set("n", "˚", "<Plug>(VM-Add-Cursor-Up)")
+			-- vim.keymap.set("n", "<A-j>", "<Plug>(VM-Add-Cursor-Down)")
+			-- vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)")
 		end,
 	},
 	{
