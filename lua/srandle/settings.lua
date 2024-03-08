@@ -11,7 +11,7 @@ expand_settings({
 		splitright = true,
 		conceallevel = 1,
 		foldmethod = "expr",
-		foldlevel = 5,
+		foldlevel = 99,
 		foldexpr = "nvim_treesitter#foldexpr()",
 		tabstop = 4,
 	},

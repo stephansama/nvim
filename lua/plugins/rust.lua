@@ -1,10 +1,20 @@
-local rustaceanvim_opts = {
-	server = {
-		on_attach = function(client, bufnr)
-			require("lsp-inlayhints").on_attach(client, bufnr)
-		end,
-	},
-}
+local rustaceanvim_opts = function()
+	local mason_registry = require("mason-registry")
+	local codelldb = mason_registry.get_package("codelldb")
+	local extension_path = codelldb:get_install_path() .. "/extension/"
+	local codelldb_path = extension_path .. "adapter/codelldb"
+	local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+	return {
+		server = {
+			on_attach = function(client, bufnr)
+				require("lsp-inlayhints").on_attach(client, bufnr)
+			end,
+		},
+		dap = {
+			adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path),
+		},
+	}
+end
 
 return {
 	{

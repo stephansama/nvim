@@ -1,14 +1,13 @@
 return {
-	{ "rebelot/kanagawa.nvim", lazy = false },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
+	{ "rebelot/kanagawa.nvim", lazy = false, opts = { transparent = true } },
 	{
-		"olimorris/onedarkpro.nvim",
-		priority = 1000,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false,
-		opts = { options = { transparency = true, lualine_transparency = true } },
-		init = function(_, opts)
-			require("onedarkpro").setup(opts)
-			vim.cmd([[colorscheme onedark]])
+		opts = { transparent_background = true },
+		priority = 1000,
+		init = function()
+			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
 	{
@@ -18,7 +17,7 @@ return {
 		init = function()
 			require("lualine").setup({
 				options = {
-					theme = "onedark",
+					theme = "catppuccin",
 					section_separators = { left = "", right = "" },
 					component_separators = { left = "", right = "" },
 					-- section_separators = { left = "", right = "" },

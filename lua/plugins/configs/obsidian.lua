@@ -13,6 +13,19 @@ return {
 		{
 			name = "Documents",
 			path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/",
+			overrides = {},
+		},
+		{
+			name = "no-vault",
+			path = function()
+				return assert(vim.fn.getcwd())
+			end,
+			overrides = {
+				notes_subdir = vim.NIL,
+				disable_frontmatter = true,
+				templates = { subdir = vim.NIL },
+				new_notes_location = "current_dir",
+			},
 		},
 	},
 	mappings = {
