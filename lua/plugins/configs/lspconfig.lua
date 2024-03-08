@@ -3,6 +3,32 @@ local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
+vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
+vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
+
+local border = {
+	{ "╭", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╮", "FloatBorder" },
+	{ "│", "FloatBorder" },
+	{ "╯", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "╰", "FloatBorder" },
+	{ "│", "FloatBorder" },
+}
+
+-- LSP settings (for overriding per client)
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
+for key, v in pairs(handlers) do
+	vim.lsp.handlers[key] = v
+end
+
+vim.diagnostic.config({ float = { border = border } })
+
 local options = { noremap = true, silent = true }
 local on_attach = function(_, bufnr)
 	local keymap = vim.keymap
@@ -98,8 +124,41 @@ lspconfig.jsonls.setup({
 		json = {
 			schemas = {
 				{
+					description = "ESLint config",
+					fileMatch = { ".eslintrc.json", ".eslintrc" },
+					url = "http://json.schemastore.org/eslintrc",
+				},
+				{
+					description = "Package config",
 					fileMatch = { "package.json" },
-					url = "https://json.schemastore.org/package.json",
+					url = "https://json.schemastore.org/package",
+				},
+				{
+					description = "Packer config",
+					fileMatch = { "packer.json" },
+					url = "https://json.schemastore.org/packer",
+				},
+				{
+					description = "Renovate config",
+					fileMatch = {
+						"renovate.json",
+						"renovate.json5",
+						".github/renovate.json",
+						".github/renovate.json5",
+						".renovaterc",
+						".renovaterc.json",
+					},
+					url = "https://docs.renovatebot.com/renovate-schema",
+				},
+				{
+					description = "OpenApi config",
+					fileMatch = { "*api*.json" },
+					url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json",
+				},
+				{
+					description = "Tasks config",
+					fileMatch = { "*tasks*.json" },
+					url = "https://json.schemastore.org/task.json",
 				},
 			},
 		},

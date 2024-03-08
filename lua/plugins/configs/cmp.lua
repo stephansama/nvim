@@ -13,17 +13,52 @@ local function border(hl_name)
 	}
 end
 
-return {
-	completion = {
-		completeopt = "menu,menuone",
-	},
+local icons = {
+	Class = " ",
+	Color = " ",
+	Constant = " ",
+	Constructor = " ",
+	Enum = " ",
+	EnumMember = " ",
+	Field = "󰄶 ",
+	File = " ",
+	Folder = " ",
+	Function = " ",
+	Interface = "󰜰",
+	Keyword = "󰌆 ",
+	Method = "ƒ ",
+	Module = "󰏗 ",
+	Property = " ",
+	Snippet = "󰘍 ",
+	Struct = " ",
+	Text = " ",
+	Unit = " ",
+	Value = "󰎠 ",
+	Variable = " ",
+}
 
+local formatting_style = {
+	-- default fields order i.e completion word + item.kind + item.kind icons
+	fields = { "abbr", "kind", "menu" },
+
+	format = function(_, item)
+		local icon = icons[item.kind] or ""
+
+		icon = (icon .. " ") or icon
+		item.kind = string.format("%s %s", icon, item.kind or "")
+
+		return item
+	end,
+}
+
+return {
+	completion = { completeopt = "menu,menuone" },
 	window = {
 		completion = {
+			scrollbar = false,
 			side_padding = 1,
 			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 			border = border("CmpCompBorder"),
-			scrollbar = false,
 		},
 		documentation = {
 			border = border("CmpDocBorder"),
@@ -35,7 +70,7 @@ return {
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-
+	formatting = formatting_style,
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),

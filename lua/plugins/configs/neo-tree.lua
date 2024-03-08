@@ -1,16 +1,47 @@
+local highlights = require("neo-tree.ui.highlights")
+local get_icon = require("plugins.configs.neo-tree-icons").get_icon
+
 return {
 	popup_border_style = "rounded",
-	close_if_last_window = true,
 	enable_git_status = true,
 	enable_diagnostics = true,
-	window = {
-		mappings = { ["<ESC>"] = "" },
-	},
+	close_if_last_window = true,
+	window = { mappings = { ["<ESC>"] = "" } },
+	name = { trailing_slash = false, use_git_status_colors = true, highlight = "NeoTreeFileName" },
+	-- columns
+	file_size = { enabled = true, required_width = 64 },
+	last_modified = { enabled = true, required_width = 88 },
+	created = { enabled = true, required_width = 110 },
+	type = { enabled = true, required_width = 122 },
+	symlink_target = { enabled = false },
 	filesystem = {
-		filtered_items = {
-			visible = false,
-			hide_dotfiles = false,
-			hide_gitignored = true,
+		filtered_items = { visible = false, hide_dotfiles = false, hide_gitignored = true },
+		components = {
+			-- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#custom-icons
+			icon = function(config, node)
+				local icon = config.default or " "
+				local padding = config.padding or " "
+				local highlight = config.highlight or highlights.FILE_ICON
+
+				if node.type == "directory" then
+					highlight = highlights.DIRECTORY_ICON
+					local found_icon = get_icon(node.name)
+					if node:is_expanded() then
+						icon = found_icon or config.folder_open or "-"
+					else
+						icon = found_icon or config.folder_closed or "+"
+					end
+				elseif node.type == "file" then
+					local success, web_devicons = pcall(require, "nvim-web-devicons")
+					if success then
+						local devicon, hl = web_devicons.get_icon(node.name, node.ext)
+						icon = devicon or icon
+						highlight = hl or highlight
+					end
+				end
+
+				return { text = icon .. padding, highlight = highlight }
+			end,
 		},
 		window = {
 			mappings = {
@@ -28,11 +59,6 @@ return {
 		default = "*",
 		highlight = "NeoTreeFileIcon",
 	},
-	name = {
-		trailing_slash = false,
-		use_git_status_colors = true,
-		highlight = "NeoTreeFileName",
-	},
 	git_status = {
 		symbols = {
 			-- Change type
@@ -47,25 +73,5 @@ return {
 			staged = "",
 			conflict = "",
 		},
-	},
-	-- If you don't want to use these columns, you can set `enabled = false` for each of them individually
-	file_size = {
-		enabled = true,
-		required_width = 64, -- min width of window required to show this column
-	},
-	type = {
-		enabled = true,
-		required_width = 122, -- min width of window required to show this column
-	},
-	last_modified = {
-		enabled = true,
-		required_width = 88, -- min width of window required to show this column
-	},
-	created = {
-		enabled = true,
-		required_width = 110, -- min width of window required to show this column
-	},
-	symlink_target = {
-		enabled = false,
 	},
 }

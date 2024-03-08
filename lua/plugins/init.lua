@@ -1,6 +1,11 @@
 return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
-	{ "nvim-tree/nvim-web-devicons" },
+	{
+		"nvim-tree/nvim-web-devicons",
+		opts = function()
+			return require("plugins.configs.devicons")
+		end,
+	},
 	{ "TabbyML/vim-tabby", lazy = false },
 	{ "bfontaine/Brewfile.vim", ft = "Brewfile" },
 	{
@@ -33,6 +38,7 @@ return {
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
 	},
 	{
 		"mbbill/undotree",
