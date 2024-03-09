@@ -1,5 +1,5 @@
 local highlights = require("neo-tree.ui.highlights")
-local get_icon = require("plugins.configs.neo-tree-icons").get_icon
+local get_icon = require("configs.neo-tree-icons").get_icon
 
 return {
 	popup_border_style = "rounded",
@@ -15,6 +15,7 @@ return {
 	type = { enabled = true, required_width = 122 },
 	symlink_target = { enabled = false },
 	filesystem = {
+		window = { mappings = { ["/"] = "", ["f"] = "fuzzy_finder" } },
 		filtered_items = { visible = false, hide_dotfiles = false, hide_gitignored = true },
 		components = {
 			-- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#custom-icons
@@ -42,12 +43,6 @@ return {
 
 				return { text = icon .. padding, highlight = highlight }
 			end,
-		},
-		window = {
-			mappings = {
-				["/"] = "",
-				["f"] = "fuzzy_finder",
-			},
 		},
 	},
 	icon = {

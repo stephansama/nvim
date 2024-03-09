@@ -9,10 +9,10 @@ wilder.set_option(
 		wilder.popupmenu_palette_theme({
 			border = "single",
 			margin = "15%",
-			max_height = "25%",
-			min_height = 0,
-			prompt_position = "top",
 			reverse = 0,
+			min_height = 0,
+			max_height = "25%",
+			prompt_position = "top",
 		}),
 		{
 			highlighter = { wilder.lua_fzy_highlighter() },

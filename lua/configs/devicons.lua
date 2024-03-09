@@ -1,0 +1,55 @@
+-- https://www.nerdfonts.com/cheat-sheet
+-- https://github.com/nvim-tree/nvim-web-devicons
+local icons = {
+	env = { icon = "", name = "env" },
+	dependabot = { icon = "", name = "dependabot" },
+	go = { icon = "", color = "#4285F4", name = "go" },
+	xsl = { icon = "󰗀", color = "#E39F53", name = "xsl" },
+	yaml = { icon = "󰈙", color = "#EC5F59", name = "yaml" },
+	vite = { icon = "󱐋", color = "#F3B340", name = "vite" },
+	astro = { icon = "", color = "#EF8547", name = "astro" },
+	postcss = { icon = "", color = "#DD3A0A", name = "postcss" },
+	prettier = { icon = "󰉽", color = "#F7B93E", name = "prettier" },
+	gitignore = { icon = "", color = "#F05032", name = "gitignore" },
+	typescript = { icon = "", color = "#3178C6", name = "typescript" },
+}
+
+return {
+	override_by_extension = {
+		prettierignore = icons.prettier,
+		prettierrc = icons.prettier,
+		gitignore = icons.gitignore,
+		postcss = icons.postcss,
+		pcss = icons.postcss,
+		ts = icons.typescript,
+		astro = icons.astro,
+		yaml = icons.yaml,
+		yml = icons.yaml,
+		xsl = icons.xsl,
+	},
+	override_by_filename = {
+		["go.mod"] = icons.go,
+		["go.sum"] = icons.go,
+		["go.work"] = icons.go,
+		["go.work.sum"] = icons.go,
+		[".env.local"] = icons.env,
+		[".env.sample"] = icons.env,
+		["dependabot.yml"] = icons.dependabot,
+		["vite.config.ts"] = icons.vite,
+		["vite.config.js"] = icons.vite,
+		["astro.config.mjs"] = icons.astro,
+		["postcss.config.js"] = icons.postcss,
+		["postcss.config.mjs"] = icons.postcss,
+		["postcss.config.cjs"] = icons.postcss,
+		["ads.txt"] = { icon = "󰲇", color = "#4285F4", name = "GoogleAds" },
+		["todo.md"] = { icon = "", color = "#A6E3A1", name = "todo" },
+		["yarn.lock"] = { icon = "", color = "#2C8EBB", name = "yarn" },
+		["robots.txt"] = { icon = "󰚩", color = "#F38BA8", name = "robots" },
+		["cargo.toml"] = { icon = "", color = "#D24933", name = "cargo.toml" },
+		["jsconfig.json"] = { icon = "", color = "#F7DF1E", name = "jsconfig" },
+		["pnpm-lock.yaml"] = { icon = "", color = "#F69220", name = "pnpm-lock.yaml" },
+		-- ["Icon"] = { icon = "", color = "white", name = "AppleIcon" },
+		-- TODO: overrides for entrypoint filenames
+		-- ["init.lua"] = { icon = "", color = "#B2CFE5", name = "init.lua" },
+	},
+}

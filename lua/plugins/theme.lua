@@ -20,8 +20,6 @@ return {
 					theme = "catppuccin",
 					section_separators = { left = "", right = "" },
 					component_separators = { left = "", right = "" },
-					-- section_separators = { left = "", right = "" },
-					-- component_separators = { left = "", right = "" },
 				},
 			})
 		end,
@@ -31,7 +29,7 @@ return {
 		lazy = false,
 		dependencies = { "romgrk/fzy-lua-native" },
 		config = function()
-			require("plugins.configs.wilder")
+			require("configs.wilder-conf")
 		end,
 	},
 }

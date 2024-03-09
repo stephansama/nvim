@@ -1,6 +1,15 @@
 return {
 	---used for `keymaps.lua`
 	---expand keymap object into its respective keymapping
+	---should take the form of
+	---```lua
+	---local keymaps = {
+	---	n = {
+	---		["<leader>A"] = { vim.cmd.Command, "description" }
+	---	}
+	---}
+	---expand_keymaps(keymaps)
+	---```
 	---@param keymappings table
 	---@return nil
 	expand_keymaps = function(keymappings)

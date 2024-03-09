@@ -1,4 +1,6 @@
 return {
+	completion = { nvim_cmp = true }, -- Set to false to disable completion.
+	open_app_foreground = true,
 	templates = {
 		subdir = "Templates",
 		substitutions = {
@@ -7,8 +9,6 @@ return {
 			end,
 		},
 	},
-	completion = { nvim_cmp = true }, -- Set to false to disable completion.
-	open_app_foreground = true,
 	workspaces = {
 		{
 			name = "Documents",

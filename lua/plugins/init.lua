@@ -3,7 +3,7 @@ return {
 	{
 		"nvim-tree/nvim-web-devicons",
 		opts = function()
-			return require("plugins.configs.devicons")
+			return require("configs.devicons")
 		end,
 	},
 	{ "TabbyML/vim-tabby", lazy = false },
@@ -12,7 +12,7 @@ return {
 		"RRethy/vim-illuminate",
 		lazy = false,
 		config = function()
-			require("illuminate").configure(require("plugins.configs.illuminate"))
+			require("illuminate").configure(require("configs.illuminate-opts"))
 		end,
 	},
 	{

@@ -11,7 +11,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		init = function()
-			require("gitsigns").setup(require("plugins.configs.gitsigns"))
+			require("gitsigns").setup(require("configs.gitsigns-opts"))
 		end,
 	},
 	{

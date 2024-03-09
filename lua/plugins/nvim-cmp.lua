@@ -63,6 +63,6 @@ return {
 		},
 	},
 	config = function()
-		require("cmp").setup(require("plugins.configs.cmp"))
+		require("cmp").setup(require("configs.cmp-opts"))
 	end,
 }

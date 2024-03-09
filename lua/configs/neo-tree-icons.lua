@@ -1,11 +1,15 @@
+-- https://www.nerdfonts.com/cheat-sheet
 local icons = {
 	route = "󰑪",
 	script = "󰯂",
 	style = "",
 	app = "󱂵",
 	doc = "󱂷",
-	lua = "",
 	lib = "󰌱",
+	upload = "󰉙",
+	download = "󰉍",
+	key = "󰢬",
+	token = "󰢬",
 	layout = "󰹫",
 	middleware = "󰽞",
 	icon = "󰚝",
@@ -20,13 +24,13 @@ local icons = {
 	global = "󰖟",
 	schema = "󱋣",
 	-- public = "󱞊",
+	info = "󱂷",
 	content = "󰣞",
 	fonts = "",
 	target = "󰩷",
 	debug = "",
 	test = "󰙨",
 	cache = "󰪺",
-	mongodb = "",
 	-- storybook = "󰂺",
 	[".git"] = "",
 	[".github"] = "",
@@ -54,12 +58,21 @@ local icons = {
 	-- server
 	api = "󰒍",
 	server = "󰒋",
-	serverless = "󰒋",
-	["function"] = "󰒋",
+	serverless = "󰊕",
+	["function"] = "󰊕",
 	-- db
 	database = "󰆼",
 	data = "󰆼",
 	db = "󰆼",
+	-- languages
+	javascript = "",
+	typescript = "",
+	mongodb = "",
+	sass = "󰟬",
+	html = "",
+	css = "󰛦",
+	lua = "",
+	sql = "󰆼",
 }
 
 return {

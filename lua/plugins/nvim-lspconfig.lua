@@ -1,13 +1,20 @@
 return {
 	{
+		"j-hui/fidget.nvim",
+		ft = "*,!dashboard",
+		event = "BufEnter",
+		lazy = false,
+		opts = { notification = { window = { border = "single", winblend = 0 } } },
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = { inlay_hints = { enabled = true } },
 		event = "User FilePost",
 		config = function()
-			require("plugins.configs.lspconfig")
+			require("configs.lspconfig-conf")
 		end,
 	},
-	-- WARN: remove as this has been deprecated
+	-- WARN: remove when 0.10 comes out as this has been deprecated
 	{
 		"lvimuser/lsp-inlayhints.nvim",
 		init = function()
