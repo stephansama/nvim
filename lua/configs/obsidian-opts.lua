@@ -43,5 +43,8 @@ return {
 			end,
 			opts = { buffer = true },
 		},
+		["<leader>og"] = { action = ":ObsidianTags<CR>" },
+		["<leader>ot"] = { action = ":ObsidianTemplate<CR>" },
+		["<leader>oo"] = { action = ":ObsidianOpen<CR>" },
 	},
 }

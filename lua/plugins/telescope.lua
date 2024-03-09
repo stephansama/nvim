@@ -44,12 +44,12 @@ return {
 			vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Find word" })
 			vim.keymap.set("n", "<leader>fe", "<cmd>Telescope grep_string<CR>", { desc = "Find exact word" })
 			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find oldfiles" })
-			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols" })
+			vim.keymap.set("n", "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols" })
 			vim.keymap.set("n", "<leader>ft", "<cmd>Telescope colorscheme<CR>", { desc = "Change colorscheme" })
 			vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Find within git status" })
 			vim.keymap.set(
 				"n",
-				"<leader>s",
+				"<leader>fs",
 				"<cmd>Telescope current_buffer_fuzzy_find<CR>",
 				{ desc = "Find within current buffer" }
 			)

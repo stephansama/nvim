@@ -28,6 +28,8 @@ return {
 		xsl = icons.xsl,
 	},
 	override_by_filename = {
+		["log.txt"] = { icon = "", name = "log" },
+		["logs.txt"] = { icon = "", name = "log" },
 		["go.mod"] = icons.go,
 		["go.sum"] = icons.go,
 		["go.work"] = icons.go,
