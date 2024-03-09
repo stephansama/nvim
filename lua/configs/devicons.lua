@@ -49,7 +49,7 @@ return {
 		["robots.txt"] = { icon = "󰚩", color = "#F38BA8", name = "robots" },
 		["cargo.toml"] = { icon = "", color = "#D24933", name = "cargo.toml" },
 		["jsconfig.json"] = { icon = "", color = "#F7DF1E", name = "jsconfig" },
-		["pnpm-lock.yaml"] = { icon = "", color = "#F69220", name = "pnpm-lock.yaml" },
+		["pnpm-lock.yaml"] = { icon = "󰛷", color = "#F69220", name = "pnpm-lock.yaml" },
 		-- ["Icon"] = { icon = "", color = "white", name = "AppleIcon" },
 		-- TODO: overrides for entrypoint filenames
 		-- ["init.lua"] = { icon = "", color = "#B2CFE5", name = "init.lua" },

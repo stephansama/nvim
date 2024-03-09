@@ -1,4 +1,6 @@
--- https://www.nerdfonts.com/cheat-sheet
+---@desc  inspired by material icon theme
+--- https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
+--- https://www.nerdfonts.com/cheat-sheet
 local icons = {
 	route = "󰑪",
 	mail = "",
