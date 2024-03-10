@@ -1,5 +1,21 @@
 local expand_keymaps = require("utils").expand_keymaps
 
+---move buffer in a specific direction
+---@param direction 'next' | 'previous'
+---@return function
+local function move_buffer(direction)
+	local directions = { previous = vim.cmd.bprevious, next = vim.cmd.bnext }
+	return function()
+		directions[direction]()
+		print(direction:gsub("^%l", string.upper) .. " Buffer")
+	end
+end
+
+local function delete_buffer()
+	vim.cmd.bd()
+	print("Deleting buffer...")
+end
+
 expand_keymaps({
 	n = {
 		["<ESC>"] = { vim.cmd.noh, "Escape" },
@@ -8,10 +24,11 @@ expand_keymaps({
 		-- leader functions
 		["<leader>w"] = { vim.cmd.w, "Save buffer" },
 		["<leader>x"] = { vim.cmd.q, "Close window" },
-		["<leader>d"] = { vim.cmd.bd, "Delete buffer" },
+		["<leader>d"] = { delete_buffer, "Delete buffer" },
 		["<leader>ll"] = { vim.cmd.Lazy, "Load lazy plugin manager" },
 		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
 		["<leader>lo"] = { ":%bd|e#<CR>", "Close all except for current buffer" },
+		["<leader>la"] = { ":bufdo bd!<CR>", "Close all buffers" },
 
 		-- quick actions
 		["cw"] = { "ciw", "Change word" },
@@ -35,20 +52,8 @@ expand_keymaps({
 		["<C-]>"] = { "<C-w>>", "Increase window size" },
 
 		-- navigate buffers
-		["("] = {
-			function()
-				vim.cmd.bprevious()
-				print("Previous Buffer")
-			end,
-			"Navigate to previous buffer",
-		},
-		[")"] = {
-			function()
-				vim.cmd.bnext()
-				print("Next Buffer")
-			end,
-			"Navigate to previous buffer",
-		},
+		["("] = { move_buffer("previous"), "Navigate to previous buffer" },
+		[")"] = { move_buffer("next"), "Navigate to next buffer" },
 	},
 	v = {
 		["<"] = { "<gv", "Indent Left" },
@@ -56,9 +61,8 @@ expand_keymaps({
 		["J"] = { ":m '>+1<CR>gv=gv", "Move line up" },
 		["K"] = { ":m '<-2<CR>gv=gv", "Move line down" },
 	},
-	[{ "n", "o", "v" }] = {
-
-		-- centered motions
+	-- centered motions
+	[{ "n", "o", "v", "x" }] = {
 		["%"] = { "%zz" },
 		["{"] = { "{zz" },
 		["}"] = { "}zz" },
@@ -73,8 +77,6 @@ expand_keymaps({
 		["<C-d>"] = { "<C-d>zz" },
 		["<C-u>"] = { "<C-u>zz" },
 		["``"] = { "``zz" },
-	},
-	[{ "n", "o" }] = {
 		["H"] = { "^zz", "Move to beginning of line" },
 		["L"] = { "$zz", "Move to end of line" },
 	},

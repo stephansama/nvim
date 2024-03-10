@@ -25,7 +25,7 @@ return {
 		end
 
 		local harpoon_modify = function(direction)
-			local description = string.upper(direction)
+			local description = direction:gsub("^%l", string.upper)
 				.. " "
 				.. ((direction == "append") and "to" or "from")
 				.. " harpoon"
