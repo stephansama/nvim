@@ -2,6 +2,14 @@ local highlights = require("neo-tree.ui.highlights")
 local get_icon = require("configs.neo-tree-icons").get_icon
 
 return {
+	event_handlers = {
+		{
+			event = "file_opened",
+			handler = function()
+				require("neo-tree.command").execute({ action = "close" })
+			end,
+		},
+	},
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
