@@ -27,22 +27,6 @@ expand_keymaps({
 		["v'"] = { "vi'", "Visually select single quotes" },
 		['v"'] = { 'vi"', "Visually select double quotes" },
 
-		-- centered motions
-		["%"] = { "%zz" },
-		["{"] = { "{zz" },
-		["}"] = { "}zz" },
-		["j"] = { "gjzz" },
-		["k"] = { "gkzz" },
-		["gg"] = { "ggzz" },
-		["G"] = { "Gzz" },
-		["o"] = { "o<ESC>zz" },
-		["O"] = { "O<ESC>zz" },
-		["u"] = { "uzz" },
-		["<C-r>"] = { "<C-r>zz" },
-		["<C-d>"] = { "<C-d>zz" },
-		["<C-u>"] = { "<C-u>zz" },
-		["``"] = { "``zz" },
-
 		-- navigate windows
 		["<C-k>"] = { "<C-w>k", "Navigate window up" },
 		["<C-j>"] = { "<C-w>j", "Navigate window down" },
@@ -71,6 +55,24 @@ expand_keymaps({
 		[">"] = { ">gv", "Indent Left" },
 		["J"] = { ":m '>+1<CR>gv=gv", "Move line up" },
 		["K"] = { ":m '<-2<CR>gv=gv", "Move line down" },
+	},
+	[{ "n", "o", "v" }] = {
+
+		-- centered motions
+		["%"] = { "%zz" },
+		["{"] = { "{zz" },
+		["}"] = { "}zz" },
+		["j"] = { "gjzz" },
+		["k"] = { "gkzz" },
+		["gg"] = { "ggzz" },
+		["G"] = { "Gzz" },
+		["o"] = { "o<ESC>zz" },
+		["O"] = { "O<ESC>zz" },
+		["u"] = { "uzz" },
+		["<C-r>"] = { "<C-r>zz" },
+		["<C-d>"] = { "<C-d>zz" },
+		["<C-u>"] = { "<C-u>zz" },
+		["``"] = { "``zz" },
 	},
 	[{ "n", "o" }] = {
 		["H"] = { "^zz", "Move to beginning of line" },

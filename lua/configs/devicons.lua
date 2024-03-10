@@ -3,14 +3,14 @@
 local icons = {
 	env = { icon = "", name = "env" },
 	dependabot = { icon = "", name = "dependabot" },
-	go = { icon = "", color = "#4285F4", name = "go" },
+	go = { icon = "", color = "#4285F4", name = "goextra" },
+	git = { icon = "", color = "#F05032", name = "git" },
 	xsl = { icon = "󰗀", color = "#E39F53", name = "xsl" },
 	yaml = { icon = "󰈙", color = "#EC5F59", name = "yaml" },
 	vite = { icon = "󱐋", color = "#F3B340", name = "vite" },
 	astro = { icon = "", color = "#EF8547", name = "astro" },
 	postcss = { icon = "", color = "#DD3A0A", name = "postcss" },
 	prettier = { icon = "󰉽", color = "#F7B93E", name = "prettier" },
-	gitignore = { icon = "", color = "#F05032", name = "gitignore" },
 	typescript = { icon = "", color = "#3178C6", name = "typescript" },
 }
 
@@ -18,7 +18,8 @@ return {
 	override_by_extension = {
 		prettierignore = icons.prettier,
 		prettierrc = icons.prettier,
-		gitignore = icons.gitignore,
+		gitignore = icons.git,
+		gitkeep = icons.git,
 		postcss = icons.postcss,
 		pcss = icons.postcss,
 		ts = icons.typescript,

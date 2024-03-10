@@ -41,8 +41,11 @@ local mason_config = {
 	PATH = "prepend",
 	registries = { "github:mason-org/mason-registry" },
 	ensure_installed = {
+		"prettierd",
 		"codelldb",
 		"stylua",
+		"delve",
+		"go-debug-adapter",
 	},
 	ui = {
 		icons = {

@@ -62,7 +62,47 @@ return {
 				dapui.close()
 			end
 
-			dap.configurations.rust = {}
+			dap.adapters.lldb = {
+				type = "executable",
+				command = "/usr/bin/lldb", -- adjust as needed, must be absolute path
+				name = "lldb",
+			}
+
+			dap.configurations.cpp = {
+				{
+					cwd = "${workspaceFolder}",
+					name = "Launch",
+					type = "lldb",
+					args = {},
+					request = "launch",
+					stopOnEntry = false,
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+				},
+			}
+
+			dap.configurations.c = dap.configurations.cpp
+			dap.configurations.rust = dap.configurations.cpp
+
+			dap.adapters.go = {
+				type = "executable",
+				command = "node",
+				args = {
+					os.getenv("HOME")
+						.. "/.local/share/nvim/mason/packages/go-debug-adapter/extension/dist/debugAdapter.js",
+				},
+			}
+			dap.configurations.go = {
+				{
+					type = "go",
+					name = "Debug",
+					request = "launch",
+					showLog = false,
+					program = "${file}",
+					dlvToolPath = vim.fn.exepath("dlv"), -- Adjust to where delve is installed
+				},
+			}
 
 			require("dap-vscode-js").setup(opts)
 

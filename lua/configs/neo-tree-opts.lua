@@ -16,7 +16,7 @@ return {
 	symlink_target = { enabled = false },
 	filesystem = {
 		window = { mappings = { ["/"] = "", ["f"] = "fuzzy_finder" } },
-		filtered_items = { visible = false, hide_dotfiles = false, hide_gitignored = true },
+		filtered_items = { visible = true, hide_dotfiles = false, hide_gitignored = true },
 		components = {
 			-- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#custom-icons
 			icon = function(config, node)

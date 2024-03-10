@@ -3,6 +3,9 @@
 --- https://www.nerdfonts.com/cheat-sheet
 local icons = {
 	route = "󰑪",
+	cmd = "",
+	command = "",
+	scraper = "󱇪",
 	mail = "",
 	script = "󰯂",
 	style = "",
@@ -29,11 +32,13 @@ local icons = {
 	util = "󱁿",
 	utility = "󱁿",
 	utilities = "󱁿",
+	web = "󰖟",
 	www = "󰖟",
 	public = "󰖟",
 	global = "󰖟",
 	static = "󰖟",
 	schema = "󱋣",
+	model = "󱋣",
 	-- public = "󱞊",
 	info = "󱂷",
 	content = "󰣞",
@@ -42,6 +47,8 @@ local icons = {
 	target = "",
 	nvim = "",
 	-- target = "󰩷",
+	--
+	robot = "󰚩",
 	debug = "",
 	test = "󰙨",
 	temp = "󰪺",
@@ -98,6 +105,7 @@ local icons = {
 	-- images
 	assets = "󰉏",
 	images = "󰉏",
+	media = "󰉏",
 	-- configs
 	conf = "",
 	config = "",
