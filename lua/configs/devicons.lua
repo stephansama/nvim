@@ -38,8 +38,16 @@ return {
 		[".env.local"] = icons.env,
 		[".env.sample"] = icons.env,
 		["dependabot.yml"] = icons.dependabot,
+		-- vite ts
 		["vite.config.ts"] = icons.vite,
+		["vitest.config.ts"] = icons.vite,
+		["vitest.config.mts"] = icons.vite,
+		["vitest.config.cts"] = icons.vite,
+		-- vite js
 		["vite.config.js"] = icons.vite,
+		["vitest.config.js"] = icons.vite,
+		["vitest.config.mjs"] = icons.vite,
+		["vitest.config.cjs"] = icons.vite,
 		["astro.config.mjs"] = icons.astro,
 		["postcss.config.js"] = icons.postcss,
 		["postcss.config.mjs"] = icons.postcss,

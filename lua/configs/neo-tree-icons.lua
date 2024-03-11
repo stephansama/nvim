@@ -3,6 +3,7 @@
 --- https://www.nerdfonts.com/cheat-sheet
 local icons = {
 	route = "󰑪",
+	e2e = "󰕥",
 	cmd = "",
 	command = "",
 	scraper = "󱇪",
@@ -158,6 +159,9 @@ local icons = {
 
 return {
 	icons = icons,
+	---return the icon associated with a name removing the first character last character and a combination of the both
+	---@param name string
+	---@return string
 	get_icon = function(name)
 		name = string.lower(name)
 		local last_element = string.len(name) - 1
