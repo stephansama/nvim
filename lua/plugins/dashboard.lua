@@ -33,9 +33,9 @@ local options = {
 			{ " ", "r", "Recent files", "Telescope oldfiles" },
 			{ " ", "o", "Switch to obsidian", "cd $OBSIDIAN" },
 			{ " ", "c", "Switch to config", "cd $NVCONF" },
-			{ "󰒲 ", "l", "Lazy", vim.cmd.Lazy },
-			{ " ", "m", "Mason", vim.cmd.Mason },
-			{ " ", "q", "Quit", vim.cmd.qa },
+			{ "󰒲 ", "l", "Lazy", "Lazy" },
+			{ " ", "m", "Mason", "Mason" },
+			{ " ", "q", "Quit", "qa" },
 		}),
 	},
 }
