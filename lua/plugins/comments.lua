@@ -12,10 +12,28 @@ return {
 		end,
 	},
 	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		opts = { enable_autocmd = false },
+		lazy = false,
+		config = function(_, opts)
+			require("ts_context_commentstring").setup(opts)
+		end,
+	},
+	{
 		"numToStr/Comment.nvim",
 		ft = { "*", "!dashboard" },
-		config = function()
-			require("Comment").setup()
+		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+		opts = function()
+			return {
+				---LHS of operator-pending mappings in NORMAL and VISUAL mode
+				opleader = { line = "gc", block = "gC" },
+				toggler = { line = "gcc", block = "gCc" },
+				extra = { above = "gcO", below = "gco" },
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			}
+		end,
+		config = function(_, opts)
+			require("Comment").setup(opts)
 		end,
 	},
 }

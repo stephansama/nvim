@@ -62,12 +62,14 @@ expand_keymaps({
 		["K"] = { ":m '<-2<CR>gv=gv", "Move line down" },
 	},
 	-- centered motions
+	[{ "n", "v", "x" }] = {
+		["j"] = { "gjzz" },
+		["k"] = { "gkzz" },
+	},
 	[{ "n", "o", "v", "x" }] = {
 		["%"] = { "%zz" },
 		["{"] = { "{zz" },
 		["}"] = { "}zz" },
-		["j"] = { "gjzz" },
-		["k"] = { "gkzz" },
 		["gg"] = { "ggzz" },
 		["G"] = { "Gzz" },
 		["o"] = { "o<ESC>zz" },

@@ -2,15 +2,16 @@
 --- https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
 --- https://www.nerdfonts.com/cheat-sheet
 local icons = {
-	route = "󰑪",
-	e2e = "󰕥",
-	cmd = "",
 	command = "",
+	cypress = "󰯲",
 	scraper = "󱇪",
-	mail = "",
 	script = "󰯂",
 	style = "",
+	route = "󰑪",
+	mail = "",
 	home = "󱂵",
+	e2e = "󰕥",
+	cmd = "",
 	app = "󱂵",
 	doc = "󱂷",
 	lib = "󰌱",
@@ -82,11 +83,14 @@ local icons = {
 	common = "󱁽",
 	other = "󱁽",
 	client = "󰦉",
+	ui = "󰦉",
 	mobile = "",
 	constant = "",
 	i18n = "󰗊",
 	ci = "󰴋",
 	generator = "󰴋",
+	generated = "󰴋",
+	generate = "󰴋",
 	component = "󰀻",
 	node_modules = "",
 	pnpm = "",
@@ -133,12 +137,15 @@ local icons = {
 	types = "",
 	["react-dom"] = "󰜈",
 	tailwindcss = "󱏿",
+	c = "",
 	go = "",
 	ts = "󰛦",
 	js = "",
+	cpp = "",
 	javascript = "",
 	typescript = "󰛦",
 	postcss = "",
+	haskell = "",
 	mongodb = "",
 	eslint = "󰱺",
 	docker = "󰡨",
@@ -155,10 +162,10 @@ local icons = {
 	lua = "",
 	sql = "󰆼",
 	youtube = "󰗃",
+	srandle = "",
 }
 
 return {
-	icons = icons,
 	---return the icon associated with a name removing the first character last character and a combination of the both
 	---@param name string
 	---@return string
@@ -168,9 +175,11 @@ return {
 		local name_without_first_char = string.sub(name, 2)
 		local name_without_last_char = string.sub(name, 1, last_element)
 		local name_without_ending_chars = string.sub(name, 2, last_element)
+		local name_without_ending_two_chars = string.sub(name, 3, string.len(name) - 2)
 		return icons[name]
 			or icons[name_without_first_char]
 			or icons[name_without_last_char]
 			or icons[name_without_ending_chars]
+			or icons[name_without_ending_two_chars]
 	end,
 }

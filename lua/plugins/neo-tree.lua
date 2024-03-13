@@ -1,3 +1,5 @@
+local expand_keymaps = require("utils").expand_keymaps
+
 local window_picker_config = {
 	filter_rules = {
 		include_current_win = false,
@@ -11,6 +13,14 @@ local window_picker_config = {
 		},
 	},
 }
+
+local function execute_neotree(opts)
+	return function()
+		require("neo-tree.command").execute(opts)
+		vim.wo.number = true
+		vim.wo.relativenumber = true
+	end
+end
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
@@ -29,8 +39,34 @@ return {
 		},
 	},
 	init = function()
-		vim.keymap.set("n", "\\", "<cmd>Neotree reveal toggle position=right<CR>")
-		vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal toggle position=current<CR>")
+		expand_keymaps({
+			n = {
+				["<leader>e"] = {
+					execute_neotree({ action = "focus", reveal_force_cwd = true, position = "current" }),
+					"Open netrw style explorer",
+				},
+				["g\\"] = {
+					execute_neotree({
+						toggle = true,
+						action = "focus",
+						source = "git_status",
+						position = "right",
+						reveal_force_cwd = true,
+					}),
+					"Open git",
+				},
+				["\\"] = {
+					execute_neotree({
+						reveal = true,
+						toggle = true,
+						action = "focus",
+						position = "right",
+						reveal_force_cwd = true,
+					}),
+					"Open explorer side panel",
+				},
+			},
+		})
 	end,
 	config = function()
 		require("neo-tree").setup(require("configs.neo-tree-opts"))
