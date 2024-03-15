@@ -20,7 +20,6 @@ local icons = {
 	key = "󰢬",
 	token = "󰢬",
 	layout = "󰕮",
-	-- layout = "󰹫",
 	middleware = "󰽞",
 	environment = "",
 	icon = "󰚝",

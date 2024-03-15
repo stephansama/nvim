@@ -16,9 +16,25 @@ local window_picker_config = {
 
 local function execute_neotree(opts)
 	return function()
-		require("neo-tree.command").execute(opts)
-		vim.wo.number = true
-		vim.wo.relativenumber = true
+		local reveal_file = vim.fn.expand("%:p")
+		if reveal_file == "" then
+			reveal_file = vim.fn.getcwd()
+		else
+			local f = io.open(reveal_file, "r")
+			if f then
+				f.close(f)
+			else
+				reveal_file = vim.fn.getcwd()
+			end
+		end
+		require("neo-tree.command").execute(vim.tbl_deep_extend("force", {
+			source = "filesystem",
+			action = "focus",
+			toggle = true,
+			position = "right",
+			reveal_file = reveal_file,
+			reveal_force_cwd = true,
+		}, opts or {}))
 	end
 end
 
@@ -41,30 +57,9 @@ return {
 	init = function()
 		expand_keymaps({
 			n = {
-				["<leader>e"] = {
-					execute_neotree({ action = "focus", reveal_force_cwd = true, position = "current" }),
-					"Open netrw style explorer",
-				},
-				["g\\"] = {
-					execute_neotree({
-						toggle = true,
-						action = "focus",
-						source = "git_status",
-						position = "right",
-						reveal_force_cwd = true,
-					}),
-					"Open git",
-				},
-				["\\"] = {
-					execute_neotree({
-						reveal = true,
-						toggle = true,
-						action = "focus",
-						position = "right",
-						reveal_force_cwd = true,
-					}),
-					"Open explorer side panel",
-				},
+				["<leader>e"] = { execute_neotree({ position = "current" }), "Open netrw style explorer" },
+				["\\"] = { execute_neotree(), "Open explorer side panel" },
+				["g\\"] = { execute_neotree({ source = "git_status" }), "Open git" },
 			},
 		})
 	end,

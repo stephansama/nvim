@@ -22,7 +22,9 @@ return {
 	created = { enabled = true, required_width = 110 },
 	type = { enabled = true, required_width = 122 },
 	symlink_target = { enabled = false },
+	buffers = { follow_current_file = { enabled = true } },
 	filesystem = {
+		follow_current_file = { enabled = true },
 		window = { mappings = { ["/"] = "", ["f"] = "fuzzy_finder" } },
 		filtered_items = { visible = true, hide_dotfiles = false, hide_gitignored = true },
 		components = {

@@ -58,6 +58,7 @@ return {
 		[".tmux.conf"] = { icon = "", color = "#1BB91F", name = "tmux" },
 		["vercel.json"] = { icon = "󰔶", color = "#FFFFFF", name = "vercel" },
 		["netlify.toml"] = { icon = "", color = "#00C7B7", name = "netlify" },
+		[".eslintrc.cjs"] = { icon = "󰱺", name = "eslintrc" },
 		-- vite ts
 		["vite.config.ts"] = icons.vite,
 		["vitest.config.ts"] = icons.vite,
