@@ -24,6 +24,7 @@ local telescope_config = {
 		lsp_document_symbols = insert_picker,
 		current_buffer_fuzzy_find = insert_picker,
 		todo = normal_picker,
+		marks = insert_picker,
 	},
 }
 
@@ -46,6 +47,7 @@ return {
 			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find oldfiles" })
 			vim.keymap.set("n", "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols" })
 			vim.keymap.set("n", "<leader>ft", "<cmd>Telescope colorscheme<CR>", { desc = "Change colorscheme" })
+			vim.keymap.set("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "Find marks" })
 			vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Find within git status" })
 			vim.keymap.set(
 				"n",
