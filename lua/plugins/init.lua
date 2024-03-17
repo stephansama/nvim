@@ -19,7 +19,7 @@ return {
 		"mg979/vim-visual-multi",
 		lazy = false,
 		init = function()
-			vim.g.VM_leader = "<space>"
+			vim.g.VM_leader = "<BS>"
 			-- macOS specific keybindings
 			vim.keymap.set("n", "∆", "<Plug>(VM-Add-Cursor-Down)")
 			vim.keymap.set("n", "˚", "<Plug>(VM-Add-Cursor-Up)")

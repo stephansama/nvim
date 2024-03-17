@@ -46,6 +46,7 @@ return {
 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	init = function()
 		vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
+		vim.keymap.set("n", "<leader>ld", ":bufdo bd!<CR>:Dashboard<CR>", { desc = "Close all buffers" })
 	end,
 	config = function()
 		require("dashboard").setup(options)
