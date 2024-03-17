@@ -1,10 +1,14 @@
--- https://www.nerdfonts.com/cheat-sheet
+-- https://www.nerdfonts.com/cheat-sheetdevi
 -- https://github.com/nvim-tree/nvim-web-devicons
 local icons = {
+	stylelint = { icon = "", name = "stylelint" },
+	sitemap = { icon = "", name = "sitemap" },
 	env = { icon = "", name = "env" },
 	go = { icon = "", color = "#4285F4", name = "goextra" },
 	git = { icon = "", color = "#F05032", name = "git" },
+	rss = { icon = "", color = "#FFA500", name = "rss" },
 	xsl = { icon = "󰗀", color = "#E39F53", name = "xsl" },
+	next = { icon = "󰰓", color = "#FFFFFF", name = "next" },
 	yaml = { icon = "󰈙", color = "#EC5F59", name = "yaml" },
 	vite = { icon = "󱐋", color = "#F3B340", name = "vite" },
 	astro = { icon = "", color = "#EF8547", name = "astro" },
@@ -15,6 +19,7 @@ local icons = {
 	license = { icon = "", color = "#CDC058", name = "license" },
 	prettier = { icon = "󰉽", color = "#F7B93E", name = "prettier" },
 	changelog = { icon = "󰦖", color = "#97C15C", name = "changelog" },
+	storybook = { icon = "󰂺", color = "#FF4785", name = "storybook" },
 	typescript = { icon = "", color = "#3178C6", name = "typescript" },
 	dependabot = { icon = "", color = "#025E8C", name = "dependabot" },
 }
@@ -33,11 +38,13 @@ return {
 		yml = icons.yaml,
 		xsl = icons.xsl,
 		ts = icons.typescript,
-		-- TODO: find a way to use two ending extensions
-		--[[ ["cy.ts"] = icons.cypress,
+		["cy.ts"] = icons.cypress,
 		["cy.js"] = icons.cypress,
-		["test.js"] = icons.test_js,
-		["test.ts"] = icons.test_ts, ]]
+		["stories.js"] = icons.storybook,
+		["stories.jsx"] = icons.storybook,
+		["stories.tsx"] = icons.storybook,
+		["stories.ts"] = icons.storybook,
+		["d.ts"] = { icon = "", color = "#3178C6", name = "ts_definition" },
 	},
 	override_by_filename = {
 		[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
@@ -46,6 +53,14 @@ return {
 		["go.mod"] = icons.go,
 		["go.sum"] = icons.go,
 		["go.work"] = icons.go,
+		-- rss
+		["rss.xml"] = icons.rss,
+		["rss.xml.ts"] = icons.rss,
+		["rss.xml.js"] = icons.rss,
+		-- sitemap
+		["sitemap.xml"] = icons.sitemap,
+		["sitemap.xml.ts"] = icons.sitemap,
+		["sitemap.xml.js"] = icons.sitemap,
 		["go.work.sum"] = icons.go,
 		[".env.sample"] = icons.env,
 		[".env.local"] = icons.env,
@@ -69,22 +84,35 @@ return {
 		["vitest.config.js"] = icons.vite,
 		["vitest.config.mjs"] = icons.vite,
 		["vitest.config.cjs"] = icons.vite,
+		-- astro
 		["astro.config.mjs"] = icons.astro,
 		["astro.config.ts"] = icons.astro,
+		-- postcss
 		["postcss.config.js"] = icons.postcss,
 		["postcss.config.mjs"] = icons.postcss,
 		["postcss.config.cjs"] = icons.postcss,
+		-- next
+		["next.config.ts"] = icons.next,
+		["next.config.js"] = icons.next,
+		-- cypress
 		["cypress.config.ts"] = icons.cypress,
 		["cypress.config.js"] = icons.cypress,
 		["ads.txt"] = { icon = "󰲇", color = "#4285F4", name = "GoogleAds" },
 		["todo.md"] = { icon = "", color = "#A6E3A1", name = "todo" },
 		["yarn.lock"] = { icon = "", color = "#2C8EBB", name = "yarn" },
 		["robots.txt"] = { icon = "󰚩", color = "#F38BA8", name = "robots" },
+		["lazy-lock.json"] = { icon = "󰒲", color = "#457BE2", name = "lazy" },
 		["cargo.toml"] = { icon = "", color = "#D24933", name = "cargo.toml" },
 		["jsconfig.json"] = { icon = "", color = "#F7DF1E", name = "jsconfig" },
 		["pnpm-lock.yaml"] = { icon = "󰛷", color = "#F69220", name = "pnpm-lock.yaml" },
 		["playwright.config.ts"] = { icon = "󰴂", color = "#2EAD33", name = "playwright" },
-		-- TODO: overrides for entrypoint filenames
-		-- ["init.lua"] = { icon = "", color = "#B2CFE5", name = "init.lua" },
+		-- stylelint
+		[".stylelintrc"] = icons.stylelint,
+		[".stylelintrc.js"] = icons.stylelint,
+		[".stylelintrc.mjs"] = icons.stylelint,
+		[".stylelintrc.cjs"] = icons.stylelint,
+		[".stylelintrc.json"] = icons.stylelint,
+		["stylelint.config.cjs"] = icons.stylelint,
+		["stylelint.config.mjs"] = icons.stylelint,
 	},
 }

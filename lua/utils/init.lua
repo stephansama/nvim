@@ -50,4 +50,15 @@ return {
 		end
 		return response
 	end,
+
+	---Capture extension from filename
+	---@param filepath string
+	---@return string
+	capture_after_first_period_in_filename = function(filepath)
+		-- Extract the filename from the full path using patterns
+		local filename = filepath:match("([^/]+)$")
+		-- Apply the previous function to capture content after the first period in the filename
+		local after_period = string.match(filename, "%.(.+)")
+		return after_period or filename or ""
+	end,
 }

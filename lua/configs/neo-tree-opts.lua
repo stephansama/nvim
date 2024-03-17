@@ -1,3 +1,4 @@
+local capture_after_first_period_in_filename = require("utils").capture_after_first_period_in_filename
 local highlights = require("neo-tree.ui.highlights")
 local get_icon = require("configs.neo-tree-icons").get_icon
 
@@ -45,9 +46,11 @@ return {
 				elseif node.type == "file" then
 					local success, web_devicons = pcall(require, "nvim-web-devicons")
 					if success then
+						local ext = capture_after_first_period_in_filename(node.path)
+						local devicon_full, hl_full = web_devicons.get_icon(node.name, ext)
 						local devicon, hl = web_devicons.get_icon(node.name, node.ext)
-						icon = devicon or icon
-						highlight = hl or highlight
+						icon = devicon_full or devicon or icon
+						highlight = hl_full or hl or highlight
 					end
 				end
 
