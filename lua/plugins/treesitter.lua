@@ -4,7 +4,13 @@ local treesitter_config = {
 	parser_install_dir = parser_install_dir,
 	auto_install = false,
 	sync_install = false,
-	autotag = { enable = true },
+	autotag = {
+		enable_close_on_slash = true,
+		enable_close = true,
+		enable_rename = true,
+		enable = true,
+		filetypes = { "html", "xml", "astro", "svelte", "templ" },
+	},
 	highlight = { enable = true },
 	incremental_selection = {
 		enable = true,
@@ -26,6 +32,8 @@ local treesitter_config = {
 		"html",
 		"http",
 		"astro",
+		"svelte",
+		"templ",
 		"jsdoc",
 		"javascript",
 		"typescript",
