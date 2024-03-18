@@ -18,12 +18,8 @@ return {
 		---@param useWord boolean
 		---@return function
 		local spectre_search = function(useWord)
-			local opts = {}
-			if useWord then
-				opts.select_word = true
-			end
 			return function()
-				spectre.open_visual(opts)
+				spectre.open_visual({ select_word = useWord or false })
 			end
 		end
 

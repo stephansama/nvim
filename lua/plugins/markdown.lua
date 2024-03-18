@@ -4,7 +4,7 @@ return {
 		ft = "markdown",
 		event = "VeryLazy",
 		init = function()
-			vim.g.table_mode_tableize_map = ""
+			vim.g.table_mode_tableize_map = "<leader>mc"
 		end,
 		config = function()
 			vim.keymap.set("n", "<leader>mt", vim.cmd.TableModeEnable, { desc = "Enable Table Mode" })

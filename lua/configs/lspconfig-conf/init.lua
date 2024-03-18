@@ -97,6 +97,14 @@ lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig-conf.json")))
 lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig-conf.lua_ls")))
 lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig-conf.tsserver")))
 
+lspconfig.cssls.setup({
+	settings = {
+		css = { validate = true, lint = { unknownAtRules = "ignore" } },
+		scss = { validate = true, lint = { unknownAtRules = "ignore" } },
+		less = { validate = true, lint = { unknownAtRules = "ignore" } },
+	},
+})
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
