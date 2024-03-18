@@ -12,6 +12,9 @@ local icons = {
 	yaml = { icon = "󰈙", color = "#EC5F59", name = "yaml" },
 	vite = { icon = "󱐋", color = "#F3B340", name = "vite" },
 	astro = { icon = "", color = "#EF8547", name = "astro" },
+	babel = { icon = "", color = "#F9DC3E", name = "babel" },
+	archive = { icon = "", name = "archive", color = "#B0B447" },
+	graphql = { icon = "", color = "#E10098", name = "graphql" },
 	postcss = { icon = "", color = "#DD3A0A", name = "postcss" },
 	cypress = { icon = "󰯲", color = "#69D3A7", name = "cypress" },
 	test_ts = { icon = "", color = "#3178C6", name = "test_typescript" },
@@ -29,6 +32,19 @@ return {
 	override_by_extension = {
 		prettierignore = icons.prettier,
 		prettierrc = icons.prettier,
+		njk = { icon = "", color = "#1C4913", name = "nunjucks" },
+		-- archives
+		dmg = icons.archive,
+		zip = icons.archive,
+		["7z"] = icons.archive,
+		["tar.gz"] = icons.archive,
+		-- babelrc
+		["babelrc.json"] = icons.babel,
+		["babelrc.cts"] = icons.babel,
+		["babelrc.cjs"] = icons.babel,
+		["babelrc.mjs"] = icons.babel,
+		["babelrc.js"] = icons.babel,
+		-- git
 		gitignore = icons.git,
 		gitkeep = icons.git,
 		postcss = icons.postcss,
@@ -38,6 +54,10 @@ return {
 		yml = icons.yaml,
 		xsl = icons.xsl,
 		ts = icons.typescript,
+		gql = icons.graphql,
+		graphql = icons.graphql,
+		Jenkinsfile = { icon = "", name = "jenkins" },
+		pug = { icon = "", color = "#A86454", name = "pug" },
 		["cy.ts"] = icons.cypress,
 		["cy.js"] = icons.cypress,
 		["stories.js"] = icons.storybook,
@@ -47,6 +67,7 @@ return {
 		["d.ts"] = { icon = "", color = "#3178C6", name = "ts_definition" },
 	},
 	override_by_filename = {
+		[".babelrc"] = icons.babel,
 		[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
 		["log.txt"] = { icon = "", name = "log" },
 		["logs.txt"] = { icon = "", name = "log" },
@@ -64,6 +85,8 @@ return {
 		["go.work.sum"] = icons.go,
 		[".env.sample"] = icons.env,
 		[".env.local"] = icons.env,
+		["contributing.md"] = { icon = "󰅍", color = "#F7CC4F", name = "contributing" },
+		["authors.md"] = { icon = "", color = "#E15241", name = "authors" },
 		["license.md"] = icons.license,
 		["license.txt"] = icons.license,
 		["changelog.md"] = icons.changelog,
@@ -73,6 +96,7 @@ return {
 		[".tmux.conf"] = { icon = "", color = "#1BB91F", name = "tmux" },
 		["vercel.json"] = { icon = "󰔶", color = "#FFFFFF", name = "vercel" },
 		["netlify.toml"] = { icon = "", color = "#00C7B7", name = "netlify" },
+		["nodemon.json"] = { icon = "", color = "#76D04B", name = "nodemon" },
 		[".eslintrc.cjs"] = { icon = "󰱺", name = "eslintrc" },
 		-- vite ts
 		["vite.config.ts"] = icons.vite,
@@ -87,6 +111,12 @@ return {
 		-- astro
 		["astro.config.mjs"] = icons.astro,
 		["astro.config.ts"] = icons.astro,
+		-- babel
+		["babel.config.json"] = icons.babel,
+		["babel.config.cts"] = icons.babel,
+		["babel.config.cjs"] = icons.babel,
+		["babel.config.mjs"] = icons.babel,
+		["babel.config.js"] = icons.babel,
 		-- postcss
 		["postcss.config.js"] = icons.postcss,
 		["postcss.config.mjs"] = icons.postcss,
@@ -106,6 +136,9 @@ return {
 		["jsconfig.json"] = { icon = "", color = "#F7DF1E", name = "jsconfig" },
 		["pnpm-lock.yaml"] = { icon = "󰛷", color = "#F69220", name = "pnpm-lock.yaml" },
 		["playwright.config.ts"] = { icon = "󰴂", color = "#2EAD33", name = "playwright" },
+		-- vscode
+		["extensions.json"] = { icon = "", color = "#C59F46", name = "extensions" },
+		["launch.json"] = { icon = "", color = "#C59F46", name = "launch" },
 		-- stylelint
 		[".stylelintrc"] = icons.stylelint,
 		[".stylelintrc.js"] = icons.stylelint,

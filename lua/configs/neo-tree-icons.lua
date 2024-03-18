@@ -1,6 +1,7 @@
 ---@desc  inspired by material icon theme
 --- https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
 --- https://www.nerdfonts.com/cheat-sheet
+--- https://wasm.simpleicons.org
 local icons = {
 	book = "",
 	store = "󰓜",
@@ -60,7 +61,8 @@ local icons = {
 	--
 	robot = "󰚩",
 	debug = "",
-	test = "󰙨",
+	test = "",
+	-- test = "󰙨",
 	temp = "󰪺",
 	tmp = "󰪺",
 	event = "󰂚",
@@ -81,6 +83,7 @@ local icons = {
 	color = "󰏘",
 	error = "󰷌",
 	cache = "󰪺",
+	pkg = "󰏓",
 	package = "󰏓",
 	usr = "",
 	user = "",
@@ -93,6 +96,8 @@ local icons = {
 	common = "󱁽",
 	other = "󱁽",
 	client = "󰦉",
+	backend = "󰒋",
+	frontend = "󰦉",
 	ui = "󰦉",
 	mobile = "",
 	constant = "",
@@ -107,6 +112,7 @@ local icons = {
 	dist = "",
 	build = "",
 	bin = "",
+	release = "",
 	template = "",
 	views = "",
 	src = "",
@@ -125,6 +131,8 @@ local icons = {
 	conf = "",
 	config = "",
 	plugin = "󰐱",
+	ext = "",
+	extension = "",
 	guard = "󰦝",
 	coverage = "󰕥",
 	project = "",
@@ -153,6 +161,7 @@ local icons = {
 	js = "",
 	cpp = "",
 	next = "󰰓",
+	webpack = "󰜫",
 	javascript = "",
 	typescript = "󰛦",
 	postcss = "",
