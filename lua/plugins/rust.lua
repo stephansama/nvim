@@ -9,6 +9,13 @@ local rustaceanvim_opts = function()
 			on_attach = function(client, bufnr)
 				require("lsp-inlayhints").on_attach(client, bufnr)
 			end,
+			---@param project_root string Path to the project root
+			settings = function(project_root)
+				local ra = require("rustaceanvim.config.server")
+				return ra.load_rust_analyzer_settings(project_root, {
+					settings_file_pattern = "rust-analyzer.json",
+				})
+			end,
 		},
 		dap = {
 			adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path),
