@@ -35,6 +35,7 @@ return {
 			require("nvim-surround").setup()
 		end,
 	},
+	{ "chentoast/marks.nvim", event = "VimEnter" },
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
