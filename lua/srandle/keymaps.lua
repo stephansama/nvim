@@ -11,6 +11,7 @@ local function move_buffer(direction)
 	end
 end
 
+--- Deletes buffer and alerts the user
 local function delete_buffer()
 	vim.cmd.bd()
 	print("Deleting buffer...")
@@ -65,11 +66,11 @@ expand_keymaps({
 	[{ "n", "v", "x" }] = {
 		["j"] = { "gjzz" },
 		["k"] = { "gkzz" },
-	},
-	[{ "n", "o", "v", "x" }] = {
 		["%"] = { "%zz" },
 		["{"] = { "{zz" },
 		["}"] = { "}zz" },
+	},
+	[{ "n", "o", "v", "x" }] = {
 		["gg"] = { "ggzz" },
 		["G"] = { "Gzz" },
 		["o"] = { "o<ESC>zz" },
