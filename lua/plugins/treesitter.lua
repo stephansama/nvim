@@ -9,7 +9,26 @@ local treesitter_config = {
 		enable_close = true,
 		enable_rename = true,
 		enable = true,
-		filetypes = { "html", "xml", "astro", "svelte", "templ" },
+		filetypes = {
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"svelte",
+			"templ",
+			"vue",
+			"tsx",
+			"jsx",
+			"rescript",
+			"xml",
+			"php",
+			"markdown",
+			"astro",
+			"glimmer",
+			"handlebars",
+			"hbs",
+		},
 	},
 	highlight = { enable = true },
 	incremental_selection = {
@@ -87,6 +106,15 @@ return {
 		end,
 		config = function()
 			require("treesitter-context").setup(treesitter_context_config)
+		end,
+	},
+	{
+		"hedyhli/outline.nvim",
+		ft = "*",
+		config = function(_, opts)
+			-- Example mapping to toggle outline
+			vim.keymap.set("n", "|", vim.cmd.Outline, { desc = "Toggle Outline" })
+			require("outline").setup(opts)
 		end,
 	},
 }
