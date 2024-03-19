@@ -3,6 +3,9 @@ local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
+--- add ufo capabilities
+capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+
 -- LSP Border
 vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
@@ -125,7 +128,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "K", function()
+			local winid = require("ufo").peekFoldedLinesUnderCursor()
+			if not winid then
+				vim.lsp.buf.hover()
+			end
+		end, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>fa", vim.lsp.buf.add_workspace_folder, opts)
@@ -142,3 +150,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+
+require("ufo").setup()

@@ -1,19 +1,25 @@
 local expand_settings = require("utils").expand_settings
 
 expand_settings({
-	o = { scrolloff = 8, shiftwidth = 4 },
 	wo = { number = true, relativenumber = true },
 	bo = { tabstop = 4 },
+	o = {
+		scrolloff = 8,
+		shiftwidth = 4,
+		fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]], -- fold seperator
+	},
 	opt = {
-		clipboard = "unnamedplus",
-		signcolumn = "yes",
+		clipboard = "unnamedplus", -- use system register
+		signcolumn = "yes", -- always show sign column to prevent layout shift
 		splitbelow = false,
 		splitright = true,
 		conceallevel = 1,
-		foldmethod = "expr",
-		foldlevel = 99,
-		foldexpr = "nvim_treesitter#foldexpr()",
 		tabstop = 4,
+		-- https://github.com/kevinhwang91/nvim-ufo?tab=readme-ov-file#minimal-configuration
+		foldlevel = 99,
+		foldcolumn = "1",
+		foldenable = true,
+		foldlevelstart = 99,
 	},
 })
 
@@ -40,6 +46,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		require("lsp-inlayhints").on_attach(client, bufnr)
 
+		vim.cmd([[UfoEnableFold]])
 		vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
 	end,
 })
