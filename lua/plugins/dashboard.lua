@@ -17,9 +17,8 @@ local header = [[
 -- add padding to header
 header = string.rep("\n", 2) .. header .. string.rep("\n", 2)
 
-local options = {
+local opts = {
 	theme = "doom",
-	-- hide = { statusline = false },
 	config = {
 		header = vim.split(header, "\n"),
 		footer = function()
@@ -40,15 +39,15 @@ local options = {
 	},
 }
 
+local init = function()
+	vim.keymap.set("n", "<leader>ld", ":bufdo bd!<CR>:Dashboard<CR>", { desc = "Close all buffers" })
+	vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
+end
+
 return {
 	"nvimdev/dashboard-nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	event = "VimEnter",
-	dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	init = function()
-		vim.keymap.set("n", "<leader>ld", ":bufdo bd!<CR>:Dashboard<CR>", { desc = "Close all buffers" })
-		vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
-	end,
-	config = function()
-		require("dashboard").setup(options)
-	end,
+	opts = opts,
+	init = init,
 }

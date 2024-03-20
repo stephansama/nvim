@@ -27,8 +27,9 @@ return {
 		lazy = true,
 		ft = "markdown",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("obsidian").setup(require("configs.obsidian-opts"))
+		opts = function()
+			return require("configs.obsidian-opts")
 		end,
+		config = true,
 	},
 }

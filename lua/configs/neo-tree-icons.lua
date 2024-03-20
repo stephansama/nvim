@@ -163,6 +163,7 @@ local icons = {
 	cpp = "",
 	next = "󰰓",
 	webpack = "󰜫",
+	obsidian = "󱥐",
 	javascript = "",
 	typescript = "󰛦",
 	postcss = "",

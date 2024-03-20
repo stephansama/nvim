@@ -1,4 +1,4 @@
-local conform_config = {
+local opts = {
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
@@ -24,7 +24,6 @@ local conform_config = {
 return {
 	"stevearc/conform.nvim",
 	event = "BufWritePre",
-	config = function()
-		require("conform").setup(conform_config)
-	end,
+	opts = opts,
+	config = true,
 }

@@ -1,5 +1,7 @@
 local parser_install_dir = "$HOME/.local/share/treesitter"
 
+local filetypes = require("utils.globals").web_filetypes
+
 local treesitter_config = {
 	parser_install_dir = parser_install_dir,
 	auto_install = false,
@@ -9,26 +11,7 @@ local treesitter_config = {
 		enable_close = true,
 		enable_rename = true,
 		enable = true,
-		filetypes = {
-			"html",
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact",
-			"svelte",
-			"templ",
-			"vue",
-			"tsx",
-			"jsx",
-			"rescript",
-			"xml",
-			"php",
-			"markdown",
-			"astro",
-			"glimmer",
-			"handlebars",
-			"hbs",
-		},
+		filetypes = filetypes,
 	},
 	highlight = { enable = true },
 	incremental_selection = {
@@ -90,9 +73,10 @@ return {
 		build = ":TSUpdate",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 		dependencies = { "windwp/nvim-ts-autotag" },
-		config = function()
+		opts = treesitter_config,
+		config = function(_, opts)
 			vim.opt.runtimepath:append(parser_install_dir)
-			require("nvim-treesitter.configs").setup(treesitter_config)
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{
@@ -104,9 +88,8 @@ return {
 				require("treesitter-context").go_to_context(vim.v.count1)
 			end, { silent = true })
 		end,
-		config = function()
-			require("treesitter-context").setup(treesitter_context_config)
-		end,
+		opts = treesitter_context_config,
+		config = true,
 	},
 	{
 		"hedyhli/outline.nvim",

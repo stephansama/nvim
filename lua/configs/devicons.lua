@@ -98,6 +98,7 @@ return {
 		["netlify.toml"] = { icon = "", color = "#00C7B7", name = "netlify" },
 		["nodemon.json"] = { icon = "", color = "#76D04B", name = "nodemon" },
 		[".eslintrc.cjs"] = { icon = "󰱺", name = "eslintrc" },
+		[".eslintrc.js"] = { icon = "󰱺", name = "eslintrc" },
 		-- vite ts
 		["vite.config.ts"] = icons.vite,
 		["vitest.config.ts"] = icons.vite,

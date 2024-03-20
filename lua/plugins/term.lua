@@ -1,3 +1,24 @@
+local expand_keymaps = require("utils").expand_keymaps
+
+local init = function()
+	local Terminal = require("toggleterm.terminal").Terminal
+	local nodeTerminal = Terminal:new({ cmd = "node", hidden = true })
+	local lazygitTerminal = Terminal:new({ cmd = "lazygit", hidden = true })
+
+	local toggleTerm = function(term)
+		return function()
+			term:toggle()
+		end
+	end
+
+	expand_keymaps({
+		n = {
+			["<leader>go"] = { toggleTerm(lazygitTerminal), "Open Lazygit" },
+			["<leader>no"] = { toggleTerm(nodeTerminal), "Open node terminal" },
+		},
+	})
+end
+
 return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
@@ -8,18 +29,6 @@ return {
 		open_mapping = [[<c-\>]],
 		close_on_exit = true,
 	},
-	init = function()
-		local Terminal = require("toggleterm.terminal").Terminal
-		local nodeTerminal = Terminal:new({ cmd = "node", hidden = true })
-		local lazygitTerminal = Terminal:new({ cmd = "lazygit", hidden = true })
-		vim.keymap.set("n", "<leader>go", function()
-			lazygitTerminal:toggle()
-		end, { desc = "Open Lazygit" })
-		vim.keymap.set("n", "<leader>no", function()
-			nodeTerminal:toggle()
-		end, { desc = "Open Node terminal" })
-	end,
-	config = function(_, opts)
-		require("toggleterm").setup(opts)
-	end,
+	init = init,
+	config = true,
 }

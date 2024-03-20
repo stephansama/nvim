@@ -49,9 +49,8 @@ return {
 		{
 			"s1n7ax/nvim-window-picker",
 			version = "2.*",
-			config = function()
-				require("window-picker").setup(window_picker_config)
-			end,
+			opts = window_picker_config,
+			config = true,
 		},
 	},
 	init = function()
@@ -63,7 +62,8 @@ return {
 			},
 		})
 	end,
-	config = function()
-		require("neo-tree").setup(require("configs.neo-tree-opts"))
+	config = true,
+	opts = function()
+		return require("configs.neo-tree-opts")
 	end,
 }

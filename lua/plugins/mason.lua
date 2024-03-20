@@ -53,11 +53,6 @@ local mason_config = {
 			package_installed = "✓",
 			package_uninstalled = "✗",
 		},
-		-- icons = {
-		-- 	package_pending = " ",
-		-- 	package_installed = "󰄳 ",
-		-- 	package_uninstalled = " 󰚌",
-		-- },
 		keymaps = {
 			toggle_server_expand = "<CR>",
 			install_server = "i",
@@ -75,8 +70,9 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-		config = function()
-			require("mason").setup(mason_config)
+		opts = mason_config,
+		config = function(_, opts)
+			require("mason").setup(opts)
 			vim.api.nvim_create_user_command("MasonInstallAll", function()
 				if mason_config.ensure_installed and #mason_config.ensure_installed > 0 then
 					vim.cmd("MasonInstall " .. table.concat(mason_config.ensure_installed, " "))
@@ -88,8 +84,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
 		lazy = false,
-		config = function()
-			require("mason-lspconfig").setup(mason_lspconfig)
-		end,
+		opts = mason_lspconfig,
+		config = true,
 	},
 }

@@ -16,14 +16,12 @@ return {
 	},
 	{
 		"sindrets/diffview.nvim",
-		lazy = true,
 		ft = "*,!dashboard",
+		lazy = true,
+		opts = diffview_config,
 		init = function()
 			vim.keymap.set("n", "gv", "<cmd>DiffviewOpen<CR>", { desc = "Open Diffview" })
 			vim.keymap.set("n", "gb", "<cmd>DiffviewClose<CR>", { desc = "Close Diffview" })
-		end,
-		config = function()
-			require("diffview").setup(diffview_config)
 		end,
 	},
 }
