@@ -30,6 +30,8 @@ local icons = {
 return {
 	strict = true,
 	override_by_extension = {
+		xcf = { icon = "", name = "gimp" },
+		["code-profile"] = { icon = "󰨞", color = "#007ACC", name = "vscode" },
 		prettierignore = icons.prettier,
 		prettierrc = icons.prettier,
 		njk = { icon = "", color = "#1C4913", name = "nunjucks" },

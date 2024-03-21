@@ -1,21 +1,18 @@
 local expand_keymaps = require("utils").expand_keymaps
 
-local opts = { enabled = true, snippet_engine = "luasnip" }
-
-local init = function()
-	expand_keymaps({
-		n = {
-			["<leader>cg"] = {
-				":lua require('neogen').generate()<CR>",
-				"Generate documentation comments",
-			},
-		},
-	})
+local generate_neogen = function()
+	require("neogen").generate()
 end
 
 return {
 	"danymat/neogen",
-	init = init,
-	opts = opts,
 	config = true,
+	opts = { enabled = true, snippet_engine = "luasnip" },
+	init = function()
+		expand_keymaps({
+			n = {
+				["<leader>cg"] = { generate_neogen, "Generate documentation comments" },
+			},
+		})
+	end,
 }

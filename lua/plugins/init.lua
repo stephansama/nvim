@@ -27,18 +27,8 @@ return {
 			-- vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)")
 		end,
 	},
-	{
-		"kylechui/nvim-surround",
-		version = "*",
-		event = "VeryLazy",
-		config = true,
-	},
-	{ "chentoast/marks.nvim", event = "VimEnter", opts = { sign_priority = 90 } },
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		lazy = false,
-	},
+	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
+	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }, lazy = false },
 	{
 		"mbbill/undotree",
 		lazy = false,
