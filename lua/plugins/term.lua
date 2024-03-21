@@ -25,7 +25,7 @@ return {
 	opts = {
 		autochdir = true,
 		direction = "float",
-		float_opts = { border = "single" },
+		float_opts = { border = "rounded" },
 		open_mapping = [[<c-\>]],
 		close_on_exit = true,
 	},

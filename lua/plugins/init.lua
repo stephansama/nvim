@@ -33,7 +33,7 @@ return {
 		event = "VeryLazy",
 		config = true,
 	},
-	{ "chentoast/marks.nvim", event = "VimEnter" },
+	{ "chentoast/marks.nvim", event = "VimEnter", opts = { sign_priority = 90 } },
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

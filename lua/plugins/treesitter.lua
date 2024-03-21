@@ -24,15 +24,25 @@ local treesitter_config = {
 		},
 	},
 	ensure_installed = {
+		-- systems programming
 		"c",
+		"cpp",
+		"cmake",
+		"c_sharp",
+		"dockerfile",
 		"rust",
 		"go",
 		"gomod",
 		"gosum",
+		"tmux",
+		-- lua
 		"lua",
+		"luadoc",
+		-- web technologies
 		"css",
 		"html",
 		"http",
+		-- javascript
 		"astro",
 		"svelte",
 		"templ",
@@ -41,10 +51,14 @@ local treesitter_config = {
 		"typescript",
 		"tsx",
 		"vue",
+		-- data
 		"sql",
+		"xml",
 		"json",
 		"yaml",
+		"toml",
 		"graphql",
+		-- note taking
 		"markdown",
 		"markdown_inline",
 		"vim",

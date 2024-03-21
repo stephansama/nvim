@@ -1,52 +1,55 @@
-local highlight = {
-	"RainbowRed",
-	"RainbowYellow",
-	"RainbowGreen",
-	"RainbowBlue",
-	"RainbowOrange",
-	"RainbowViolet",
-	"RainbowCyan",
+local exclude_filetypes = {
+	"alpha",
+	"neo-tree",
+	"Trouble",
+	"trouble",
+	"lazy",
+	"mason",
+	"notify",
+	"toggleterm",
+	"lazyterm",
+	"lspinfo",
+	"packer",
+	"checkhealth",
+	"help",
+	"man",
+	"gitcommit",
+	"TelescopePrompt",
+	"TelescopeResults",
+	"dashboard",
 }
 
 local ibl_config = {
 	-- use to switch back to every line being colored
 	-- indent = { highlight = highlight },
-	scope = { highlight = highlight },
+	scope = { enabled = false },
 	exclude = {
 		buftypes = { "terminal", "nofile", "quickfix", "prompt" },
-		filetypes = {
-			"lspinfo",
-			"packer",
-			"checkhealth",
-			"help",
-			"man",
-			"gitcommit",
-			"TelescopePrompt",
-			"TelescopeResults",
-			"dashboard",
-		},
+		filetypes = exclude_filetypes,
 	},
 }
 
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
-	lazy = false,
-	event = "User FilePost",
-	config = function()
-		local hooks = require("ibl.hooks")
-		-- create the highlight groups in the highlight setup hook, so they are reset
-		-- every time the colorscheme changes
-		hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-			vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#8a0f19" })
-			vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#ba8013" })
-			vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#3d820a" })
-			vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-			vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-			vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-		end)
-
-		require("ibl").setup(ibl_config)
-	end,
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = "User FilePost",
+		main = "ibl",
+		lazy = false,
+		opts = ibl_config,
+		config = true,
+	},
+	{
+		"echasnovski/mini.indentscope",
+		version = false, -- wait till new 0.7.0 release to put it back on semver
+		ft = "*",
+		opts = { symbol = "│", options = { try_as_border = true } },
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = exclude_filetypes,
+				callback = function()
+					vim.b.miniindentscope_disable = true
+				end,
+			})
+		end,
+	},
 }

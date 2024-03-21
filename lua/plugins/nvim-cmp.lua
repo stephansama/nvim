@@ -36,6 +36,28 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 		},
+		{
+			"hrsh7th/cmp-cmdline",
+			event = "VimEnter",
+			config = function()
+				local cmp = require("cmp")
+
+				cmp.setup.cmdline("/", {
+					mapping = cmp.mapping.preset.cmdline(),
+					sources = { { name = "buffer" } },
+				})
+
+				cmp.setup.cmdline(":", {
+					mapping = cmp.mapping.preset.cmdline(),
+					sources = cmp.config.sources({ { name = "path" } }, {
+						{
+							name = "cmdline",
+							option = { ignore_cmds = { "Man", "!" } },
+						},
+					}),
+				})
+			end,
+		},
 		{ -- add completion for package.json sort of similar to crates.nvim from rust
 			"David-Kunz/cmp-npm",
 			ft = "json",

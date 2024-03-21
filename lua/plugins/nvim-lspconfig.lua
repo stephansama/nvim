@@ -12,13 +12,6 @@ end
 
 return {
 	{
-		"j-hui/fidget.nvim",
-		ft = "*,!dashboard",
-		event = "BufEnter",
-		lazy = false,
-		opts = { notification = { window = { border = "single", winblend = 0 } } },
-	},
-	{
 		"neovim/nvim-lspconfig",
 		opts = { inlay_hints = { enabled = true } },
 		event = "User FilePost",

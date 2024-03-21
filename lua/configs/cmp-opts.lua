@@ -75,7 +75,7 @@ return {
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-e>"] = cmp.mapping.close(),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-y>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()

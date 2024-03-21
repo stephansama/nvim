@@ -8,7 +8,7 @@ local insert_picker = picker_config("dropdown", "insert")
 local normal_picker = picker_config("dropdown", "normal")
 
 local telescope_config = {
-	defaults = { prompt_prefix = "   ", initial_mode = "insert" },
+	defaults = { prompt_prefix = "   ", initial_mode = "insert" },
 	pickers = {
 		todo = normal_picker,
 		marks = insert_picker,

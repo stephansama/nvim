@@ -39,9 +39,13 @@ local opts = {
 	},
 }
 
+local goto_dashboard = function()
+	vim.cmd([[bufdo bd!]])
+	vim.cmd([[Dashboard]])
+end
+
 local init = function()
-	vim.keymap.set("n", "<leader>ld", ":bufdo bd!<CR>:Dashboard<CR>", { desc = "Close all buffers" })
-	vim.cmd([[hi DashboardHeader guifg=#782021 guibg=none]])
+	vim.keymap.set("n", "<leader>ld", goto_dashboard, { desc = "Close all buffers" })
 end
 
 return {

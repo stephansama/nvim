@@ -20,6 +20,18 @@ end
 expand_keymaps({
 	n = {
 		["<ESC>"] = { vim.cmd.noh, "Escape" },
+		["<leader><leader>w"] = { vim.cmd.wqa, "Save and quit all" },
+		["<leader><leader><leader>"] = { vim.cmd.qa, "Quit all" },
+
+		["<leader>md"] = {
+			function()
+				vim.cmd([[delmarks!]])
+				vim.cmd([[delmarks A-Z0-9]])
+			end,
+			"Escape",
+		},
+
+		-- macro
 		["Q"] = { "@q", "Replay quick macro" },
 
 		-- leader functions

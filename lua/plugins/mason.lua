@@ -48,6 +48,7 @@ local mason_config = {
 		"go-debug-adapter",
 	},
 	ui = {
+		border = "rounded",
 		icons = {
 			package_pending = "➜",
 			package_installed = "✓",
