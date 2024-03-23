@@ -65,6 +65,7 @@ local servers = {
 	-- systems
 	"dockerls",
 	"clangd",
+	"vimls",
 	-- c
 	"cmake",
 	-- explicitly used servers

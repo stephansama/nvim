@@ -11,6 +11,7 @@ local mason_lspconfig = {
 		-- scripting
 		"bashls",
 		"lua_ls",
+		"vimls",
 		-- javascript
 		"htmx",
 		"astro",
@@ -41,6 +42,8 @@ local mason_config = {
 	PATH = "prepend",
 	registries = { "github:mason-org/mason-registry" },
 	ensure_installed = {
+		"shfmt",
+		"prettier",
 		"prettierd",
 		"codelldb",
 		"stylua",
