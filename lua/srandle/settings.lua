@@ -4,6 +4,8 @@ expand_settings({
 	wo = { number = true, relativenumber = true },
 	bo = { tabstop = 4 },
 	o = {
+		list = true,
+		listchars = "tab:│ ,trail:·",
 		scrolloff = 8,
 		shiftwidth = 4,
 		fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]], -- fold seperator
