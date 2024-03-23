@@ -3,6 +3,14 @@
 --- https://www.nerdfonts.com/cheat-sheet
 --- https://wasm.simpleicons.org
 local icons = {
+	tabby = "󰄛",
+	["tabby-client"] = "󰄛",
+	npm = "",
+	nvm = "󰎙",
+	desktop = "",
+	document = "󱧶",
+	bun = "󰳮",
+	movie = "󰎁",
 	book = "",
 	store = "󰓜",
 	footer = "󰛻",
