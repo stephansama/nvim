@@ -1,13 +1,14 @@
+<!-- markdownlint-disable RULE33 -->
 # `nvim/`
 
 <a href="https://dotfyle.com/stephansama/nvim">
-    <img src="https://dotfyle.com/stephansama/nvim/badges/plugins?style=for-the-badge" />
+    <img alt="Plugins" src="https://dotfyle.com/stephansama/nvim/badges/plugins?style=for-the-badge" />
 </a>
 <a href="https://dotfyle.com/stephansama/nvim">
-    <img src="https://dotfyle.com/stephansama/nvim/badges/leaderkey?style=for-the-badge" />
+    <img alt="Leader Key" src="https://dotfyle.com/stephansama/nvim/badges/leaderkey?style=for-the-badge" />
 </a>
 <a href="https://dotfyle.com/stephansama/nvim">
-    <img src="https://dotfyle.com/stephansama/nvim/badges/plugin-manager?style=for-the-badge" />
+    <img alt="Plugin Manager" src="https://dotfyle.com/stephansama/nvim/badges/plugin-manager?style=for-the-badge" />
 </a>
 
 ## Install Instructions

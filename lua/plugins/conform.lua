@@ -13,6 +13,7 @@ local opts = {
 
 		go = { "gofmt" },
 		sh = { "shfmt" },
+		zshrc = { "shfmt" },
 		toml = { "taplo" },
 		markdown = { "markdownlint" },
 	},

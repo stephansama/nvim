@@ -24,17 +24,17 @@ local border = {
 }
 
 -- LSP settings (for overriding per client)
--- local handlers = {
--- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
--- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
--- }
---
--- -- add borders
--- for key, v in pairs(handlers) do
--- 	vim.lsp.handlers[key] = v
--- end
---
--- vim.diagnostic.config({ float = { border = border } })
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
+-- add borders
+for key, v in pairs(handlers) do
+	vim.lsp.handlers[key] = v
+end
+
+vim.diagnostic.config({ float = { border = border } })
 
 local on_attach = function(_, bufnr)
 	local options = { noremap = true, silent = true, buffer = bufnr }
@@ -51,7 +51,6 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-	"bashls",
 	"marksman",
 	"mdx_analyzer",
 	"yamlls",
@@ -90,6 +89,12 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({ on_attach = on_attach, capabilities = capabilities })
 end
 
+lspconfig.bashls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "zsh", "sh" },
+})
+
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
 	on_attach = function(c, b)
@@ -118,7 +123,7 @@ lspconfig.emmet_ls.setup({
 		"pug",
 		"typescriptreact",
 		"vue",
-		"markdownlint",
+		"markdown",
 	},
 	init_options = {
 		html = {
