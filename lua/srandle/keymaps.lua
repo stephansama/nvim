@@ -18,6 +18,7 @@ local function delete_buffer()
 end
 
 expand_keymaps({
+	[{ "v", "x" }] = { p = { '"_dP', "Paste without copying" } },
 	n = {
 		["<ESC>"] = { vim.cmd.noh, "Escape" },
 		["<leader><leader>w"] = { vim.cmd.wqa, "Save and quit all" },

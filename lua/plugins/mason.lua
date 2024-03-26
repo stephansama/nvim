@@ -49,13 +49,20 @@ local mason_config = {
 		"stylua",
 		"delve",
 		"go-debug-adapter",
+		"htmlhint",
+		"jsonhint",
+		"stylelint",
+		"markdownlint",
 	},
 	ui = {
 		border = "rounded",
 		icons = {
-			package_pending = "➜",
-			package_installed = "✓",
-			package_uninstalled = "✗",
+			-- package_pending = "➜",
+			-- package_installed = "✓",
+			-- package_uninstalled = "✗",
+			package_pending = "󰶻",
+			package_installed = "󰄴",
+			package_uninstalled = "󰅘",
 		},
 		keymaps = {
 			toggle_server_expand = "<CR>",

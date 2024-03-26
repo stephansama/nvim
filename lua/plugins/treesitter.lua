@@ -86,7 +86,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-		dependencies = { "windwp/nvim-ts-autotag" },
+		dependencies = { { "windwp/nvim-ts-autotag", ft = filetypes } },
 		opts = treesitter_config,
 		config = function(_, opts)
 			vim.opt.runtimepath:append(parser_install_dir)

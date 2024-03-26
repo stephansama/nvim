@@ -13,6 +13,8 @@ local opts = {
 
 		go = { "gofmt" },
 		sh = { "shfmt" },
+		toml = { "taplo" },
+		markdown = { "markdownlint" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

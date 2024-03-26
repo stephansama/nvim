@@ -32,6 +32,19 @@ local telescope_config = {
 return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = false },
 	{
+		"ziontee113/icon-picker.nvim",
+		lazy = false,
+		config = function()
+			require("icon-picker").setup({ disable_legacy_commands = true })
+
+			local opts = { noremap = true, silent = true }
+
+			vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+			vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+			vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
+		end,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		dependencies = {
@@ -60,6 +73,7 @@ return {
 			local telescope = require("telescope")
 			telescope.setup(telescope_config)
 			telescope.load_extension("fzf")
+			telescope.load_extension("package_info")
 		end,
 	},
 }

@@ -23,6 +23,7 @@ expand_settings({
 		splitright = true,
 		smartindent = true,
 		conceallevel = 1,
+		termguicolors = true,
 		-- https://github.com/kevinhwang91/nvim-ufo?tab=readme-ov-file#minimal-configuration
 		foldlevel = 99,
 		foldcolumn = "1",

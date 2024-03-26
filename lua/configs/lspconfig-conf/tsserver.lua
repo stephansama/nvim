@@ -1,5 +1,6 @@
 return {
 	settings = {
+		init_options = { preferences = { disableSuggestions = true } },
 		typescript = {
 			inlayHints = {
 				includeInlayParameterNameHints = "all",

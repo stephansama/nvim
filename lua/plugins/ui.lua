@@ -61,10 +61,46 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		lazy = false,
-		opts = { transparent_background = true },
+		opts = {
+			transparent_background = true,
+			show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
+			integrations = {
+				cmp = true,
+				gitsigns = true,
+				harpoon = true,
+				indent_blankline = true,
+				mason = true,
+				neotree = true,
+				noice = true,
+				ufo = true,
+				telescope = true,
+				lsp_trouble = true,
+				illuminate = true,
+				treesitter = true,
+				dashboard = true,
+				notify = false,
+				native_lsp = {
+					enabled = true,
+					virtual_text = {
+						errors = { "italic" },
+						hints = { "italic" },
+						warnings = { "italic" },
+						information = { "italic" },
+					},
+					underlines = {
+						errors = { "underline" },
+						hints = { "underline" },
+						warnings = { "underline" },
+						information = { "underline" },
+					},
+					-- inlay_hints = {
+					-- 	background = true,
+					-- },
+				},
+			},
+		},
 		priority = 1000,
 	},
-
 	{
 		"nvim-lualine/lualine.nvim",
 		lazy = false,
@@ -118,6 +154,22 @@ return {
 		end,
 	},
 	{
+		"f-person/auto-dark-mode.nvim",
+		opts = {
+			update_interval = 1000,
+			set_dark_mode = function()
+				vim.api.nvim_set_option("background", "dark")
+				vim.cmd("colorscheme catppuccin-mocha")
+				vim.api.nvim_command("!kitten themes --reload-in=all Catppuccin-Mocha")
+			end,
+			set_light_mode = function()
+				vim.api.nvim_set_option("background", "light")
+				vim.cmd("colorscheme catppuccin-latte")
+				vim.api.nvim_command("!kitten themes --reload-in=all Catppuccin-Latte")
+			end,
+		},
+	},
+	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = { "MunifTanjim/nui.nvim" },
@@ -128,6 +180,9 @@ return {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+				},
+				hover = {
+					silent = true,
 				},
 			},
 			views = {

@@ -20,15 +20,33 @@ return {
 		lazy = false,
 		init = function()
 			vim.g.VM_leader = "<BS>"
-			-- macOS specific keybindings
-			vim.keymap.set("n", "∆", "<Plug>(VM-Add-Cursor-Down)")
-			vim.keymap.set("n", "˚", "<Plug>(VM-Add-Cursor-Up)")
-			-- vim.keymap.set("n", "<A-j>", "<Plug>(VM-Add-Cursor-Down)")
-			-- vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)")
+			vim.keymap.set("n", "<A-j>", "<Plug>(VM-Add-Cursor-Down)") -- ∆ macOS specific
+			vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)") -- ˚ macOS equivalent
 		end,
 	},
 	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
-	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }, lazy = false },
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = { mode = "workspace_diagnostics" },
+		lazy = false,
+	},
+	{
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<C-h>", "<CMD><C-U>TmuxNavigateLeft<CR>" },
+			{ "<C-j>", "<CMD><C-U>TmuxNavigateDown<CR>" },
+			{ "<C-k>", "<CMD><C-U>TmuxNavigateUp<CR>" },
+			{ "<C-l>", "<CMD><C-U>TmuxNavigateRight<CR>" },
+		},
+	},
 	{
 		"mbbill/undotree",
 		lazy = false,
