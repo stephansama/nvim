@@ -5,6 +5,8 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 --- add ufo capabilities
 capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+--- add emmet completion support
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- LSP Border
 vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
@@ -22,17 +24,17 @@ local border = {
 }
 
 -- LSP settings (for overriding per client)
-local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-}
-
--- add borders
-for key, v in pairs(handlers) do
-	vim.lsp.handlers[key] = v
-end
-
-vim.diagnostic.config({ float = { border = border } })
+-- local handlers = {
+-- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+-- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+-- }
+--
+-- -- add borders
+-- for key, v in pairs(handlers) do
+-- 	vim.lsp.handlers[key] = v
+-- end
+--
+-- vim.diagnostic.config({ float = { border = border } })
 
 local on_attach = function(_, bufnr)
 	local options = { noremap = true, silent = true, buffer = bufnr }
@@ -100,6 +102,33 @@ lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig-conf.go")))
 lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig-conf.json")))
 lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig-conf.lua_ls")))
 lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig-conf.tsserver")))
+lspconfig.emmet_ls.setup({
+	-- on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"svelte",
+		"pug",
+		"typescriptreact",
+		"vue",
+		"markdownlint",
+	},
+	init_options = {
+		html = {
+			options = {
+				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				["bem.enabled"] = true,
+			},
+		},
+	},
+})
 
 lspconfig.cssls.setup({
 	settings = {

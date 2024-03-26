@@ -13,7 +13,8 @@ return {
 			typescript = { "eslint" },
 			html = { "htmlhint" },
 			json = { "jsonlint" },
-			zsh = { "zsh" },
+			markdown = { "markdownlint" },
+			sh = { "shellcheck" },
 		}
 	end,
 }

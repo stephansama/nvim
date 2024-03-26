@@ -43,6 +43,7 @@ local mason_config = {
 	registries = { "github:mason-org/mason-registry" },
 	ensure_installed = {
 		"shfmt",
+		"shellcheck",
 		"prettier",
 		"prettierd",
 		"codelldb",

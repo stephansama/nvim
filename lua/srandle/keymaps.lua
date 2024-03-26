@@ -58,13 +58,6 @@ expand_keymaps({
 		["v'"] = { "vi'", "Visually select single quotes" },
 		['v"'] = { 'vi"', "Visually select double quotes" },
 
-		-- navigate windows
-		["<C-k>"] = { "<C-w>k", "Navigate window up" },
-		["<C-j>"] = { "<C-w>j", "Navigate window down" },
-		["<C-h>"] = { "<C-w>h", "Navigate window left" },
-		["<C-l>"] = { "<C-w>l", "Navigate window right" },
-		["<C-]>"] = { "<C-w>>", "Increase window size" },
-
 		-- navigate buffers
 		["("] = { move_buffer("previous"), "Navigate to previous buffer" },
 		[")"] = { move_buffer("next"), "Navigate to next buffer" },

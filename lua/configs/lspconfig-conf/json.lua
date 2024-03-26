@@ -5,6 +5,11 @@ local json_schemas = {
 		url = "http://json.schemastore.org/eslintrc",
 	},
 	{
+		description = "Prettier config",
+		fileMatch = { ".prettierrc.json5", ".prettierrc.json", ".prettierrc" },
+		url = "https://json.schemastore.org/prettierrc",
+	},
+	{
 		description = "Package config",
 		fileMatch = { "package.json" },
 		url = "https://json.schemastore.org/package",
