@@ -1,13 +1,11 @@
 return {
 	{
 		"folke/todo-comments.nvim",
-		ft = "*,!nvdash,!dashboard",
-		lazy = false,
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = true,
-		init = function()
-			vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope initial_mode=normal<CR>")
-		end,
+		keys = {
+			{ "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" },
+		},
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",

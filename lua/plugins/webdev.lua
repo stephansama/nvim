@@ -6,6 +6,7 @@ return {
 	{ "themaxmarchuk/tailwindcss-colors.nvim", config = true },
 	{
 		"vuki656/package-info.nvim",
+		event = { "BufRead package.json" },
 		dependencies = "MunifTanjim/nui.nvim",
 		ft = { "json" },
 		opts = {
@@ -25,8 +26,6 @@ return {
 			package_manager = "pnpm",
 			autostart = true, -- Whether to autostart when `package.json` is opened
 		},
-		config = function(_, opts)
-			require("package-info").setup(opts)
-		end,
+		config = true,
 	},
 }

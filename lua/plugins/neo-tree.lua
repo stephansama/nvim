@@ -40,8 +40,9 @@ end
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
 	cmd = "Neotree",
+	branch = "v3.x",
+	config = true,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -53,16 +54,11 @@ return {
 			config = true,
 		},
 	},
-	init = function()
-		expand_keymaps({
-			n = {
-				["<leader>e"] = { execute_neotree({ position = "current" }), "Open netrw style explorer" },
-				["\\"] = { execute_neotree(), "Open explorer side panel" },
-				["g\\"] = { execute_neotree({ source = "git_status" }), "Open git" },
-			},
-		})
-	end,
-	config = true,
+	keys = {
+		{ "<leader>e", execute_neotree({ position = "current" }), desc = "Open netrw style explorer" },
+		{ "\\", execute_neotree(), desc = "Open explorer side panel" },
+		{ "g\\", execute_neotree({ source = "git_status" }), desc = "Open explorer side panel" },
+	},
 	opts = function()
 		return require("configs.neo-tree-opts")
 	end,

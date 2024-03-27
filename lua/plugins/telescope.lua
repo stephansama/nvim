@@ -1,5 +1,3 @@
-local expand_keymaps = require("utils").expand_keymaps
-
 local function picker_config(theme, initial_mode)
 	return { theme = theme, initial_mode = initial_mode }
 end
@@ -33,16 +31,13 @@ return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = false },
 	{
 		"ziontee113/icon-picker.nvim",
-		lazy = false,
-		config = function()
-			require("icon-picker").setup({ disable_legacy_commands = true })
-
-			local opts = { noremap = true, silent = true }
-
-			vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
-			vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-			vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
-		end,
+		config = true,
+		opts = { disable_legacy_commands = true },
+		keys = {
+			{ "<leader><leader>i", "<cmd>IconPickerNormal<cr>", desc = "IconPickerNormal" },
+			{ "<leader><leader>y", "<cmd>IconPickerYank<cr>", desc = "IconPickerYank" },
+			-- { "<C-i>", "<cmd>IconPickerInsert<cr>", mode = "i", desc = "IconPickerInsert" },
+		},
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -52,23 +47,19 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 		},
-		init = function()
-			expand_keymaps({
-				n = {
-					["<leader><Tab>"] = { "<cmd>Telescope buffers<CR>", "Find buffers" },
-					["<leader>fls"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Find symbols" },
-					["<leader>fk"] = { "<cmd>Telescope keymaps<CR>", "Find keymaps" },
-					["<leader>ff"] = { "<cmd>Telescope find_files<CR>", "Find files" },
-					["<leader>fw"] = { "<cmd>Telescope live_grep<CR>", "Find word" },
-					["<leader>fe"] = { "<cmd>Telescope grep_string<CR>", "Find exact word" },
-					["<leader>fo"] = { "<cmd>Telescope oldfiles<CR>", "Find oldfiles" },
-					["<leader>ft"] = { "<cmd>Telescope colorscheme<CR>", "Change colorscheme" },
-					["<leader>fm"] = { "<cmd>Telescope marks<CR>", "Find marks" },
-					["<leader>gs"] = { "<cmd>Telescope git_status<CR>", "Find within git status" },
-					["<leader>fs"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find within current buffer" },
-				},
-			})
-		end,
+		keys = {
+			{ "<leader><Tab>", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
+			{ "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols" },
+			{ "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Find keymaps" },
+			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+			{ "<leader>fw", "<cmd>Telescope live_grep<CR>", desc = "Find word" },
+			{ "<leader>fe", "<cmd>Telescope grep_string<CR>", desc = "Find exact word" },
+			{ "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "Find oldfiles" },
+			{ "<leader>ft", "<cmd>Telescope colorscheme<CR>", desc = "Change colorscheme" },
+			{ "<leader>fm", "<cmd>Telescope marks<CR>", desc = "Find marks" },
+			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Find within git status" },
+			{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
+		},
 		config = function()
 			local telescope = require("telescope")
 			telescope.setup(telescope_config)
