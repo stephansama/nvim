@@ -64,7 +64,6 @@ return {
 			local telescope = require("telescope")
 			telescope.setup(telescope_config)
 			telescope.load_extension("fzf")
-			telescope.load_extension("package_info")
 		end,
 	},
 }

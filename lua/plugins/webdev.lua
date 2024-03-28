@@ -6,9 +6,10 @@ return {
 	{ "themaxmarchuk/tailwindcss-colors.nvim", config = true },
 	{
 		"vuki656/package-info.nvim",
-		event = { "BufRead package.json" },
 		dependencies = "MunifTanjim/nui.nvim",
-		ft = { "json" },
+		-- event = { "BufRead package.json" },
+		-- for whatever reason cannot get colors to work unless the package is not lazy loaded
+		lazy = false,
 		opts = {
 			colors = {
 				up_to_date = "#9CDAE9", -- Text color for up to date dependency virtual text
@@ -24,7 +25,12 @@ return {
 			hide_unstable_versions = true,
 			hide_up_to_date = false, -- It hides up to date versions when displaying virtual text
 			package_manager = "pnpm",
-			autostart = true, -- Whether to autostart when `package.json` is opened
+			-- autostart = true, -- Whether to autostart when `package.json` is opened
+		},
+		keys = {
+			{ "<leader>jv", "<CMD>PackageInfoChangeVersion<CR>", desc = "Change Package Lock version" },
+			{ "<leader>js", "<CMD>PackageInfoShow<CR>", desc = "Change Package Lock version" },
+			{ "<leader>jh", "<CMD>PackageInfoHide<CR>", desc = "Change Package Lock version" },
 		},
 		config = true,
 	},
