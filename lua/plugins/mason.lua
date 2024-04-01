@@ -51,7 +51,7 @@ local mason_config = {
 		"delve",
 		"go-debug-adapter",
 		"htmlhint",
-		"jsonhint",
+		"jsonlint",
 		"stylelint",
 		"markdownlint",
 	},

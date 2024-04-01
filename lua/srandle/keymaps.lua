@@ -41,7 +41,7 @@ expand_keymaps({
 		["<leader>d"] = { delete_buffer, "Delete buffer" },
 		["<leader>ll"] = { vim.cmd.Lazy, "Load lazy plugin manager" },
 		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
-		["<leader>lo"] = { ":%bd|e#<CR>", "Close all except for current buffer" },
+		["<leader>lo"] = { ":Lazy load ", "Lazy load a plugin" },
 		["<leader>la"] = { ":bufdo bd!<CR>", "Close all buffers" },
 
 		-- quick actions

@@ -155,6 +155,12 @@ return {
 	},
 	{
 		"f-person/auto-dark-mode.nvim",
+		keys = {
+			{
+				"<leader>th",
+				"<CMD>Lazy load auto-dark-mode.nvim<CR>",
+			},
+		},
 		opts = {
 			update_interval = 1000,
 			set_dark_mode = function()
@@ -175,14 +181,12 @@ return {
 		dependencies = { "MunifTanjim/nui.nvim" },
 		opts = {
 			lsp = {
+				hover = { silent = true },
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-				},
-				hover = {
-					silent = true,
 				},
 			},
 			views = {

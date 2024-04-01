@@ -94,18 +94,6 @@ return {
 		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter-context",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		lazy = false,
-		init = function()
-			vim.keymap.set("n", "[c", function()
-				require("treesitter-context").go_to_context(vim.v.count1)
-			end, { silent = true })
-		end,
-		opts = treesitter_context_config,
-		config = true,
-	},
-	{
 		"hedyhli/outline.nvim",
 		config = true,
 		keys = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } },

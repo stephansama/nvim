@@ -6,7 +6,6 @@ return {
 			return require("configs.devicons")
 		end,
 	},
-	{ "TabbyML/vim-tabby", lazy = false },
 	{ "bfontaine/Brewfile.vim", ft = "Brewfile" },
 	{
 		"RRethy/vim-illuminate",
@@ -47,11 +46,20 @@ return {
 			{ "<C-l>", "<CMD><C-U>TmuxNavigateRight<CR>" },
 		},
 	},
+	-- https://github.com/axieax/urlview.nvim
+	{
+		"axieax/urlview.nvim",
+		event = "BufEnter *",
+		config = true,
+		keys = { {
+			"<leader>gx",
+			"<CMD>UrlView<CR>",
+			desc = "Open urlview",
+		} },
+	},
 	{
 		"mbbill/undotree",
-		keys = {
-			{ "<leader>u", "<CMD>UndotreeToggle<CR>", desc = "UndotreeToggle" },
-		},
+		keys = { { "<leader>u", "<CMD>UndotreeToggle<CR>", desc = "UndotreeToggle" } },
 		config = function()
 			vim.g.undotree_WindowLayout = 3
 			vim.g.undotree_SetFocusWhenToggle = 1

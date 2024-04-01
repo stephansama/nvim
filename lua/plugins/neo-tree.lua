@@ -1,5 +1,3 @@
-local expand_keymaps = require("utils").expand_keymaps
-
 local window_picker_config = {
 	filter_rules = {
 		include_current_win = false,
