@@ -1,7 +1,7 @@
 return {
 	"kawre/leetcode.nvim",
 	build = ":TSUpdate html",
-	keys = { { "le", "<cmd>Leet<cr>", desc = "Open leet" } },
+	keys = { { "<leader>le", "<cmd>Leet<cr>", desc = "Open leet" } },
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 		"nvim-lua/plenary.nvim", -- required by telescope
