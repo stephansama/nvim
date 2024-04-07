@@ -52,15 +52,13 @@ local mason_config = {
 		"go-debug-adapter",
 		"htmlhint",
 		"jsonlint",
+		"yamllint",
 		"stylelint",
 		"markdownlint",
 	},
 	ui = {
 		border = "rounded",
 		icons = {
-			-- package_pending = "➜",
-			-- package_installed = "✓",
-			-- package_uninstalled = "✗",
 			package_pending = "󰶻",
 			package_installed = "󰄴",
 			package_uninstalled = "󰅘",

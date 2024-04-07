@@ -1,4 +1,19 @@
-local json_schemas = {
+local schemas = {
+	{
+		description = "Nodemon configuration",
+		fileMatch = { "nodemon.json" },
+		url = "https://json.schemastore.org/nodemon.json",
+	},
+	{
+		description = "Vercel config",
+		fileMatch = { "vercel.json" },
+		url = "https://openapi.vercel.sh/vercel.json",
+	},
+	{
+		description = "Typescript config",
+		fileMatch = { "tsconfig.json", "tsconfig.node.json" },
+		url = "http://json.schemastore.org/tsconfig",
+	},
 	{
 		description = "ESLint config",
 		fileMatch = { ".eslintrc.json", ".eslintrc" },
@@ -43,4 +58,4 @@ local json_schemas = {
 	},
 }
 
-return { json = { schemas = json_schemas } }
+return { json = { schemas = schemas } }

@@ -2,6 +2,7 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		event = "VimEnter",
 		config = true,
 		keys = {
 			{ "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" },
@@ -20,7 +21,7 @@ return {
 		config = true,
 		opts = function()
 			return {
-				---LHS of operator-pending mappings in NORMAL and VISUAL mode
+				--- LHS of operator-pending mappings in NORMAL and VISUAL mode
 				opleader = { line = "gc", block = "gC" },
 				toggler = { line = "gcc", block = "gCc" },
 				extra = { above = "gcO", below = "gco" },

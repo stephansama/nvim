@@ -8,13 +8,15 @@ return {
 		})
 	end,
 	config = function()
+		--- https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters
 		require("lint").linters_by_ft = {
-			javascript = { "eslint" },
-			typescript = { "eslint" },
+			sh = { "shellcheck" },
 			html = { "htmlhint" },
 			json = { "jsonlint" },
+			-- yaml = { "yamllint" },
 			markdown = { "markdownlint" },
-			sh = { "shellcheck" },
+			javascript = { "eslint" },
+			typescript = { "eslint" },
 		}
 	end,
 }

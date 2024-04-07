@@ -36,7 +36,6 @@ return {
 		keys = {
 			{ "<leader><leader>i", "<cmd>IconPickerNormal<cr>", desc = "IconPickerNormal" },
 			{ "<leader><leader>y", "<cmd>IconPickerYank<cr>", desc = "IconPickerYank" },
-			-- { "<C-i>", "<cmd>IconPickerInsert<cr>", mode = "i", desc = "IconPickerInsert" },
 		},
 	},
 	{

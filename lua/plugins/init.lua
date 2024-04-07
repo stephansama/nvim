@@ -6,30 +6,6 @@ return {
 			return require("configs.devicons")
 		end,
 	},
-	{ "bfontaine/Brewfile.vim", ft = "Brewfile" },
-	{
-		"RRethy/vim-illuminate",
-		lazy = false,
-		config = function()
-			require("illuminate").configure(require("configs.illuminate-opts"))
-		end,
-	},
-	{
-		"mg979/vim-visual-multi",
-		lazy = false,
-		init = function()
-			vim.g.VM_leader = "<BS>"
-			vim.keymap.set("n", "<A-j>", "<Plug>(VM-Add-Cursor-Down)") -- ∆ macOS specific
-			vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)") -- ˚ macOS equivalent
-		end,
-	},
-	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = { mode = "workspace_diagnostics" },
-		lazy = false,
-	},
 	{
 		"christoomey/vim-tmux-navigator",
 		cmd = {
@@ -46,23 +22,9 @@ return {
 			{ "<C-l>", "<CMD><C-U>TmuxNavigateRight<CR>" },
 		},
 	},
-	-- https://github.com/axieax/urlview.nvim
 	{
 		"axieax/urlview.nvim",
-		event = "BufEnter *",
 		config = true,
-		keys = { {
-			"<leader>gx",
-			"<CMD>UrlView<CR>",
-			desc = "Open urlview",
-		} },
-	},
-	{
-		"mbbill/undotree",
-		keys = { { "<leader>u", "<CMD>UndotreeToggle<CR>", desc = "UndotreeToggle" } },
-		config = function()
-			vim.g.undotree_WindowLayout = 3
-			vim.g.undotree_SetFocusWhenToggle = 1
-		end,
+		keys = { { "<leader>gx", "<cmd>UrlView<cr>", desc = "Open urlview" } },
 	},
 }

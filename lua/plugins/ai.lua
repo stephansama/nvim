@@ -2,9 +2,16 @@ return {
 	{ "TabbyML/vim-tabby", lazy = false },
 	{
 		"jackMort/ChatGPT.nvim",
-		event = "VeryLazy",
 		config = true,
-		opts = { api_key_cmd = "cat ~/.openai.key" },
+		keys = {
+			{ "<leader>ai", "<cmd>ChatGPT<cr>", desc = "Open ChatGPT prompt" },
+			{
+				"<leader>ai",
+				"<cmd>ChatGPTRun explain_code<cr>",
+				desc = "Explain code using Chatgpt",
+				mode = { "x" },
+			},
+		},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",

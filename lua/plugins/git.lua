@@ -1,9 +1,15 @@
 return {
 	{
+		"lewis6991/gitsigns.nvim",
+		init = function()
+			require("gitsigns").setup(require("configs.gitsigns-opts"))
+		end,
+	},
+	{
 		"sindrets/diffview.nvim",
 		keys = {
-			{ "gv", "<cmd>DiffviewOpen<CR>", desc = "Open Diffview" },
-			{ "gb", "<cmd>DiffviewClose<CR>", desc = "Close Diffview" },
+			{ "<leader>gv", "<cmd>DiffviewOpen<CR>", desc = "Open Diffview" },
+			{ "<leader>gb", "<cmd>DiffviewClose<CR>", desc = "Close Diffview" },
 		},
 		opts = {
 			file_panel = {

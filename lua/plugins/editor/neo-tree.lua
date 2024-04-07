@@ -53,9 +53,9 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>e", execute_neotree({ position = "current" }), desc = "Open netrw style explorer" },
 		{ "\\", execute_neotree(), desc = "Open explorer side panel" },
 		{ "g\\", execute_neotree({ source = "git_status" }), desc = "Open explorer side panel" },
+		{ "<leader>e", execute_neotree({ position = "current" }), desc = "Open netrw style explorer" },
 	},
 	opts = function()
 		return require("configs.neo-tree-opts")

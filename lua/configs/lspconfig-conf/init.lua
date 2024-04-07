@@ -50,10 +50,10 @@ local on_attach = function(_, bufnr)
 	keymap.set("n", "<leader>rs", ":LspRestart<CR>", options)
 end
 
+--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
 	"marksman",
 	"mdx_analyzer",
-	"yamlls",
 	-- web
 	"astro",
 	"svelte",
@@ -63,6 +63,8 @@ local servers = {
 	"cssmodules_ls",
 	"eslint",
 	"sqlls",
+	-- "yamlls",
+	"taplo", --- https://taplo.tamasfe.dev/
 	-- systems
 	"dockerls",
 	"clangd",
@@ -104,11 +106,11 @@ lspconfig.tailwindcss.setup({
 })
 
 lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig-conf.go")))
-lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig-conf.json")))
 lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig-conf.lua_ls")))
+lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig-conf.json")))
+lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig-conf.yaml")))
 lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig-conf.tsserver")))
 lspconfig.emmet_ls.setup({
-	-- on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = {
 		"css",

@@ -42,7 +42,7 @@ expand_keymaps({
 		["<leader>ll"] = { vim.cmd.Lazy, "Load lazy plugin manager" },
 		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
 		["<leader>lo"] = { ":Lazy load ", "Lazy load a plugin" },
-		["<leader>la"] = { ":bufdo bd!<CR>", "Close all buffers" },
+		["<leader>la"] = { "<cmd>bufdo bd!<CR>", "Close all buffers" },
 
 		-- quick actions
 		["cw"] = { "ciw", "Change word" },
@@ -65,8 +65,8 @@ expand_keymaps({
 	v = {
 		["<"] = { "<gv", "Indent Left" },
 		[">"] = { ">gv", "Indent Left" },
-		["J"] = { ":m '>+1<CR>gv=gv", "Move line up" },
-		["K"] = { ":m '<-2<CR>gv=gv", "Move line down" },
+		["J"] = { ":m '>+1<CR>gv=gv", "Move line up", { silent = true } },
+		["K"] = { ":m '<-2<CR>gv=gv", "Move line down", { silent = true } },
 	},
 	-- centered motions
 	[{ "n", "v", "x" }] = {

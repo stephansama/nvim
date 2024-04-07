@@ -15,7 +15,12 @@ return {
 	expand_keymaps = function(keymappings)
 		for mode, keybindings in pairs(keymappings) do
 			for key, info in pairs(keybindings) do
-				vim.keymap.set(mode, key, info[1], { desc = info[2] or "" })
+				vim.keymap.set(
+					mode,
+					key,
+					info[1],
+					vim.tbl_deep_extend("force", { desc = info[2] or "" }, info[3] or {})
+				)
 			end
 		end
 	end,
