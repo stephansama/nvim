@@ -68,6 +68,7 @@ local treesitter_config = {
 }
 
 return {
+	{ "hedyhli/outline.nvim", config = true, keys = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } } },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
@@ -79,10 +80,5 @@ return {
 			vim.opt.runtimepath:append(parser_install_dir)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
-	},
-	{
-		"hedyhli/outline.nvim",
-		config = true,
-		keys = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } },
 	},
 }

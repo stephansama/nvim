@@ -23,13 +23,13 @@ return {
 	},
 	{
 		"epwalsh/obsidian.nvim",
-		version = "*",
-		lazy = true,
 		ft = "markdown",
+		lazy = true,
+		config = true,
+		version = "*",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = function()
 			return require("configs.obsidian-opts")
 		end,
-		config = true,
 	},
 }
