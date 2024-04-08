@@ -59,8 +59,10 @@ return {
 		["babelrc.mjs"] = icons.babel,
 		["babelrc.js"] = icons.babel,
 		-- git
-		gitignore = icons.git,
 		gitkeep = icons.git,
+		gitconfig = icons.git,
+		gitignore = icons.git,
+		gitignore_global = icons.git,
 		postcss = icons.postcss,
 		astro = icons.astro,
 		pcss = icons.postcss,
