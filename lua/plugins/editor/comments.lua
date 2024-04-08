@@ -2,11 +2,9 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		event = "VimEnter",
 		config = true,
-		keys = {
-			{ "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" },
-		},
+		event = "VimEnter",
+		keys = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } },
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",

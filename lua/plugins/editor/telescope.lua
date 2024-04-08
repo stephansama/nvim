@@ -1,12 +1,12 @@
-local function picker_config(theme, initial_mode)
-	return { theme = theme, initial_mode = initial_mode }
+local function picker_config(initial_mode)
+	return { initial_mode = initial_mode, theme = "dropdown" }
 end
 
-local insert_picker = picker_config("dropdown", "insert")
-local normal_picker = picker_config("dropdown", "normal")
+local insert_picker = picker_config("insert")
+local normal_picker = picker_config("normal")
 
 local telescope_config = {
-	defaults = { prompt_prefix = "   ", initial_mode = "insert" },
+	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert" },
 	pickers = {
 		todo = normal_picker,
 		marks = insert_picker,
@@ -14,9 +14,9 @@ local telescope_config = {
 		keymaps = insert_picker,
 		oldfiles = normal_picker,
 		live_grep = insert_picker,
+		git_status = normal_picker,
 		grep_string = insert_picker,
 		colorscheme = insert_picker,
-		git_status = normal_picker,
 		lsp_document_symbols = insert_picker,
 		current_buffer_fuzzy_find = insert_picker,
 		find_files = vim.tbl_deep_extend(

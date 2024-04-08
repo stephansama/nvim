@@ -1,3 +1,4 @@
+---@see Obsidian https://github.com/epwalsh/obsidian.nvim
 return {
 	completion = { nvim_cmp = true }, --- Set to false to disable completion.
 	open_app_foreground = true,

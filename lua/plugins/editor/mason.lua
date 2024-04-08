@@ -58,12 +58,8 @@ local mason_config = {
 		"js-debug-adapter",
 	},
 	ui = {
+		icons = require("configs.icons").mason,
 		border = "rounded",
-		icons = {
-			package_pending = "󰶻",
-			package_installed = "󰄴",
-			package_uninstalled = "󰅘",
-		},
 		keymaps = {
 			toggle_server_expand = "<CR>",
 			install_server = "i",

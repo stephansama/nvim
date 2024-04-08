@@ -1,5 +1,19 @@
+--- https://www.nerdfonts.com/cheat-sheet
+--- https://wasm.simpleicons.org
 return {
-	neotree = require("configs.icons.neo-tree-icons"),
+	packageJSON = { up_to_date = "|  ", outdated = "|  " },
+	telescope = { prompt_prefix = "   " },
+	mason = {
+		package_pending = "󰶻",
+		package_installed = "󰄴",
+		package_uninstalled = "󰅘",
+	},
+	lazy = {
+		ft = "",
+		lazy = "󰂠 ",
+		loaded = "",
+		not_loaded = "",
+	},
 	cmp = {
 		Class = " ",
 		Color = " ",
@@ -22,14 +36,5 @@ return {
 		Unit = " ",
 		Value = "󰎠 ",
 		Variable = " ",
-	},
-	lazy = {
-		ft = "",
-		lazy = "󰂠 ",
-		loaded = "",
-		not_loaded = "",
-	},
-	telescope = {
-		prompt_prefix = "   ",
 	},
 }

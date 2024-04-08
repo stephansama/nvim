@@ -1,4 +1,4 @@
--- Setup language servers.
+---@see LSPConfig https://github.com/neovim/nvim-lspconfig
 local create_border = require("utils").border
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")

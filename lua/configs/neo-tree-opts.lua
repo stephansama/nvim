@@ -1,8 +1,9 @@
-local icon = require("configs.icons").neotree.icon
-local icons = require("configs.icons").neotree.icons
-local symbols = require("configs.icons").neotree.symbols
-local highlights = require("neo-tree.ui.highlights")
+---@see Neotree https://github.com/nvim-neo-tree/neo-tree.nvim
 local capture_after_first_period_in_filename = require("utils").capture_after_first_period_in_filename
+local neotreeicons = require("configs.icons.neo-tree-icons")
+local icon = neotreeicons.icon
+local icons = neotreeicons.icons
+local symbols = neotreeicons.symbols
 
 ---return the icon associated with a name removing the first character last character and a combination of the both
 ---@param name string
@@ -53,7 +54,8 @@ return {
 		components = {
 			--- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#custom-icons
 			icon = function(config, node)
-				local icon = config.default or " "
+				local highlights = require("neo-tree.ui.highlights")
+				local current_icon = config.default or " "
 				local padding = config.padding or " "
 				local highlight = config.highlight or highlights.FILE_ICON
 
@@ -61,9 +63,9 @@ return {
 					highlight = highlights.DIRECTORY_ICON
 					local found_icon = get_icon(node.name)
 					if node:is_expanded() then
-						icon = found_icon or config.folder_open or "-"
+						current_icon = found_icon or config.folder_open or "-"
 					else
-						icon = found_icon or config.folder_closed or "+"
+						current_icon = found_icon or config.folder_closed or "+"
 					end
 				elseif node.type == "file" then
 					local success, web_devicons = pcall(require, "nvim-web-devicons")
@@ -71,12 +73,12 @@ return {
 						local ext = capture_after_first_period_in_filename(node.path)
 						local devicon_full, hl_full = web_devicons.get_icon(node.name, ext)
 						local devicon, hl = web_devicons.get_icon(node.name, node.ext)
-						icon = devicon_full or devicon or icon
+						current_icon = devicon_full or devicon or current_icon
 						highlight = hl_full or hl or highlight
 					end
 				end
 
-				return { text = icon .. padding, highlight = highlight }
+				return { text = current_icon .. padding, highlight = highlight }
 			end,
 		},
 	},

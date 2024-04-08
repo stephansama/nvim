@@ -1,17 +1,14 @@
+---@see CMP https://github.com/hrsh7th/nvim-cmp
 local cmp = require("cmp")
 local icons = require("configs.icons").cmp
 local border = require("utils").border
 
+-- default fields order i.e completion word + item.kind + item.kind icons
 local formatting_style = {
-	-- default fields order i.e completion word + item.kind + item.kind icons
 	fields = { "abbr", "kind", "menu" },
-
 	format = function(_, item)
 		local icon = icons[item.kind] or ""
-
-		icon = (icon .. " ") or icon
-		item.kind = string.format("%s %s", icon, item.kind or "")
-
+		item.kind = string.format("%s %s", (icon .. " ") or icon, item.kind or "")
 		return item
 	end,
 }
@@ -19,19 +16,13 @@ local formatting_style = {
 return {
 	formatting = formatting_style,
 	completion = { completeopt = "menu,menuone" },
-	window = {
-		documentation = { border = border("CmpDocBorder"), winhighlight = "Normal:CmpDoc" },
-		completion = {
-			scrollbar = false,
-			side_padding = 1,
-			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-			border = border("CmpCompBorder"),
-		},
-	},
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end,
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "nvim_lua" },
+		{ name = "path" },
+		{ name = "npm", keyword_length = 4 },
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
@@ -60,12 +51,18 @@ return {
 			end
 		end, { "i", "s" }),
 	},
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
-		{ name = "nvim_lua" },
-		{ name = "path" },
-		{ name = "npm", keyword_length = 4 },
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	window = {
+		documentation = { border = border("CmpDocBorder"), winhighlight = "Normal:CmpDoc" },
+		completion = {
+			border = border("CmpCompBorder"),
+			scrollbar = false,
+			side_padding = 1,
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+		},
 	},
 }

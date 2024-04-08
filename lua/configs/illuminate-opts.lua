@@ -1,4 +1,4 @@
--- default configuration
+---@see Illuminate https://github.com/RRethy/vim-illuminate
 return {
 	-- providers: provider used to get references in the buffer, ordered by priority
 	providers = {

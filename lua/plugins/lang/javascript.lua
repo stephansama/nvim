@@ -1,11 +1,3 @@
-local icons = {
-	enable = true, -- Whether to display icons
-	style = {
-		up_to_date = "|  ", -- Icon for up to date dependencies
-		outdated = "|  ", -- Icon for outdated dependencies
-	},
-}
-
 return {
 	{
 		"vuki656/package-info.nvim",
@@ -15,7 +7,7 @@ return {
 		lazy = false,
 		config = true,
 		opts = { -- use the same colors and icons as [crates.nvim](https://github.com/Saecki/crates.nvim)
-			icons = icons,
+			icons = { enable = true, style = require("configs.icons").packageJSON },
 			colors = { up_to_date = "#9CDAE9", outdated = "#F5E3B5" },
 			package_manager = "pnpm",
 			hide_up_to_date = false, -- It hides up to date versions when displaying virtual text

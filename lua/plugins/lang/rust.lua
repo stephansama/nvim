@@ -33,9 +33,9 @@ return {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^4",
-		event = "BufReadPost",
 		ft = { "rust" },
+		event = "BufReadPost",
+		version = "^4",
 		dependencies = "neovim/nvim-lspconfig",
 		config = function()
 			vim.g.rustaceanvim = rustaceanvim_opts

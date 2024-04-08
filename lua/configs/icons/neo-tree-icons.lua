@@ -1,7 +1,5 @@
 ---@desc  inspired by material icon theme
---- https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
---- https://www.nerdfonts.com/cheat-sheet
---- https://wasm.simpleicons.org
+---@see MaterialFolderIcons https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
 return {
 	icon = {
 		folder_closed = "",
@@ -232,6 +230,3 @@ return {
 		srandle = "",
 	},
 }
-
--- return {
--- }
