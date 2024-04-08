@@ -1,5 +1,5 @@
--- https://www.nerdfonts.com/cheat-sheetdevi
--- https://github.com/nvim-tree/nvim-web-devicons
+--- https://www.nerdfonts.com/cheat-sheetdevi
+--- https://github.com/nvim-tree/nvim-web-devicons
 local icons = {
 	stylelint = { icon = "", name = "stylelint" },
 	eslintrc = { icon = "󰱺", name = "eslintrc" },

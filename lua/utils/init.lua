@@ -1,4 +1,19 @@
 return {
+	--- create border for highlight group
+	---@param hl_name string Highlight group name
+	---@return table border_table of border elements
+	border = function(hl_name)
+		return {
+			{ "╭", hl_name },
+			{ "─", hl_name },
+			{ "╮", hl_name },
+			{ "│", hl_name },
+			{ "╯", hl_name },
+			{ "─", hl_name },
+			{ "╰", hl_name },
+			{ "│", hl_name },
+		}
+	end,
 	--- Create plugin paths list
 	---@param enabled_plugins table - table of enabled plugins
 	---@return table paths list of plugin paths

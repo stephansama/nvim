@@ -1,5 +1,5 @@
 return {
-	completion = { nvim_cmp = true }, -- Set to false to disable completion.
+	completion = { nvim_cmp = true }, --- Set to false to disable completion.
 	open_app_foreground = true,
 	templates = {
 		subdir = "Templates",
@@ -29,22 +29,20 @@ return {
 		},
 	},
 	mappings = {
-		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-		["gf"] = {
-			action = function()
-				return require("obsidian").util.gf_passthrough()
-			end,
-			opts = { noremap = false, expr = true, buffer = true },
-		},
-		-- Toggle check-boxes.
-		["<leader>ch"] = {
-			action = function()
-				return require("obsidian").util.toggle_checkbox()
-			end,
-			opts = { buffer = true },
-		},
 		["<leader>og"] = { action = ":ObsidianTags<CR>" },
 		["<leader>ot"] = { action = ":ObsidianTemplate<CR>" },
 		["<leader>oo"] = { action = ":ObsidianOpen<CR>" },
+		["<leader>ch"] = { ---> Toggle check-boxes.
+			opts = { buffer = true },
+			action = function()
+				return require("obsidian").util.toggle_checkbox()
+			end,
+		},
+		["gf"] = { ---> Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+			opts = { noremap = false, expr = true, buffer = true },
+			action = function()
+				return require("obsidian").util.gf_passthrough()
+			end,
+		},
 	},
 }

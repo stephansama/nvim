@@ -1,5 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local plugins = require("utils").plugins
+local icons = require("configs.icons").lazy
 
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -18,5 +19,5 @@ require("lazy").setup(plugins({ "ui", "lang", "editor" }), {
 	defaults = { lazy = true },
 	install = { colorscheme = { "catpuccin" } },
 	ui = { border = "rounded" },
-	{ icons = { ft = "", lazy = "󰂠 ", loaded = "", not_loaded = "" } },
+	{ icons = icons },
 })

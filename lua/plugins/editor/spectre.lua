@@ -1,27 +1,18 @@
+---@param function_name "toggle" | "open_visual" | "open_file_search" name of function to invoke from spectre
+---@return function keymap function used to invoke spectre
+local spectre_function = function(function_name)
+	return function()
+		local params = function_name ~= "toggle" and { select_word = true } or {}
+		require("spectre")[function_name](params)
+	end
+end
+
 return {
 	"nvim-pack/nvim-spectre",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	keys = {
-		{
-			"<leader>S",
-			function()
-				require("spectre").toggle()
-			end,
-			desc = "Toggle spectre",
-		},
-		{
-			"<leader>sf",
-			function()
-				require("spectre").open_file_search({ select_word = true })
-			end,
-			desc = "Search current file",
-		},
-		{
-			"<leader>sw",
-			function()
-				require("spectre").open_visual({ select_word = true })
-			end,
-			desc = "Search current word",
-		},
+		{ "<leader>S", spectre_function("toggle"), desc = "Toggle spectre" },
+		{ "<leader>sw", spectre_function("open_visual"), desc = "Search current word" },
+		{ "<leader>sf", spectre_function("open_file_search"), desc = "Search current file" },
 	},
 }

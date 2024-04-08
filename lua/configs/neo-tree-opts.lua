@@ -1,6 +1,25 @@
-local capture_after_first_period_in_filename = require("utils").capture_after_first_period_in_filename
+local icon = require("configs.icons").neotree.icon
+local icons = require("configs.icons").neotree.icons
+local symbols = require("configs.icons").neotree.symbols
 local highlights = require("neo-tree.ui.highlights")
-local get_icon = require("configs.neo-tree-icons").get_icon
+local capture_after_first_period_in_filename = require("utils").capture_after_first_period_in_filename
+
+---return the icon associated with a name removing the first character last character and a combination of the both
+---@param name string
+---@return string
+local get_icon = function(name)
+	name = string.lower(name)
+	local last_element = string.len(name) - 1
+	local name_without_first_char = string.sub(name, 2)
+	local name_without_last_char = string.sub(name, 1, last_element)
+	local name_without_ending_chars = string.sub(name, 2, last_element)
+	local name_without_ending_two_chars = string.sub(name, 3, string.len(name) - 2)
+	return icons[name]
+		or icons[name_without_first_char]
+		or icons[name_without_last_char]
+		or icons[name_without_ending_chars]
+		or icons[name_without_ending_two_chars]
+end
 
 return {
 	event_handlers = {
@@ -24,12 +43,15 @@ return {
 	type = { enabled = true, required_width = 122 },
 	symlink_target = { enabled = false },
 	buffers = { follow_current_file = { enabled = true } },
+	--- icons
+	icon = icon,
+	git_status = { symbols = symbols },
 	filesystem = {
 		follow_current_file = { enabled = true },
 		window = { mappings = { ["/"] = "", ["f"] = "fuzzy_finder" } },
 		filtered_items = { visible = true, hide_dotfiles = false, hide_gitignored = true },
 		components = {
-			-- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#custom-icons
+			--- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#custom-icons
 			icon = function(config, node)
 				local icon = config.default or " "
 				local padding = config.padding or " "
@@ -56,30 +78,6 @@ return {
 
 				return { text = icon .. padding, highlight = highlight }
 			end,
-		},
-	},
-	icon = {
-		folder_closed = "",
-		folder_open = "",
-		folder_empty = "󰜌",
-		-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-		-- then these will never be used.
-		default = "*",
-		highlight = "NeoTreeFileIcon",
-	},
-	git_status = {
-		symbols = {
-			-- Change type
-			added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-			modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-			deleted = "✖", -- this can only be used in the git_status source
-			renamed = "󰁕", -- this can only be used in the git_status source
-			-- Status type
-			untracked = "",
-			ignored = "",
-			unstaged = "󰄱",
-			staged = "",
-			conflict = "",
 		},
 	},
 }

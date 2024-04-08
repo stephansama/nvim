@@ -1,28 +1,6 @@
 local cmp = require("cmp")
-
-local icons = {
-	Class = " ",
-	Color = " ",
-	Constant = " ",
-	Constructor = " ",
-	Enum = " ",
-	EnumMember = " ",
-	Field = "󰄶 ",
-	File = " ",
-	Folder = " ",
-	Function = "󰊕 ",
-	Interface = "󰜰",
-	Keyword = "󰌆 ",
-	Method = "ƒ ",
-	Module = "󰏗 ",
-	Property = " ",
-	Snippet = "󰘍 ",
-	Struct = " ",
-	Text = " ",
-	Unit = " ",
-	Value = "󰎠 ",
-	Variable = " ",
-}
+local icons = require("configs.icons").cmp
+local border = require("utils").border
 
 local formatting_style = {
 	-- default fields order i.e completion word + item.kind + item.kind icons
@@ -37,19 +15,6 @@ local formatting_style = {
 		return item
 	end,
 }
-
-local function border(hl_name)
-	return {
-		{ "╭", hl_name },
-		{ "─", hl_name },
-		{ "╮", hl_name },
-		{ "│", hl_name },
-		{ "╯", hl_name },
-		{ "─", hl_name },
-		{ "╰", hl_name },
-		{ "│", hl_name },
-	}
-end
 
 return {
 	formatting = formatting_style,

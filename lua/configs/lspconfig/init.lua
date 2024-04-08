@@ -1,4 +1,5 @@
 -- Setup language servers.
+local create_border = require("utils").border
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -12,16 +13,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
-local border = {
-	{ "╭", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╮", "FloatBorder" },
-	{ "│", "FloatBorder" },
-	{ "╯", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "╰", "FloatBorder" },
-	{ "│", "FloatBorder" },
-}
+local border = create_border("FloatBorder")
 
 -- LSP settings (for overriding per client)
 local handlers = {
@@ -105,11 +97,11 @@ lspconfig.tailwindcss.setup({
 	end,
 })
 
-lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig-conf.go")))
-lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig-conf.lua_ls")))
-lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig-conf.json")))
-lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig-conf.yaml")))
-lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig-conf.tsserver")))
+lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig.go")))
+lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig.lua_ls")))
+lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.json")))
+lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yaml")))
+lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig.tsserver")))
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
 	filetypes = {
