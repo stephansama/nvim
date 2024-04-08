@@ -5,7 +5,7 @@ end
 local insert_picker = picker_config("insert")
 local normal_picker = picker_config("normal")
 
-local telescope_config = {
+local telescope_opts = {
 	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert" },
 	pickers = {
 		todo = normal_picker,
@@ -41,6 +41,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
+		opts = telescope_opts,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-lua/plenary.nvim",
@@ -59,9 +60,9 @@ return {
 			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Find within git status" },
 			{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
 		},
-		config = function()
+		config = function(_, opts)
 			local telescope = require("telescope")
-			telescope.setup(telescope_config)
+			telescope.setup(opts)
 			telescope.load_extension("fzf")
 		end,
 	},

@@ -1,8 +1,8 @@
 --- https://www.nerdfonts.com/cheat-sheet
 --- https://wasm.simpleicons.org
 return {
+	telescope = "   ",
 	packageJSON = { up_to_date = "|  ", outdated = "|  " },
-	telescope = { prompt_prefix = "   " },
 	mason = {
 		package_pending = "󰶻",
 		package_installed = "󰄴",
