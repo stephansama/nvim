@@ -65,8 +65,8 @@ expand_keymaps({
 	v = {
 		["<"] = { "<gv", "Indent Left" },
 		[">"] = { ">gv", "Indent Left" },
-		["J"] = { ":m '>+1<CR>gv=gv", "Move line up", { silent = true } },
-		["K"] = { ":m '<-2<CR>gv=gv", "Move line down", { silent = true } },
+		["J"] = { ":m '>+1<CR>gv=gvzz", "Move line up", { silent = true } },
+		["K"] = { ":m '<-2<CR>gv=gvzz", "Move line down", { silent = true } },
 	},
 	-- centered motions
 	[{ "n", "v", "x" }] = {
