@@ -60,8 +60,9 @@ return {
 	-- lazy = false,
 	dependencies = { "nvim-lua/plenary.nvim" },
 	branch = "harpoon2",
-	config = function()
-		require("harpoon"):setup({})
+	opts = {},
+	config = function(_, opts)
+		require("harpoon"):setup(opts)
 	end,
 	keys = {
 		{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer" },

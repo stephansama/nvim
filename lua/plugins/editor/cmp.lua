@@ -58,12 +58,8 @@ return {
 				})
 			end,
 		},
-		{ -- add completion for package.json sort of similar to crates.nvim from rust
-			"David-Kunz/cmp-npm",
-			ft = "json",
-			dependencies = { "nvim-lua/plenary.nvim" },
-			config = true,
-		},
+		-- add completion for package.json sort of similar to crates.nvim from rust
+		{ "David-Kunz/cmp-npm", ft = "json", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
 		{ -- snippet plugin
 			"L3MON4D3/LuaSnip",
 			dependencies = "rafamadriz/friendly-snippets",

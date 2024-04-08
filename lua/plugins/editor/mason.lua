@@ -55,6 +55,7 @@ local mason_config = {
 		"yamllint",
 		"stylelint",
 		"markdownlint",
+		"js-debug-adapter",
 	},
 	ui = {
 		border = "rounded",
