@@ -1,7 +1,13 @@
 return {
 	"kawre/leetcode.nvim",
+	keys = {
+		{ "<leader>le", "<cmd>Leet<cr>", desc = "Open leet" },
+		{ "<leader>lr", "<cmd>Leet run<cr>", desc = "Run leet" },
+		{ "<leader>lp", "<cmd>Leet open<cr>", desc = "Open leet url" },
+		{ "<leader>lc", "<cmd>Leet lang<cr>", desc = "Open leet language picker" },
+		{ "<leader>li", "<cmd>Leet info<cr>", desc = "Get info for leet question" },
+	},
 	build = ":TSUpdate html",
-	keys = { { "<leader>le", "<cmd>Leet<cr>", desc = "Open leet" } },
 	config = true,
 	dependencies = {
 		"nvim-telescope/telescope.nvim",

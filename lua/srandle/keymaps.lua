@@ -32,10 +32,10 @@ expand_keymaps({
 			"Escape",
 		},
 
-		-- macro
+		--- macro
 		["Q"] = { "@q", "Replay quick macro" },
 
-		-- leader functions
+		--- leader functions
 		["<leader>w"] = { vim.cmd.w, "Save buffer" },
 		["<leader>x"] = { vim.cmd.q, "Close window" },
 		["<leader>d"] = { delete_buffer, "Delete buffer" },
@@ -44,7 +44,11 @@ expand_keymaps({
 		["<leader>lo"] = { ":Lazy load ", "Lazy load a plugin" },
 		["<leader>la"] = { "<cmd>bufdo bd!<CR>", "Close all buffers" },
 
-		-- quick actions
+		--- splits
+		["<leader>sh"] = { "<cmd>sp<CR>", "Split horizontally" },
+		["<leader>sv"] = { "<cmd>vsp<CR>", "Split vertically" },
+
+		--- quick actions
 		["cw"] = { "ciw", "Change word" },
 		["c'"] = { "ci'", "Change single quotes" },
 		['c"'] = { 'ci"', "Change double quotes" },
@@ -58,7 +62,7 @@ expand_keymaps({
 		["v'"] = { "vi'", "Visually select single quotes" },
 		['v"'] = { 'vi"', "Visually select double quotes" },
 
-		-- navigate buffers
+		--- navigate buffers
 		["("] = { move_buffer("previous"), "Navigate to previous buffer" },
 		[")"] = { move_buffer("next"), "Navigate to next buffer" },
 	},
@@ -68,7 +72,7 @@ expand_keymaps({
 		["J"] = { ":m '>+1<CR>gv=gvzz", "Move line up", { silent = true } },
 		["K"] = { ":m '<-2<CR>gv=gvzz", "Move line down", { silent = true } },
 	},
-	-- centered motions
+	--- centered motions
 	[{ "n", "v", "x" }] = {
 		["j"] = { "gjzz" },
 		["k"] = { "gkzz" },

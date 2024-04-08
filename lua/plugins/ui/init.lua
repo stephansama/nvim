@@ -1,6 +1,10 @@
 return {
 	{ "chentoast/marks.nvim", event = "VimEnter", opts = { sign_priority = 90 } },
 	{
+		"szw/vim-maximizer",
+		keys = { { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle maximizer on a split" } },
+	},
+	{
 		"stevearc/dressing.nvim",
 		lazy = true,
 		init = function()

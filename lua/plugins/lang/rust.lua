@@ -1,3 +1,5 @@
+local border = require("utils").border
+
 local rustaceanvim_opts = function()
 	local mason_registry = require("mason-registry")
 	local codelldb = mason_registry.get_package("codelldb")
@@ -43,7 +45,23 @@ return {
 	},
 	{
 		"saecki/crates.nvim",
-		event = { "BufRead Cargo.toml" },
 		config = true,
+		event = { "BufRead Cargo.toml" },
+		opts = { --- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
+			popup = {
+				border = border("FloatBorder"),
+			},
+		},
+		keys = {
+			{ "<leader>cu", "<cmd>Crates update_crate<cr>", desc = "Crates.nvim update crate" },
+			{ "<leader>cu", "<cmd>Crates update_crates<cr>", desc = "Crates.nvim update crates", mode = "v" },
+			{ "<leader>ch", "<cmd>Crates open_homepage<cr>", desc = "Crates.nvim open homepage" },
+			{ "<leader>cc", "<cmd>Crates open_cratesio<cr>", desc = "Crates.nvim open crates.io" },
+			{ "<leader>cr", "<cmd>Crates open_repository<cr>", desc = "Crates.nvim open repository" },
+			{ "<leader>cd", "<cmd>Crates open_documentation<cr>", desc = "Crates.nvim open docs.rs" },
+			{ "<leader>cs", "<cmd>Crates show_popup<cr>", desc = "Crates.nvim open features list" },
+			{ "<leader>cf", "<cmd>Crates show_features_popup<cr>", desc = "Crates.nvim open features list" },
+			{ "<leader>ce", "<cmd>Crates show_dependencies_popup<cr>", desc = "Crates.nvim open dependencies list" },
+		},
 	},
 }
