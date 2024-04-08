@@ -30,7 +30,11 @@ end
 
 return {
 	"hrsh7th/nvim-cmp",
+	config = true,
 	event = "InsertEnter",
+	opts = function()
+		return require("configs.cmp-opts")
+	end,
 	dependencies = {
 		{
 			"saadparwaiz1/cmp_luasnip",
@@ -41,7 +45,7 @@ return {
 		},
 		{
 			"hrsh7th/cmp-cmdline",
-			event = "VimEnter",
+			event = { "InsertEnter", "CmdlineEnter" },
 			config = function()
 				local cmp = require("cmp")
 
@@ -79,8 +83,4 @@ return {
 			end,
 		},
 	},
-	config = true,
-	opts = function()
-		return require("configs.cmp-opts")
-	end,
 }

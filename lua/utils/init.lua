@@ -14,8 +14,9 @@ return {
 			{ "│", hl_name },
 		}
 	end,
+
 	--- Create plugin paths list
-	---@param enabled_plugins table - table of enabled plugins
+	---@param enabled_plugins table list of enabled plugins directories relative to plugins folder
 	---@return table paths list of plugin paths
 	plugins = function(enabled_plugins)
 		local root = "plugins"
