@@ -1,4 +1,16 @@
 return {
+	--- Create plugin paths list
+	---@param enabled_plugins table - table of enabled plugins
+	---@return table paths list of plugin paths
+	plugins = function(enabled_plugins)
+		local root = "plugins"
+		local paths = { { import = root } }
+		for _, plugin in ipairs(enabled_plugins) do
+			table.insert(paths, { import = root .. "." .. plugin })
+		end
+		return paths
+	end,
+
 	---used for `keymaps.lua`
 	---expand keymap object into its respective keymapping
 	---should take the form of
