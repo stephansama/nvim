@@ -27,11 +27,11 @@ local opts = {
 			return { " loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
 		end,
 		center = expand_actions({
-			{ " ", "f", "Find file", "Telescope find_files" },
-			{ " ", "w", "Find text", "Telescope live_grep" },
-			{ " ", "r", "Recent files", "Telescope oldfiles" },
-			{ " ", "o", "Switch to obsidian", "cd $OBSIDIAN" },
-			{ " ", "c", "Switch to config", "cd $NVCONF" },
+			{ " ", "f", "Find  file", "Telescope find_files" },
+			{ " ", "w", "Find  text", "Telescope live_grep" },
+			{ " ", "o", "Find  old", "Telescope oldfiles" },
+			{ " ", "t", "Find  to-do", "TodoTelescope" },
+			{ " ", "c", "cd  ~/.config/nvim", "cd ~/.config/nvim" },
 			{ "󰒲 ", "l", "Lazy", "Lazy" },
 			{ " ", "m", "Mason", "Mason" },
 			{ " ", "q", "Quit", "qa" },
