@@ -1,7 +1,7 @@
 --- Load snippets from various sources
 ---@param _ unknown discard
 ---@param opts table table of options
-local load_vsc_snippets = function(_, opts)
+local load_snippets = function(_, opts)
 	local luasnip, from_vscode, from_snipmate, from_lua =
 		require("luasnip"),
 		require("luasnip.loaders.from_vscode"),
@@ -10,8 +10,7 @@ local load_vsc_snippets = function(_, opts)
 
 	luasnip.config.set_config(opts)
 
-	from_vscode.lazy_load()
-	from_vscode.lazy_load({ paths = vim.g.vscode_snippets_path or "" })
+	from_vscode.lazy_load({ paths = { "./snippets" } })
 
 	from_snipmate.load()
 	from_snipmate.lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
@@ -67,11 +66,10 @@ return {
 		},
 		-- add completion for package.json sort of similar to crates.nvim from rust
 		{ "David-Kunz/cmp-npm", ft = "json", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
-		{ -- snippet plugin
+		{
 			"L3MON4D3/LuaSnip",
-			dependencies = "rafamadriz/friendly-snippets",
 			opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-			config = load_vsc_snippets,
+			config = load_snippets,
 		},
 		{
 			"windwp/nvim-autopairs",

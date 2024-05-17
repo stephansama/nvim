@@ -4,6 +4,7 @@ local opts = {
 	formatters_by_ft = {
 		go = { "gofmt" },
 		sh = { "shfmt" },
+		zsh = { "shfmt" },
 		lua = { "stylua" },
 		toml = { "taplo" },
 		zshrc = { "shfmt" },
