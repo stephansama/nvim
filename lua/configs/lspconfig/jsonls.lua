@@ -1,7 +1,7 @@
 local schemas = {
 	{
 		description = "Markdownlint configuration",
-		fileMatch = { ".markdownlint.jsonc", ".markdownlint.yaml" },
+		fileMatch = { ".markdownlint.json", ".markdownlint.jsonc", ".markdownlint.yaml" },
 		url = "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
 	},
 	{
