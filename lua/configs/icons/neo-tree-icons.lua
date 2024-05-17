@@ -43,6 +43,8 @@ return {
 		library = "",
 		command = "",
 		cypress = "󰯲",
+		snippet = "󰩫",
+		editor = "",
 		scraper = "󱇪",
 		script = "󰯂",
 		style = "",
