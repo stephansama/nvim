@@ -24,14 +24,6 @@ expand_keymaps({
 		["<leader><leader>w"] = { vim.cmd.wqa, "Save and quit all" },
 		["<leader><leader><leader>"] = { vim.cmd.qa, "Quit all" },
 
-		["<leader>md"] = {
-			function()
-				vim.cmd([[delmarks!]])
-				vim.cmd([[delmarks A-Z0-9]])
-			end,
-			"Escape",
-		},
-
 		--- macro
 		["Q"] = { "@q", "Replay quick macro" },
 
@@ -72,25 +64,14 @@ expand_keymaps({
 		["J"] = { ":m '>+1<CR>gv=gvzz", "Move line up", { silent = true } },
 		["K"] = { ":m '<-2<CR>gv=gvzz", "Move line down", { silent = true } },
 	},
-	--- centered motions
-	[{ "n", "v", "x" }] = {
-		["j"] = { "gjzz" },
-		["k"] = { "gkzz" },
-		["%"] = { "%zz" },
-		["{"] = { "{zz" },
-		["}"] = { "}zz" },
+	[{ "n", "v" }] = {
+		["j"] = { "gj" },
+		["k"] = { "gk" },
 	},
 	[{ "n", "o", "v", "x" }] = {
-		["gg"] = { "ggzz" },
-		["G"] = { "Gzz" },
-		["o"] = { "o<ESC>zz" },
-		["O"] = { "O<ESC>zz" },
-		["u"] = { "uzz" },
-		["<C-r>"] = { "<C-r>zz" },
-		["<C-d>"] = { "<C-d>zz" },
-		["<C-u>"] = { "<C-u>zz" },
-		["``"] = { "``zz" },
-		["H"] = { "^zz", "Move to beginning of line" },
-		["L"] = { "$zz", "Move to end of line" },
+		["o"] = { "o<ESC>" },
+		["O"] = { "O<ESC>" },
+		["H"] = { "^", "Move to beginning of line" },
+		["L"] = { "$", "Move to end of line" },
 	},
 })

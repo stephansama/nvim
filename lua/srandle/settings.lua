@@ -5,9 +5,9 @@ expand_settings({
 	bo = { tabstop = 4 },
 	o = {
 		list = true,
-		listchars = "tab:│ ,trail:·",
-		scrolloff = 8,
 		shiftwidth = 4,
+		scrolloff = 999,
+		listchars = "tab:│ ,trail:·",
 		fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]], -- fold seperator
 	},
 	opt = {
@@ -36,23 +36,8 @@ vim.filetype.add({
 	extension = {
 		templ = "templ",
 		mdx = "markdown",
+		zsh = "sh",
 		pcss = "css",
 		postcss = "css",
 	},
-})
-
--- WARN: remove with lsp-inlayhints
-vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = "LspAttach_inlayhints",
-	callback = function(args)
-		if not (args.data and args.data.client_id) then
-			return
-		end
-
-		local bufnr = args.buf
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-		require("lsp-inlayhints").on_attach(client, bufnr)
-	end,
 })
