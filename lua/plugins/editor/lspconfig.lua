@@ -29,14 +29,10 @@ return {
 			},
 		},
 	},
-	-- WARN: remove when 0.10 comes out as this has been deprecated
 	{
-		"lvimuser/lsp-inlayhints.nvim",
+		"MysticalDevil/inlay-hints.nvim",
+		event = "LspAttach",
 		config = true,
-		init = function()
-			vim.keymap.set("n", "<leader>ti", function()
-				require("lsp-inlayhints").toggle()
-			end, { desc = "Toggle inlay hints" })
-		end,
+		dependencies = { "neovim/nvim-lspconfig" },
 	},
 }

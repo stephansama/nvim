@@ -1,6 +1,7 @@
 return {
 	Lua = {
 		diagnostics = { globals = { "vim" } },
+		hint = { enable = true },
 		workspace = {
 			maxPreload = 100000,
 			preloadFileSize = 10000,

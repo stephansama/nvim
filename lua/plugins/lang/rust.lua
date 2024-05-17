@@ -8,9 +8,6 @@ local rustaceanvim_opts = function()
 	local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 	return {
 		server = {
-			on_attach = function(client, bufnr)
-				require("lsp-inlayhints").on_attach(client, bufnr)
-			end,
 			---@param project_root string Path to the project root
 			settings = function(project_root)
 				local ra = require("rustaceanvim.config.server")

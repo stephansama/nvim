@@ -5,6 +5,7 @@ return {
 			parameterNames = true,
 			rangeVariableTypes = true,
 			assignVariableTypes = true,
+			compositeLiteralTypes = true,
 			functionTypeParameters = true,
 			compositeLiteralFields = true,
 		},

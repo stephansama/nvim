@@ -61,14 +61,7 @@ local servers = {
 	"dockerls",
 	"clangd",
 	"vimls",
-	-- c
 	"cmake",
-	-- explicitly used servers
-	-- "tsserver",
-	-- "gopls",
-	-- "jsonls",
-	-- "lua_ls",
-	-- "tailwindcss",
 }
 
 local setup_lsp = function(options)
@@ -97,10 +90,12 @@ lspconfig.tailwindcss.setup({
 	end,
 })
 
-lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig.go")))
+lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig.gopls")))
+lspconfig.cssls.setup(setup_lsp(require("configs.lspconfig.cssls")))
+lspconfig.clangd.setup(setup_lsp(require("configs.lspconfig.clangd")))
 lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig.lua_ls")))
-lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.json")))
-lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yaml")))
+lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.jsonls")))
+lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yamlls")))
 lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig.tsserver")))
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
@@ -126,14 +121,6 @@ lspconfig.emmet_ls.setup({
 				["bem.enabled"] = true,
 			},
 		},
-	},
-})
-
-lspconfig.cssls.setup({
-	settings = {
-		css = { validate = true, lint = { unknownAtRules = "ignore" } },
-		scss = { validate = true, lint = { unknownAtRules = "ignore" } },
-		less = { validate = true, lint = { unknownAtRules = "ignore" } },
 	},
 })
 
