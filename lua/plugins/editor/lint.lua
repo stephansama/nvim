@@ -11,6 +11,7 @@ return {
 		--- https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters
 		require("lint").linters_by_ft = {
 			sh = { "shellcheck" },
+			zsh = { "zsh" },
 			html = { "htmlhint" },
 			json = { "jsonlint" },
 			-- yaml = { "yamllint" },
