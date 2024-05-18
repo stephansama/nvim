@@ -18,9 +18,7 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		lazy = false,
 		opts = { mode = "workspace_diagnostics" },
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
 		"mbbill/undotree",

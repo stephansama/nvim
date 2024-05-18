@@ -14,7 +14,7 @@ local icons = {
 	yarn = { icon = "", color = "#2C8EBB", name = "yarn" },
 	yaml = { icon = "󰈙", color = "#EC5F59", name = "yaml" },
 	vite = { icon = "󱐋", color = "#F3B340", name = "vite" },
-	astro = { icon = "", color = "#EF8547", name = "astro" },
+	astro = { icon = "", color = "#EF8547", name = "astro" },
 	babel = { icon = "", color = "#F9DC3E", name = "babel" },
 	archive = { icon = "", name = "archive", color = "#B0B447" },
 	graphql = { icon = "", color = "#E10098", name = "graphql" },
@@ -28,6 +28,7 @@ local icons = {
 	storybook = { icon = "󰂺", color = "#FF4785", name = "storybook" },
 	typescript = { icon = "", color = "#3178C6", name = "typescript" },
 	dependabot = { icon = "", color = "#025E8C", name = "dependabot" },
+	unlighthouse = { icon = "󰧿", color = "#F44B21", name = "unlighthouse" },
 }
 
 return {
@@ -127,6 +128,8 @@ return {
 		[".eslintrc.js"] = icons.eslintrc,
 		[".eslintrc.cjs"] = icons.eslintrc,
 		[".eslintrc.json"] = icons.eslintrc,
+		["unlighthouse.config.js"] = icons.unlighthouse,
+		["unlighthouse.config.ts"] = icons.unlighthouse,
 		-- vite ts
 		["vite.config.ts"] = icons.vite,
 		["vitest.config.ts"] = icons.vite,

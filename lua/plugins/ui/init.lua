@@ -1,4 +1,10 @@
 return {
+	{
+		"nvim-tree/nvim-web-devicons",
+		opts = function()
+			return require("configs.icons.devicons")
+		end,
+	},
 	{ "chentoast/marks.nvim", event = "VimEnter", opts = { sign_priority = 90 } },
 	{
 		"szw/vim-maximizer",
@@ -22,7 +28,7 @@ return {
 	},
 	{
 		"f-person/auto-dark-mode.nvim",
-		keys = { { "<leader>th", "<cmd>Lazy load auto-dark-mode.nvim<cr>" } },
+		keys = { { "<leader>ct", "<cmd>Lazy load auto-dark-mode.nvim<cr>", desc = "Change Theme" } },
 		opts = {
 			update_interval = 1000,
 			set_dark_mode = function()

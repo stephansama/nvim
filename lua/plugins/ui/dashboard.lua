@@ -33,7 +33,6 @@ end
 
 return {
 	"nvimdev/dashboard-nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	event = "VimEnter",
 	opts = opts,
 	keys = { { "<leader>ld", goto_dashboard, desc = "Go to Dashboard" } },

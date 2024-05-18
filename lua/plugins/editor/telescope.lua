@@ -42,11 +42,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		opts = telescope_opts,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
 		keys = {
 			{ "<leader><Tab>", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
 			{ "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols" },
