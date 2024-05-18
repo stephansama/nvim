@@ -1,6 +1,14 @@
 <!-- markdownlint-disable RULE33 -->
 # `nvim/`
 
+<img src="https://img.shields.io/github/created-at/stephansama/nvim" alt="Created At" />
+<img src="https://img.shields.io/github/repo-size/stephansama/nvim" alt="Repo size" />
+<a href="">
+<img src="https://img.shields.io/github/commit-activity/y/stephansama/nvim" alt="Commit activity" />
+</a>
+<img src="https://img.shields.io/github/last-commit/stephansama/nvim" alt="Last commit" />
+
+<br />
 <a href="https://dotfyle.com/stephansama/nvim">
     <img alt="Plugins" src="https://dotfyle.com/stephansama/nvim/badges/plugins?style=for-the-badge" />
 </a>
