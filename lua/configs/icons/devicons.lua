@@ -27,6 +27,7 @@ local icons = {
 	changelog = { icon = "󰦖", color = "#97C15C", name = "changelog" },
 	storybook = { icon = "󰂺", color = "#FF4785", name = "storybook" },
 	typescript = { icon = "", color = "#3178C6", name = "typescript" },
+	javascript = { icon = "󰌞", color = "#F7DF1E", name = "javascript" },
 	dependabot = { icon = "", color = "#025E8C", name = "dependabot" },
 	unlighthouse = { icon = "󰧿", color = "#F44B21", name = "unlighthouse" },
 }
@@ -45,6 +46,9 @@ return {
 		["code-profile"] = { icon = "󰨞", color = "#007ACC", name = "vscode" },
 		prettierrc = icons.prettier,
 		prettierignore = icons.prettier,
+		js = icons.javascript,
+		cjs = icons.javascript,
+		mjs = icons.javascript,
 		njk = { icon = "", color = "#1C4913", name = "nunjucks" },
 		-- archives
 		asm = { icon = "" },

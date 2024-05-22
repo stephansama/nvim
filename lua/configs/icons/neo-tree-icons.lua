@@ -215,7 +215,7 @@ return {
 		docker = "󰡨",
 		svelte = "",
 		["svelte-kit"] = "",
-		astro = "",
+		astro = "",
 		react = "󰜈",
 		java = "",
 		rust = "",
