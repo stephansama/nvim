@@ -34,12 +34,6 @@ return {
 		event = "LspAttach",
 		config = true,
 		dependencies = { "neovim/nvim-lspconfig" },
-		keys = {
-			{
-				"<leader>th",
-				"<cmd>InlayHintsToggle<cr>",
-				desc = "Toggle inlay hints",
-			},
-		},
+		keys = { { "<leader>th", "<cmd>InlayHintsToggle<cr>", desc = "Toggle inlay hints" } },
 	},
 }
