@@ -53,6 +53,7 @@ local mason_config = {
 		"htmlhint",
 		"jsonlint",
 		"yamllint",
+		"yamlfmt",
 		"stylelint",
 		"markdownlint",
 		"js-debug-adapter",

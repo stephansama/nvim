@@ -88,6 +88,9 @@ return {
 		["d.ts"] = { icon = "", color = "#3178C6", name = "ts_definition" },
 	},
 	override_by_filename = {
+		["_redirects"] = { icon = "" },
+		[".stow-local-ignore"] = { icon = "" },
+		["wrangler.toml"] = { icon = "☁", color = "#F38020", name = "cloudflare" },
 		[".babelrc"] = icons.babel,
 		[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
 		["log.txt"] = { icon = "", name = "log" },

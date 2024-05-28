@@ -7,6 +7,7 @@ local opts = {
 		zsh = { "shfmt" },
 		lua = { "stylua" },
 		toml = { "taplo" },
+		yaml = { "yamlfmt" },
 		zshrc = { "shfmt" },
 		markdown = { "markdownlint" },
 		css = { { "prettierd", "prettier" } },
