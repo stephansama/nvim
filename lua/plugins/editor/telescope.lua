@@ -1,5 +1,5 @@
 local function picker_config(initial_mode)
-	return { initial_mode = initial_mode, theme = "dropdown" }
+	return { initial_mode = initial_mode, theme = "ivy" }
 end
 
 local insert_picker = picker_config("insert")
@@ -28,6 +28,26 @@ local telescope_opts = {
 }
 
 return {
+	{
+		"camgraff/telescope-tmux.nvim",
+		keys = {
+			{
+				"<leader>tw",
+				"<cmd>Telescope tmux windows theme=ivy<CR>",
+				desc = "Find tmux windows",
+			},
+			{
+				"<leader>ts",
+				"<cmd>Telescope tmux sessions initial_mode=normal theme=ivy<CR>",
+				desc = "Find tmux sessions",
+			},
+			{
+				"<leader>tp",
+				"<cmd>Telescope tmux pane_contents theme=ivy<CR>",
+				desc = "Find tmux pane contents",
+			},
+		},
+	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = false },
 	{
 		"ziontee113/icon-picker.nvim",
@@ -40,6 +60,7 @@ return {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
+		lazy = false,
 		cmd = "Telescope",
 		opts = telescope_opts,
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
@@ -60,6 +81,7 @@ return {
 			local telescope = require("telescope")
 			telescope.setup(opts)
 			telescope.load_extension("fzf")
+			telescope.load_extension("tmux")
 		end,
 	},
 }
