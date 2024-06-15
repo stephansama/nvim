@@ -120,6 +120,7 @@ return {
 		[".env.local"] = icons.env,
 		[".env.sample"] = icons.env,
 		[".env.example"] = icons.env,
+		[".env.production"] = icons.env,
 		["contributing.md"] = { icon = "󰅍", color = "#F7CC4F", name = "contributing" },
 		["authors.md"] = { icon = "", color = "#E15241", name = "authors" },
 		["license.md"] = icons.license,

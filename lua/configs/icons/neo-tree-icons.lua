@@ -7,7 +7,7 @@ return {
 		folder_empty = "󰜌",
 		-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 		-- then these will never be used.
-		default = "*",
+		-- default = "*",
 		highlight = "NeoTreeFileIcon",
 	},
 	symbols = {
@@ -28,6 +28,7 @@ return {
 		["tabby-client"] = "󰄛",
 		npm = "",
 		nvm = "󰎙",
+		pwa = "",
 		desktop = "",
 		document = "󱧶",
 		bun = "󰳮",
@@ -100,6 +101,7 @@ return {
 		robot = "󰚩",
 		debug = "",
 		test = "",
+		tests = "",
 		-- test = "󰙨",
 		temp = "󰪺",
 		tmp = "󰪺",
@@ -206,6 +208,8 @@ return {
 		javascript = "",
 		typescript = "󰛦",
 		postcss = "",
+		custom = "󱁽",
+		zsh = "",
 		ssh = "",
 		tmux = "",
 		vim = "",
