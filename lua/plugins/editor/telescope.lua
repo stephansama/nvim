@@ -6,7 +6,8 @@ local insert_picker = picker_config("insert")
 local normal_picker = picker_config("normal")
 
 local telescope_opts = {
-	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert" },
+	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert", theme = "ivy" },
+	extensions = { package_info = { theme = "ivy" } },
 	pickers = {
 		todo = normal_picker,
 		marks = insert_picker,
@@ -82,6 +83,7 @@ return {
 			telescope.setup(opts)
 			telescope.load_extension("fzf")
 			telescope.load_extension("tmux")
+			telescope.load_extension("package_info")
 		end,
 	},
 }

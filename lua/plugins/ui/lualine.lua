@@ -5,6 +5,10 @@ local filename_symbols = {
 	newfile = "",
 }
 
+local package_info = function()
+	return require("package-info").get_status()
+end
+
 local opts = {
 	options = {
 		theme = "catppuccin",
@@ -21,6 +25,7 @@ local opts = {
 				path = 3,
 				symbols = filename_symbols,
 			},
+			{ package_info },
 		},
 	},
 }

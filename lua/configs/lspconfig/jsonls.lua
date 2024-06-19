@@ -1,5 +1,10 @@
 local schemas = {
 	{
+		description = "Oh My Posh config",
+		fileMatch = "*.omp.json",
+		url = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	},
+	{
 		description = "Markdownlint configuration",
 		fileMatch = { ".markdownlint.json", ".markdownlint.jsonc", ".markdownlint.yaml" },
 		url = "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",

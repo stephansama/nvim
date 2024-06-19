@@ -1,9 +1,10 @@
 local border = require("utils").border
 
 local rustaceanvim_opts = function()
-	local mason_registry = require("mason-registry")
-	local codelldb = mason_registry.get_package("codelldb")
-	local extension_path = codelldb:get_install_path() .. "/extension/"
+	-- local codelldb = mason_registry.get_package("codelldb")
+	-- local mason_registry = require("mason-registry")
+	local codelldb = vim.fn.stdpath("data") .. "/mason/packages/codelldb"
+	local extension_path = codelldb .. "/extension/"
 	local codelldb_path = extension_path .. "adapter/codelldb"
 	local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 	return {
@@ -16,9 +17,8 @@ local rustaceanvim_opts = function()
 				})
 			end,
 		},
-		dap = {
-			adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path),
-		},
+		-- tools = { hover_actions = { replace_builtin_hover = false } },
+		dap = { adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path) },
 	}
 end
 

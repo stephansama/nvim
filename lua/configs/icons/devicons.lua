@@ -120,6 +120,7 @@ return {
 		[".env.local"] = icons.env,
 		[".env.sample"] = icons.env,
 		[".env.example"] = icons.env,
+		["electron-flags.conf"] = { icon = "", color = "#47848F", name = "electron" },
 		[".env.production"] = icons.env,
 		["contributing.md"] = { icon = "󰅍", color = "#F7CC4F", name = "contributing" },
 		["authors.md"] = { icon = "", color = "#E15241", name = "authors" },

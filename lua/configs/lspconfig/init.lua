@@ -21,12 +21,43 @@ local handlers = {
 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 -- add borders
 for key, v in pairs(handlers) do
 	vim.lsp.handlers[key] = v
 end
 
-vim.diagnostic.config({ float = { border = border } })
+vim.diagnostic.config({
+	virtual_text = {
+		source = "if_many", -- Or "if_many"
+	},
+	float = {
+		border = border,
+		source = "if_many",
+	},
+})
+
+-- Auto show diagnostic
+-- vim.o.updatetime = 250
+-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+-- 	group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
+-- 	callback = function()
+-- 		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+-- 	end,
+-- })
+
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or border
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 local on_attach = function(_, bufnr)
 	local options = { noremap = true, silent = true, buffer = bufnr }
@@ -145,9 +176,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "K", function()
-			local winid = require("ufo").peekFoldedLinesUnderCursor()
-			if not winid then
-				vim.lsp.buf.hover()
+			local filetype = vim.bo.filetype
+			if vim.tbl_contains({ "vim", "help" }, filetype) then
+				vim.cmd("h " .. vim.fn.expand("<cword>"))
+			elseif vim.tbl_contains({ "man" }, filetype) then
+				vim.cmd("Man " .. vim.fn.expand("<cword>"))
+			elseif vim.fn.expand("%:t") == "package.json" then
+				print("hello")
+			elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+				require("crates").show_popup()
+			else
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					vim.lsp.buf.hover()
+				end
 			end
 		end, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
