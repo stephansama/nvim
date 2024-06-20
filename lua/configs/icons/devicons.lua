@@ -158,6 +158,7 @@ return {
 		["babel.config.cjs"] = icons.babel,
 		["babel.config.mjs"] = icons.babel,
 		["babel.config.js"] = icons.babel,
+		["starship.toml"] = { icon = "", color = "#D73167", name = "Starship" },
 		-- postcss
 		["postcss.config.js"] = icons.postcss,
 		["postcss.config.mjs"] = icons.postcss,
