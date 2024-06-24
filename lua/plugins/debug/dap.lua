@@ -14,10 +14,42 @@ local js_based_languages = {
 	"typescriptreact",
 }
 
+vim.fn.sign_define("DapBreakpoint", { text = "󰓛", texthl = "FloatBorder", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "󰐊", texthl = "", linehl = "", numhl = "" })
+
+local dapui_config = {
+	layouts = {
+		{
+			size = 40,
+			position = "right",
+			elements = {
+				{ id = "scopes", size = 0.25 },
+				{ id = "breakpoints", size = 0.25 },
+				{ id = "stacks", size = 0.25 },
+				{ id = "watches", size = 0.25 },
+			},
+		},
+		{
+			size = 10,
+			position = "bottom", -- Can be "bottom" or "top"
+			elements = { "repl", "console" },
+		},
+	},
+}
+
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		"rcarriga/nvim-dap-ui",
+		{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
+		{
+			"theHamsta/nvim-dap-virtual-text",
+			opts = {
+				virt_text_pos = "eol",
+				highlight_new_as_changed = false,
+				highlight_changed_variables = true,
+			},
+			config = true,
+		},
 		{
 			"leoluz/nvim-dap-go",
 			config = true,
@@ -73,103 +105,113 @@ return {
 	},
 	config = function()
 		local dap = require("dap")
-		-- local jsDebugAdapter = vim.fn.stdpath("data")
-		-- 	.. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
-		-- dap.adapters["pwa-node"] = {
-		-- 	type = "server",
-		-- 	host = "localhost",
-		-- 	port = "${port}",
-		-- 	executable = {
-		-- 		command = "node",
-		-- 		args = { jsDebugAdapter, "${port}" },
-		-- 	},
-		-- }
-
-		-- dap.configurations.javascript = {
-		-- 	{
-		-- 		cwd = "${workspaceFolder}",
-		-- 		type = "pwa-node",
-		-- 		name = "Launch file",
-		-- 		request = "launch",
-		-- 		program = "${file}",
-		-- 	},
-		-- }
-
-		require("dap-vscode-js").setup({
-			debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-			adapters = {
-				"node",
-				"pwa-node",
-				"pwa-chrome",
-				"pwa-msedge",
-				"node-terminal",
-				"pwa-extensionHost",
+		require("dap.ext.vscode").load_launchjs(nil, {})
+		local jsDebugAdapter = vim.fn.stdpath("data")
+			.. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
+		dap.adapters["node-terminal"] = {
+			type = "server",
+			host = "localhost",
+			port = "${port}",
+			executable = {
+				command = "node",
+				args = { jsDebugAdapter, "${port}" },
 			},
-		})
+		}
+		dap.adapters["pwa-node"] = {
+			type = "server",
+			host = "localhost",
+			port = "${port}",
+			executable = {
+				command = "node",
+				args = { jsDebugAdapter, "${port}" },
+			},
+		}
 
-		for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
-			dap.configurations[language] = {
-				-- attach to a node process that has been started with
-				-- `--inspect` for longrunning tasks or `--inspect-brk` for short tasks
-				-- npm script -> `node --inspect-brk ./node_modules/.bin/vite dev`
-				{
-					-- use nvim-dap-vscode-js's pwa-node debug adapter
-					type = "pwa-node",
-					-- attach to an already running node process with --inspect flag
-					-- default port: 9222
-					request = "attach",
-					-- allows us to pick the process using a picker
-					processId = require("dap.utils").pick_process,
-					-- name of the debug action you have to select for this config
-					name = "Attach debugger to existing `node --inspect` process",
-					-- for compiled languages like TypeScript or Svelte.js
-					sourceMaps = true,
-					-- resolve source maps in nested locations while ignoring node_modules
-					resolveSourceMapLocations = {
-						"${workspaceFolder}/**",
-						"!**/node_modules/**",
-					},
-					-- path to src in vite based projects (and most other projects as well)
-					cwd = "${workspaceFolder}/src",
-					-- we don't want to debug code inside node_modules, so skip it!
-					skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
-				},
-				{
-					type = "pwa-chrome",
-					name = "Launch Chrome to debug client",
-					request = "launch",
-					url = "http://localhost:5173",
-					sourceMaps = true,
-					protocol = "inspector",
-					port = 9222,
-					webRoot = "${workspaceFolder}/src",
-					-- skip files from vite's hmr
-					skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
-				},
-				--
-				-- only if language is javascript, offer this debug action
-				language == "javascript"
-						and {
-							-- use nvim-dap-vscode-js's pwa-node debug adapter
-							type = "pwa-node",
-							-- launch a new process to attach the debugger to
-							request = "launch",
-							-- name of the debug action you have to select for this config
-							name = "Launch file in new node process",
-							-- launch current file
-							program = "${file}",
-							cwd = "${workspaceFolder}",
-						}
-					or nil,
-				language == "javascript" -- Divider for the launch.json derived configs
-						and {
-							name = "----- ↓ launch.json configs ↓ -----",
-							type = "",
-							request = "launch",
-						}
-					or nil,
-			}
-		end
+		dap.configurations.javascript = {
+			{
+				cwd = "${workspaceFolder}",
+				type = "pwa-node",
+				name = "Launch file",
+				request = "launch",
+				program = "${file}",
+			},
+		}
+
+		-- require("dap-vscode-js").setup({
+		-- 	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
+		-- 	adapters = {
+		-- 		"node",
+		-- 		"pwa-node",
+		-- 		"pwa-chrome",
+		-- 		"pwa-msedge",
+		-- 		"node-terminal",
+		-- 		"pwa-extensionHost",
+		-- 	},
+		-- })
+
+		-- for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
+		-- dap.configurations[language] = {
+		-- 	-- attach to a node process that has been started with
+		-- 	-- `--inspect` for longrunning tasks or `--inspect-brk` for short tasks
+		-- 	-- npm script -> `node --inspect-brk ./node_modules/.bin/vite dev`
+		-- 	{
+		-- 		-- use nvim-dap-vscode-js's pwa-node debug adapter
+		-- 		type = "pwa-node",
+		-- 		-- attach to an already running node process with --inspect flag
+		-- 		-- default port: 9222
+		-- 		request = "attach",
+		-- 		-- allows us to pick the process using a picker
+		-- 		processId = require("dap.utils").pick_process,
+		-- 		-- name of the debug action you have to select for this config
+		-- 		name = "Attach debugger to existing `node --inspect` process",
+		-- 		-- for compiled languages like TypeScript or Svelte.js
+		-- 		sourceMaps = true,
+		-- 		-- resolve source maps in nested locations while ignoring node_modules
+		-- 		resolveSourceMapLocations = {
+		-- 			"${workspaceFolder}/**",
+		-- 			"!**/node_modules/**",
+		-- 		},
+		-- 		-- path to src in vite based projects (and most other projects as well)
+		-- 		cwd = "${workspaceFolder}/src",
+		-- 		-- we don't want to debug code inside node_modules, so skip it!
+		-- 		skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+		-- 	},
+		-- 	{
+		-- 		type = "pwa-chrome",
+		-- 		name = "Launch Chrome to debug client",
+		-- 		request = "launch",
+		-- 		url = "http://localhost:5173",
+		-- 		sourceMaps = true,
+		-- 		protocol = "inspector",
+		-- 		port = 9222,
+		-- 		webRoot = "${workspaceFolder}/src",
+		-- 		-- skip files from vite's hmr
+		-- 		skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
+		-- 	},
+		-- 	--
+		-- 	-- only if language is javascript, offer this debug action
+		-- 	language == "javascript"
+		-- 			and {
+		-- 				-- use nvim-dap-vscode-js's pwa-node debug adapter
+		-- 				type = "pwa-node",
+		-- 				-- launch a new process to attach the debugger to
+		-- 				request = "launch",
+		-- 				-- name of the debug action you have to select for this config
+		-- 				name = "Launch file in new node process",
+		-- 				-- launch current file
+		-- 				program = "${file}",
+		-- 				cwd = "${workspaceFolder}",
+		-- 			}
+		-- 		or nil,
+		-- 	language == "javascript" -- Divider for the launch.json derived configs
+		-- 			and {
+		-- 				name = "----- ↓ launch.json configs ↓ -----",
+		-- 				type = "",
+		-- 				request = "launch",
+		-- 			}
+		-- 		or nil,
+		-- }
+		-- end
 
 		-- local dlvToolPath = vim.fn.stdpath("data") .. "/mason/packages/delve/dlv"
 		-- local goDebugAdapter = vim.fn.stdpath("data")
@@ -196,9 +238,10 @@ return {
 		dap.adapters.codelldb = {
 			type = "server",
 			port = "${port}",
+			host = "127.0.0.1",
 			executable = {
 				-- CHANGE THIS to your path!
-				command = codelldb:get_install_path() .. "extension/adapter/codelldb",
+				command = codelldb:get_install_path() .. "/extension/adapter/codelldb",
 				args = { "--port", "${port}" },
 
 				-- On windows you may have to uncomment this:
@@ -206,26 +249,26 @@ return {
 			},
 		}
 
-		-- local codelldb_options = {
-		-- 	{
-		-- 		stopOnEntry = false,
-		-- 		cwd = "${workspaceFolder}",
-		-- 		name = "Launch file",
-		-- 		type = "codelldb",
-		-- 		request = "launch",
-		-- 		program = function()
-		-- 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-		-- 		end,
-		-- 	},
-		-- }
+		local codelldb_options = {
+			{
+				stopOnEntry = false,
+				cwd = "${workspaceFolder}",
+				name = "Launch file",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+			},
+		}
 
-		-- dap.configurations.c = codelldb_options
-		-- dap.configurations.cpp = codelldb_options
+		dap.configurations.c = codelldb_options
+		dap.configurations.cpp = codelldb_options
 		-- dap.configurations.rust = codelldb_options
 
 		local dapui = require("dapui")
 
-		dapui.setup()
+		dapui.setup(dapui_config)
 
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open({ reset = true })

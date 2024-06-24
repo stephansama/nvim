@@ -6,13 +6,6 @@ local treesitter_config = {
 	parser_install_dir = parser_install_dir,
 	auto_install = false,
 	sync_install = false,
-	autotag = {
-		enable_close_on_slash = true,
-		enable_close = true,
-		enable_rename = true,
-		enable = true,
-		filetypes = filetypes,
-	},
 	highlight = { enable = true },
 	incremental_selection = {
 		enable = true,
@@ -74,7 +67,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-		dependencies = { { "windwp/nvim-ts-autotag", ft = filetypes } },
+		dependencies = { { "windwp/nvim-ts-autotag", ft = filetypes, config = true } },
 		opts = treesitter_config,
 		config = function(_, opts)
 			vim.opt.runtimepath:append(parser_install_dir)

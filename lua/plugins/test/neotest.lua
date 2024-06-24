@@ -3,9 +3,10 @@ return {
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
+		"mrcjkb/rustaceanvim",
 		"nvim-treesitter/nvim-treesitter",
 		"marilari88/neotest-vitest",
-		"mrcjkb/rustaceanvim",
+		"thenbe/neotest-playwright",
 	},
 	config = true,
 	keys = {
@@ -14,7 +15,7 @@ return {
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
-			desc = "Run test in current file",
+			desc = "Neotest: Run test in current file",
 		},
 		{
 			"<C-\\>",
@@ -23,7 +24,8 @@ return {
 			end,
 			desc = "Neotest summary",
 		},
-		{ "<leader>ro", "<cmd>Neotest output<CR>", desc = "Neotest output" },
+		{ "<leader>ro", "<cmd>Neotest output<CR>", desc = "Open Neotest output" },
+		{ "<leader>rp", "<cmd>Neotest output-panel<CR>", desc = "Open Neotest output-panel" },
 	},
 	opts = function()
 		return {
@@ -49,6 +51,12 @@ return {
 						end
 					end,
 				}),
+				require("neotest-playwright").adapter({
+					options = {
+						persist_project_selection = true,
+						enable_dynamic_test_discovery = true,
+					},
+				}),
 			},
 			icons = {
 				-- Ascii:
@@ -64,7 +72,7 @@ return {
 				-- {"⠋", "⠙", "⠚", "⠞", "⠖", "⠦", "⠴", "⠲", "⠳", "⠓"},
 				-- {"⠄", "⠆", "⠇", "⠋", "⠙", "⠸", "⠰", "⠠", "⠰", "⠸", "⠙", "⠋", "⠇", "⠆"},
 				-- { "⠋", "⠙", "⠚", "⠒", "⠂", "⠂", "⠒", "⠲", "⠴", "⠦", "⠖", "⠒", "⠐", "⠐", "⠒", "⠓", "⠋" },
-				running_animated = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+				running_animated = { "◴", "◷", "◶", "◵" },
 				watching = "󰈈",
 				unknown = "",
 				running = "",

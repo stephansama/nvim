@@ -16,7 +16,7 @@ local opts = {
 			{ " ", "f", "Find  file", "Telescope find_files" },
 			{ " ", "w", "Find  text", "Telescope live_grep" },
 			{ " ", "r", "Find  recent", "Telescope oldfiles" },
-			{ " ", "t", "Find  tmux window", "Telescope tmux windows" },
+			{ " ", "t", "Find  tmux window", "Telescope tmux windows theme=ivy" },
 			{ " ", "c", "cd  ~/.config/nvim", "cd ~/.config/nvim" },
 			{ "󰒲 ", "l", "Lazy", "Lazy" },
 			{ " ", "m", "Mason", "Mason" },
