@@ -78,15 +78,15 @@ local servers = {
 	"marksman",
 	"mdx_analyzer",
 	-- web
-	"astro",
-	"svelte",
 	"html",
 	"htmx",
+	"astro",
+	"svelte",
+	"eslint",
 	"cssls",
 	"cssmodules_ls",
-	"eslint",
+	-- data
 	"sqlls",
-	-- "yamlls",
 	"taplo", --- https://taplo.tamasfe.dev/
 	-- systems
 	"dockerls",
@@ -131,19 +131,19 @@ lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig.tsserver")))
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
 	filetypes = {
+		"vue",
+		"pug",
 		"css",
-		"eruby",
-		"html",
-		"javascript",
-		"javascriptreact",
 		"less",
 		"sass",
 		"scss",
+		"html",
+		"eruby",
 		"svelte",
-		"pug",
-		"typescriptreact",
-		"vue",
 		"markdown",
+		"javascript",
+		"javascriptreact",
+		"typescriptreact",
 	},
 	init_options = {
 		html = {
@@ -160,6 +160,7 @@ lspconfig.emmet_ls.setup({
 -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>td", vim.diagnostic.disable, { desc = "Hide Diagnostics" })
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys

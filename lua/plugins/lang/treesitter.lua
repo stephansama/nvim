@@ -64,9 +64,9 @@ return {
 	{ "hedyhli/outline.nvim", config = true, keys = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } } },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		build = ":TSUpdate",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = { { "windwp/nvim-ts-autotag", ft = filetypes, config = true } },
 		opts = treesitter_config,
 		config = function(_, opts)
