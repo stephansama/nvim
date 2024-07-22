@@ -1,8 +1,8 @@
 local schemas = {
 	{
-		description = "Oh My Posh config",
-		fileMatch = "*.omp.json",
-		url = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+		description = "JS Config",
+		fileMatch = { "jsconfig.json" },
+		url = "https://json.schemastore.org/jsconfig.json",
 	},
 	{
 		description = "Markdownlint configuration",
@@ -21,7 +21,7 @@ local schemas = {
 	},
 	{
 		description = "Typescript config",
-		fileMatch = { "tsconfig.json", "tsconfig.node.json" },
+		fileMatch = { "tsconfig.json", "tsconfig.node.json", "tsconfig.base.json" },
 		url = "http://json.schemastore.org/tsconfig",
 	},
 	{

@@ -22,6 +22,7 @@ return {
 		conflict = "",
 	},
 	icons = {
+		nx = "󱢴",
 		tabby = "󰄛",
 		["tabby-client"] = "󰄛",
 		npm = "",
@@ -31,6 +32,7 @@ return {
 		document = "󱧶",
 		bun = "󰳮",
 		movie = "󰎁",
+		husky = "󰩃",
 		book = "",
 		store = "󰓜",
 		footer = "󰛻",

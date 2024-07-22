@@ -18,6 +18,13 @@ vim.g.rustaceanvim = function()
 					settings_file_pattern = "rust-analyzer.json",
 				})
 			end,
+			default_settings = {
+				["rust-analyzer"] = {
+					files = {
+						excludeDirs = "node_modules/**",
+					},
+				},
+			},
 		},
 		dap = { adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path) },
 	}

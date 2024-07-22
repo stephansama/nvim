@@ -81,6 +81,7 @@ local servers = {
 	"html",
 	"htmx",
 	"astro",
+	"graphql",
 	"svelte",
 	"eslint",
 	"cssls",

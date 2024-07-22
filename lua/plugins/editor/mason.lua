@@ -17,6 +17,7 @@ local mason_lspconfig = {
 		"astro",
 		"vuels",
 		"eslint",
+		"graphql",
 		"svelte",
 		"tsserver",
 		-- css

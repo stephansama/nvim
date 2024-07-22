@@ -68,7 +68,7 @@ return {
 	update_debounce = 100,
 	status_formatter = nil, -- Use default
 	max_file_length = 40000, -- Disable if file is longer than this (in lines)
-	yadm = { enable = false },
+	-- yadm = { enable = false },
 	current_line_blame_opts = {
 		delay = 1000,
 		virt_text = true,
