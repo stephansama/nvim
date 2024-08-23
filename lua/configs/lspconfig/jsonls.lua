@@ -1,5 +1,10 @@
 local schemas = {
 	{
+		description = "Stylelint",
+		fileMatch = { ".stylelintrc", ".stylelintrc.json" },
+		url = "https://json.schemastore.org/stylelintrc.json",
+	},
+	{
 		description = "JS Config",
 		fileMatch = { "jsconfig.json" },
 		url = "https://json.schemastore.org/jsconfig.json",

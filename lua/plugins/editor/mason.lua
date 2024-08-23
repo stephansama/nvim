@@ -47,6 +47,7 @@ local mason_config = {
 		"shellcheck",
 		"prettier",
 		"prettierd",
+		"stylelint",
 		"codelldb",
 		"stylua",
 		"delve",

@@ -12,6 +12,7 @@ return {
 		require("lint").linters_by_ft = {
 			sh = { "shellcheck" },
 			zsh = { "zsh" },
+			css = { "stylelint" },
 			html = { "htmlhint" },
 			json = { "jsonlint" },
 			-- yaml = { "yamllint" },
