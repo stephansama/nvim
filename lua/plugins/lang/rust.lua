@@ -40,9 +40,9 @@ return {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		-- ft = { "rust" },
+		ft = { "rust" },
 		-- event = "BufReadPost",
-		lazy = false,
+		-- lazy = false,
 		version = "^4",
 		dependencies = "neovim/nvim-lspconfig",
 		-- config = function()

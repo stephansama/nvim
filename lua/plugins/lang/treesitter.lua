@@ -16,6 +16,7 @@ local treesitter_config = {
 			node_decremental = "<leader>sd",
 		},
 	},
+	-- https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages
 	ensure_installed = {
 		-- systems programming
 		"c",
@@ -23,6 +24,7 @@ local treesitter_config = {
 		"cmake",
 		"c_sharp",
 		"dockerfile",
+		"zig",
 		"rust",
 		"go",
 		"gomod",

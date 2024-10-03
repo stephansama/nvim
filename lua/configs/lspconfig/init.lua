@@ -42,15 +42,6 @@ vim.diagnostic.config({
 	},
 })
 
--- Auto show diagnostic
--- vim.o.updatetime = 250
--- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
--- 	group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
--- 	callback = function()
--- 		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
--- 	end,
--- })
-
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -122,6 +113,7 @@ lspconfig.tailwindcss.setup({
 	end,
 })
 
+lspconfig.zls.setup(require("configs.lspconfig.zls"))
 lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig.gopls")))
 lspconfig.cssls.setup(setup_lsp(require("configs.lspconfig.cssls")))
 lspconfig.clangd.setup(setup_lsp(require("configs.lspconfig.clangd")))
@@ -184,7 +176,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			elseif vim.tbl_contains({ "man" }, filetype) then
 				vim.cmd("Man " .. vim.fn.expand("<cword>"))
 			elseif vim.fn.expand("%:t") == "package.json" then
-				print("hello")
+				local text = vim.api.nvim_get_current_line()
+				local match = text:match('"(.-)"')
+				local npm_link = "https://www.npmjs.com/package/" .. match
+				vim.cmd("exec \"!open '" .. npm_link .. "'\"")
 			elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
 				require("crates").show_popup()
 			else

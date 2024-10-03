@@ -5,10 +5,6 @@ return {
 	lazy = false,
 	opts = {
 		flavour = "mocha",
-		-- background = { -- :h background
-		-- 	light = "latte",
-		-- 	dark = "mocha",
-		-- },
 		transparent_background = true,
 		show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
 		integrations = {

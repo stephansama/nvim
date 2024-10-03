@@ -25,8 +25,10 @@ local mason_lspconfig = {
 		"cssmodules_ls",
 		"tailwindcss",
 		-- systems
+		"omnisharp",
 		"clangd",
 		"cmake",
+		"zls",
 		-- data formats
 		"taplo", -- toml
 		"jsonls",
