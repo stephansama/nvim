@@ -121,32 +121,34 @@ lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig.lua_ls")))
 lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.jsonls")))
 lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yamlls")))
 lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig.tsserver")))
-lspconfig.emmet_ls.setup({
-	capabilities = capabilities,
-	filetypes = {
-		"vue",
-		"pug",
-		"css",
-		"less",
-		"sass",
-		"scss",
-		"html",
-		"eruby",
-		"svelte",
-		"markdown",
-		"javascript",
-		"javascriptreact",
-		"typescriptreact",
-	},
-	init_options = {
-		html = {
-			options = {
-				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-				["bem.enabled"] = true,
-			},
-		},
-	},
-})
+
+-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+local emmet_init_options = { html = { options = { ["bem.enabled"] = true } } }
+local emmet_ft = {
+	"css",
+	"pug",
+	"vue",
+	"html",
+	"less",
+	"sass",
+	"scss",
+	"astro",
+	"eruby",
+	"svelte",
+	"htmldjango",
+	"htmlangular",
+	"javascriptreact",
+	"typescriptreact",
+}
+
+vim.keymap.set("n", "<leader>se", function()
+	lspconfig.emmet_ls.setup({
+		capabilities = capabilities,
+		init_options = emmet_init_options,
+		filetypes = emmet_ft,
+	})
+	print("starting emmet language server")
+end)
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
