@@ -17,6 +17,7 @@ local mason_lspconfig = {
 		"astro",
 		"vuels",
 		"eslint",
+		"graphql",
 		"svelte",
 		"tsserver",
 		-- css
@@ -24,8 +25,10 @@ local mason_lspconfig = {
 		"cssmodules_ls",
 		"tailwindcss",
 		-- systems
+		"omnisharp",
 		"clangd",
 		"cmake",
+		"zls",
 		-- data formats
 		"taplo", -- toml
 		"jsonls",
@@ -46,6 +49,7 @@ local mason_config = {
 		"shellcheck",
 		"prettier",
 		"prettierd",
+		"stylelint",
 		"codelldb",
 		"stylua",
 		"delve",

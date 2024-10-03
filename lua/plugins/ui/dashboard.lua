@@ -14,12 +14,8 @@ local opts = {
 		end,
 		center = expand_actions({
 			{ " ", "f", "Find  file", "Telescope find_files" },
-			{ " ", "w", "Find  text", "Telescope live_grep" },
 			{ " ", "r", "Find  recent", "Telescope oldfiles" },
-			{ " ", "t", "Find  to-do", "TodoTelescope" },
-			{ " ", "c", "cd  ~/.config/nvim", "cd ~/.config/nvim" },
-			{ "󰒲 ", "l", "Lazy", "Lazy" },
-			{ " ", "m", "Mason", "Mason" },
+			{ " ", "t", "Find  tmux window", "Telescope tmux windows theme=ivy" },
 			{ " ", "q", "Quit", "qa" },
 		}),
 	},

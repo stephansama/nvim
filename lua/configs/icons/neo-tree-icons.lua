@@ -1,21 +1,19 @@
 ---@desc  inspired by material icon theme
+---@see MaterialFileIcons https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/fileIcons.png
 ---@see MaterialFolderIcons https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
 return {
 	icon = {
-		folder_closed = "",
+		highlight = "NeoTreeFileIcon",
 		folder_open = "",
 		folder_empty = "󰜌",
-		-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-		-- then these will never be used.
-		-- default = "*",
-		highlight = "NeoTreeFileIcon",
+		folder_closed = "",
 	},
 	symbols = {
 		-- Change type
 		added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-		modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 		deleted = "✖", -- this can only be used in the git_status source
 		renamed = "󰁕", -- this can only be used in the git_status source
+		modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 		-- Status type
 		untracked = "",
 		ignored = "",
@@ -24,6 +22,7 @@ return {
 		conflict = "",
 	},
 	icons = {
+		nx = "󱢴",
 		tabby = "󰄛",
 		["tabby-client"] = "󰄛",
 		npm = "",
@@ -33,17 +32,21 @@ return {
 		document = "󱧶",
 		bun = "󰳮",
 		movie = "󰎁",
+		husky = "󰩃",
 		book = "",
 		store = "󰓜",
 		footer = "󰛻",
 		header = "󰛼",
 		navbar = "󰛼",
-		applications = "",
+		kde = "",
 		trash = "",
 		volume = "󰋊",
-		library = "",
-		command = "",
 		cypress = "󰯲",
+		command = "",
+		library = "",
+		keybinding = "󰌌",
+		thunderbird = "󱗆",
+		applications = "",
 		snippet = "󰩫",
 		editor = "",
 		scraper = "󱇪",
@@ -202,6 +205,7 @@ return {
 		ts = "󰛦",
 		js = "",
 		cpp = "",
+		zig = "",
 		next = "󰰓",
 		webpack = "󰜫",
 		obsidian = "󱥐",

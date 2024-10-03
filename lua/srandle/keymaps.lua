@@ -40,6 +40,10 @@ expand_keymaps({
 		["<leader>sh"] = { "<cmd>sp<CR>", "Split horizontally" },
 		["<leader>sv"] = { "<cmd>vsp<CR>", "Split vertically" },
 
+		--- quick line
+		["o"] = { "o<ESC>zz" },
+		["O"] = { "O<ESC>zz" },
+
 		--- quick actions
 		["cw"] = { "ciw", "Change word" },
 		["c'"] = { "ci'", "Change single quotes" },
@@ -65,12 +69,19 @@ expand_keymaps({
 		["K"] = { ":m '<-2<CR>gv=gvzz", "Move line down", { silent = true } },
 	},
 	[{ "n", "v" }] = {
-		["j"] = { "gj" },
-		["k"] = { "gk" },
+		["k"] = { "gkzz" },
+		["j"] = { "gjzz" },
+		["{"] = { "{zz" },
+		["%"] = { "%zz" },
+		["}"] = { "}z" },
+		["u"] = { "uzz" },
+		["``"] = { "``zz" },
+		["G"] = { "Gzz" },
+		["<C-R>"] = { "<C-R>zz" },
+		["<C-D>"] = { "<C-D>zz" },
+		["<C-U>"] = { "<C-U>zz" },
 	},
 	[{ "n", "o", "v", "x" }] = {
-		["o"] = { "o<ESC>" },
-		["O"] = { "O<ESC>" },
 		["H"] = { "^", "Move to beginning of line" },
 		["L"] = { "$", "Move to end of line" },
 	},

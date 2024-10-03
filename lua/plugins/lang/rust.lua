@@ -1,9 +1,12 @@
 local border = require("utils").border
 
-local rustaceanvim_opts = function()
-	local mason_registry = require("mason-registry")
-	local codelldb = mason_registry.get_package("codelldb")
-	local extension_path = codelldb:get_install_path() .. "/extension/"
+vim.g.rustaceanvim = function()
+	-- local codelldb = mason_registry.get_package("codelldb")
+	-- local mason_registry = require("mason-registry")
+
+	-- /Users/stephanrandle/.local/share/nvim/mason/packages/codelldbextension/adapter/codelldb
+	local codelldb = vim.fn.stdpath("data") .. "/mason/packages/codelldb/"
+	local extension_path = codelldb .. "/extension/"
 	local codelldb_path = extension_path .. "adapter/codelldb"
 	local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 	return {
@@ -15,10 +18,15 @@ local rustaceanvim_opts = function()
 					settings_file_pattern = "rust-analyzer.json",
 				})
 			end,
+			default_settings = {
+				["rust-analyzer"] = {
+					files = {
+						excludeDirs = "node_modules/**",
+					},
+				},
+			},
 		},
-		dap = {
-			adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path),
-		},
+		dap = { adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path) },
 	}
 end
 
@@ -33,12 +41,13 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
 		ft = { "rust" },
-		event = "BufReadPost",
+		-- event = "BufReadPost",
+		-- lazy = false,
 		version = "^4",
 		dependencies = "neovim/nvim-lspconfig",
-		config = function()
-			vim.g.rustaceanvim = rustaceanvim_opts
-		end,
+		-- config = function()
+		-- 	vim.g.rustaceanvim = rustaceanvim_opts
+		-- end,
 	},
 	{
 		"saecki/crates.nvim",

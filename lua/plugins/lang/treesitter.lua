@@ -6,13 +6,6 @@ local treesitter_config = {
 	parser_install_dir = parser_install_dir,
 	auto_install = false,
 	sync_install = false,
-	autotag = {
-		enable_close_on_slash = true,
-		enable_close = true,
-		enable_rename = true,
-		enable = true,
-		filetypes = filetypes,
-	},
 	highlight = { enable = true },
 	incremental_selection = {
 		enable = true,
@@ -23,6 +16,7 @@ local treesitter_config = {
 			node_decremental = "<leader>sd",
 		},
 	},
+	-- https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages
 	ensure_installed = {
 		-- systems programming
 		"c",
@@ -30,6 +24,7 @@ local treesitter_config = {
 		"cmake",
 		"c_sharp",
 		"dockerfile",
+		"zig",
 		"rust",
 		"go",
 		"gomod",
@@ -71,10 +66,10 @@ return {
 	{ "hedyhli/outline.nvim", config = true, keys = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } } },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		build = ":TSUpdate",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-		dependencies = { { "windwp/nvim-ts-autotag", ft = filetypes } },
+		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
+		dependencies = { { "windwp/nvim-ts-autotag", ft = filetypes, config = true } },
 		opts = treesitter_config,
 		config = function(_, opts)
 			vim.opt.runtimepath:append(parser_install_dir)

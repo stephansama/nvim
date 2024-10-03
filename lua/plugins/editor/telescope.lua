@@ -6,7 +6,8 @@ local insert_picker = picker_config("insert")
 local normal_picker = picker_config("normal")
 
 local telescope_opts = {
-	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert" },
+	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert", theme = "ivy" },
+	extensions = { package_info = { theme = "ivy" } },
 	pickers = {
 		todo = normal_picker,
 		marks = insert_picker,
@@ -28,6 +29,13 @@ local telescope_opts = {
 }
 
 return {
+	{
+		"Equilibris/nx.nvim",
+		config = true,
+		opts = { nx_cmd_root = "npx nx" },
+		keys = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", desc = "nx actions" } },
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
 	{
 		"camgraff/telescope-tmux.nvim",
 		keys = {
@@ -63,7 +71,11 @@ return {
 		lazy = false,
 		cmd = "Telescope",
 		opts = telescope_opts,
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-lua/plenary.nvim",
+			{ "isak102/telescope-git-file-history.nvim", dependencies = { "tpope/vim-fugitive" } },
+		},
 		keys = {
 			{ "<leader><Tab>", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
 			{ "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols" },
@@ -75,6 +87,11 @@ return {
 			{ "<leader>ft", "<cmd>Telescope colorscheme<CR>", desc = "Change colorscheme" },
 			{ "<leader>fm", "<cmd>Telescope marks<CR>", desc = "Find marks" },
 			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Find within git status" },
+			{
+				"<leader>go",
+				"<cmd>Telescope git_file_history theme=ivy initial_mode=normal<CR>",
+				desc = "Find exact word",
+			},
 			{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
 		},
 		config = function(_, opts)
@@ -82,6 +99,8 @@ return {
 			telescope.setup(opts)
 			telescope.load_extension("fzf")
 			telescope.load_extension("tmux")
+			telescope.load_extension("package_info")
+			telescope.load_extension("git_file_history")
 		end,
 	},
 }

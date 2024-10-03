@@ -29,7 +29,7 @@ return {
 		opts = {
 			scope = { enabled = false },
 			exclude = {
-				buftypes = { "terminal", "nofile", "quickfix", "prompt" },
+				buftypes = { "terminal", "nofile", "quickfix", "prompt", "neotest-summary" },
 				filetypes = exclude_filetypes,
 			},
 		},

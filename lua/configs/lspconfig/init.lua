@@ -21,12 +21,34 @@ local handlers = {
 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 -- add borders
 for key, v in pairs(handlers) do
 	vim.lsp.handlers[key] = v
 end
 
-vim.diagnostic.config({ float = { border = border } })
+vim.diagnostic.config({
+	virtual_text = {
+		source = "if_many", -- Or "if_many"
+	},
+	float = {
+		border = border,
+		source = "if_many",
+	},
+})
+
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or border
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 local on_attach = function(_, bufnr)
 	local options = { noremap = true, silent = true, buffer = bufnr }
@@ -47,15 +69,16 @@ local servers = {
 	"marksman",
 	"mdx_analyzer",
 	-- web
-	"astro",
-	"svelte",
 	"html",
 	"htmx",
+	"astro",
+	"graphql",
+	"svelte",
+	"eslint",
 	"cssls",
 	"cssmodules_ls",
-	"eslint",
+	-- data
 	"sqlls",
-	-- "yamlls",
 	"taplo", --- https://taplo.tamasfe.dev/
 	-- systems
 	"dockerls",
@@ -90,6 +113,7 @@ lspconfig.tailwindcss.setup({
 	end,
 })
 
+lspconfig.zls.setup(require("configs.lspconfig.zls"))
 lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig.gopls")))
 lspconfig.cssls.setup(setup_lsp(require("configs.lspconfig.cssls")))
 lspconfig.clangd.setup(setup_lsp(require("configs.lspconfig.clangd")))
@@ -97,38 +121,41 @@ lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig.lua_ls")))
 lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.jsonls")))
 lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yamlls")))
 lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig.tsserver")))
-lspconfig.emmet_ls.setup({
-	capabilities = capabilities,
-	filetypes = {
-		"css",
-		"eruby",
-		"html",
-		"javascript",
-		"javascriptreact",
-		"less",
-		"sass",
-		"scss",
-		"svelte",
-		"pug",
-		"typescriptreact",
-		"vue",
-		"markdown",
-	},
-	init_options = {
-		html = {
-			options = {
-				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-				["bem.enabled"] = true,
-			},
-		},
-	},
-})
+
+-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+local emmet_init_options = { html = { options = { ["bem.enabled"] = true } } }
+local emmet_ft = {
+	"css",
+	"pug",
+	"vue",
+	"html",
+	"less",
+	"sass",
+	"scss",
+	"astro",
+	"eruby",
+	"svelte",
+	"htmldjango",
+	"htmlangular",
+	"javascriptreact",
+	"typescriptreact",
+}
+
+vim.keymap.set("n", "<leader>se", function()
+	lspconfig.emmet_ls.setup({
+		capabilities = capabilities,
+		init_options = emmet_init_options,
+		filetypes = emmet_ft,
+	})
+	print("starting emmet language server")
+end)
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>td", vim.diagnostic.disable, { desc = "Hide Diagnostics" })
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
@@ -145,9 +172,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "K", function()
-			local winid = require("ufo").peekFoldedLinesUnderCursor()
-			if not winid then
-				vim.lsp.buf.hover()
+			local filetype = vim.bo.filetype
+			if vim.tbl_contains({ "vim", "help" }, filetype) then
+				vim.cmd("h " .. vim.fn.expand("<cword>"))
+			elseif vim.tbl_contains({ "man" }, filetype) then
+				vim.cmd("Man " .. vim.fn.expand("<cword>"))
+			elseif vim.fn.expand("%:t") == "package.json" then
+				local text = vim.api.nvim_get_current_line()
+				local match = text:match('"(.-)"')
+				local npm_link = "https://www.npmjs.com/package/" .. match
+				vim.cmd("exec \"!open '" .. npm_link .. "'\"")
+			elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+				require("crates").show_popup()
+			else
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					vim.lsp.buf.hover()
+				end
 			end
 		end, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)

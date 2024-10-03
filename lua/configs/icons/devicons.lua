@@ -4,6 +4,7 @@ local icons = {
 	eslintrc = { icon = "󰱺", name = "eslintrc" },
 	sitemap = { icon = "", name = "sitemap" },
 	env = { icon = "", name = "env" },
+	nx = { icon = "󱢴", color = "#FFFFFF", name = "nx" },
 	gatsby = { icon = "󰹃", color = "#663399", name = "gatsby" },
 	goextra = { icon = "", color = "#DA4F7A", name = "goextra" },
 	go = { icon = "", color = "#4DA9BE", name = "go" },
@@ -88,6 +89,9 @@ return {
 		["d.ts"] = { icon = "", color = "#3178C6", name = "ts_definition" },
 	},
 	override_by_filename = {
+		["nx.json"] = icons.nx,
+		["project.json"] = icons.nx,
+		["amplify.yml"] = { icon = "󰸏" },
 		["_redirects"] = { icon = "" },
 		[".stow-local-ignore"] = { icon = "" },
 		["wrangler.toml"] = { icon = "☁", color = "#F38020", name = "cloudflare" },
@@ -102,6 +106,7 @@ return {
 		["gatsby-ssr.js"] = icons.gatsby,
 		["gatsby-config.js"] = icons.gatsby,
 		["gatsby-browser.js"] = icons.gatsby,
+		["tsconfig.base.json"] = icons.typescript,
 		-- rss
 		["rss.xml"] = icons.rss,
 		["rss.xml.ts"] = icons.rss,
@@ -120,6 +125,7 @@ return {
 		[".env.local"] = icons.env,
 		[".env.sample"] = icons.env,
 		[".env.example"] = icons.env,
+		["electron-flags.conf"] = { icon = "", color = "#47848F", name = "electron" },
 		[".env.production"] = icons.env,
 		["contributing.md"] = { icon = "󰅍", color = "#F7CC4F", name = "contributing" },
 		["authors.md"] = { icon = "", color = "#E15241", name = "authors" },
@@ -136,6 +142,9 @@ return {
 		[".eslintrc.js"] = icons.eslintrc,
 		[".eslintrc.cjs"] = icons.eslintrc,
 		[".eslintrc.json"] = icons.eslintrc,
+		["eslint.config.js"] = icons.eslintrc,
+		["eslint.config.cjs"] = icons.eslintrc,
+		["eslint.config.mjs"] = icons.eslintrc,
 		["unlighthouse.config.js"] = icons.unlighthouse,
 		["unlighthouse.config.ts"] = icons.unlighthouse,
 		-- vite ts
@@ -157,6 +166,7 @@ return {
 		["babel.config.cjs"] = icons.babel,
 		["babel.config.mjs"] = icons.babel,
 		["babel.config.js"] = icons.babel,
+		["starship.toml"] = { icon = "", color = "#D73167", name = "Starship" },
 		-- postcss
 		["postcss.config.js"] = icons.postcss,
 		["postcss.config.mjs"] = icons.postcss,
@@ -178,6 +188,7 @@ return {
 		["cargo.toml"] = { icon = "", color = "#D24933", name = "cargo.toml" },
 		["jsconfig.json"] = { icon = "", color = "#F7DF1E", name = "jsconfig" },
 		["pnpm-lock.yaml"] = { icon = "󰛷", color = "#F69220", name = "pnpm-lock.yaml" },
+		["pnpm-workspace.yaml"] = { icon = "󰛷", color = "#FFFFFF", name = "pnpm-workspace.yaml" },
 		["playwright.config.ts"] = { icon = "󰴂", color = "#2EAD33", name = "playwright" },
 		-- vscode
 		["extensions.json"] = { icon = "", color = "#C59F46", name = "extensions" },

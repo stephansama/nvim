@@ -35,7 +35,7 @@ expand_settings({
 vim.filetype.add({
 	extension = {
 		templ = "templ",
-		mdx = "markdown",
+		mdx = "markdown.mdx",
 		zsh = "sh",
 		pcss = "css",
 		postcss = "css",

@@ -1,5 +1,15 @@
 local schemas = {
 	{
+		description = "Stylelint",
+		fileMatch = { ".stylelintrc", ".stylelintrc.json" },
+		url = "https://json.schemastore.org/stylelintrc.json",
+	},
+	{
+		description = "JS Config",
+		fileMatch = { "jsconfig.json" },
+		url = "https://json.schemastore.org/jsconfig.json",
+	},
+	{
 		description = "Markdownlint configuration",
 		fileMatch = { ".markdownlint.json", ".markdownlint.jsonc", ".markdownlint.yaml" },
 		url = "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
@@ -16,7 +26,7 @@ local schemas = {
 	},
 	{
 		description = "Typescript config",
-		fileMatch = { "tsconfig.json", "tsconfig.node.json" },
+		fileMatch = { "tsconfig.json", "tsconfig.node.json", "tsconfig.base.json" },
 		url = "http://json.schemastore.org/tsconfig",
 	},
 	{

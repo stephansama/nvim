@@ -27,4 +27,19 @@ return {
 			}
 		end,
 	},
+	{
+		"danymat/neogen",
+		config = true,
+		event = "BufEnter",
+		opts = { enabled = true, snippet_engine = "luasnip" },
+		keys = {
+			{
+				"<leader>cg",
+				function()
+					require("neogen").generate()
+				end,
+				desc = "Generate documentation comments",
+			},
+		},
+	},
 }
