@@ -24,9 +24,6 @@ expand_keymaps({
 		["<leader><leader>w"] = { vim.cmd.wqa, "Save and quit all" },
 		["<leader><leader><leader>"] = { vim.cmd.qa, "Quit all" },
 
-		--- macro
-		["Q"] = { "@q", "Replay quick macro" },
-
 		--- leader functions
 		["<leader>w"] = { vim.cmd.w, "Save buffer" },
 		["<leader>x"] = { vim.cmd.q, "Close window" },

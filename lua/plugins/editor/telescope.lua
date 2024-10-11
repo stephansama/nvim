@@ -99,6 +99,7 @@ return {
 			telescope.setup(opts)
 			telescope.load_extension("fzf")
 			telescope.load_extension("tmux")
+			telescope.load_extension("macros")
 			telescope.load_extension("package_info")
 			telescope.load_extension("git_file_history")
 		end,
