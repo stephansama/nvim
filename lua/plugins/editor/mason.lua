@@ -19,7 +19,7 @@ local mason_lspconfig = {
 		"eslint",
 		"graphql",
 		"svelte",
-		"tsserver",
+		"ts_ls",
 		-- css
 		"cssls",
 		"cssmodules_ls",

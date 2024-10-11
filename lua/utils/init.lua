@@ -1,4 +1,13 @@
 return {
+	--- launch url dependent on system
+	---@param url string
+	---@return nil
+	openURL = function(url)
+		if url == "" then
+			return
+		end
+		vim.cmd("exec \"!open '" .. url .. "'\"")
+	end,
 	--- create border for highlight group
 	---@param hl_name string Highlight group name
 	---@return table border_table of border elements

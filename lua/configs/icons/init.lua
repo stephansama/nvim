@@ -3,6 +3,12 @@
 return {
 	telescope = "   ",
 	packageJSON = { up_to_date = "|  ", outdated = "|  " },
+	lualine = {
+		modified = "",
+		readonly = "",
+		unnamed = "󰡯",
+		newfile = "",
+	},
 	mason = {
 		package_pending = "󰶻",
 		package_installed = "󰄴",

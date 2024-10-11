@@ -1,5 +1,7 @@
 ---@see LSPConfig https://github.com/neovim/nvim-lspconfig
-local create_border = require("utils").border
+local utils = require("utils")
+local openURL = utils.openURL
+local create_border = utils.border
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -120,7 +122,7 @@ lspconfig.clangd.setup(setup_lsp(require("configs.lspconfig.clangd")))
 lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig.lua_ls")))
 lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.jsonls")))
 lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yamlls")))
-lspconfig.tsserver.setup(setup_lsp(require("configs.lspconfig.tsserver")))
+lspconfig.ts_ls.setup(setup_lsp(require("configs.lspconfig.tsserver")))
 
 -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
 local emmet_init_options = { html = { options = { ["bem.enabled"] = true } } }
@@ -181,7 +183,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				local text = vim.api.nvim_get_current_line()
 				local match = text:match('"(.-)"')
 				local npm_link = "https://www.npmjs.com/package/" .. match
-				vim.cmd("exec \"!open '" .. npm_link .. "'\"")
+				openURL(npm_link)
 			elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
 				require("crates").show_popup()
 			else

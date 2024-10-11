@@ -34,12 +34,10 @@ return {
 			set_dark_mode = function()
 				vim.api.nvim_set_option("background", "dark")
 				vim.cmd("colorscheme catppuccin-mocha")
-				-- vim.api.nvim_command("!kitten themes --reload-in=all Catppuccin-Mocha")
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option("background", "light")
 				vim.cmd("colorscheme catppuccin-latte")
-				-- vim.api.nvim_command("!kitten themes --reload-in=all Catppuccin-Latte")
 			end,
 		},
 	},

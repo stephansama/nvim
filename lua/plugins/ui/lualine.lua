@@ -1,14 +1,12 @@
-local filename_symbols = {
-	modified = "",
-	readonly = "",
-	unnamed = "󰡯",
-	newfile = "",
-}
+local macros = function()
+	return require("NeoComposer.ui").status_recording()
+end
 
 local package_info = function()
 	return require("package-info").get_status()
 end
 
+---@see Default_Configuration https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#default-configuration
 local opts = {
 	options = {
 		theme = "catppuccin",
@@ -23,10 +21,11 @@ local opts = {
 				file_status = true,
 				newfile_status = true,
 				path = 3,
-				symbols = filename_symbols,
+				symbols = require("configs.icons").lualine,
 			},
 			{ package_info },
 		},
+		lualine_x = { macros, "fileformat", "filetype" },
 	},
 }
 
