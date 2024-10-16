@@ -1,4 +1,4 @@
-local expand_settings = require("utils").expand_settings
+local expand_settings = require("utils.expand").expand_settings
 
 expand_settings({
 	wo = { number = true, relativenumber = true },

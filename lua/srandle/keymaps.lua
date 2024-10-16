@@ -1,4 +1,4 @@
-local expand_keymaps = require("utils").expand_keymaps
+local expand_keymaps = require("utils.expand").expand_keymaps
 
 ---move buffer in a specific direction
 ---@param direction 'next' | 'previous'

@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require("utils.dashboard")
 local expand_actions, color_dashboard, load_ascii_headers =
 	utils.expand_actions, utils.color_dashboard, utils.load_ascii_headers
 

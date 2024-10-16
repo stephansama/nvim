@@ -10,4 +10,4 @@ vim.cmd([[hi MiniIndentscopeSymbol guifg=#C93638 guibg=none]])
 vim.cmd([[hi NoiceCmdlinePopupBorder guifg=#C93638 guibg=none]])
 vim.cmd([[UfoEnableFold]])
 
-require("utils").color_dashboard()
+require("utils.dashboard").color_dashboard()
