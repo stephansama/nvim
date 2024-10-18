@@ -1,10 +1,6 @@
-local border = require("utils").border
+local border = require("utils.ui").border
 
 vim.g.rustaceanvim = function()
-	-- local codelldb = mason_registry.get_package("codelldb")
-	-- local mason_registry = require("mason-registry")
-
-	-- /Users/stephanrandle/.local/share/nvim/mason/packages/codelldbextension/adapter/codelldb
 	local codelldb = vim.fn.stdpath("data") .. "/mason/packages/codelldb/"
 	local extension_path = codelldb .. "/extension/"
 	local codelldb_path = extension_path .. "adapter/codelldb"
@@ -41,21 +37,15 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
 		ft = { "rust" },
-		-- event = "BufReadPost",
-		-- lazy = false,
 		version = "^4",
 		dependencies = "neovim/nvim-lspconfig",
-		-- config = function()
-		-- 	vim.g.rustaceanvim = rustaceanvim_opts
-		-- end,
 	},
 	{
 		"saecki/crates.nvim",
 		config = true,
 		event = { "BufRead Cargo.toml" },
-		opts = { --- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
-			popup = { border = border("FloatBorder") },
-		},
+		--- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
+		opts = { popup = { border = border("FloatBorder") } },
 		keys = {
 			{ "<leader>cs", "<cmd>Crates show_popup<cr>", desc = "Crates.nvim open features list" },
 			{ "<leader>cu", "<cmd>Crates update_crate<cr>", desc = "Crates.nvim update crate" },

@@ -4,6 +4,13 @@ local M = {}
 
 M.telescope = "   "
 
+M.diagnostics = {
+	Error = "󰅚 ",
+	Warn = "󰀪 ",
+	Hint = "󰌶 ",
+	Info = " ",
+}
+
 M.packageJSON = {
 	outdated = "|  ",
 	up_to_date = "|  ",

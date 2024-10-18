@@ -1,102 +1,55 @@
-local mason_lspconfig = {
-	automatic_installation = true,
-	ensure_installed = {
-		"marksman",
-		-- docker
-		"dockerls",
-		"docker_compose_language_service",
-		-- HTML
-		"html",
-		"emmet_ls",
-		-- scripting
-		"bashls",
-		"lua_ls",
-		"vimls",
-		-- javascript
-		"htmx",
-		"astro",
-		"vuels",
-		"eslint",
-		"graphql",
-		"svelte",
-		"ts_ls",
-		-- css
-		"cssls",
-		"cssmodules_ls",
-		"tailwindcss",
-		-- systems
-		"omnisharp",
-		"clangd",
-		"cmake",
-		"zls",
-		-- data formats
-		"taplo", -- toml
-		"jsonls",
-		"yamlls",
-		"lemminx", --xml
-		"graphql",
-		-- golang
-		"templ",
-		"gopls",
-	},
+local installed = require("constants.installed")
+local MASON_ENSURE_INSTALLED, MASON_LSP_ENSURE_INSTALLED =
+	installed.MASON_ENSURE_INSTALLED, installed.MASON_LSP_ENSURE_INSTALLED
+
+local MasonInstallAll = function()
+	if MASON_ENSURE_INSTALLED and #MASON_ENSURE_INSTALLED > 0 then
+		vim.cmd("MasonInstall " .. table.concat(MASON_ENSURE_INSTALLED, " "))
+	end
+end
+
+local keymaps = {
+	uninstall_server = "X",
+	install_server = "i",
+	update_server = "u",
+	update_all_servers = "U",
+	check_server_version = "c",
+	check_outdated_servers = "C",
+	cancel_installation = "<C-c>",
+	toggle_server_expand = "<CR>",
 }
 
-local mason_config = {
+local mason_opts = {
 	PATH = "prepend",
 	registries = { "github:mason-org/mason-registry" },
-	ensure_installed = {
-		"shfmt",
-		"shellcheck",
-		"prettier",
-		"prettierd",
-		"stylelint",
-		"codelldb",
-		"stylua",
-		"delve",
-		"go-debug-adapter",
-		"htmlhint",
-		"jsonlint",
-		"yamllint",
-		"yamlfmt",
-		"stylelint",
-		"markdownlint",
-		"js-debug-adapter",
-	},
+	ensure_installed = MASON_ENSURE_INSTALLED,
 	ui = {
 		icons = require("configs.icons").mason,
 		border = "rounded",
-		keymaps = {
-			toggle_server_expand = "<CR>",
-			install_server = "i",
-			update_server = "u",
-			check_server_version = "c",
-			update_all_servers = "U",
-			check_outdated_servers = "C",
-			uninstall_server = "X",
-			cancel_installation = "<C-c>",
-		},
+		keymaps = keymaps,
 	},
+}
+
+local masonlsp_opts = {
+	ensure_installed = MASON_LSP_ENSURE_INSTALLED,
+	automatic_installation = true,
 }
 
 return {
 	{
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-		opts = mason_config,
+		opts = mason_opts,
 		config = function(_, opts)
 			require("mason").setup(opts)
-			vim.api.nvim_create_user_command("MasonInstallAll", function()
-				if mason_config.ensure_installed and #mason_config.ensure_installed > 0 then
-					vim.cmd("MasonInstall " .. table.concat(mason_config.ensure_installed, " "))
-				end
-			end, {})
+			vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
-		lazy = false,
-		opts = mason_lspconfig,
 		config = true,
+		lazy = false,
+		opts = masonlsp_opts,
 	},
 }

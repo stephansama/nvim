@@ -1,10 +1,11 @@
 ---@see LSPConfig https://github.com/neovim/nvim-lspconfig
-local utils = require("utils")
-local openURL = utils.openURL
-local create_border = utils.border
+local create_border = require("utils.ui").border
+local openURL = require("utils").openURL
 local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local EMMET_FILETYPES = require("constants.ft").EMMET_FILETYPES
+local SERVERS = require("constants.servers")
+local signs = require("configs.icons").diagnostics
 
 --- add ufo capabilities
 capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
@@ -23,7 +24,6 @@ local handlers = {
 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 
-local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -36,7 +36,7 @@ end
 
 vim.diagnostic.config({
 	virtual_text = {
-		source = "if_many", -- Or "if_many"
+		source = "if_many",
 	},
 	float = {
 		border = border,
@@ -66,29 +66,6 @@ local on_attach = function(_, bufnr)
 	keymap.set("n", "<leader>rs", ":LspRestart<CR>", options)
 end
 
---- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = {
-	"marksman",
-	"mdx_analyzer",
-	-- web
-	"html",
-	"htmx",
-	"astro",
-	"graphql",
-	"svelte",
-	"eslint",
-	"cssls",
-	"cssmodules_ls",
-	-- data
-	"sqlls",
-	"taplo", --- https://taplo.tamasfe.dev/
-	-- systems
-	"dockerls",
-	"clangd",
-	"vimls",
-	"cmake",
-}
-
 local setup_lsp = function(options)
 	return {
 		on_attach = on_attach,
@@ -97,7 +74,8 @@ local setup_lsp = function(options)
 		setup = options.setup or nil,
 	}
 end
-for _, lsp in ipairs(servers) do
+
+for _, lsp in ipairs(SERVERS) do
 	lspconfig[lsp].setup({ on_attach = on_attach, capabilities = capabilities })
 end
 
@@ -126,28 +104,12 @@ lspconfig.ts_ls.setup(setup_lsp(require("configs.lspconfig.tsserver")))
 
 -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
 local emmet_init_options = { html = { options = { ["bem.enabled"] = true } } }
-local emmet_ft = {
-	"css",
-	"pug",
-	"vue",
-	"html",
-	"less",
-	"sass",
-	"scss",
-	"astro",
-	"eruby",
-	"svelte",
-	"htmldjango",
-	"htmlangular",
-	"javascriptreact",
-	"typescriptreact",
-}
 
 vim.keymap.set("n", "<leader>se", function()
 	lspconfig.emmet_ls.setup({
+		filetypes = EMMET_FILETYPES,
 		capabilities = capabilities,
 		init_options = emmet_init_options,
-		filetypes = emmet_ft,
 	})
 	print("starting emmet language server")
 end)

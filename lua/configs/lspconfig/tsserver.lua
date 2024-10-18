@@ -1,30 +1,19 @@
+local inlayHints = {
+	includeInlayVariableTypeHints = true,
+	includeInlayParameterNameHints = "all",
+	includeInlayEnumMemberValueHints = true,
+	includeInlayFunctionParameterTypeHints = true,
+	includeInlayFunctionLikeReturnTypeHints = true,
+	includeInlayPropertyDeclarationTypeHints = true,
+	includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+	includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+}
+
 return {
 	settings = {
+		javascript = { inlayHints = inlayHints },
+		typescript = { inlayHints = inlayHints },
 		init_options = { preferences = { disableSuggestions = true } },
-		typescript = {
-			inlayHints = {
-				includeInlayVariableTypeHints = true,
-				includeInlayParameterNameHints = "all",
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-			},
-		},
-		javascript = {
-			inlayHints = {
-				includeInlayVariableTypeHints = true,
-				includeInlayParameterNameHints = "all",
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-			},
-		},
 	},
 	setup = {
 		tsserver = function(_, opts)

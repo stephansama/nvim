@@ -58,9 +58,9 @@ end
 return {
 	"ThePrimeagen/harpoon",
 	-- lazy = false,
+	opts = {},
 	dependencies = { "nvim-lua/plenary.nvim" },
 	branch = "harpoon2",
-	opts = {},
 	config = function(_, opts)
 		require("harpoon"):setup(opts)
 	end,

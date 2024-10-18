@@ -43,7 +43,7 @@ local oil_opts = {
 	default_file_explorer = false,
 	view_options = { show_hidden = true },
 	keymaps = {
-		["gd"] = {
+		["K"] = {
 			desc = "Toggle file detail view",
 			callback = function()
 				local oil = require("oil")
@@ -80,8 +80,8 @@ return {
 			{
 				"s1n7ax/nvim-window-picker",
 				version = "2.*",
-				opts = window_picker_config,
 				config = true,
+				opts = window_picker_config,
 			},
 		},
 		keys = {

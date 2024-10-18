@@ -1,32 +1,4 @@
-local function picker_config(initial_mode)
-	return { initial_mode = initial_mode, theme = "ivy" }
-end
-
-local insert_picker = picker_config("insert")
-local normal_picker = picker_config("normal")
-
-local telescope_opts = {
-	defaults = { prompt_prefix = require("configs.icons").telescope, initial_mode = "insert", theme = "ivy" },
-	extensions = { package_info = { theme = "ivy" } },
-	pickers = {
-		todo = normal_picker,
-		marks = insert_picker,
-		buffers = normal_picker,
-		keymaps = insert_picker,
-		oldfiles = normal_picker,
-		live_grep = insert_picker,
-		git_status = normal_picker,
-		grep_string = insert_picker,
-		colorscheme = insert_picker,
-		lsp_document_symbols = insert_picker,
-		current_buffer_fuzzy_find = insert_picker,
-		find_files = vim.tbl_deep_extend(
-			"force",
-			insert_picker,
-			{ find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" } }
-		),
-	},
-}
+local configure_telescope = require("utils").configure_telescope
 
 return {
 	{
@@ -70,12 +42,21 @@ return {
 		"nvim-telescope/telescope.nvim",
 		lazy = false,
 		cmd = "Telescope",
-		opts = telescope_opts,
+		opts = function()
+			return require("configs.telescope-opts")
+		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-lua/plenary.nvim",
 			{ "isak102/telescope-git-file-history.nvim", dependencies = { "tpope/vim-fugitive" } },
 		},
+		config = configure_telescope({
+			"fzf",
+			"tmux",
+			"macros",
+			"package_info",
+			"git_file_history",
+		}),
 		keys = {
 			{ "<leader><Tab>", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
 			{ "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols" },
@@ -94,14 +75,5 @@ return {
 			},
 			{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
 		},
-		config = function(_, opts)
-			local telescope = require("telescope")
-			telescope.setup(opts)
-			telescope.load_extension("fzf")
-			telescope.load_extension("tmux")
-			telescope.load_extension("macros")
-			telescope.load_extension("package_info")
-			telescope.load_extension("git_file_history")
-		end,
 	},
 }

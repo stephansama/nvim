@@ -1,3 +1,5 @@
+local reset_ui = require("utils.ui").reset_ui
+
 return {
 	{
 		"nvim-tree/nvim-web-devicons",
@@ -28,16 +30,19 @@ return {
 	},
 	{
 		"f-person/auto-dark-mode.nvim",
-		keys = { { "<leader>ct", "<cmd>Lazy load auto-dark-mode.nvim<cr>", desc = "Change Theme" } },
+		priority = 1000000,
+		lazy = false,
 		opts = {
 			update_interval = 1000,
 			set_dark_mode = function()
 				vim.api.nvim_set_option("background", "dark")
 				vim.cmd("colorscheme catppuccin-mocha")
+				reset_ui()
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option("background", "light")
 				vim.cmd("colorscheme catppuccin-latte")
+				reset_ui()
 			end,
 		},
 	},

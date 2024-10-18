@@ -1,0 +1,13 @@
+{
+	"metaTableExport": {
+		"prefix": "mte",
+		"body": [
+			"local M = {}",
+			"",
+			"$1",
+			"",
+			"return M$0"
+		],
+		"description": "Imports entire module statement in ES6 syntax"
+	}
+}

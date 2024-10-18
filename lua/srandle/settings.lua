@@ -1,5 +1,7 @@
 local expand_settings = require("utils.expand").expand_settings
 
+vim.g.mapleader = require("constants.leader")
+
 expand_settings({
 	wo = { number = true, relativenumber = true },
 	bo = { tabstop = 4 },

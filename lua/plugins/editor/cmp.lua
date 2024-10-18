@@ -1,3 +1,5 @@
+local cmdline_config = require("configs.cmp-cmdline").config
+
 return {
 	"hrsh7th/nvim-cmp",
 	config = true,
@@ -16,24 +18,7 @@ return {
 		{
 			"hrsh7th/cmp-cmdline",
 			event = { "InsertEnter", "CmdlineEnter" },
-			config = function()
-				local cmp = require("cmp")
-
-				cmp.setup.cmdline("/", {
-					mapping = cmp.mapping.preset.cmdline(),
-					sources = { { name = "buffer" } },
-				})
-
-				cmp.setup.cmdline(":", {
-					mapping = cmp.mapping.preset.cmdline(),
-					sources = cmp.config.sources({ { name = "path" } }, {
-						{
-							name = "cmdline",
-							option = { ignore_cmds = { "Man", "!" } },
-						},
-					}),
-				})
-			end,
+			config = cmdline_config,
 		},
 		-- add completion for package.json sort of similar to crates.nvim from rust
 		{ "David-Kunz/cmp-npm", ft = "json", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
