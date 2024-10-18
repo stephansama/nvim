@@ -1,5 +1,3 @@
-local openURL = require("utils").openURL
-
 local keys = {
 	{ "<leader>le", "<cmd>Leet<cr>", desc = "Open leet" },
 	{ "<leader>lr", "<cmd>Leet run<cr>", desc = "Run leet" },
@@ -9,7 +7,7 @@ local keys = {
 	{
 		"<leader>lh",
 		function()
-			openURL("https://github.com/kawre/leetcode.nvim?tab=readme-ov-file")
+			require("utils").openURL(require("constants.url").LEETCODE_URL)
 		end,
 		desc = "Get info for leet question",
 	},

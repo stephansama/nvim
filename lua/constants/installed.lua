@@ -2,21 +2,20 @@ local M = {}
 
 ---@see Mason https://mason-registry.dev/registry/list
 M.MASON_ENSURE_INSTALLED = {
-	"shfmt",
-	"shellcheck",
-	"prettier",
-	"prettierd",
-	"stylelint",
-	"codelldb",
-	"stylua",
 	"delve",
-	"go-debug-adapter",
+	"shfmt",
+	"stylua",
+	"yamlfmt",
+	"codelldb",
 	"htmlhint",
 	"jsonlint",
+	"prettier",
 	"yamllint",
-	"yamlfmt",
+	"prettierd",
 	"stylelint",
+	"shellcheck",
 	"markdownlint",
+	"go-debug-adapter",
 	"js-debug-adapter",
 }
 
@@ -37,10 +36,10 @@ M.MASON_LSP_ENSURE_INSTALLED = {
 	"htmx",
 	"astro",
 	"vuels",
-	"eslint",
-	"graphql",
-	"svelte",
 	"ts_ls",
+	"eslint",
+	"svelte",
+	"graphql",
 	-- css
 	"cssls",
 	"cssmodules_ls",
@@ -57,24 +56,24 @@ M.MASON_LSP_ENSURE_INSTALLED = {
 	"lemminx", --xml
 	"graphql",
 	-- golang
-	"templ",
 	"gopls",
+	"templ",
 }
 
 ---@see Treesitter https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages
 M.TREESITTER_ENSURE_INSTALLED = {
 	-- systems programming
 	"c",
+	"go",
 	"cpp",
-	"cmake",
-	"c_sharp",
-	"dockerfile",
 	"zig",
 	"rust",
-	"go",
+	"cmake",
 	"gomod",
 	"gosum",
 	"tmux",
+	"c_sharp",
+	"dockerfile",
 	-- lua
 	"lua",
 	"luadoc",
@@ -83,14 +82,14 @@ M.TREESITTER_ENSURE_INSTALLED = {
 	"html",
 	"http",
 	-- javascript
-	"astro",
-	"svelte",
-	"templ",
-	"jsdoc",
-	"javascript",
-	"typescript",
 	"tsx",
 	"vue",
+	"astro",
+	"templ",
+	"jsdoc",
+	"svelte",
+	"javascript",
+	"typescript",
 	-- data
 	"csv",
 	"sql",
@@ -100,11 +99,11 @@ M.TREESITTER_ENSURE_INSTALLED = {
 	"toml",
 	"graphql",
 	-- note taking
+	"vim",
+	"query",
+	"vimdoc",
 	"markdown",
 	"markdown_inline",
-	"vim",
-	"vimdoc",
-	"query",
 }
 
 return M

@@ -19,4 +19,15 @@ return {
 	"clangd",
 	"vimls",
 	"cmake",
+
+	---- Configured Servers ----
+	"zls",
+	"cssls",
+	"gopls",
+	"ts_ls",
+	"clangd",
+	"lua_ls",
+	"jsonls",
+	"yamlls",
+	-- "emmet_ls",
 }

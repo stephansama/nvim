@@ -1,60 +1,71 @@
-return {
-	on_attach = function(bufnr)
-		local gs = package.loaded.gitsigns
+local expand_keymaps = require("utils.expand").expand_keymaps
 
-		local function map(mode, l, r, opts)
-			opts = opts or {}
-			opts.buffer = bufnr
-			vim.keymap.set(mode, l, r, opts)
+local on_attach = function(bufnr)
+	local gs = package.loaded.gitsigns
+	local opts = { buffer = bufnr }
+
+	local visual_git_action = function(action)
+		return function()
+			gs[action]({ vim.fn.line("."), vim.fn.line("v") })
 		end
+	end
 
-		-- Navigation
-		map("n", "]h", function()
+	local hunk_direction = function(direction)
+		return function()
 			if vim.wo.diff then
-				return "]h"
+				return direction == "prev" and "[h" or "]h"
 			end
 			vim.schedule(function()
-				gs.next_hunk()
+				if direction == "prev" then
+					gs.prev_hunk()
+				else
+					gs.next_hunk()
+				end
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end
+	end
 
-		map("n", "[h", function()
-			if vim.wo.diff then
-				return "[h"
-			end
-			vim.schedule(function()
-				gs.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
+	expand_keymaps({
+		[{ "o", "x" }] = {
+			["ih"] = { ":<C-U>Gitsigns select_hunk<CR>", "", opts },
+		},
+		v = {
+			["<leader>hs"] = { visual_git_action("stage_hunk"), "Stage hunk", opts },
+			["<leader>gr"] = { visual_git_action("reset_hunk"), "Reset hunk", opts },
+		},
+		n = {
+			["[h"] = { hunk_direction("prev"), "Prev hunk", opts },
+			["]h"] = { hunk_direction("next"), "Next hunk", opts },
+			["<leader>gp"] = { gs.preview_hunk, "Preview hunk", opts },
+			["<leader>gR"] = { gs.reset_buffer, "Reset buffer", opts },
+			["<leader>gr"] = { gs.reset_hunk, "Reset hunk", opts },
+			["<leader>tb"] = { gs.toggle_current_line_blame, "Toggle current line blame", opts },
+			["<leader>td"] = { gs.toggle_deleted, "Toggle deleted", opts },
+			["<leader>hd"] = { gs.diffthis, "Diff this", opts },
+			["<leader>hs"] = { gs.stage_hunk, "Stage hunk", opts },
+			["<leader>hS"] = { gs.stage_buffer, "Stage buffer", opts },
+			["<leader>hu"] = { gs.undo_stage_hunk, "Undo stage hunk", opts },
+			["<leader>hb"] = {
+				function()
+					gs.blame_line({ full = true })
+				end,
+				"Stage buffer",
+				opts,
+			},
+			["<leader>hD"] = {
+				function()
+					gs.diffthis("~")
+				end,
+				"Diff this",
+				opts,
+			},
+		},
+	})
+end
 
-		-- Actions
-		map("n", "<leader>hs", gs.stage_hunk)
-		map("n", "<leader>gr", gs.reset_hunk, { desc = "Git reset hunk" })
-		map("v", "<leader>hs", function()
-			gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-		end)
-		map("v", "<leader>gr", function()
-			gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-		end, { desc = "Git reset hunk" })
-		map("n", "<leader>hS", gs.stage_buffer)
-		map("n", "<leader>hu", gs.undo_stage_hunk)
-		map("n", "<leader>gR", gs.reset_buffer, { desc = "Git reset current buffer" })
-		map("n", "<leader>gp", gs.preview_hunk, { desc = "Git preview current hunk" })
-		map("n", "<leader>hb", function()
-			gs.blame_line({ full = true })
-		end)
-		map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "Toggle current line blame" })
-		map("n", "<leader>hd", gs.diffthis)
-		map("n", "<leader>hD", function()
-			gs.diffthis("~")
-		end)
-		map("n", "<leader>td", gs.toggle_deleted)
-
-		-- Text object
-		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
-	end,
+return {
+	on_attach = on_attach,
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 	linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
 	word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`

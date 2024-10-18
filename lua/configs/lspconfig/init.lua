@@ -1,175 +1,69 @@
 ---@see LSPConfig https://github.com/neovim/nvim-lspconfig
-local create_border = require("utils.ui").border
-local openURL = require("utils").openURL
-local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local EMMET_FILETYPES = require("constants.ft").EMMET_FILETYPES
-local SERVERS = require("constants.servers")
-local signs = require("configs.icons").diagnostics
+local utils = require("utils.lsp")
+local expand_keymaps = require("utils.expand").expand_keymaps
+local lsp_format_code, list_workspace_folder, lsp_hover, load_lsp_configs =
+	utils.lsp_format_code, utils.list_workspace_folder, utils.lsp_hover, utils.load_lsp_configs
 
---- add ufo capabilities
-capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
---- add emmet completion support
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- LSP Border
-vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
-vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
-
-local border = create_border("FloatBorder")
-
--- LSP settings (for overriding per client)
-local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-}
-
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
--- add borders
-for key, v in pairs(handlers) do
-	vim.lsp.handlers[key] = v
-end
-
-vim.diagnostic.config({
-	virtual_text = {
-		source = "if_many",
-	},
-	float = {
-		border = border,
-		source = "if_many",
-	},
-})
-
--- To instead override globally
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	opts.border = opts.border or border
-	return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
-local on_attach = function(_, bufnr)
-	local options = { noremap = true, silent = true, buffer = bufnr }
-	local keymap = vim.keymap
-
-	options.desc = "Show LSP references"
-	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", options)
-
-	options.desc = "Show LSP type definitions"
-	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", options)
-
-	options.desc = "Restart LSP"
-	keymap.set("n", "<leader>rs", ":LspRestart<CR>", options)
-end
-
-local setup_lsp = function(options)
-	return {
-		on_attach = on_attach,
-		capabilities = capabilities,
-		settings = options.settings or options,
-		setup = options.setup or nil,
-	}
-end
-
-for _, lsp in ipairs(SERVERS) do
-	lspconfig[lsp].setup({ on_attach = on_attach, capabilities = capabilities })
-end
-
-lspconfig.bashls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "zsh", "sh" },
-})
-
-lspconfig.tailwindcss.setup({
-	capabilities = capabilities,
-	on_attach = function(c, b)
-		on_attach(c, b)
-		require("tailwindcss-colors").buf_attach(b)
-	end,
-})
-
-lspconfig.zls.setup(require("configs.lspconfig.zls"))
-lspconfig.gopls.setup(setup_lsp(require("configs.lspconfig.gopls")))
-lspconfig.cssls.setup(setup_lsp(require("configs.lspconfig.cssls")))
-lspconfig.clangd.setup(setup_lsp(require("configs.lspconfig.clangd")))
-lspconfig.lua_ls.setup(setup_lsp(require("configs.lspconfig.lua_ls")))
-lspconfig.jsonls.setup(setup_lsp(require("configs.lspconfig.jsonls")))
-lspconfig.yamlls.setup(setup_lsp(require("configs.lspconfig.yamlls")))
-lspconfig.ts_ls.setup(setup_lsp(require("configs.lspconfig.tsserver")))
-
--- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-local emmet_init_options = { html = { options = { ["bem.enabled"] = true } } }
-
-vim.keymap.set("n", "<leader>se", function()
-	lspconfig.emmet_ls.setup({
-		filetypes = EMMET_FILETYPES,
-		capabilities = capabilities,
-		init_options = emmet_init_options,
+local on_attach = function(_, buffer)
+	local opts = { noremap = true, silent = true, buffer = buffer }
+	expand_keymaps({
+		n = {
+			["<leader>rs"] = { "<cmd>LspRestart<CR>", "Restart LSP", opts },
+			["gR"] = { "<cmd>Telescope lsp_references<CR>", "Show LSP references", opts },
+			["gt"] = { "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions", opts },
+		},
 	})
-	print("starting emmet language server")
-end)
+end
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
--- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>td", vim.diagnostic.disable, { desc = "Hide Diagnostics" })
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+utils.setup_borders()
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
+load_lsp_configs(on_attach)
+
+expand_keymaps({
+	n = {
+		["]d"] = { vim.diagnostic.goto_next, "Next Diagnostic" },
+		["[d"] = { vim.diagnostic.goto_prev, "Previous Diagnostic" },
+		["<leader>q"] = { vim.diagnostic.setloclist, "Send diagnostics to quickfix list" },
+		["<leader>td"] = {
+			function()
+				vim.diagnostic.enable(false)
+			end,
+			"Next Diagnostic",
+		},
+		["<leader>se"] = {
+			function()
+				utils.load_lsp("emmet_ls", on_attach)
+			end,
+			"Start emmet server",
+		},
+	},
+})
+
+local lsp_attach_callback = function(ev)
+	vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+	expand_keymaps({
+		[{ "n", "v" }] = {
+			["<leader>ca"] = { vim.lsp.buf.code_action, "Code Action" },
+		},
+		n = {
+			["K"] = { lsp_hover, "LSPHover current text" },
+			["gr"] = { vim.lsp.buf.references, "Go to LSP References" },
+			["gd"] = { vim.lsp.buf.definition, "Go to LSP Definition" },
+			["gD"] = { vim.lsp.buf.declaration, "Go to LSP Declaration" },
+			["gi"] = { vim.lsp.buf.implementation, "Go to LSP Definition" },
+			["<leader>D"] = { vim.lsp.buf.type_definition, "LSP Type definition" },
+			["<leader>rn"] = { vim.lsp.buf.rename, "LSP Rename" },
+			["<leader>fa"] = { vim.lsp.buf.add_workspace_folder, "LSP Add workspace folder" },
+			["<leader>fr"] = { vim.lsp.buf.remove_workspace_folder, "LSP Remove workspace folder" },
+			["<leader>fl"] = { list_workspace_folder, "LSP Add workspace folder" },
+			["<leader>fc"] = { lsp_format_code, "Format code" },
+		},
+	})
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	callback = function(ev)
-		-- Enable completion triggered by <c-x><c-o>
-		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-		-- Buffer local mappings.
-		-- See `:help vim.lsp.*` for documentation on any of the below functions
-		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "K", function()
-			local filetype = vim.bo.filetype
-			if vim.tbl_contains({ "vim", "help" }, filetype) then
-				vim.cmd("h " .. vim.fn.expand("<cword>"))
-			elseif vim.tbl_contains({ "man" }, filetype) then
-				vim.cmd("Man " .. vim.fn.expand("<cword>"))
-			elseif vim.fn.expand("%:t") == "package.json" then
-				local text = vim.api.nvim_get_current_line()
-				local match = text:match('"(.-)"')
-				local npm_link = "https://www.npmjs.com/package/" .. match
-				openURL(npm_link)
-			elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
-				require("crates").show_popup()
-			else
-				local winid = require("ufo").peekFoldedLinesUnderCursor()
-				if not winid then
-					vim.lsp.buf.hover()
-				end
-			end
-		end, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>fa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>fr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>fl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "<leader>fc", function()
-			vim.lsp.buf.format({ async = true })
-		end, opts)
-	end,
+	callback = lsp_attach_callback,
 })
 
 require("ufo").setup()

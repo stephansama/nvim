@@ -1,4 +1,6 @@
 --- @see Devicons https://github.com/nvim-tree/nvim-web-devicons
+local M = {}
+
 local icons = {
 	stylelint = { icon = "", name = "stylelint" },
 	eslintrc = { icon = "󰱺", name = "eslintrc" },
@@ -24,7 +26,7 @@ local icons = {
 	test_ts = { icon = "", color = "#3178C6", name = "test_typescript" },
 	test_js = { icon = "", color = "#F7DF1E", name = "test_javascript" },
 	license = { icon = "", color = "#CDC058", name = "license" },
-	prettier = { icon = "󰉽", color = "#F7B93E", name = "prettier" },
+	prettier = { icon = "", color = "#F7B93E", name = "prettier" },
 	changelog = { icon = "󰦖", color = "#97C15C", name = "changelog" },
 	storybook = { icon = "󰂺", color = "#FF4785", name = "storybook" },
 	typescript = { icon = "", color = "#3178C6", name = "typescript" },
@@ -32,8 +34,6 @@ local icons = {
 	dependabot = { icon = "", color = "#025E8C", name = "dependabot" },
 	unlighthouse = { icon = "󰧿", color = "#F44B21", name = "unlighthouse" },
 }
-
-local M = {}
 
 M.strict = true
 

@@ -4,6 +4,8 @@ local M = {}
 
 M.telescope = "   "
 
+M.indent_blankline = "   "
+
 M.diagnostics = {
 	Error = "󰅚 ",
 	Warn = "󰀪 ",

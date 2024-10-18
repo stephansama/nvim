@@ -1,8 +1,4 @@
-local schemas = {
-	["https://json.schemastore.org/dependabot-2.0.json"] = "/dependabot.yml",
-}
-
 return {
-	yaml = { schemas = schemas },
+	yaml = { schemas = require("constants.schemas").YAML_SCHEMAS },
 	redhat = { telemetry = { enabled = false } },
 }

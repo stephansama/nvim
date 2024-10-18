@@ -1,5 +1,5 @@
 require("srandle.settings")
-require("srandle.lazy")
 require("srandle.keymaps")
+require("srandle.lazy")
 
 require("utils.ui").reset_ui()

@@ -12,16 +12,15 @@ end
 M.load_ascii_headers = function(directory, extension)
 	local dir = io.popen("ls " .. directory, "r")
 	local images = {}
-	if dir then
-		for file in dir:lines() do
-			local after_period = string.match(file, "%.(.+)")
-			if after_period == extension then
-				images[#images + 1] = file
-			end
-		end
-	else
+	if not dir then
 		print("failed to load ascii image directory")
 		return {}
+	end
+	for file in dir:lines() do
+		local after_period = string.match(file, "%.(.+)")
+		if after_period == extension then
+			images[#images + 1] = file
+		end
 	end
 
 	math.randomseed(os.time())
