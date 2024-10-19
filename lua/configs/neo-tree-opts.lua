@@ -1,22 +1,20 @@
 ---@see Neotree https://github.com/nvim-neo-tree/neo-tree.nvim
 local load_neo_tree_icons = require("utils.neotree").load_neo_tree_icons
 local neotreeicons = require("configs.icons.neo-tree-icons")
-local icon = neotreeicons.icon
-local symbols = neotreeicons.symbols
 
 return {
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
 	close_if_last_window = true,
-	icon = icon,
+	icon = neotreeicons.icon,
 	name = { trailing_slash = false, use_git_status_colors = true, highlight = "NeoTreeFileName" },
 	type = { enabled = true, required_width = 122 },
 	window = { mappings = { ["<ESC>"] = "" } },
 	buffers = { follow_current_file = { enabled = true } },
 	created = { enabled = true, required_width = 110 },
 	file_size = { enabled = true, required_width = 64 },
-	git_status = { symbols = symbols },
+	git_status = { symbols = neotreeicons.symbols },
 	last_modified = { enabled = true, required_width = 88 },
 	symlink_target = { enabled = false },
 	filesystem = {

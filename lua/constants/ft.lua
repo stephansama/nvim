@@ -1,33 +1,33 @@
 local M = {}
 
 M.INDENT_EXCLUDE_BUFTYPES = {
-	"terminal",
+	"prompt",
 	"nofile",
 	"quickfix",
-	"prompt",
+	"terminal",
 	"neotest-summary",
 }
 
 M.INDENT_EXCLUDE_FILETYPES = {
-	"alpha",
-	"neo-tree",
-	"Trouble",
-	"trouble",
+	"man",
+	"help",
 	"lazy",
+	"alpha",
 	"mason",
 	"notify",
-	"toggleterm",
-	"lazyterm",
-	"lspinfo",
 	"packer",
-	"checkhealth",
-	"help",
-	"man",
+	"lspinfo",
+	"trouble",
+	"Trouble",
+	"neo-tree",
+	"lazyterm",
+	"dashboard",
 	"gitcommit",
+	"toggleterm",
+	"checkhealth",
+	"leetcode.nvim",
 	"TelescopePrompt",
 	"TelescopeResults",
-	"dashboard",
-	"leetcode.nvim",
 }
 
 M.WEB_FILETYPES = {

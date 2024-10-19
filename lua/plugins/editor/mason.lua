@@ -8,17 +8,6 @@ local MasonInstallAll = function()
 	end
 end
 
-local keymaps = {
-	uninstall_server = "X",
-	install_server = "i",
-	update_server = "u",
-	update_all_servers = "U",
-	check_server_version = "c",
-	check_outdated_servers = "C",
-	cancel_installation = "<C-c>",
-	toggle_server_expand = "<CR>",
-}
-
 local mason_opts = {
 	PATH = "prepend",
 	registries = { "github:mason-org/mason-registry" },
@@ -26,13 +15,8 @@ local mason_opts = {
 	ui = {
 		icons = require("configs.icons").mason,
 		border = "rounded",
-		keymaps = keymaps,
+		keymaps = require("keys.init").mason,
 	},
-}
-
-local masonlsp_opts = {
-	ensure_installed = MASON_LSP_ENSURE_INSTALLED,
-	automatic_installation = true,
 }
 
 return {
@@ -50,6 +34,6 @@ return {
 		dependencies = { "williamboman/mason.nvim" },
 		config = true,
 		lazy = false,
-		opts = masonlsp_opts,
+		opts = { ensure_installed = MASON_LSP_ENSURE_INSTALLED, automatic_installation = true },
 	},
 }

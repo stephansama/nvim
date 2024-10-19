@@ -25,10 +25,15 @@ end
 ---```
 ---@param keymappings table
 ---@return nil
-M.expand_keymaps = function(keymappings)
+M.expand_keymaps = function(keymappings, common_options)
 	for mode, keybindings in pairs(keymappings) do
 		for key, info in pairs(keybindings) do
-			vim.keymap.set(mode, key, info[1], vim.tbl_deep_extend("force", { desc = info[2] or "" }, info[3] or {}))
+			vim.keymap.set(
+				mode,
+				key,
+				info[1],
+				vim.tbl_deep_extend("force", { desc = info[2] or "" }, info[3] or common_options or {})
+			)
 		end
 	end
 end

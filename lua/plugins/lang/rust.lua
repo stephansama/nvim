@@ -1,5 +1,3 @@
-local border = require("utils.ui").border
-
 vim.g.rustaceanvim = function()
 	local codelldb = vim.fn.stdpath("data") .. "/mason/packages/codelldb/"
 	local extension_path = codelldb .. "/extension/"
@@ -30,6 +28,7 @@ return {
 	{
 		"rust-lang/rust.vim",
 		ft = "rust",
+		lazy = true,
 		init = function()
 			vim.g.rustfmt_autosave = 1
 		end,
@@ -45,17 +44,7 @@ return {
 		config = true,
 		event = { "BufRead Cargo.toml" },
 		--- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
-		opts = { popup = { border = border("FloatBorder") } },
-		keys = {
-			{ "<leader>cs", "<cmd>Crates show_popup<cr>", desc = "Crates.nvim open features list" },
-			{ "<leader>cu", "<cmd>Crates update_crate<cr>", desc = "Crates.nvim update crate" },
-			{ "<leader>cu", "<cmd>Crates update_crates<cr>", desc = "Crates.nvim update crates", mode = "v" },
-			{ "<leader>ch", "<cmd>Crates open_homepage<cr>", desc = "Crates.nvim open homepage" },
-			{ "<leader>cc", "<cmd>Crates open_cratesio<cr>", desc = "Crates.nvim open crates.io" },
-			{ "<leader>cr", "<cmd>Crates open_repository<cr>", desc = "Crates.nvim open repository" },
-			{ "<leader>cd", "<cmd>Crates open_documentation<cr>", desc = "Crates.nvim open docs.rs" },
-			{ "<leader>cf", "<cmd>Crates show_features_popup<cr>", desc = "Crates.nvim open features list" },
-			{ "<leader>ce", "<cmd>Crates show_dependencies_popup<cr>", desc = "Crates.nvim open dependencies list" },
-		},
+		opts = { popup = { border = require("utils.ui").border("FloatBorder") } },
+		keys = require("keys.init").crates,
 	},
 }

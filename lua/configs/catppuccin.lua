@@ -33,11 +33,10 @@ local integrations = {
 		virtual_text = create_integration_options("italic"),
 	},
 }
-local opts = {
+
+return {
 	flavour = "mocha",
 	show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
 	transparent_background = true,
 	integrations = integrations,
 }
-
-return opts

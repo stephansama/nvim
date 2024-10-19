@@ -3,7 +3,7 @@ local M = {}
 M.expand_actions = require("utils.expand").expand_actions
 
 M.color_dashboard = function()
-	local DASHBOARD_COLORS = require("constants.colors").DASHBOARD_COLORS
+	local DASHBOARD_COLORS = require("constants.theme").DASHBOARD_COLORS
 	math.randomseed(os.time())
 	local selected = DASHBOARD_COLORS[math.random(#DASHBOARD_COLORS)]
 	vim.cmd("hi DashboardHeader guibg=none guifg=" .. selected)

@@ -38,6 +38,24 @@ M.lazy = {
 	not_loaded = "",
 }
 
+M.neotest = {
+	running_animated = require("configs.icons.neotest").unicode_square,
+	watching = "󰈈",
+	unknown = "",
+	running = "",
+	skipped = "",
+	notify = "󱈸",
+	passed = "",
+	failed = "",
+	non_collapsible = "─",
+	collapsed = "─",
+	expanded = "╮",
+	child_prefix = "├",
+	final_child_prefix = "╰",
+	child_indent = "│",
+	final_child_indent = " ",
+}
+
 M.cmp = {
 	Class = " ",
 	Color = " ",

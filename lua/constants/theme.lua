@@ -1,5 +1,9 @@
 local M = {}
 
+M.THEME = "catppuccin"
+M.THEME_DARKMODE = "catppuccin-mocha"
+M.THEME_LIGHTMODE = "catppuccin-latte"
+
 ---@see CratesDocumentation https://github.com/Saecki/crates.nvim
 M.PACKAGE_INFO_COLORS = {
 	up_to_date = "#9CDAE9",

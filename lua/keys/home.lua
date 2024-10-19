@@ -1,23 +1,6 @@
-local expand_keymaps = require("utils.expand").expand_keymaps
+local utils = require("utils")
 
----move buffer in a specific direction
----@param direction 'next' | 'previous'
----@return function
-local function move_buffer(direction)
-	local directions = { previous = vim.cmd.bprevious, next = vim.cmd.bnext }
-	return function()
-		directions[direction]()
-		print(direction:gsub("^%l", string.upper) .. " Buffer")
-	end
-end
-
---- Deletes buffer and alerts the user
-local function delete_buffer()
-	vim.cmd.bd()
-	print("Deleting buffer...")
-end
-
-expand_keymaps({
+require("utils.expand").expand_keymaps({
 	[{ "v", "x" }] = { p = { '"_dP', "Paste without copying" } },
 	n = {
 		["<ESC>"] = { vim.cmd.noh, "Escape" },
@@ -27,7 +10,7 @@ expand_keymaps({
 		--- leader functions
 		["<leader>w"] = { vim.cmd.w, "Save buffer" },
 		["<leader>x"] = { vim.cmd.q, "Close window" },
-		["<leader>d"] = { delete_buffer, "Delete buffer" },
+		["<leader>d"] = { utils.delete_buffer, "Delete buffer" },
 		["<leader>ll"] = { vim.cmd.Lazy, "Load lazy plugin manager" },
 		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
 		["<leader>lo"] = { ":Lazy load ", "Lazy load a plugin" },
@@ -56,8 +39,8 @@ expand_keymaps({
 		['v"'] = { 'vi"', "Visually select double quotes" },
 
 		--- navigate buffers
-		["("] = { move_buffer("previous"), "Navigate to previous buffer" },
-		[")"] = { move_buffer("next"), "Navigate to next buffer" },
+		[")"] = { utils.move_buffer("next"), "Navigate to next buffer" },
+		["("] = { utils.move_buffer("previous"), "Navigate to previous buffer" },
 	},
 	v = {
 		["<"] = { "<gv", "Indent Left" },
@@ -72,8 +55,8 @@ expand_keymaps({
 		["%"] = { "%zz" },
 		["}"] = { "}z" },
 		["u"] = { "uzz" },
-		["``"] = { "``zz" },
 		["G"] = { "Gzz" },
+		["``"] = { "``zz" },
 		["<C-R>"] = { "<C-R>zz" },
 		["<C-D>"] = { "<C-D>zz" },
 		["<C-U>"] = { "<C-U>zz" },

@@ -5,4 +5,6 @@ M.init_options = { html = { options = { ["bem.enabled"] = true } } }
 
 M.filetypes = require("constants.ft").EMMET_FILETYPES
 
+M.settings = {}
+
 return M

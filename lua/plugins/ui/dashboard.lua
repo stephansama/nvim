@@ -1,7 +1,6 @@
 local ASCII_DIR = require("constants.dir").ASCII_DIR
 local utils = require("utils.dashboard")
-local expand_actions, color_dashboard, load_ascii_headers =
-	utils.expand_actions, utils.color_dashboard, utils.load_ascii_headers
+local expand_actions, load_ascii_headers = utils.expand_actions, utils.load_ascii_headers
 
 local config = {
 	header = load_ascii_headers(ASCII_DIR, "txt"),
@@ -20,15 +19,9 @@ local config = {
 
 local opts = { theme = "doom", config = config }
 
-local goto_dashboard = function()
-	color_dashboard()
-	vim.cmd([[bufdo bd!]])
-	vim.cmd([[Dashboard]])
-end
-
 return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
 	opts = opts,
-	keys = { { "<leader>ld", goto_dashboard, desc = "Go to Dashboard" } },
+	keys = require("keys.init").dashboard,
 }

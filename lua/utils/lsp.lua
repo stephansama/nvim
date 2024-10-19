@@ -1,5 +1,9 @@
 local M = {}
 
+M.disable_diagnostics = function()
+	vim.diagnostic.enable(false)
+end
+
 M.lsp_format_code = function()
 	vim.lsp.buf.format({ async = true })
 end
@@ -8,7 +12,7 @@ M.list_workspace_folder = function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folder()))
 end
 
-local create_capabilities = function()
+M.create_capabilities = function()
 	local c = require("cmp_nvim_lsp").default_capabilities()
 	--- add emmet completion support
 	c.textDocument.completion.completionItem.snippetSupport = true
@@ -22,51 +26,57 @@ end
 ---@param on_attach function
 ---@return table
 local setup_lsp = function(options, on_attach)
-	local setup_on_attach = function(a, b)
-		if options.on_attach then
-			return options.on_attach(a, b, on_attach)
-		end
-		return on_attach(a, b)
-	end
+	local trimmed_options = require("utils").remove_properties({
+		"setup",
+		"settings",
+		"filetypes",
+		"on_attach",
+		"capabilities",
+		"init_options",
+	}, options)
 	return {
-		capabilities = create_capabilities(),
-		on_attach = setup_on_attach,
-		init_options = options.init_options or nil,
-		filetypes = options.filetypes or nil,
-		settings = options.settings or options,
 		setup = options.setup or nil,
+		settings = options.settings or trimmed_options,
+		filetypes = options.filetypes or nil,
+		init_options = options.init_options or nil,
+		capabilities = options.capabilities,
+		on_attach = options.on_attach and function(c, b)
+			options.on_attach(c, b, on_attach)
+		end or on_attach,
 	}
 end
 
-M.load_lsp = function(lspname, on_attach)
-	local lspconfig = require("lspconfig")
-	local package_name = "configs.lspconfig." .. lspname
-	local options = require(package_name) or {}
-	print("loading " .. lspname .. " lsp")
-	print(vim.inspect(options))
-	lspconfig[lspname].setup(setup_lsp(options, on_attach))
-end
-
+---@param capabilities table
 ---@param on_attach function
-M.load_lsp_configs = function(on_attach)
-	local SERVERS = require("constants.servers")
-	local DIR = require("constants.dir").LSP_CONFIG_DIR
-	local lspconfig = require("lspconfig")
-	local ls_output = io.popen("ls " .. DIR, "r")
+M.load_lsp_configs = function(capabilities, on_attach)
 	local configs = {}
+	local SERVERS = require("constants.servers")
+	local lspconfig = require("lspconfig")
+	local ls_output = io.popen("ls " .. require("constants.dir").LSP_CONFIG_DIR, "r")
 
 	if ls_output then
 		for file in ls_output:lines() do
-			local before_period = string.match(file, "(.+)%..+")
-			if before_period and before_period ~= "init" then
-				configs[before_period] = require("configs.lspconfig." .. before_period)
+			local filename = string.match(file, "(.+)%..+")
+			if filename and filename ~= "init" then
+				configs[filename] = require("configs.lspconfig." .. filename)
 			end
 		end
 	end
 
 	for _, lsp in ipairs(SERVERS) do
-		lspconfig[lsp].setup(setup_lsp(configs[lsp] or {}, on_attach))
+		local options = vim.tbl_deep_extend("force", configs[lsp] or {}, { capabilities = capabilities })
+		lspconfig[lsp].setup(setup_lsp(options, on_attach))
 	end
+end
+
+--- load a single lsp
+---@param lspname string lsp name to load
+---@param on_attach function
+M.load_lsp = function(lspname, capabilities, on_attach)
+	local lspconfig = require("lspconfig")
+	local options =
+		vim.tbl_deep_extend("force", require("configs.lspconfig." .. lspname) or {}, { capabilities = capabilities })
+	lspconfig[lspname].setup(setup_lsp(options, on_attach))
 end
 
 M.lsp_hover = function()

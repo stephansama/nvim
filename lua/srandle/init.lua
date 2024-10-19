@@ -1,5 +1,6 @@
 require("srandle.settings")
-require("srandle.keymaps")
 require("srandle.lazy")
+
+require("keys.home")
 
 require("utils.ui").reset_ui()

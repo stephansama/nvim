@@ -1,15 +1,9 @@
-local macros = function()
-	return require("NeoComposer.ui").status_recording()
-end
-
-local package_info = function()
-	return require("package-info").get_status()
-end
+local utils = require("utils")
 
 ---@see Default_Configuration https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#default-configuration
 local opts = {
 	options = {
-		theme = "catppuccin",
+		theme = require("constants.theme").THEME,
 		globalstatus = true,
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
@@ -23,9 +17,9 @@ local opts = {
 				path = 3,
 				symbols = require("configs.icons").lualine,
 			},
-			{ package_info },
+			{ utils.lualine_package_info },
 		},
-		lualine_x = { macros, "fileformat", "filetype" },
+		lualine_x = { utils.lualine_macros, "fileformat", "filetype" },
 	},
 }
 

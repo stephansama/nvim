@@ -22,7 +22,8 @@ local opts = {
 
 return {
 	"folke/noice.nvim",
-	opts = opts,
-	event = "VeryLazy",
 	dependencies = { "MunifTanjim/nui.nvim" },
+	event = "VeryLazy",
+	opts = opts,
+	keys = require("keys.init").noice,
 }
