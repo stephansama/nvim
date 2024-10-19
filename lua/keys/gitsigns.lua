@@ -25,8 +25,8 @@ M.load_gitsigns_keymap = function(buffer)
 			if vim.wo.diff then
 				return direction == "prev" and PREVIOUS_KEYBINDING or NEXT_KEYBINDING
 			end
+			local action = direction == "prev" and "prev_hunk" or "next_hunk"
 			vim.schedule(function()
-				local action = direction == "prev" and "prev_hunk" or "next_hunk"
 				gs[action]()
 			end)
 			return "<Ignore>"

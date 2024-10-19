@@ -24,7 +24,7 @@ M.on_attach_keybindings = function(buffer)
 		n = {
 			["gt"] = { "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions" },
 			["gR"] = { "<cmd>Telescope lsp_references<CR>", "Show LSP references" },
-			["<leader>rs"] = { "<cmd>LspRestart<CR>", "Restart LSP" },
+			["<leader>rs"] = { vim.cmd.LspRestart, "Restart LSP" },
 		},
 	}, { noremap = true, silent = true, buffer = buffer })
 end

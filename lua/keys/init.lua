@@ -1,8 +1,7 @@
 local M = {}
 local harpoon_utils = require("utils.harpoon")
-local execute_neotree = require("utils").execute_neotree
+local execute_neotree = require("utils.neotree").execute_neotree
 local spectre_function = require("utils").spectre_function
-
 local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_remove =
 	harpoon_utils.harpoon_modify,
 	harpoon_utils.harpoon_toggle,
@@ -14,8 +13,8 @@ M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
 	{ "<leader>A", harpoon_modify("prepend"), desc = "Prepend buffer to harpoon" },
-	{ "<leader>p", harpoon_toggle(), desc = "Open harpoon list" },
-	{ "<leader>cp", clear_harpoon(), desc = "Clear harpoon" },
+	{ "<leader>cp", clear_harpoon, desc = "Clear harpoon" },
+	{ "<leader>p", harpoon_toggle, desc = "Open harpoon list" },
 	{ "<leader>1", harpoon_select(1), desc = "Switch to Buffer 1" },
 	{ "<leader>2", harpoon_select(2), desc = "Switch to Buffer 2" },
 	{ "<leader>3", harpoon_select(3), desc = "Switch to Buffer 3" },
@@ -60,6 +59,18 @@ M.treesitter_incremental_selection = {
 	scope_incremental = "<leader>sc",
 }
 
+M.cmp = {
+	NEXT = "<C-n>",
+	PREV = "<C-p>",
+	CLOSE = "<C-e>",
+	SELECT = "<CR>",
+	COMPLETE = "<C-y>",
+	NEXT_OR_SNIPPET = "<Tab>",
+	PREV_OR_SNIPPET = "<S-Tab>",
+	SCROLL_DOCS_BACKWARD = "<C-d>",
+	SCROLL_DOCS_FORWARD = "<C-f>",
+}
+
 M.mason = {
 	uninstall_server = "X",
 	install_server = "i",
@@ -69,18 +80,6 @@ M.mason = {
 	check_outdated_servers = "C",
 	cancel_installation = "<C-c>",
 	toggle_server_expand = "<CR>",
-}
-
-M.cmp = {
-	SELECT = "<CR>",
-	NEXT_OR_SNIPPET = "<Tab>",
-	PREV_OR_SNIPPET = "<S-Tab>",
-	NEXT = "<C-n>",
-	PREV = "<C-p>",
-	COMPLETE = "<C-y>",
-	CLOSE = "<C-e>",
-	SCROLL_DOCS_BACKWARD = "<C-d>",
-	SCROLL_DOCS_FORWARD = "<C-f>",
 }
 
 M.tmux = {
@@ -160,15 +159,15 @@ M.telescope_nx = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", de
 
 M.todo_telescope = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
 
+M.telescope_icon_picker = {
+	{ "<leader><leader>i", "<cmd>IconPickerNormal<cr>", desc = "IconPickerNormal" },
+	{ "<leader><leader>y", "<cmd>IconPickerYank<cr>", desc = "IconPickerYank" },
+}
+
 M.telescope_tmux = {
 	{ "<leader>tw", "<cmd>Telescope tmux windows theme=ivy<CR>", desc = "Find tmux windows" },
 	{ "<leader>tp", "<cmd>Telescope tmux pane_contents theme=ivy<CR>", desc = "Find tmux pane contents" },
 	{ "<leader>ts", "<cmd>Telescope tmux sessions initial_mode=normal theme=ivy<CR>", desc = "Find tmux sessions" },
-}
-
-M.telescope_icon_picker = {
-	{ "<leader><leader>i", "<cmd>IconPickerNormal<cr>", desc = "IconPickerNormal" },
-	{ "<leader><leader>y", "<cmd>IconPickerYank<cr>", desc = "IconPickerYank" },
 }
 
 M.telescope = {

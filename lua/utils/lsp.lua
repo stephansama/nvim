@@ -46,6 +46,7 @@ local setup_lsp = function(options, on_attach)
 	}
 end
 
+--- load all lsp configs
 ---@param capabilities table
 ---@param on_attach function
 M.load_lsp_configs = function(capabilities, on_attach)
