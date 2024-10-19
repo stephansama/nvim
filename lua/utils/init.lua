@@ -1,5 +1,12 @@
 local M = {}
 
+M.setup_sign_icons = function(icons, hl_callback)
+	for type, icon in pairs(icons) do
+		local hl = hl_callback(type)
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	end
+end
+
 --- default fields order i.e completion word + item.kind + item.kind icons
 M.cmp_format = function(_, item)
 	local icons = require("configs.icons").cmp

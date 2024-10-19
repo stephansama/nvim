@@ -107,12 +107,6 @@ M.setup_borders = function()
 		vim.lsp.handlers[key] = v
 	end
 
-	--- setup diagnostic signs
-	for type, icon in pairs(require("configs.icons").diagnostics) do
-		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-	end
-
 	local diagnostic_source = "if_many"
 
 	vim.diagnostic.config({

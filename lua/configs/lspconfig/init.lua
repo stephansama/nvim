@@ -1,6 +1,7 @@
 ---@see LSPConfig https://github.com/neovim/nvim-lspconfig
 local utils = require("utils.lsp")
 local expand_keymaps = require("utils.expand").expand_keymaps
+local setup_sign_icons = require("utils").setup_sign_icons
 local lsp_format_code, list_workspace_folder, lsp_hover, load_lsp_configs =
 	utils.lsp_format_code, utils.list_workspace_folder, utils.lsp_hover, utils.load_lsp_configs
 
@@ -16,6 +17,10 @@ local on_attach = function(_, buffer)
 end
 
 utils.setup_borders()
+
+setup_sign_icons(require("configs.icons").diagnostics, function(t)
+	return "DiagnosticSign" .. t
+end)
 
 load_lsp_configs(on_attach)
 

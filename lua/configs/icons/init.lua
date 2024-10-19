@@ -4,7 +4,7 @@ local M = {}
 
 M.telescope = "   "
 
-M.indent_blankline = "   "
+M.indent_blankline = "│"
 
 M.diagnostics = {
 	Error = "󰅚 ",
