@@ -18,6 +18,7 @@ local M = {}
 ---@type LanguageObject
 M.base = {
 	mason_lsp = "vimls",
+	servers = "vimls",
 	treesitter = {
 		"vim",
 		"query",
@@ -57,6 +58,7 @@ M.shell = {
 M.data = {
 	mason = { "jsonlint", "yamllint" },
 	mason_lsp = {
+		"sqqls",
 		"taplo",
 		"jsonls",
 		"yamlls",
@@ -174,6 +176,7 @@ M.go = {
 	formatters = "gofmt",
 	mason = { "delve", "go-debug-adapter" },
 	mason_lsp = { "gopls", "templ" },
+	servers = { "gopls", "templ" },
 	treesitter = { "go", "gomod", "gosum", "templ" },
 }
 
