@@ -1,6 +1,6 @@
 local expand_settings = require("utils.expand").expand_settings
 
-vim.g.mapleader = require("constants.leader")
+vim.g.mapleader = require("keys.init").LEADER
 
 vim.filetype.add({ extension = require("constants.ft").VIM_FT_EXTENSIONS })
 

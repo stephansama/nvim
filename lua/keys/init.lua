@@ -9,6 +9,8 @@ local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_rem
 	harpoon_utils.harpoon_select,
 	harpoon_utils.harpoon_remove
 
+M.LEADER = " "
+
 M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
