@@ -75,6 +75,7 @@ M.TREESITTER_ENSURE_INSTALLED = {
 	"gomod",
 	"gosum",
 	"python",
+	"haskell",
 	"c_sharp",
 	"dockerfile",
 	-- configs
