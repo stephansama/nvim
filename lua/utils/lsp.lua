@@ -78,6 +78,7 @@ M.load_lsp = function(lspname, capabilities, on_attach)
 	local options =
 		vim.tbl_deep_extend("force", require("configs.lspconfig." .. lspname) or {}, { capabilities = capabilities })
 	lspconfig[lspname].setup(setup_lsp(options, on_attach))
+	print("loading " .. lspname .. " server")
 end
 
 M.lsp_hover = function()

@@ -7,6 +7,7 @@ local lsp_format_code, list_workspace_folder, lsp_hover =
 M.default_lsp_keybindings = function(capabilities, on_attach)
 	local load_emmet = function()
 		utils.load_lsp("emmet_ls", capabilities, on_attach)
+		vim.cmd([[edit!]])
 	end
 	expand_keymaps({
 		n = {
