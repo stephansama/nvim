@@ -4,6 +4,8 @@ local M = {}
 M.MASON_ENSURE_INSTALLED = {
 	"delve",
 	"shfmt",
+	"hlint",
+	"ormolu",
 	"stylua",
 	"yamlfmt",
 	"codelldb",
@@ -49,6 +51,7 @@ M.MASON_LSP_ENSURE_INSTALLED = {
 	"clangd",
 	"cmake",
 	"zls",
+	"hls",
 	-- data formats
 	"taplo", -- toml
 	"jsonls",
@@ -71,9 +74,13 @@ M.TREESITTER_ENSURE_INSTALLED = {
 	"cmake",
 	"gomod",
 	"gosum",
-	"tmux",
+	"python",
 	"c_sharp",
 	"dockerfile",
+	-- configs
+	"tmux",
+	"gitignore",
+	"editorconfig",
 	-- lua
 	"lua",
 	"luadoc",

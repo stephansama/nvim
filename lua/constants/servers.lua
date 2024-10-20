@@ -21,6 +21,7 @@ return {
 	"cmake",
 
 	---- Configured Servers ----
+	"hls",
 	"zls",
 	"cssls",
 	"gopls",

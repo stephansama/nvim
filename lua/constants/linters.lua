@@ -5,6 +5,7 @@ return {
 	css = { "stylelint" },
 	html = { "htmlhint" },
 	json = { "jsonlint" },
+	haskell = { "hlint" },
 	-- yaml = { "yamllint" },
 	markdown = { "markdownlint" },
 	javascript = { "eslint" },

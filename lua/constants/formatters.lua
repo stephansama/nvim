@@ -7,6 +7,7 @@ return {
 	toml = { "taplo" },
 	yaml = { "yamlfmt" },
 	zshrc = { "shfmt" },
+	haskell = { "ormolu" },
 	markdown = { "markdownlint" },
 	css = { "prettier" },
 	html = { "prettier" },
