@@ -15,15 +15,9 @@ return {
 			return require("configs.icons.devicons")
 		end,
 	},
+	{ "szw/vim-maximizer", keys = require("keys.init").maximizer },
 	{ "chentoast/marks.nvim", event = "VimEnter", opts = { sign_priority = 90 } },
-	{
-		"szw/vim-maximizer",
-		keys = { { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle maximizer on a split" } },
-	},
-	{
-		"stevearc/dressing.nvim",
-		init = utils.override_builtins({ "select", "input" }),
-	},
+	{ "stevearc/dressing.nvim", init = utils.override_builtins({ "select", "input" }) },
 	{
 		"f-person/auto-dark-mode.nvim",
 		priority = 999,

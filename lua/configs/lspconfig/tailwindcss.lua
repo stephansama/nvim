@@ -1,7 +1,5 @@
 local M = {}
 
-M.use_custom_on_attach = true
-
 --- attach tailwindcss-colors
 ---@param client unknown
 ---@param buffer unknown

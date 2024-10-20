@@ -1,5 +1,5 @@
 local M = {}
-local harpoon_utils = require("utils.harpoon")
+local harpoon_utils = require("utils.harpoon_utils")
 local execute_neotree = require("utils.neotree").execute_neotree
 local spectre_function = require("utils").spectre_function
 local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_remove =
@@ -10,19 +10,19 @@ local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_rem
 	harpoon_utils.harpoon_remove
 
 M.harpoon = {
-	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer" },
+	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
 	{ "<leader>A", harpoon_modify("prepend"), desc = "Prepend buffer to harpoon" },
 	{ "<leader>cp", clear_harpoon, desc = "Clear harpoon" },
 	{ "<leader>p", harpoon_toggle, desc = "Open harpoon list" },
-	{ "<leader>1", harpoon_select(1), desc = "Switch to Buffer 1" },
-	{ "<leader>2", harpoon_select(2), desc = "Switch to Buffer 2" },
-	{ "<leader>3", harpoon_select(3), desc = "Switch to Buffer 3" },
-	{ "<leader>4", harpoon_select(4), desc = "Switch to Buffer 4" },
-	{ "<leader>r1", harpoon_remove(1), desc = "Remove Buffer 1" },
-	{ "<leader>r2", harpoon_remove(2), desc = "Remove Buffer 2" },
-	{ "<leader>r3", harpoon_remove(3), desc = "Remove Buffer 3" },
-	{ "<leader>r4", harpoon_remove(4), desc = "Remove Buffer 4" },
+	{ "<leader>1", harpoon_select(1), desc = "Switch to Harpoon Buffer 1" },
+	{ "<leader>2", harpoon_select(2), desc = "Switch to Harpoon Buffer 2" },
+	{ "<leader>3", harpoon_select(3), desc = "Switch to Harpoon Buffer 3" },
+	{ "<leader>4", harpoon_select(4), desc = "Switch to Harpoon Buffer 4" },
+	{ "<leader>r1", harpoon_remove(1), desc = "Remove Harpoon Buffer 1" },
+	{ "<leader>r2", harpoon_remove(2), desc = "Remove Harpoon Buffer 2" },
+	{ "<leader>r3", harpoon_remove(3), desc = "Remove Harpoon Buffer 3" },
+	{ "<leader>r4", harpoon_remove(4), desc = "Remove Harpoon Buffer 4" },
 }
 
 M.leetcode = {
@@ -37,6 +37,25 @@ M.leetcode = {
 			require("utils").openURL(require("constants.url").LEETCODE_URL)
 		end,
 		desc = "Get info for leet question",
+	},
+}
+
+M.rest = {
+	{ "<leader>rr", "<cmd>Rest run<CR>", desc = "Run rest command under cursor" },
+	{ "<leader>rl", "<cmd>Rest last<CR>", desc = "Rerun last rest command" },
+	{ "<leader>re", "<cmd>Rest env select_env<CR>", desc = "Select environment variable for rest" },
+}
+
+M.trouble = {
+	{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
+	{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+	{ "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols (Trouble)" },
+	{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+	{
+		"<leader>cl",
+		"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+		desc = "LSP Definitions / references / ... (Trouble)",
 	},
 }
 
@@ -121,13 +140,7 @@ M.neotest = {
 		end,
 		desc = "Neotest: Run test in current file",
 	},
-	{
-		"<C-\\>",
-		function()
-			vim.cmd([[Neotest summary]])
-		end,
-		desc = "Neotest summary",
-	},
+	{ "<C-\\>", "<cmd>Neotest summary<CR>", desc = "Neotest summary" },
 	{ "<leader>ro", "<cmd>Neotest output<CR>", desc = "Open Neotest output" },
 	{ "<leader>rp", "<cmd>Neotest output-panel<CR>", desc = "Open Neotest output-panel" },
 }
@@ -150,6 +163,12 @@ M.neo_tree = {
 M.oil = { { "-", "<cmd>Oil<CR>", desc = "Open Oil.nvim" } }
 
 M.outline = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } }
+
+M.quicker = { { "<leader>q", "<cmd>lua require('quicker').toggle()<CR>", desc = "Toggle quickfixlist" } }
+
+M.urlview = { { "<leader>gx", "<cmd>UrlView<cr>", desc = "Open urlview" } }
+
+M.maximizer = { { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle maximizer on a split" } }
 
 M.neocomposer = { { "<leader>mm", "<cmd>EditMacros<CR>", desc = "Edit macros" } }
 

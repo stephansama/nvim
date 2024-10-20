@@ -8,7 +8,7 @@ utils.setup_borders()
 
 require("ufo").setup()
 
-require("utils").setup_sign_icons(require("configs.icons").diagnostics, function(t)
+require("utils.ui").setup_sign_icons(require("configs.icons").diagnostics, function(t)
 	return "DiagnosticSign" .. t
 end)
 

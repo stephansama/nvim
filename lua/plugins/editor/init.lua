@@ -1,4 +1,17 @@
 return {
+	{ "nvim-pack/nvim-spectre", dependencies = { "nvim-lua/plenary.nvim" }, keys = require("keys.init").spectre },
+	{ "kylechui/nvim-surround", version = "*", event = "InsertEnter", config = true },
+	{ "artemave/workspace-diagnostics.nvim" },
+	{ "folke/trouble.nvim", opts = {}, keys = require("keys.init").trouble },
+	{ "kevinhwang91/nvim-bqf", ft = "qf" },
+	{
+		"stevearc/quicker.nvim",
+		event = "FileType qf",
+		---@module "quicker"
+		---@type quicker.SetupOptions
+		opts = {},
+		keys = require("keys.init").quicker,
+	},
 	{
 		"mfussenegger/nvim-lint",
 		init = function()
@@ -38,17 +51,11 @@ return {
 		config = require("configs.snippets"),
 	},
 	{
-		"nvim-pack/nvim-spectre",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		keys = require("keys.init").spectre,
-	},
-	{
 		"ecthelionvi/NeoComposer.nvim",
 		dependencies = { "kkharji/sqlite.lua" },
 		config = true,
 		keys = require("keys.init").neocomposer,
 	},
-	{ "kylechui/nvim-surround", version = "*", event = "InsertEnter", config = true },
 	{
 		"RRethy/vim-illuminate",
 		lazy = false,
@@ -64,10 +71,6 @@ return {
 			vim.keymap.set("n", "<A-j>", "<Plug>(VM-Add-Cursor-Down)") -- ∆ macOS specific
 			vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)") -- ˚ macOS equivalent
 		end,
-	},
-	{
-		"folke/trouble.nvim",
-		opts = { mode = "workspace_diagnostics" },
 	},
 	{
 		"mbbill/undotree",

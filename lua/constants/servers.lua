@@ -32,5 +32,4 @@ return {
 	"jsonls",
 	"yamlls",
 	"tailwindcss",
-	-- "emmet_ls",
 }

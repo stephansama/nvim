@@ -11,6 +11,12 @@ return {
 		end,
 	},
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = { "markdown", "markdown.mdx" },
+		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+	},
+	{
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

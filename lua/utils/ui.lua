@@ -1,5 +1,20 @@
 local M = {}
 
+M.lualine_macros = function()
+	return require("NeoComposer.ui").status_recording()
+end
+
+M.lualine_package_info = function()
+	return require("package-info").get_status()
+end
+
+M.setup_sign_icons = function(icons, hl_callback)
+	for type, icon in pairs(icons) do
+		local hl = hl_callback(type)
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	end
+end
+
 M.override_builtins = function(builtins)
 	for _, builtin in pairs(builtins) do
 		vim.ui[builtin] = function(...)
@@ -31,13 +46,18 @@ M.auto_theme = function(theme)
 	return function()
 		vim.api.nvim_set_option_value("background", theme, {})
 		vim.cmd(string.format("colorscheme %s", selected))
+		if theme == "dark" then
+			vim.cmd([[hi BqfPreviewFloat guibg=#1e1e2e]])
+			vim.cmd([[hi BqfPreviewTitle guibg=#1e1e2e]])
+			vim.cmd([[hi BqfPreviewBorder guibg=#1e1e2e]])
+		end
 		M.reset_ui()
 	end
 end
 
 --- create border for highlight group
 ---@param hl_name string Highlight group name
----@return table border_table of border elements
+---@return table<table<string,string>> border_table of border elements
 M.border = function(hl_name)
 	return {
 		{ "╭", hl_name },

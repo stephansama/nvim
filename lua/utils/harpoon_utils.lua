@@ -26,16 +26,14 @@ end
 
 M.harpoon_remove = function(number)
 	return function()
-		local harpoon = require("harpoon")
-		harpoon:list():removeAt(number)
+		require("harpoon"):list():removeAt(number)
 		print("Removing harpoon buffer" .. number)
 	end
 end
 
 M.harpoon_select = function(number)
 	return function()
-		local harpoon = require("harpoon")
-		harpoon:list():select(number)
+		require("harpoon"):list():select(number)
 		print("Switched to harpoon buffer" .. number)
 	end
 end
@@ -46,8 +44,7 @@ M.harpoon_toggle = function()
 end
 
 M.clear_harpoon = function()
-	local harpoon = require("harpoon")
-	harpoon:list():clear()
+	require("harpoon"):list():clear()
 	print("Clearing harpoon list...")
 end
 

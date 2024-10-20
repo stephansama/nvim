@@ -30,6 +30,7 @@ return {
 	pickers = pickers,
 	defaults = {
 		theme = "ivy",
+		mappings = require("keys.telescope-kb"),
 		initial_mode = "insert",
 		prompt_prefix = require("configs.icons").telescope,
 	},

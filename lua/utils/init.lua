@@ -1,13 +1,5 @@
 local M = {}
 
-M.lualine_macros = function()
-	return require("NeoComposer.ui").status_recording()
-end
-
-M.lualine_package_info = function()
-	return require("package-info").get_status()
-end
-
 ---move buffer in a specific direction
 ---@param direction 'next' | 'previous'
 ---@return function
@@ -34,13 +26,6 @@ M.remove_properties = function(property_list, original_table)
 		copy[lsp] = nil
 	end
 	return copy
-end
-
-M.setup_sign_icons = function(icons, hl_callback)
-	for type, icon in pairs(icons) do
-		local hl = hl_callback(type)
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-	end
 end
 
 --- default fields order i.e completion word + item.kind + item.kind icons

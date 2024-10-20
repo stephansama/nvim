@@ -1,3 +1,4 @@
+# https://github.com/JohnnyMorganz/StyLua?tab=readme-ov-file#configuration
 quote_style = "AutoPreferDouble"
 indent_type = "Spaces"
 indent_width = 2

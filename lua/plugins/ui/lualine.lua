@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require("utils.ui")
 
 ---@see Default_Configuration https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#default-configuration
 local opts = {
