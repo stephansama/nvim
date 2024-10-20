@@ -170,6 +170,8 @@ M.urlview = { { "<leader>gx", "<cmd>UrlView<cr>", desc = "Open urlview" } }
 
 M.maximizer = { { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle maximizer on a split" } }
 
+M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
+
 M.neocomposer = { { "<leader>mm", "<cmd>EditMacros<CR>", desc = "Edit macros" } }
 
 M.inlay_hints = { { "<leader>th", "<cmd>InlayHintsToggle<cr>", desc = "Toggle inlay hints" } }

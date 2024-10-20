@@ -51,10 +51,12 @@ end
 ---@param on_attach function
 M.load_lsp_configs = function(capabilities, on_attach)
 	local configs = {}
-	local SERVERS = require("constants.servers")
+	-- local SERVERS = require("constants.pulled").SERVERS
+	local SERVERS = {'bashls', 'lua_ls'}
 	local lspconfig = require("lspconfig")
 	local ls_output = io.popen("ls " .. require("constants.dir").LSP_CONFIG_DIR, "r")
 
+print(vim.inspect(SERVERS))
 	if ls_output then
 		for file in ls_output:lines() do
 			local filename = string.match(file, "(.+)%..+")
