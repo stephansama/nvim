@@ -14,6 +14,9 @@ M.flat_rename = function(t, _)
 	return t
 end
 
+--- convert lua lists to key value pair
+---@param list table<string>|table<string,table<string>>
+---@return table<string,table<string>|table<table<string>>>
 M.merge_kv = function(list)
 	local merged = {}
 	for _, v in pairs(list) do
@@ -24,6 +27,9 @@ M.merge_kv = function(list)
 	return merged
 end
 
+--- convert lua list into a flat list
+---@param list table<string>|table<string,table<string>>
+---@return table<string>
 M.merge_flat = function(list)
 	local merged = {}
 	for _, v in pairs(list) do
@@ -34,7 +40,8 @@ M.merge_flat = function(list)
 	return merged
 end
 
----@param property string
+---@see LanguageObject
+---@param property 'servers'|'linters'|'formatters'|'treesitter'|'mason'|'mason_lsp'
 ---@param callback function | nil
 ---@return table
 M.pull_property_from_languages = function(property, callback)
