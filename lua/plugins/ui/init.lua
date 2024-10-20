@@ -1,4 +1,14 @@
+local utils = require("utils.ui")
+
 return {
+	{
+		"catppuccin/nvim",
+		priority = 1000,
+		name = "catppuccin",
+		opts = function()
+			return require("configs.catppuccin")
+		end,
+	},
 	{
 		"nvim-tree/nvim-web-devicons",
 		opts = function()
@@ -12,33 +22,16 @@ return {
 	},
 	{
 		"stevearc/dressing.nvim",
-		lazy = true,
-		init = function()
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.ui.select = function(...)
-				require("lazy").load({ plugins = { "dressing.nvim" } })
-				return vim.ui.select(...)
-			end
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.ui.input = function(...)
-				require("lazy").load({ plugins = { "dressing.nvim" } })
-				return vim.ui.input(...)
-			end
-		end,
+		init = utils.override_builtins({ "select", "input" }),
 	},
 	{
 		"f-person/auto-dark-mode.nvim",
-		keys = { { "<leader>ct", "<cmd>Lazy load auto-dark-mode.nvim<cr>", desc = "Change Theme" } },
+		priority = 999,
+		lazy = false,
 		opts = {
 			update_interval = 1000,
-			set_dark_mode = function()
-				vim.api.nvim_set_option("background", "dark")
-				vim.cmd("colorscheme catppuccin-mocha")
-			end,
-			set_light_mode = function()
-				vim.api.nvim_set_option("background", "light")
-				vim.cmd("colorscheme catppuccin-latte")
-			end,
+			set_dark_mode = utils.auto_theme("dark"),
+			set_light_mode = utils.auto_theme("light"),
 		},
 	},
 }

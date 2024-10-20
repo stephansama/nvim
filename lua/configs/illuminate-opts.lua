@@ -1,11 +1,7 @@
 ---@see Illuminate https://github.com/RRethy/vim-illuminate
 return {
 	-- providers: provider used to get references in the buffer, ordered by priority
-	providers = {
-		"lsp",
-		"treesitter",
-		"regex",
-	},
+	providers = { "lsp", "treesitter", "regex" },
 	-- delay: delay in milliseconds
 	delay = 100,
 	-- filetype_overrides: filetype specific overrides.
@@ -13,11 +9,7 @@ return {
 	-- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
 	filetype_overrides = {},
 	-- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
-	filetypes_denylist = {
-		"dirbuf",
-		"dirvish",
-		"fugitive",
-	},
+	filetypes_denylist = { "dirbuf", "dirvish", "fugitive" },
 	-- filetypes_allowlist: filetypes to illuminate, this is overridden by filetypes_denylist
 	-- You must set filetypes_denylist = {} to override the defaults to allow filetypes_allowlist to take effect
 	filetypes_allowlist = {},
@@ -49,7 +41,7 @@ return {
 	-- should_enable: a callback that overrides all other settings to
 	-- enable/disable illumination. This will be called a lot so don't do
 	-- anything expensive in it.
-	should_enable = function(bufnr)
+	should_enable = function()
 		return true
 	end,
 	-- case_insensitive_regex: sets regex case sensitivity

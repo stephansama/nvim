@@ -1,0 +1,20 @@
+{
+	"metaTableAdd": {
+		"prefix": "mta",
+		"body": [
+			"M.$1 = $2"
+		],
+		"description": "Add a new property to metatable"
+	},
+	"metaTableExport": {
+		"prefix": "mte",
+		"body": [
+			"local M = {}",
+			"",
+			"M.$1 = $2",
+			"",
+			"return M$0"
+		],
+		"description": "Imports entire module statement in ES6 syntax"
+	}
+}

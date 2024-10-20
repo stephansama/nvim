@@ -1,7 +1,4 @@
---- Load snippets from various sources
----@param _ unknown discard
----@param opts table table of options
-local load_snippets = function(_, opts)
+return function(_, opts)
 	local luasnip, from_vscode, from_snipmate, from_lua =
 		require("luasnip"),
 		require("luasnip.loaders.from_vscode"),
@@ -10,7 +7,7 @@ local load_snippets = function(_, opts)
 
 	luasnip.config.set_config(opts)
 
-	from_vscode.lazy_load({ paths = { "./snippets" } })
+	from_vscode.lazy_load({ paths = { require("constants.dir").SNIPPETS_DIR } })
 
 	from_snipmate.load()
 	from_snipmate.lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
@@ -26,10 +23,3 @@ local load_snippets = function(_, opts)
 		end,
 	})
 end
-
-return {
-	"L3MON4D3/LuaSnip",
-	build = "make install_jsregexp",
-	opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-	config = load_snippets,
-}

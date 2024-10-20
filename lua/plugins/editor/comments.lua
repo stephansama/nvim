@@ -1,10 +1,12 @@
+local keys = require("keys.init")
+
 return {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 		config = true,
 		event = "VimEnter",
-		keys = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } },
+		keys = keys.todo_telescope,
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -29,17 +31,9 @@ return {
 	},
 	{
 		"danymat/neogen",
-		config = true,
-		event = "BufEnter",
+		keys = keys.neogen,
 		opts = { enabled = true, snippet_engine = "luasnip" },
-		keys = {
-			{
-				"<leader>cg",
-				function()
-					require("neogen").generate()
-				end,
-				desc = "Generate documentation comments",
-			},
-		},
+		event = "BufEnter",
+		config = true,
 	},
 }

@@ -21,15 +21,4 @@ return {
 			vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<CR>")
 		end,
 	},
-	{
-		"epwalsh/obsidian.nvim",
-		ft = "markdown",
-		lazy = true,
-		config = true,
-		version = "*",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = function()
-			return require("configs.obsidian-opts")
-		end,
-	},
 }

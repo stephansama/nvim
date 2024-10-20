@@ -4,9 +4,15 @@
 		"snippets": [
 			{
 				"language": [
-					"all"
+					"editorconfig"
 				],
-				"path": "./all.json"
+				"path": "./editorconfig.json"
+			},
+			{
+				"language": [
+					"lua"
+				],
+				"path": "./lua.json"
 			},
 			{
 				"language": [
