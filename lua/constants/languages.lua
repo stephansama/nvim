@@ -58,7 +58,7 @@ M.shell = {
 M.data = {
 	mason = { "jsonlint", "yamllint" },
 	mason_lsp = {
-		"sqqls",
+		"sqlls",
 		"taplo",
 		"jsonls",
 		"yamlls",
