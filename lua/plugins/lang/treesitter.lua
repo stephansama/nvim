@@ -21,7 +21,7 @@ return {
 			highlight = { enable = true },
 			auto_install = false,
 			sync_install = false,
-			ensure_installed = require("constants.installed").TREESITTER_ENSURE_INSTALLED,
+			ensure_installed = require("constants.pulled").TREESITTER_ENSURE_INSTALLED,
 			parser_install_dir = require("constants.dir").TREESITTER_PARSER_INSTALL_DIR,
 			incremental_selection = {
 				enable = true,

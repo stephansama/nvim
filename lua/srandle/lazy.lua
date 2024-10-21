@@ -1,5 +1,5 @@
 local expand_plugins = require("utils.expand").expand_plugins
-local ENABLED_PLUGINS = require("constants.plugins")
+local ENABLED_PLUGINS = require("constants.enabled").PLUGINS
 local LAZY_DIR = require("constants.dir").LAZY_DIR
 local LAZY_URL = require("constants.url").LAZY_URL
 local icons = require("configs.icons").lazy

@@ -1,6 +1,8 @@
 local expand_settings = require("utils.expand").expand_settings
 
-vim.g.mapleader = require("constants.leader")
+vim.g.mapleader = require("keys.init").LEADER
+
+vim.filetype.add({ extension = require("constants.ft").VIM_FT_EXTENSIONS })
 
 expand_settings({
 	wo = { number = true, relativenumber = true },
@@ -31,15 +33,5 @@ expand_settings({
 		foldcolumn = "1",
 		foldenable = true,
 		foldlevelstart = 99,
-	},
-})
-
-vim.filetype.add({
-	extension = {
-		templ = "templ",
-		mdx = "markdown.mdx",
-		zsh = "sh",
-		pcss = "css",
-		postcss = "css",
 	},
 })

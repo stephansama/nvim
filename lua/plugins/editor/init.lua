@@ -22,7 +22,7 @@ return {
 			})
 		end,
 		config = function()
-			require("lint").linters_by_ft = require("constants.linters")
+			require("lint").linters_by_ft = require("constants.pulled").LINTERS
 		end,
 	},
 	{
@@ -31,7 +31,7 @@ return {
 		config = true,
 		opts = {
 			format_on_save = { timeout_ms = 1000, lsp_fallback = true },
-			formatters_by_ft = require("constants.formatters"),
+			formatters_by_ft = require("constants.pulled").FORMATTERS,
 		},
 	},
 	{

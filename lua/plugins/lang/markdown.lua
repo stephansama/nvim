@@ -2,12 +2,10 @@ return {
 	{
 		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
-		event = "VeryLazy",
+		config = true,
+		keys = require("keys.init").table_mode,
 		init = function()
 			vim.g.table_mode_tableize_map = "<leader>mc"
-		end,
-		config = function()
-			vim.keymap.set("n", "<leader>mt", vim.cmd.TableModeEnable, { desc = "Enable Table Mode" })
 		end,
 	},
 	{

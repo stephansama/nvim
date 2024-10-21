@@ -9,6 +9,8 @@ local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_rem
 	harpoon_utils.harpoon_select,
 	harpoon_utils.harpoon_remove
 
+M.LEADER = " "
+
 M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
@@ -169,6 +171,8 @@ M.quicker = { { "<leader>q", "<cmd>lua require('quicker').toggle()<CR>", desc = 
 M.urlview = { { "<leader>gx", "<cmd>UrlView<cr>", desc = "Open urlview" } }
 
 M.maximizer = { { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle maximizer on a split" } }
+
+M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
 
 M.neocomposer = { { "<leader>mm", "<cmd>EditMacros<CR>", desc = "Edit macros" } }
 
