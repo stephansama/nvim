@@ -15,8 +15,8 @@ M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
 	{ "<leader>A", harpoon_modify("prepend"), desc = "Prepend buffer to harpoon" },
-	{ "<leader>cp", clear_harpoon, desc = "Clear harpoon" },
 	{ "<leader>p", harpoon_toggle, desc = "Open harpoon list" },
+	{ "<leader>cp", clear_harpoon, desc = "Clear harpoon" },
 	{ "<leader>1", harpoon_select(1), desc = "Switch to Harpoon Buffer 1" },
 	{ "<leader>2", harpoon_select(2), desc = "Switch to Harpoon Buffer 2" },
 	{ "<leader>3", harpoon_select(3), desc = "Switch to Harpoon Buffer 3" },
@@ -207,5 +207,7 @@ M.telescope = {
 	{ "<leader>go", "<cmd>Telescope git_file_history theme=ivy initial_mode=normal<CR>", desc = "Find exact word" },
 	{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
 }
+
+M.telescope_qflist = "<C-q>"
 
 return M

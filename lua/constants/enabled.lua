@@ -24,4 +24,12 @@ M.LANGUAGES = {
 	"haskell",
 }
 
+M.TELESCOPE_EXTENSIONS = {
+	"fzf",
+	"tmux",
+	"macros",
+	"package_info",
+	"git_file_history",
+}
+
 return M

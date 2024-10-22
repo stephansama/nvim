@@ -1,3 +1,7 @@
+local actions = require("telescope.actions")
+local SEND_SELECTED_TO_QFLIST_KEY = require("keys.init").telescope_qflist
+local SEND_SELECTED_TO_QFLIST_ACTION = actions.send_selected_to_qflist + actions.open_qflist
+
 ---@see TelescopeOptions https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#customization
 local function picker_config(initial_mode)
 	return { initial_mode = initial_mode, theme = "ivy" }
@@ -30,8 +34,11 @@ return {
 	pickers = pickers,
 	defaults = {
 		theme = "ivy",
-		mappings = require("keys.telescope-kb"),
 		initial_mode = "insert",
 		prompt_prefix = require("configs.icons").telescope,
+		mappings = {
+			i = { [SEND_SELECTED_TO_QFLIST_KEY] = SEND_SELECTED_TO_QFLIST_ACTION },
+			n = { [SEND_SELECTED_TO_QFLIST_KEY] = SEND_SELECTED_TO_QFLIST_ACTION },
+		},
 	},
 }
