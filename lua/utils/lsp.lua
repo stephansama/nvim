@@ -58,7 +58,7 @@ M.load_lsp_configs = function(capabilities, on_attach)
 	if ls_output then
 		for file in ls_output:lines() do
 			local filename = string.match(file, "(.+)%..+")
-			if filename and filename ~= "init" then
+			if filename and filename ~= "init" and filename ~= "README" then
 				configs[filename] = require("configs.lspconfig." .. filename)
 			end
 		end
