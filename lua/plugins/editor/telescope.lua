@@ -20,7 +20,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
-		config = configure_telescope(require("constants.telescope_extensions")),
+		config = configure_telescope(require("constants.enabled").TELESCOPE_EXTENSIONS),
 		lazy = false,
 		keys = keys.telescope,
 		opts = function()

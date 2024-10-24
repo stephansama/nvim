@@ -1,5 +1,29 @@
 local M = {}
 
+M.NEOGEN_FILETYPES = {
+	"c",
+	"sh",
+	"go",
+	"cpp",
+	"lua",
+	"php",
+	"vue",
+	"rust",
+	"javascript",
+	"typescript",
+	"javascriptreact",
+	"typescriptreact",
+}
+
+M.VIM_FT_EXTENSIONS = {
+	mdx = "markdown.mdx",
+	zsh = "sh",
+	pcss = "css",
+	http = "http",
+	templ = "templ",
+	postcss = "css",
+}
+
 M.INDENT_EXCLUDE_BUFTYPES = {
 	"prompt",
 	"nofile",
@@ -66,6 +90,11 @@ M.EMMET_FILETYPES = {
 	"htmlangular",
 	"javascriptreact",
 	"typescriptreact",
+}
+
+M.LSP_CONFIG_IGNORE_FILES = {
+	"init",
+	"README",
 }
 
 return M

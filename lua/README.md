@@ -1,3 +1,1 @@
-# Lua
-
-![Project Structure](../images/project_structure.png)
+../docs/lua.md

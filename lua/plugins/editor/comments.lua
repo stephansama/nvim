@@ -31,9 +31,9 @@ return {
 	},
 	{
 		"danymat/neogen",
+		config = true,
 		keys = keys.neogen,
 		opts = { enabled = true, snippet_engine = "luasnip" },
-		event = "BufEnter",
-		config = true,
+		ft = require("constants.ft").NEOGEN_FILETYPES,
 	},
 }

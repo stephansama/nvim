@@ -51,14 +51,15 @@ end
 ---@param on_attach function
 M.load_lsp_configs = function(capabilities, on_attach)
 	local configs = {}
-	local SERVERS = require("constants.servers")
+	local SERVERS = require("constants.pulled").SERVERS
 	local lspconfig = require("lspconfig")
 	local ls_output = io.popen("ls " .. require("constants.dir").LSP_CONFIG_DIR, "r")
+	local LSP_CONFIG_IGNORE_FILES = require("constants.ft").LSP_CONFIG_IGNORE_FILES
 
 	if ls_output then
 		for file in ls_output:lines() do
 			local filename = string.match(file, "(.+)%..+")
-			if filename and filename ~= "init" then
+			if filename and not vim.tbl_contains(LSP_CONFIG_IGNORE_FILES, filename) then
 				configs[filename] = require("configs.lspconfig." .. filename)
 			end
 		end

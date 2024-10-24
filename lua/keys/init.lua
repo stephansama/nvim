@@ -9,12 +9,24 @@ local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_rem
 	harpoon_utils.harpoon_select,
 	harpoon_utils.harpoon_remove
 
+M.LEADER = " "
+
+M.dashboard = { { "<leader>ld", require("utils.dashboard").go_to_dashboard, desc = "Go to Dashboard" } }
+
+M.dashboard_actions = {
+	{ " ", "f", "Find  file", "Telescope find_files" },
+	{ " ", "r", "Find  recent", "Telescope oldfiles" },
+	{ " ", "w", "Find  words", "Telescope live_grep" },
+	{ "󰌌 ", "k", "Find  keymaps", "Telescope keymaps" },
+	{ " ", "q", "Quit", "qa" },
+}
+
 M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
 	{ "<leader>A", harpoon_modify("prepend"), desc = "Prepend buffer to harpoon" },
-	{ "<leader>cp", clear_harpoon, desc = "Clear harpoon" },
 	{ "<leader>p", harpoon_toggle, desc = "Open harpoon list" },
+	{ "<leader>cp", clear_harpoon, desc = "Clear harpoon" },
 	{ "<leader>1", harpoon_select(1), desc = "Switch to Harpoon Buffer 1" },
 	{ "<leader>2", harpoon_select(2), desc = "Switch to Harpoon Buffer 2" },
 	{ "<leader>3", harpoon_select(3), desc = "Switch to Harpoon Buffer 3" },
@@ -26,7 +38,7 @@ M.harpoon = {
 }
 
 M.leetcode = {
-	{ "<leader>le", "<cmd>Leet<cr>", desc = "Open leet" },
+	{ "<leader>le", vim.cmd.Leet, desc = "Open leet" },
 	{ "<leader>lr", "<cmd>Leet run<cr>", desc = "Run leet" },
 	{ "<leader>lp", "<cmd>Leet open<cr>", desc = "Open leet url" },
 	{ "<leader>lc", "<cmd>Leet lang<cr>", desc = "Open leet language picker" },
@@ -52,23 +64,7 @@ M.trouble = {
 	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
 	{ "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols (Trouble)" },
 	{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-	{
-		"<leader>cl",
-		"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-		desc = "LSP Definitions / references / ... (Trouble)",
-	},
-}
-
-M.dashboard = {
-	{
-		"<leader>ld",
-		function()
-			require("utils.dashboard").color_dashboard()
-			vim.cmd([[bufdo bd!]])
-			vim.cmd([[Dashboard]])
-		end,
-		desc = "Go to Dashboard",
-	},
+	{ "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions (Trouble)" },
 }
 
 M.treesitter_incremental_selection = {
@@ -102,10 +98,10 @@ M.mason = {
 }
 
 M.tmux = {
-	{ "<C-h>", "<CMD>TmuxNavigateLeft<CR>" },
-	{ "<C-j>", "<CMD>TmuxNavigateDown<CR>" },
-	{ "<C-k>", "<CMD>TmuxNavigateUp<CR>" },
-	{ "<C-l>", "<CMD>TmuxNavigateRight<CR>" },
+	{ "<C-h>", vim.cmd.TmuxNavigateLeft },
+	{ "<C-j>", vim.cmd.TmuxNavigateDown },
+	{ "<C-k>", vim.cmd.TmuxNavigateUp },
+	{ "<C-l>", vim.cmd.TmuxNavigateRight },
 }
 
 M.spectre = {
@@ -127,8 +123,8 @@ M.crates = {
 }
 
 M.noice = {
-	{ "<leader>na", "<cmd>NoiceAll<cr>", desc = "Open NoiceAll" },
-	{ "<leader>nl", "<cmd>NoiceLast<cr>", desc = "Open NoiceLast" },
+	{ "<leader>na", vim.cmd.NoiceAll, desc = "Open NoiceAll" },
+	{ "<leader>nl", vim.cmd.NoiceLast, desc = "Open NoiceLast" },
 	{ "<leader>nt", "<cmd>Telescope noice theme=ivy<cr>", desc = "Open Noice Telescope" },
 }
 
@@ -160,27 +156,29 @@ M.neo_tree = {
 	{ "g\\", execute_neotree({ source = "git_status" }), desc = "Open explorer side panel" },
 }
 
-M.oil = { { "-", "<cmd>Oil<CR>", desc = "Open Oil.nvim" } }
+M.oil = { { "-", vim.cmd.Oil, desc = "Open Oil.nvim" } }
 
-M.outline = { { "|", "<CMD>Outline<CR>", desc = "Toggle Outline" } }
+M.outline = { { "|", vim.cmd.Outline, desc = "Toggle Outline" } }
 
 M.quicker = { { "<leader>q", "<cmd>lua require('quicker').toggle()<CR>", desc = "Toggle quickfixlist" } }
 
-M.urlview = { { "<leader>gx", "<cmd>UrlView<cr>", desc = "Open urlview" } }
+M.urlview = { { "<leader>gx", vim.cmd.UrlView, desc = "Open urlview" } }
 
-M.maximizer = { { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Toggle maximizer on a split" } }
+M.maximizer = { { "<leader>sm", vim.cmd.MaximizerToggle, desc = "Toggle maximizer on a split" } }
 
-M.neocomposer = { { "<leader>mm", "<cmd>EditMacros<CR>", desc = "Edit macros" } }
+M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
 
-M.inlay_hints = { { "<leader>th", "<cmd>InlayHintsToggle<cr>", desc = "Toggle inlay hints" } }
+M.neocomposer = { { "<leader>mm", vim.cmd.EditMacros, desc = "Edit macros" } }
+
+M.inlay_hints = { { "<leader>th", vim.cmd.InlayHintsToggle, desc = "Toggle inlay hints" } }
 
 M.telescope_nx = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", desc = "nx actions" } }
 
 M.todo_telescope = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
 
 M.telescope_icon_picker = {
-	{ "<leader><leader>i", "<cmd>IconPickerNormal<cr>", desc = "IconPickerNormal" },
-	{ "<leader><leader>y", "<cmd>IconPickerYank<cr>", desc = "IconPickerYank" },
+	{ "<leader><leader>i", vim.cmd.IconPickerNormal, desc = "IconPickerNormal" },
+	{ "<leader><leader>y", vim.cmd.IconPickerYank, desc = "IconPickerYank" },
 }
 
 M.telescope_tmux = {
@@ -203,5 +201,7 @@ M.telescope = {
 	{ "<leader>go", "<cmd>Telescope git_file_history theme=ivy initial_mode=normal<CR>", desc = "Find exact word" },
 	{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
 }
+
+M.telescope_qflist = "<C-q>"
 
 return M

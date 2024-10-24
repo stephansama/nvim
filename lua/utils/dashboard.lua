@@ -2,6 +2,12 @@ local M = {}
 
 M.expand_actions = require("utils.expand").expand_actions
 
+M.go_to_dashboard = function()
+	require("utils.dashboard").color_dashboard()
+	vim.cmd([[bufdo bd!]])
+	vim.cmd.Dashboard()
+end
+
 M.color_dashboard = function()
 	local DASHBOARD_COLORS = require("constants.theme").DASHBOARD_COLORS
 	math.randomseed(os.time())

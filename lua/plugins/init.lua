@@ -2,7 +2,7 @@ local keys = require("keys.init")
 
 return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
-	{ "TabbyML/vim-tabby", lazy = false },
+	{ "TabbyML/vim-tabby", event = "InsertEnter" },
 	{
 		"lewis6991/gitsigns.nvim",
 		init = function()

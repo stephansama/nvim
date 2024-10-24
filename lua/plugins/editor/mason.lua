@@ -1,6 +1,6 @@
-local installed = require("constants.installed")
+local pulled = require("constants.pulled")
 local MASON_ENSURE_INSTALLED, MASON_LSP_ENSURE_INSTALLED =
-	installed.MASON_ENSURE_INSTALLED, installed.MASON_LSP_ENSURE_INSTALLED
+	pulled.MASON_ENSURE_INSTALLED, pulled.MASON_LSP_ENSURE_INSTALLED
 
 local MasonInstallAll = function()
 	if MASON_ENSURE_INSTALLED and #MASON_ENSURE_INSTALLED > 0 then
