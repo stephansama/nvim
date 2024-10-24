@@ -11,7 +11,7 @@ local M = {}
 --- [Documentation](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
 ---@field servers table<string,table<string>> | string | nil
 --- [Documentation](https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters)
----@field formatters table<string,table> | string | nil
+---@field formatters table<string,table<string>|nil> | string | nil
 --- [Documentation](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages)
 ---@field treesitter table<string,table> | string | nil
 

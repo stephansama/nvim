@@ -9,12 +9,7 @@ local config = {
 		local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 		return { " loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
 	end,
-	center = expand_actions({
-		{ " ", "f", "Find  file", "Telescope find_files" },
-		{ " ", "r", "Find  recent", "Telescope oldfiles" },
-		{ " ", "t", "Find  tmux window", "Telescope tmux windows theme=ivy" },
-		{ " ", "q", "Quit", "qa" },
-	}),
+	center = expand_actions(require("keys.init").dashboard_actions),
 }
 
 local opts = { theme = "doom", config = config }

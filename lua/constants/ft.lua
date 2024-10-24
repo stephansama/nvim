@@ -92,4 +92,9 @@ M.EMMET_FILETYPES = {
 	"typescriptreact",
 }
 
+M.LSP_CONFIG_IGNORE_FILES = {
+	"init",
+	"README",
+}
+
 return M
