@@ -28,4 +28,30 @@ return {
 			set_light_mode = utils.auto_theme("light"),
 		},
 	},
+	{
+		"rcarriga/nvim-notify",
+		lazy = false,
+		keys = require("keys.init").notify,
+		init = function()
+			vim.notify = require("notify")
+		end,
+		---@module "notify"
+		---@type notify.Config
+		opts = {
+			stages = "static",
+			render = "compact",
+			fps = 30,
+			level = vim.log.levels.INFO,
+			timeout = 5000,
+			on_open = function() end,
+			on_close = function() end,
+			max_width = 50,
+			max_height = 3,
+			minimum_width = 50,
+			top_down = true,
+			icons = require("configs.icons").notify,
+			background_colour = "NotifyBackground",
+			time_formats = { notification_history = "%FT%T", notification = "%T" },
+		},
+	},
 }

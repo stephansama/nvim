@@ -2,7 +2,7 @@ return {
 	{
 		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
-		config = true,
+		config = function() end,
 		keys = require("keys.init").table_mode,
 		init = function()
 			vim.g.table_mode_tableize_map = "<leader>mc"

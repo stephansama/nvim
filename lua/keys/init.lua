@@ -122,10 +122,11 @@ M.crates = {
 	{ "<leader>ce", "<cmd>Crates show_dependencies_popup<cr>", desc = "Crates.nvim open dependencies list" },
 }
 
+M.notify = { { "<leader>nt", "<cmd>Telescope notify theme=ivy<cr>", desc = "Open Notify Telescope" } }
+
 M.noice = {
 	{ "<leader>na", vim.cmd.NoiceAll, desc = "Open NoiceAll" },
 	{ "<leader>nl", vim.cmd.NoiceLast, desc = "Open NoiceLast" },
-	{ "<leader>nt", "<cmd>Telescope noice theme=ivy<cr>", desc = "Open Noice Telescope" },
 }
 
 M.neotest = {

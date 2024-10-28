@@ -13,16 +13,17 @@ M.diagnostics = {
 	Info = " ",
 }
 
+M.notify = {
+	INFO = "",
+	WARN = "",
+	ERROR = "",
+	DEBUG = "",
+	TRACE = "✎",
+}
+
 M.packageJSON = {
 	outdated = "|  ",
 	up_to_date = "|  ",
-}
-
-M.lualine = {
-	modified = "",
-	readonly = "",
-	unnamed = "󰡯",
-	newfile = "",
 }
 
 M.mason = {
@@ -36,6 +37,13 @@ M.lazy = {
 	lazy = "󰂠 ",
 	loaded = "",
 	not_loaded = "",
+}
+
+M.lualine = {
+	modified = "",
+	readonly = "",
+	unnamed = "󰡯",
+	newfile = "",
 }
 
 M.neotest = {
