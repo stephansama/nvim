@@ -22,6 +22,12 @@ M.LANGUAGES = {
 	"zig",
 	"rust",
 	"haskell",
+	-- "php",
+	-- "java",
+	-- "godot",
+	-- "python",
+	-- "csharp",
+	-- "snyk",
 }
 
 M.TELESCOPE_EXTENSIONS = {

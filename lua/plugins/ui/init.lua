@@ -42,7 +42,7 @@ return {
 			render = "compact",
 			fps = 30,
 			level = vim.log.levels.INFO,
-			timeout = 5000,
+			timeout = 2000,
 			on_open = function() end,
 			on_close = function() end,
 			max_width = 50,

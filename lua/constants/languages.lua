@@ -21,6 +21,7 @@ M.base = {
 	servers = "vimls",
 	treesitter = {
 		"vim",
+		"regex",
 		"query",
 		"vimdoc",
 		"gitignore",
@@ -56,7 +57,7 @@ M.shell = {
 
 ---@type LanguageObject
 M.data = {
-	mason = { "jsonlint", "yamllint" },
+	mason = { "jsonlint", "yamllint", "sqlfmt" },
 	mason_lsp = {
 		"sqlls",
 		"taplo",
@@ -66,6 +67,7 @@ M.data = {
 		"graphql",
 	},
 	formatters = {
+		sql = { "sqlfmt" },
 		toml = { "taplo" },
 		yaml = { "yamlfmt" },
 	},
@@ -75,20 +77,22 @@ M.data = {
 		"csv",
 		"sql",
 		"xml",
-		"json",
 		"toml",
 		"yaml",
+		"json",
+		"jsonc",
+		"json5",
 		"graphql",
 	},
 }
 
 ---@type LanguageObject
 M.lua = {
+	formatters = "stylua",
 	mason = { "stylua" },
 	mason_lsp = "lua_ls",
-	formatters = "stylua",
-	treesitter = { "lua", "luadoc" },
 	servers = "lua_ls",
+	treesitter = { "lua", "luadoc" },
 }
 
 ---@type LanguageObject
@@ -147,9 +151,11 @@ M.javascript = {
 		"vue",
 		"html",
 		"http",
+		"scss",
 		"astro",
 		"jsdoc",
 		"svelte",
+		"robots",
 		"javascript",
 		"typescript",
 	},
@@ -158,6 +164,7 @@ M.javascript = {
 ---@type LanguageObject
 M.docker = {
 	mason_lsp = { "dockerls", "docker_compose_language_service" },
+	servers = { "dockerls", "docker_compose_language_service" },
 	treesitter = "dockerfile",
 }
 
@@ -177,7 +184,13 @@ M.go = {
 	mason = { "delve", "go-debug-adapter" },
 	mason_lsp = { "gopls", "templ" },
 	servers = { "gopls", "templ" },
-	treesitter = { "go", "gomod", "gosum", "templ" },
+	treesitter = {
+		"go",
+		"templ",
+		"gomod",
+		"gosum",
+		"gowork",
+	},
 }
 
 ---@type LanguageObject
@@ -189,9 +202,50 @@ M.cpp = {
 }
 
 ---@type LanguageObject
+M.python = {
+	mason = { "autopep8", "djlint", "pylint" },
+	mason_lsp = { "pyright", "jinja_lsp" },
+	servers = { "pyright", "jinja_lsp" },
+	linters = {
+		python = { "pylint" },
+		htmldjango = { "djlint" },
+	},
+	formatters = {
+		python = { "autopep8" },
+		htmldjango = { "djlint" },
+	},
+	treesitter = { "python", "htmldjango", "requirements" },
+}
+
+---@type LanguageObject
 M.rust = { treesitter = "rust" }
 
 ---@type LanguageObject
 M.zig = { mason_lsp = "zls", servers = "zls", treesitter = "zig" }
+
+---@type LanguageObject
+M.php = {
+	mason = { "pint", "phpcs" },
+	mason_lsp = "intelephense",
+	servers = "intelephense",
+	linters = "phpcs",
+	formatters = "pint",
+	treesitter = { "php", "phpdoc" },
+}
+
+---@type LanguageObject
+M.csharp = {
+	mason = { "csharpier" },
+	mason_lsp = "omnisharp",
+	servers = "omnisharp",
+	formatters = "csharpier",
+	treesitter = "c_sharp",
+}
+
+---@type LanguageObject
+M.snyk = { mason_lsp = "snyk_ls", servers = "snyk_ls" }
+
+---@type LanguageObject
+M.powershell = { mason_lsp = "powershell_es", servers = "powershell_es", treesitter = "powershell" }
 
 return M

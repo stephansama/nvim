@@ -37,6 +37,7 @@ M.icons = {
 	movie = "󰎁",
 	husky = "󰩃",
 	book = "",
+	base = "󱥒",
 	store = "󰓜",
 	footer = "󰛻",
 	header = "󰛼",

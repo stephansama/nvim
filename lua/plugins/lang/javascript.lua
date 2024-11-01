@@ -14,4 +14,11 @@ return {
 		lazy = false,
 		opts = opts,
 	},
+	{
+		"barrett-ruth/live-server.nvim",
+		config = true,
+		build = "pnpm add -g live-server",
+		keys = require("keys.init").liveserver,
+		cmd = { "LiveServerStart", "LiveServerStop" },
+	},
 }

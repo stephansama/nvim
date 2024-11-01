@@ -167,6 +167,8 @@ M.urlview = { { "<leader>gx", vim.cmd.UrlView, desc = "Open urlview" } }
 
 M.maximizer = { { "<leader>sm", vim.cmd.MaximizerToggle, desc = "Toggle maximizer on a split" } }
 
+M.liveserver = { { "<leader>ls", ":LiveServerToggle<CR>", desc = "Toggle live server" } }
+
 M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
 
 M.neocomposer = { { "<leader>mm", vim.cmd.EditMacros, desc = "Edit macros" } }
