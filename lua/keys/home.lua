@@ -16,7 +16,8 @@ require("utils.expand").expand_keymaps({
 		["<leader>lo"] = { ":Lazy load ", "Lazy load a plugin" },
 		["<leader>la"] = { "<cmd>bufdo bd!<CR>", "Close all buffers" },
 		["<leader>tp"] = { vim.cmd.tabprevious, "Go to previous tab" },
-		["<leader>tn"] = { vim.cmd.tabnext, "Go to next tab" },
+		["<leader>tx"] = { vim.cmd.tabnext, "Go to next tab" },
+		["<leader>tn"] = { vim.cmd.tabnew, "Create new tab" },
 
 		--- splits
 		["<leader>sh"] = { "<cmd>sp<CR>", "Split horizontally" },
