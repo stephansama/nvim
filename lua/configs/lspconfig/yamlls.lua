@@ -1,4 +1,4 @@
 return {
-	yaml = { schemas = require("constants.schemas").YAML_SCHEMAS },
+	yaml = { schemas = require("schemastore").yaml.schemas() },
 	redhat = { telemetry = { enabled = false } },
 }

@@ -2,13 +2,6 @@ local keys = require("keys.init")
 local configure_telescope = require("utils").configure_telescope
 
 return {
-	{
-		"Equilibris/nx.nvim",
-		config = true,
-		keys = keys.telescope_nx,
-		opts = { nx_cmd_root = "npx nx" },
-		dependencies = { "nvim-telescope/telescope.nvim" },
-	},
 	{ "camgraff/telescope-tmux.nvim", keys = keys.telescope_tmux },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = false },
 	{
@@ -20,7 +13,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
-		config = configure_telescope(require("constants.enabled").TELESCOPE_EXTENSIONS),
+		config = configure_telescope(require("constants.pulled").TELESCOPE_EXTENSIONS),
 		lazy = false,
 		keys = keys.telescope,
 		opts = function()

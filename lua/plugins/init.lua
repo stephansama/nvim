@@ -5,8 +5,10 @@ return {
 	{ "TabbyML/vim-tabby", event = "InsertEnter" },
 	{
 		"lewis6991/gitsigns.nvim",
-		init = function()
-			require("gitsigns").setup(require("configs.gitsigns-opts"))
+		event = "VeryLazy",
+		config = true,
+		opts = function()
+			return require("configs.gitsigns-opts")
 		end,
 	},
 	{ "axieax/urlview.nvim", config = true, keys = keys.urlview },

@@ -15,11 +15,18 @@ M.NEOGEN_FILETYPES = {
 	"typescriptreact",
 }
 
+M.VIM_FT_FILENAMES = {
+	["kitty.conf"] = "kconfig",
+	["hyprland.conf"] = "hyprlang",
+	["hyprpaper.conf"] = "hyprlang",
+}
+
 M.VIM_FT_EXTENSIONS = {
 	mdx = "markdown.mdx",
 	zsh = "sh",
 	pcss = "css",
 	http = "http",
+	rasi = "rasi",
 	templ = "templ",
 	postcss = "css",
 }

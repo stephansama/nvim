@@ -67,6 +67,18 @@ M.trouble = {
 	{ "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions (Trouble)" },
 }
 
+M.treesitter_context = {
+	{ "<leader>tc", vim.cmd.TSContextToggle, desc = "Toggle treesitter context" },
+	{
+		"[c",
+		function()
+			require("treesitter-context").go_to_context(vim.v.count1)
+		end,
+		silent = true,
+		desc = "Go to treesitter context",
+	},
+}
+
 M.treesitter_incremental_selection = {
 	init_selection = "<leader>ss",
 	node_incremental = "<leader>si",
@@ -167,17 +179,21 @@ M.urlview = { { "<leader>gx", vim.cmd.UrlView, desc = "Open urlview" } }
 
 M.maximizer = { { "<leader>sm", vim.cmd.MaximizerToggle, desc = "Toggle maximizer on a split" } }
 
-M.liveserver = { { "<leader>ls", ":LiveServerToggle<CR>", desc = "Toggle live server" } }
+M.liveserver = { { "<leader>ls", vim.cmd.LiveServerToggle, desc = "Toggle live server" } }
 
 M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
 
 M.neocomposer = { { "<leader>mm", vim.cmd.EditMacros, desc = "Edit macros" } }
+
+M.startuptime = { { "<leader>st", vim.cmd.StartupTime, desc = "Debug neovim StartupTime" } }
 
 M.inlay_hints = { { "<leader>th", vim.cmd.InlayHintsToggle, desc = "Toggle inlay hints" } }
 
 M.telescope_nx = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", desc = "nx actions" } }
 
 M.todo_telescope = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
+
+M.markdownpreview = { { "<leader>mp", vim.cmd.MarkdownPreview, desc = "Enable markdown preview" } }
 
 M.telescope_icon_picker = {
 	{ "<leader><leader>i", vim.cmd.IconPickerNormal, desc = "IconPickerNormal" },
@@ -186,7 +202,6 @@ M.telescope_icon_picker = {
 
 M.telescope_tmux = {
 	{ "<leader>tw", "<cmd>Telescope tmux windows theme=ivy<CR>", desc = "Find tmux windows" },
-	{ "<leader>tp", "<cmd>Telescope tmux pane_contents theme=ivy<CR>", desc = "Find tmux pane contents" },
 	{ "<leader>ts", "<cmd>Telescope tmux sessions initial_mode=normal theme=ivy<CR>", desc = "Find tmux sessions" },
 }
 

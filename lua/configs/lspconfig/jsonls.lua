@@ -1,3 +1,3 @@
 return {
-	json = { schemas = require("constants.schemas").JSON_SCHEMAS },
+	json = { schemas = require("schemastore").json.schemas() },
 }
