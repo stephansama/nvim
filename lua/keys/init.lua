@@ -14,11 +14,12 @@ M.LEADER = " "
 M.dashboard = { { "<leader>ld", require("utils.dashboard").go_to_dashboard, desc = "Go to Dashboard" } }
 
 M.dashboard_actions = {
-	{ " ", "f", "Find  file", "Telescope find_files" },
-	{ " ", "r", "Find  recent", "Telescope oldfiles" },
-	{ " ", "w", "Find  words", "Telescope live_grep" },
-	{ "󰌌 ", "k", "Find  keymaps", "Telescope keymaps" },
-	{ " ", "q", "Quit", "qa" },
+	{ "", "f", "Find  file", "Telescope find_files" },
+	{ "", "r", "Find  recent", "Telescope oldfiles" },
+	{ "", "w", "Find  words", "Telescope live_grep" },
+	{ "󰌌", "k", "Find  keymaps", "Telescope keymaps" },
+	{ "󰑴", "l", "Open leetcode", "Leet" },
+	{ "", "q", "Quit", "qa" },
 }
 
 M.harpoon = {

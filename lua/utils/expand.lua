@@ -63,7 +63,8 @@ M.expand_actions = function(actions)
 	for i, action in ipairs(actions) do
 		table.insert(response, {})
 		for k, val in ipairs(action) do
-			response[i][mappings[k]] = val
+			local map = mappings[k]
+			response[i][map] = map == "icon" and val .. " " or val
 		end
 	end
 	return response

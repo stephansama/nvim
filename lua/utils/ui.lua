@@ -24,6 +24,18 @@ M.override_builtins = function(builtins)
 	end
 end
 
+--- create nvim-lspconfig catppuccin options
+---@param type string
+---@return table
+M.create_theme_options = function(type)
+	return {
+		hints = { type },
+		errors = { type },
+		warnings = { type },
+		information = { type },
+	}
+end
+
 M.reset_ui = function()
 	vim.cmd([[hi FloatBorder guifg=White guibg=none]])
 	vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
@@ -38,15 +50,15 @@ M.reset_ui = function()
 end
 
 ---automatically switch between light and dark mode
----@param theme ('dark'|'light')
+---@param theme string
 ---@return function
 M.auto_theme = function(theme)
 	local themes = require("constants.theme")
-	local selected = theme == "dark" and themes.THEME_DARKMODE or themes.THEME_LIGHTMODE
+	local is_darkmode = theme == themes.THEME_DARKMODE
 	return function()
-		vim.api.nvim_set_option_value("background", theme, {})
-		vim.cmd(string.format("colorscheme %s", selected))
-		if theme == "dark" then
+		vim.api.nvim_set_option_value("background", is_darkmode and "dark" or "light", {})
+		vim.cmd(string.format("colorscheme %s", theme))
+		if is_darkmode then
 			vim.cmd([[hi BqfPreviewFloat guibg=#1e1e2e]])
 			vim.cmd([[hi BqfPreviewTitle guibg=#1e1e2e]])
 			vim.cmd([[hi BqfPreviewBorder guibg=#1e1e2e]])
