@@ -16,7 +16,9 @@ return {
 		opts = { inlay_hints = { enabled = true } },
 		event = "User FilePost",
 		config = function()
-			require("configs.lspconfig")
+			local LSP_CONFIG_DIR = require("constants.dir").LSP_CONFIG_DIR
+			local lspconfig = require("utils.lsp").convert_dir_to_module(LSP_CONFIG_DIR)
+			require(lspconfig)
 		end,
 		dependencies = {
 			{ -- install ufo for better code folding support

@@ -46,17 +46,35 @@ local setup_lsp = function(options, on_attach)
 	}
 end
 
+--- convert directory to lua module
+---@param path string
+M.convert_dir_to_module = function(path)
+	local pattern = "lua"
+	local start_pos = path:find(pattern)
+	if not start_pos then
+		return nil
+	end
+
+	local sub_path = path:sub(start_pos + string.len(pattern))
+
+	local converted_path = sub_path:gsub("/", ".")
+
+	return converted_path
+end
+
 --- load all lsp configs
 ---@param capabilities table
 ---@param on_attach function
 M.load_lsp_configs = function(capabilities, on_attach)
+	local LSP_CONFIG_DIR = require("constants.dir").LSP_CONFIG_DIR
+	local module_base = M.convert_dir_to_module(LSP_CONFIG_DIR)
 	local lspconfig = require("lspconfig")
 	local configs = {}
 
-	require("utils.pull").ls_process(require("constants.dir").LSP_CONFIG_DIR, function(filename)
+	require("utils.pull").ls_process(LSP_CONFIG_DIR, function(filename)
 		return not vim.tbl_contains(require("constants.ft").LSP_CONFIG_IGNORE_FILES, filename)
 	end, function(filename)
-		configs[filename] = require("configs.lspconfig." .. filename)
+		configs[filename] = require(module_base .. filename)
 	end)
 
 	for _, lsp in ipairs(require("constants.pulled").SERVERS) do
@@ -70,8 +88,11 @@ end
 ---@param on_attach function
 M.load_lsp = function(lspname, capabilities, on_attach)
 	local lspconfig = require("lspconfig")
-	local options =
-		vim.tbl_deep_extend("force", require("configs.lspconfig." .. lspname) or {}, { capabilities = capabilities })
+	local options = vim.tbl_deep_extend(
+		"force",
+		require(M.convert_dir_to_module(require("constants.dir").LSP_CONFIG_DIR) .. lspname) or {},
+		{ capabilities = capabilities }
+	)
 	lspconfig[lspname].setup(setup_lsp(options, on_attach))
 	print("loading " .. lspname .. " server")
 end
