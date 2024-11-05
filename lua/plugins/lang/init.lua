@@ -1,3 +1,1 @@
-return {
-	{ "bfontaine/Brewfile.vim", ft = "Brewfile" },
-}
+return { "bfontaine/Brewfile.vim", ft = "Brewfile" }

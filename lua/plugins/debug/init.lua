@@ -1,6 +1,12 @@
+local keys = require("keys.init")
+
 return {
+	{ "dstein64/vim-startuptime", keys = keys.startuptime },
 	{
-		"dstein64/vim-startuptime",
-		keys = require("keys.init").startuptime,
+		"meznaric/key-analyzer.nvim",
+		config = true,
+		keys = keys.key_analyzer,
+		opts = {},
+		cmd = "KeyAnalyzer",
 	},
 }

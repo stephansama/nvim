@@ -22,6 +22,10 @@ M.dashboard_actions = {
 	{ "", "q", "Quit", "qa" },
 }
 
+M.dbui = {
+	{ "<leader>od", vim.cmd.DBUIToggle, desc = "Open Database UI" },
+}
+
 M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
 	{ "<leader>a", harpoon_modify("append"), desc = "Append buffer to harpoon" },
@@ -133,6 +137,18 @@ M.crates = {
 	{ "<leader>cd", "<cmd>Crates open_documentation<cr>", desc = "Crates.nvim open docs.rs" },
 	{ "<leader>cf", "<cmd>Crates show_features_popup<cr>", desc = "Crates.nvim open features list" },
 	{ "<leader>ce", "<cmd>Crates show_dependencies_popup<cr>", desc = "Crates.nvim open dependencies list" },
+}
+
+M.key_analyzer = {
+	{ "<leader>ka", ":KeyAnalyzer ", desc = "Key Analyzer" },
+	{ "<leader>kc", ":KeyAnalyzer <C-<CR>", desc = "Key Analyzer for ctrl" },
+	{
+		"<leader>kl",
+		function()
+			vim.cmd([[KeyAnalyzer <leader>]])
+		end,
+		desc = "Key Analyzer for leader",
+	},
 }
 
 M.notify = { { "<leader>nt", "<cmd>Telescope notify theme=ivy<cr>", desc = "Open Notify Telescope" } }
