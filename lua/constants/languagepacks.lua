@@ -22,6 +22,7 @@ M.base = {
 	mason_lsp = "vimls",
 	servers = "vimls",
 	treesitter = {
+		"kdl",
 		"vim",
 		"rasi",
 		"regex",
@@ -76,8 +77,16 @@ M.data = {
 		toml = { "taplo" },
 		yaml = { "yamlfmt" },
 	},
-	linters = { json = { "jsonlint" } },
-	servers = { "sqlls", "yamlls", "jsonls", "graphql" },
+	linters = {
+		json = { "jsonlint" },
+	},
+	servers = {
+		"sqlls",
+		"taplo",
+		"yamlls",
+		"jsonls",
+		"graphql",
+	},
 	treesitter = {
 		"csv",
 		"sql",
@@ -201,7 +210,7 @@ M.go = {
 
 ---@type LanguageObject
 M.cpp = {
-	mason = { "codelldb", "cppcheck", "clang-format", "cmake_format" },
+	mason = { "codelldb", "cpplint", "clang-format", "cmake_format" },
 	mason_lsp = { "clangd", "cmake" },
 	servers = { "clangd", "cmake" },
 	linters = "cppcheck",

@@ -16,6 +16,10 @@ M.NEOGEN_FILETYPES = {
 }
 
 M.VIM_FT_FILENAMES = {
+	[".env.local"] = "sh",
+	[".env.sample"] = "sh",
+	[".env.example"] = "sh",
+	[".env.production"] = "sh",
 	["kitty.conf"] = "kconfig",
 	["hyprland.conf"] = "hyprlang",
 	["hyprpaper.conf"] = "hyprlang",
