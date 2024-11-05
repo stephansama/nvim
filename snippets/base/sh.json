@@ -1,0 +1,10 @@
+{
+	"DisableShellCheck": {
+		"prefix": "dsc",
+		"description": "Disable shellcheck unused exports",
+		"body": [
+			"#!/bin/sh",
+			"# shellcheck disable=2034"
+		]
+	}
+}

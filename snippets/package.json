@@ -4,6 +4,12 @@
 		"snippets": [
 			{
 				"language": [
+					"sh"
+				],
+				"path": "./base/sh.json"
+			},
+			{
+				"language": [
 					"gitignore"
 				],
 				"path": "./base/git.json"
@@ -53,11 +59,16 @@
 			{
 				"language": [
 					"javascript",
-					"javascriptreact",
+					"javascriptreact"
+				],
+				"path": "./js/next-js.json"
+			},
+			{
+				"language": [
 					"typescript",
 					"typescriptreact"
 				],
-				"path": "./js/next.json"
+				"path": "./js/next-ts.json"
 			}
 		]
 	}
