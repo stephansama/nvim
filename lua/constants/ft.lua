@@ -33,6 +33,9 @@ M.VIM_FT_EXTENSIONS = {
 	rasi = "rasi",
 	templ = "templ",
 	postcss = "css",
+	jinja2 = "jinja",
+	jinja = "jinja",
+	j2 = "jinja",
 }
 
 M.INDENT_EXCLUDE_BUFTYPES = {

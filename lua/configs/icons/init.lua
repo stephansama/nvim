@@ -7,10 +7,10 @@ M.telescope = "   "
 M.indent_blankline = "│"
 
 M.diagnostics = {
-	Error = "󰅚 ",
-	Warn = "󰀪 ",
-	Hint = "󰌶 ",
-	Info = " ",
+	Error = "󰅙 ",
+	Warn = " ",
+	Hint = "󰌵 ",
+	Info = " ",
 }
 
 M.notify = {

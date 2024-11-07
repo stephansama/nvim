@@ -37,6 +37,7 @@ M.base = {
 
 ---@type LanguageObject
 M.markdown = {
+	mason = { "markdownlint" },
 	linters = "markdownlint",
 	formatters = "markdownlint",
 	treesitter = { "markdown", "markdown_inline" },
@@ -210,15 +211,24 @@ M.go = {
 
 ---@type LanguageObject
 M.cpp = {
-	mason = { "codelldb", "cpplint", "clang-format", "cmake_format" },
+	mason = {
+		"clang-format",
+		"checkmake",
+		"codelldb",
+		"cpplint",
+		"cmakelang",
+	},
 	mason_lsp = { "clangd", "cmake" },
 	servers = { "clangd", "cmake" },
-	linters = "cppcheck",
+	linters = {
+		cpp = { "cpplint" },
+		make = { "checkmake" },
+	},
 	formatters = {
 		cpp = { "clang-format" },
 		cmake = { "cmake_format" },
 	},
-	treesitter = { "c", "cpp", "cmake" },
+	treesitter = { "c", "cpp", "cmake", "make" },
 }
 
 ---@type LanguageObject
@@ -234,7 +244,7 @@ M.python = {
 		python = { "autopep8" },
 		htmldjango = { "djlint" },
 	},
-	treesitter = { "python", "htmldjango", "requirements" },
+	treesitter = { "python", "htmldjango", "jinja2", "requirements" },
 }
 
 ---@type LanguageObject
