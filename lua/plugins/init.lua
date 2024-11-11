@@ -11,6 +11,12 @@ return {
 			return require("configs.gitsigns-opts")
 		end,
 	},
+	{
+		"wassimk/gh-navigator.nvim",
+		version = "*",
+		config = true,
+		keys = require("keys.init").gh_navigator,
+	},
 	{ "axieax/urlview.nvim", config = true, keys = keys.urlview },
 	{
 		"christoomey/vim-tmux-navigator",

@@ -36,6 +36,13 @@ M.base = {
 }
 
 ---@type LanguageObject
+M.nix = {
+	mason_lsp = "nil_ls",
+	servers = "nil_ls",
+	treesitter = "nix",
+}
+
+---@type LanguageObject
 M.markdown = {
 	mason = { "markdownlint" },
 	linters = "markdownlint",
@@ -64,9 +71,9 @@ M.shell = {
 
 ---@type LanguageObject
 M.data = {
-	mason = { "jsonlint", "yamllint", "sqlfmt" },
+	mason = { "jsonlint", "yamlfmt", "yamllint", "sqlfmt" },
 	mason_lsp = {
-		"sqlls",
+		"sqls",
 		"taplo",
 		"jsonls",
 		"yamlls",
@@ -74,7 +81,7 @@ M.data = {
 		"graphql",
 	},
 	formatters = {
-		sql = { "sqlfmt" },
+		sql = { "sql_formatter" },
 		toml = { "taplo" },
 		yaml = { "yamlfmt" },
 	},
@@ -82,7 +89,7 @@ M.data = {
 		json = { "jsonlint" },
 	},
 	servers = {
-		"sqlls",
+		"sqls",
 		"taplo",
 		"yamlls",
 		"jsonls",

@@ -186,6 +186,12 @@ M.neo_tree = {
 	{ "g\\", execute_neotree({ source = "git_status" }), desc = "Open explorer side panel" },
 }
 
+M.gh_navigator = {
+	{ "<leader>gh", "<cmd>GH repo<CR>", desc = "Open github repo" },
+	{ "<leader>gb", "<cmd>GH browse<CR>", desc = "Open github file in blob view" },
+	{ "<leader>pr", "<cmd>GH repo pulls<CR>", desc = "Open github repo pull requests" },
+}
+
 M.oil = { { "-", vim.cmd.Oil, desc = "Open Oil.nvim" } }
 
 M.outline = { { "|", vim.cmd.Outline, desc = "Toggle Outline" } }

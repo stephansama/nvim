@@ -1,6 +1,5 @@
 return {
 	{ "rest-nvim/rest.nvim", keys = require("keys.init").rest, ft = "http" },
-	{ "themaxmarchuk/tailwindcss-colors.nvim", config = true },
 	{ "windwp/nvim-ts-autotag", ft = require("constants.ft").WEB_FILETYPES, config = true },
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
