@@ -10,7 +10,12 @@ return {
 	icon = neotreeicons.icon,
 	name = { trailing_slash = false, use_git_status_colors = true, highlight = "NeoTreeFileName" },
 	type = { enabled = true, required_width = 122 },
-	window = { mappings = { ["<ESC>"] = "" } },
+	window = {
+		mappings = {
+			["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
+			["<ESC>"] = "",
+		},
+	},
 	buffers = { follow_current_file = { enabled = true } },
 	created = { enabled = true, required_width = 110 },
 	file_size = { enabled = true, required_width = 64 },

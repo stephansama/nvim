@@ -189,7 +189,7 @@ M.neo_tree = {
 M.gh_navigator = {
 	{ "<leader>gh", "<cmd>GH repo<CR>", desc = "Open github repo" },
 	{ "<leader>gb", "<cmd>GH browse<CR>", desc = "Open github file in blob view" },
-	{ "<leader>pr", "<cmd>GH repo pulls<CR>", desc = "Open github repo pull requests" },
+	{ "<leader>gP", "<cmd>GH repo pulls<CR>", desc = "Open github repo pull requests" },
 }
 
 M.oil = { { "-", vim.cmd.Oil, desc = "Open Oil.nvim" } }
