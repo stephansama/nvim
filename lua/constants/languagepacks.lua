@@ -110,8 +110,9 @@ M.data = {
 
 ---@type LanguageObject
 M.lua = {
+	mason = { "luacheck", "stylua" },
+	linters = "luacheck",
 	formatters = "stylua",
-	mason = { "stylua" },
 	mason_lsp = "lua_ls",
 	servers = "lua_ls",
 	treesitter = { "lua", "luadoc" },

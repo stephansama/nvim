@@ -45,6 +45,7 @@ M.override_by_extension = {
 	["graphqlrc.yml"] = icons.graphql,
 	["graphqlrc.js"] = icons.graphql,
 	["graphqlrc.ts"] = icons.graphql,
+	-- [".luacheckrc"] = { icon = "", color = "#2C2D72", name = "lua" },
 	xcf = { icon = "", name = "gimp" },
 	["code-profile"] = { icon = "󰨞", color = "#007ACC", name = "vscode" },
 	prettierrc = icons.prettier,

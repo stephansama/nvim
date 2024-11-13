@@ -244,6 +244,7 @@ M.icons = {
 	svg = "󰜡",
 	css = "",
 	lua = "",
+	luacheckrc = "",
 	sql = "󰆼",
 	youtube = "󰗃",
 	srandle = "",
