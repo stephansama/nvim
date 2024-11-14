@@ -192,6 +192,11 @@ M.gh_navigator = {
 	{ "<leader>gP", "<cmd>GH repo pulls<CR>", desc = "Open github repo pull requests" },
 }
 
+M.oatmeal = {
+	{ "<leader>om", mode = "n", desc = "Start Oatmeal session" },
+	{ "<leader>om", mode = "v", desc = "Start Oatmeal session" },
+}
+
 M.stow = {
 	{ "<leader>sr", "<cmd>Stow remove<CR>", desc = "Remove Stow symlink" },
 	{ "<leader>sa", "<cmd>Stow reapply<CR>", desc = "Reapply Stow symlink" },
