@@ -3,10 +3,7 @@ return {
 	{
 		"dustinblackman/oatmeal.nvim",
 		cmd = { "Oatmeal" },
-		opts = {
-			backend = "ollama",
-			model = "codellama:latest",
-		},
 		keys = require("keys.init").oatmeal,
+		opts = { backend = "ollama", model = "codellama:latest" },
 	},
 }

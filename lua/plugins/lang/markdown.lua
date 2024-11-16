@@ -7,7 +7,7 @@ return {
 			integrations = {
 				css = { enabled = true },
 				html = { enabled = true },
-				markdown = { enabled = true },
+				markdown = { enabled = true, only_render_image_at_cursor = true },
 			},
 		},
 	},

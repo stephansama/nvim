@@ -4,6 +4,12 @@
 		"snippets": [
 			{
 				"language": [
+					"rust"
+				],
+				"path": "./rust/rust.json"
+			},
+			{
+				"language": [
 					"sh"
 				],
 				"path": "./base/sh.json"

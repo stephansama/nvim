@@ -1,6 +1,6 @@
 return {
 	"stephansama/stow.nvim",
-	cmd = { "Stow" },
+	cmd = "Stow",
 	keys = require("keys.init").stow,
 	config = true,
 }
