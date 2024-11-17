@@ -4,6 +4,12 @@
 		"snippets": [
 			{
 				"language": [
+					"text"
+				],
+				"path": "./base/license.json"
+			},
+			{
+				"language": [
 					"rust"
 				],
 				"path": "./rust/rust.json"

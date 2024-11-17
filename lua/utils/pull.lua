@@ -1,5 +1,35 @@
 local M = {}
 
+--- find prettier in cwd or use other formatter
+---@param other_formatter table<string>
+M.prettier_formatter_or = function(other_formatter)
+	local cwd = vim.fn.getcwd()
+	local ls_output = io.popen("ls -a " .. cwd, "r")
+	local prettierExists = false
+	local prettierConfigFiles = {
+		".prettierrc",
+		".prettier.json",
+		".prettier.json5",
+		".prettier.yaml",
+		".prettier.yml",
+		".prettierrc.js",
+		".prettierrc.mjs",
+		".prettierrc.toml",
+		"prettier.config.js",
+		"prettier.config.mjs",
+	}
+	if ls_output then
+		for file in ls_output:lines() do
+			prettierExists = prettierExists or vim.tbl_contains(prettierConfigFiles, file)
+		end
+	end
+	if prettierExists then
+		return { "prettier" }
+	else
+		return other_formatter
+	end
+end
+
 M.ls_process = function(directory, condition, process)
 	local ls_output = io.popen("ls " .. directory, "r")
 

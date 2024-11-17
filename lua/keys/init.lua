@@ -151,7 +151,10 @@ M.key_analyzer = {
 	},
 }
 
-M.notify = { { "<leader>nt", "<cmd>Telescope notify theme=ivy<cr>", desc = "Open Notify Telescope" } }
+M.notify = {
+	{ "<leader>nt", "<cmd>Telescope notify theme=ivy<CR>", desc = "Open Notify Telescope" },
+	{ "<leader>nd", "<cmd>lua require('notify').dismiss()<CR>", desc = "Dismis notifications" },
+}
 
 M.noice = {
 	{ "<leader>na", vim.cmd.NoiceAll, desc = "Open NoiceAll" },
@@ -224,7 +227,7 @@ M.inlay_hints = { { "<leader>th", vim.cmd.InlayHintsToggle, desc = "Toggle inlay
 
 M.telescope_nx = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", desc = "nx actions" } }
 
-M.todo_telescope = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
+M.todo_telescope = { { "<leader>tt", "<cmd>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
 
 M.markdownpreview = { { "<leader>mp", vim.cmd.MarkdownPreview, desc = "Enable markdown preview" } }
 

@@ -11,7 +11,7 @@ local M = {}
 --- [Documentation](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
 ---@field servers table<string,table<string>> | string | nil
 --- [Documentation](https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters)
----@field formatters table<string,table<string>|nil> | string | nil
+---@field formatters table<string,table<string>|function|nil> | string | nil
 --- [Documentation](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages)
 ---@field treesitter table<string,table> | string | nil
 --- Telescope extensions to enable for language
@@ -46,10 +46,12 @@ M.nix = {
 M.markdown = {
 	mason = { "markdownlint" },
 	linters = "markdownlint",
-	formatters = "markdownlint",
-	treesitter = { "markdown", "markdown_inline" },
-	mason_lsp = { "marksman", "mdx_analyzer" },
 	servers = { "marksman", "mdx_analyzer" },
+	mason_lsp = { "marksman", "mdx_analyzer" },
+	treesitter = { "markdown", "markdown_inline" },
+	formatters = {
+		markdown = require("utils.pull").prettier_formatter_or({ "markdownlint" }),
+	},
 }
 
 ---@type LanguageObject
@@ -84,6 +86,8 @@ M.data = {
 		sql = { "sql_formatter" },
 		toml = { "taplo" },
 		yaml = { "yamlfmt" },
+		jsonc = require("utils.pull").prettier_formatter_or({}),
+		json = require("utils.pull").prettier_formatter_or({}),
 	},
 	linters = {
 		json = { "jsonlint" },
