@@ -11,7 +11,7 @@ local opts = {
 	on_close = function() end,
 	top_down = true,
 	max_width = 50,
-	max_height = 3,
+	max_height = 5,
 	time_formats = { notification_history = "%FT%T", notification = "%T" },
 	minimum_width = 50,
 	background_colour = "NotifyBackground",
