@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.cmd([[set shortmess+=I]])
+
 expand_settings({
 	wo = { number = true, relativenumber = true },
 	bo = { tabstop = 4 },
