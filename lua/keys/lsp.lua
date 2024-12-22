@@ -13,7 +13,7 @@ M.default_lsp_keybindings = function(capabilities, on_attach)
 		n = {
 			["]d"] = { vim.diagnostic.goto_next, "Next Diagnostic" },
 			["[d"] = { vim.diagnostic.goto_prev, "Previous Diagnostic" },
-			["<leader>se"] = { load_emmet, "Start emmet server" },
+			["<leader>ee"] = { load_emmet, "Enable emmet server" },
 			["<leader>td"] = { utils.disable_diagnostics, "Disable diagnostic" },
 			["<leader><leader>q"] = { vim.diagnostic.setloclist, "Send diagnostics to quickfix list" },
 		},
