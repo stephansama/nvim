@@ -11,7 +11,8 @@ M.TREESITTER_PARSER_INSTALL_DIR = M.HOME .. "/.local/share/treesitter"
 
 M.SNIPPETS_DIR = "./snippets/"
 M.ASCII_DIR = M.NVIM_CONFIG_DIR .. "/images/"
-M.LSP_CONFIG_DIR = M.NVIM_CONFIG_DIR .. "/lua/configs/lspconfig/"
+M.LSP_CONFIG_DIR = M.NVIM_CONFIG_DIR .. "/lua/configs/lsp/"
+M.PLUGIN_LANG_DIR = M.NVIM_CONFIG_DIR .. "/lua/plugins/lang/"
 
 M.MASON_PACKAGES = M.DATA .. "/mason/packages/"
 

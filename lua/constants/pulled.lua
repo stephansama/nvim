@@ -1,7 +1,21 @@
 local M = {}
 local pull = require("utils.pull")
-local kv_rename, merge_flat, merge_kv, pull_property_from_languages =
-	pull.kv_rename, pull.merge_flat, pull.merge_kv, pull.pull_property_from_languages
+local kv_rename, merge_flat, merge_kv, pull_property_from_languages, pull_plugins_from_languages, pull_telescope_extensions_from_languages =
+	pull.kv_rename,
+	pull.merge_flat,
+	pull.merge_kv,
+	pull.pull_property_from_languages,
+	pull.pull_plugins_from_languages,
+	pull.pull_telescope_extensions_from_languages
+
+M.TELESCOPE_EXTENSIONS = pull_telescope_extensions_from_languages({
+	"fzf",
+	"tmux",
+	"macros",
+	"git_file_history",
+})
+
+M.PLUGINS = pull_plugins_from_languages()
 
 M.SERVERS = merge_flat(pull_property_from_languages("servers"))
 

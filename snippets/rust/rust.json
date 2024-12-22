@@ -1,0 +1,18 @@
+{
+	"test": {
+		"body": [
+			"#[cfg(test)]",
+			"mod tests {",
+			"    use super::*;",
+			"",
+			"    #[test]",
+			"    fn $1() {",
+			"        $2;",
+			"        assert!($3)",
+			"    }",
+			"}"
+		],
+		"prefix": "test",
+		"scope": "rust"
+	}
+}

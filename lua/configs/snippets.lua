@@ -1,4 +1,4 @@
-return function(_, opts)
+local load_snippets = function(_, opts)
 	local luasnip, from_vscode, from_snipmate, from_lua =
 		require("luasnip"),
 		require("luasnip.loaders.from_vscode"),
@@ -15,11 +15,13 @@ return function(_, opts)
 	from_lua.load()
 	from_lua.lazy_load({ paths = vim.g.lua_snippets_path or "" })
 
-	vim.api.nvim_create_autocmd("InsertLeave", {
-		callback = function()
-			if luasnip.session.current_nodes[vim.api.nvim_get_current_buf()] and not luasnip.session.jump_active then
-				luasnip.unlink_current()
-			end
-		end,
-	})
+	local callback = function()
+		if luasnip.session.current_nodes[vim.api.nvim_get_current_buf()] and not luasnip.session.jump_active then
+			luasnip.unlink_current()
+		end
+	end
+
+	vim.api.nvim_create_autocmd("InsertLeave", { callback = callback })
 end
+
+return load_snippets

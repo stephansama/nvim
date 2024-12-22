@@ -1,5 +1,17 @@
 return {
 	{
+		"3rd/image.nvim",
+		config = true,
+		ft = { "markdown", "css", "html" },
+		opts = {
+			integrations = {
+				css = { enabled = true },
+				html = { enabled = true },
+				markdown = { enabled = true, only_render_image_at_cursor = true },
+			},
+		},
+	},
+	{
 		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
 		config = function() end,
@@ -21,8 +33,6 @@ return {
 		build = function()
 			vim.fn["mkdp#util#install"]()
 		end,
-		config = function()
-			vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<CR>")
-		end,
+		keys = require("keys.init").markdownpreview,
 	},
 }

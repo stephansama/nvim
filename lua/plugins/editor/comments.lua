@@ -9,12 +9,6 @@ return {
 		keys = keys.todo_telescope,
 	},
 	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		opts = { enable_autocmd = false },
-		lazy = false,
-		config = true,
-	},
-	{
 		"numToStr/Comment.nvim",
 		ft = { "*", "!dashboard" },
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },

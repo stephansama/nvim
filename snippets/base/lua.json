@@ -1,4 +1,10 @@
 {
+	"VimDebug": {
+		"prefix": "vdb",
+		"body": [
+			"vim.print(vim.inspect($1))"
+		]
+	},
 	"metaTableAdd": {
 		"prefix": "mta",
 		"body": [

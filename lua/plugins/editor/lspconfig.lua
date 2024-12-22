@@ -16,7 +16,10 @@ return {
 		opts = { inlay_hints = { enabled = true } },
 		event = "User FilePost",
 		config = function()
-			require("configs.lspconfig")
+			local LSP_CONFIG_DIR = require("constants.dir").LSP_CONFIG_DIR
+			local lspconfig = require("utils.lsp").convert_dir_to_module(LSP_CONFIG_DIR)
+			require(lspconfig)
+			require("nvim-highlight-colors").turnOn()
 		end,
 		dependencies = {
 			{ -- install ufo for better code folding support
@@ -25,6 +28,24 @@ return {
 				dependencies = {
 					"kevinhwang91/promise-async",
 					{ "luukvbaal/statuscol.nvim", lazy = false, opts = statuscol_opts, config = true },
+				},
+			},
+			{
+				"brenoprata10/nvim-highlight-colors",
+				config = true,
+				opts = {
+					render = "background",
+					enable_hex = true,
+					enable_hsl = true,
+					enable_rgb = true,
+					enable_tailwind = true,
+					enable_var_usage = true,
+					enable_short_hex = true,
+					enable_named_colors = true,
+					virtual_symbol = "■",
+					virtual_symbol_prefix = "",
+					virtual_symbol_suffix = " ",
+					virtual_symbol_position = "inline",
 				},
 			},
 		},

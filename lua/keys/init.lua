@@ -14,11 +14,16 @@ M.LEADER = " "
 M.dashboard = { { "<leader>ld", require("utils.dashboard").go_to_dashboard, desc = "Go to Dashboard" } }
 
 M.dashboard_actions = {
-	{ " ", "f", "Find  file", "Telescope find_files" },
-	{ " ", "r", "Find  recent", "Telescope oldfiles" },
-	{ " ", "w", "Find  words", "Telescope live_grep" },
-	{ "󰌌 ", "k", "Find  keymaps", "Telescope keymaps" },
-	{ " ", "q", "Quit", "qa" },
+	{ "", "f", "Find  file", "Telescope find_files" },
+	{ "", "r", "Find  recent", "Telescope oldfiles" },
+	{ "", "w", "Find  words", "Telescope live_grep" },
+	{ "󰌌", "k", "Find  keymaps", "Telescope keymaps" },
+	{ "󰑴", "l", "Open leetcode", "Leet" },
+	{ "", "q", "Quit", "qa" },
+}
+
+M.dbui = {
+	{ "<leader>od", vim.cmd.DBUIToggle, desc = "Open Database UI" },
 }
 
 M.harpoon = {
@@ -65,6 +70,18 @@ M.trouble = {
 	{ "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols (Trouble)" },
 	{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
 	{ "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions (Trouble)" },
+}
+
+M.treesitter_context = {
+	{ "<leader>tc", vim.cmd.TSContextToggle, desc = "Toggle treesitter context" },
+	{
+		"[c",
+		function()
+			require("treesitter-context").go_to_context(vim.v.count1)
+		end,
+		silent = true,
+		desc = "Go to treesitter context",
+	},
 }
 
 M.treesitter_incremental_selection = {
@@ -122,7 +139,22 @@ M.crates = {
 	{ "<leader>ce", "<cmd>Crates show_dependencies_popup<cr>", desc = "Crates.nvim open dependencies list" },
 }
 
-M.notify = { { "<leader>nt", "<cmd>Telescope notify theme=ivy<cr>", desc = "Open Notify Telescope" } }
+M.key_analyzer = {
+	{ "<leader>ka", ":KeyAnalyzer ", desc = "Key Analyzer" },
+	{ "<leader>kc", ":KeyAnalyzer <C-<CR>", desc = "Key Analyzer for ctrl" },
+	{
+		"<leader>kl",
+		function()
+			vim.cmd([[KeyAnalyzer <leader>]])
+		end,
+		desc = "Key Analyzer for leader",
+	},
+}
+
+M.notify = {
+	{ "<leader>nt", "<cmd>Telescope notify theme=ivy<CR>", desc = "Open Notify Telescope" },
+	{ "<leader>nd", "<cmd>lua require('notify').dismiss()<CR>", desc = "Dismis notifications" },
+}
 
 M.noice = {
 	{ "<leader>na", vim.cmd.NoiceAll, desc = "Open NoiceAll" },
@@ -157,6 +189,22 @@ M.neo_tree = {
 	{ "g\\", execute_neotree({ source = "git_status" }), desc = "Open explorer side panel" },
 }
 
+M.gh_navigator = {
+	{ "<leader>gh", "<cmd>GH repo<CR>", desc = "Open github repo" },
+	{ "<leader>gb", "<cmd>GH browse<CR>", desc = "Open github file in blob view" },
+	{ "<leader>gP", "<cmd>GH repo pulls<CR>", desc = "Open github repo pull requests" },
+}
+
+M.oatmeal = {
+	{ "<leader>om", mode = "n", desc = "Start Oatmeal session" },
+	{ "<leader>om", mode = "v", desc = "Start Oatmeal session" },
+}
+
+M.stow = {
+	{ "<leader>sr", "<cmd>Stow remove<CR>", desc = "Remove Stow symlink" },
+	{ "<leader>sa", "<cmd>Stow reapply<CR>", desc = "Reapply Stow symlink" },
+}
+
 M.oil = { { "-", vim.cmd.Oil, desc = "Open Oil.nvim" } }
 
 M.outline = { { "|", vim.cmd.Outline, desc = "Toggle Outline" } }
@@ -167,15 +215,21 @@ M.urlview = { { "<leader>gx", vim.cmd.UrlView, desc = "Open urlview" } }
 
 M.maximizer = { { "<leader>sm", vim.cmd.MaximizerToggle, desc = "Toggle maximizer on a split" } }
 
+M.liveserver = { { "<leader>ls", vim.cmd.LiveServerToggle, desc = "Toggle live server" } }
+
 M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
 
 M.neocomposer = { { "<leader>mm", vim.cmd.EditMacros, desc = "Edit macros" } }
+
+M.startuptime = { { "<leader>st", vim.cmd.StartupTime, desc = "Debug neovim StartupTime" } }
 
 M.inlay_hints = { { "<leader>th", vim.cmd.InlayHintsToggle, desc = "Toggle inlay hints" } }
 
 M.telescope_nx = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", desc = "nx actions" } }
 
-M.todo_telescope = { { "<leader>tt", "<CMD>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
+M.todo_telescope = { { "<leader>tt", "<cmd>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
+
+M.markdownpreview = { { "<leader>mp", vim.cmd.MarkdownPreview, desc = "Enable markdown preview" } }
 
 M.telescope_icon_picker = {
 	{ "<leader><leader>i", vim.cmd.IconPickerNormal, desc = "IconPickerNormal" },
@@ -184,7 +238,6 @@ M.telescope_icon_picker = {
 
 M.telescope_tmux = {
 	{ "<leader>tw", "<cmd>Telescope tmux windows theme=ivy<CR>", desc = "Find tmux windows" },
-	{ "<leader>tp", "<cmd>Telescope tmux pane_contents theme=ivy<CR>", desc = "Find tmux pane contents" },
 	{ "<leader>ts", "<cmd>Telescope tmux sessions initial_mode=normal theme=ivy<CR>", desc = "Find tmux sessions" },
 }
 

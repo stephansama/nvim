@@ -4,15 +4,51 @@
 		"snippets": [
 			{
 				"language": [
+					"text"
+				],
+				"path": "./base/license.json"
+			},
+			{
+				"language": [
+					"rust"
+				],
+				"path": "./rust/rust.json"
+			},
+			{
+				"language": [
+					"sh"
+				],
+				"path": "./base/sh.json"
+			},
+			{
+				"language": [
+					"gitignore"
+				],
+				"path": "./base/git.json"
+			},
+			{
+				"language": [
 					"editorconfig"
 				],
-				"path": "./editorconfig.json"
+				"path": "./base/editorconfig.json"
 			},
 			{
 				"language": [
 					"lua"
 				],
-				"path": "./lua.json"
+				"path": "./base/lua.json"
+			},
+			{
+				"language": [
+					"astro"
+				],
+				"path": "./js/astro.json"
+			},
+			{
+				"language": [
+					"svelte"
+				],
+				"path": "./js/svelte.json"
 			},
 			{
 				"language": [
@@ -21,7 +57,30 @@
 					"typescript",
 					"typescriptreact"
 				],
-				"path": "./react.json"
+				"path": "./js/react.json"
+			},
+			{
+				"language": [
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact"
+				],
+				"path": "./js/mui.json"
+			},
+			{
+				"language": [
+					"javascript",
+					"javascriptreact"
+				],
+				"path": "./js/next-js.json"
+			},
+			{
+				"language": [
+					"typescript",
+					"typescriptreact"
+				],
+				"path": "./js/next-ts.json"
 			}
 		]
 	}

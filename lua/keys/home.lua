@@ -15,6 +15,11 @@ require("utils.expand").expand_keymaps({
 		["<leader>lm"] = { vim.cmd.Mason, "Load mason plugin manager" },
 		["<leader>lo"] = { ":Lazy load ", "Lazy load a plugin" },
 		["<leader>la"] = { "<cmd>bufdo bd!<CR>", "Close all buffers" },
+		["<leader>tp"] = { vim.cmd.tabprevious, "Go to previous tab" },
+		["<leader>tx"] = { vim.cmd.tabnext, "Go to next tab" },
+		["<leader>tn"] = { vim.cmd.tabnew, "Create new tab" },
+		["<leader>se"] = { "<cmd>!open .<CR>", "Open project in finder" },
+		["<leader>vc"] = { "<cmd>!code .<CR>", "Open project in visual studio code" },
 
 		--- splits
 		["<leader>sh"] = { "<cmd>sp<CR>", "Split horizontally" },
