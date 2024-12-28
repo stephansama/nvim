@@ -1,16 +1,17 @@
+local ft = require("constants.ft").COMMENT_FILETYPES
 local keys = require("keys.init")
 
 return {
 	{
 		"folke/todo-comments.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		ft = ft,
+		keys = keys.todo_comments,
 		config = true,
-		event = "VimEnter",
-		keys = keys.todo_telescope,
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"numToStr/Comment.nvim",
-		ft = { "*", "!dashboard" },
+		ft = ft,
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		config = true,
 		opts = function()
@@ -25,9 +26,9 @@ return {
 	},
 	{
 		"danymat/neogen",
+		ft = ft,
 		config = true,
 		keys = keys.neogen,
 		opts = { enabled = true, snippet_engine = "luasnip" },
-		ft = require("constants.ft").NEOGEN_FILETYPES,
 	},
 }

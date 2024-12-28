@@ -139,16 +139,14 @@ M.crates = {
 	{ "<leader>ce", "<cmd>Crates show_dependencies_popup<cr>", desc = "Crates.nvim open dependencies list" },
 }
 
+local analyze_leader = function()
+	vim.cmd([[KeyAnalyzer <leader>]])
+end
+
 M.key_analyzer = {
 	{ "<leader>ka", ":KeyAnalyzer ", desc = "Key Analyzer" },
 	{ "<leader>kc", ":KeyAnalyzer <C-<CR>", desc = "Key Analyzer for ctrl" },
-	{
-		"<leader>kl",
-		function()
-			vim.cmd([[KeyAnalyzer <leader>]])
-		end,
-		desc = "Key Analyzer for leader",
-	},
+	{ "<leader>kl", analyze_leader, desc = "Key Analyzer for leader" },
 }
 
 M.notify = {
@@ -225,9 +223,7 @@ M.startuptime = { { "<leader>st", vim.cmd.StartupTime, desc = "Debug neovim Star
 
 M.inlay_hints = { { "<leader>th", vim.cmd.InlayHintsToggle, desc = "Toggle inlay hints" } }
 
-M.telescope_nx = { { "<leader>nx", "<cmd>Telescope nx actions theme=ivy<CR>", desc = "nx actions" } }
-
-M.todo_telescope = { { "<leader>tt", "<cmd>TodoTelescope initial_mode=normal<CR>", desc = "Todo Telescope" } }
+M.todo_comments = { { "<leader>tt", vim.cmd.TodoFzfLua, desc = "Todo FzfLua" } }
 
 M.markdownpreview = { { "<leader>mp", vim.cmd.MarkdownPreview, desc = "Enable markdown preview" } }
 
@@ -236,26 +232,30 @@ M.telescope_icon_picker = {
 	{ "<leader><leader>y", vim.cmd.IconPickerYank, desc = "IconPickerYank" },
 }
 
-M.telescope_tmux = {
-	{ "<leader>tw", "<cmd>Telescope tmux windows theme=ivy<CR>", desc = "Find tmux windows" },
-	{ "<leader>ts", "<cmd>Telescope tmux sessions initial_mode=normal theme=ivy<CR>", desc = "Find tmux sessions" },
-}
-
 M.telescope = {
-	{ "<leader><Tab>", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
 	{ "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols" },
-	{ "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Find keymaps" },
-	{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
-	{ "<leader>fw", "<cmd>Telescope live_grep<CR>", desc = "Find word" },
-	{ "<leader>fe", "<cmd>Telescope grep_string<CR>", desc = "Find exact word" },
-	{ "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "Find oldfiles" },
 	{ "<leader>ft", "<cmd>Telescope colorscheme<CR>", desc = "Change colorscheme" },
-	{ "<leader>fm", "<cmd>Telescope marks<CR>", desc = "Find marks" },
-	{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Find within git status" },
-	{ "<leader>go", "<cmd>Telescope git_file_history theme=ivy initial_mode=normal<CR>", desc = "Find exact word" },
-	{ "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Find within current buffer" },
+	{
+		"<leader>go",
+		"<cmd>Telescope git_file_history theme=dropdown initial_mode=normal<CR>",
+		desc = "Find exact word",
+	},
 }
 
 M.telescope_qflist = "<C-q>"
+
+M.fzf_lua = {
+	{ "<leader><Tab>", "<cmd>FzfLua buffers<CR>", desc = "Find buffers" },
+	{ "<leader>fe", "<cmd>FzfLua grep_cword<CR>", desc = "Find exact word" },
+	{ "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "Find within git status" },
+	{ "<leader>fo", "<cmd>FzfLua oldfiles<CR>", desc = "Find oldfiles" },
+	{ "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find files" },
+	{ "<leader>fm", "<cmd>FzfLua marks<CR>", desc = "Find marks" },
+	{ "<leader>fk", "<cmd>FzfLua keymaps<CR>", desc = "Find keymaps" },
+	{ "<leader>fw", "<cmd>FzfLua live_grep<CR>", desc = "Find word" },
+	{ "<leader>fs", "<cmd>FzfLua grep_curbuf<CR>", desc = "Find within current buffer" },
+	{ "<leader>fj", "<cmd>FzfLua jumps<CR>", desc = "Find jumps" },
+	{ "<leader>fl", "<cmd>FzfLua resume<CR>", desc = "Resume last fzf search" },
+}
 
 return M

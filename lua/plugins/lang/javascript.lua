@@ -17,7 +17,7 @@ return {
 		"vuki656/package-info.nvim",
 		dependencies = "MunifTanjim/nui.nvim",
 		config = true,
-		lazy = false,
+		ft = "*",
 		opts = {
 			package_manager = "pnpm",
 			hide_up_to_date = false, -- It hides up to date versions when displaying virtual text

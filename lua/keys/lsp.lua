@@ -1,8 +1,7 @@
 local M = {}
 local utils = require("utils.lsp")
 local expand_keymaps = require("utils.expand").expand_keymaps
-local lsp_format_code, list_workspace_folder, lsp_hover =
-	utils.lsp_format_code, utils.list_workspace_folder, utils.lsp_hover
+local lsp_format_code, lsp_hover = utils.lsp_format_code, utils.lsp_hover
 
 M.default_lsp_keybindings = function(capabilities, on_attach)
 	local load_emmet = function()
@@ -42,7 +41,7 @@ M.lsp_callback_keybindings = function()
 			["<leader>D"] = { vim.lsp.buf.type_definition, "LSP Type definition" },
 			["<leader>rn"] = { vim.lsp.buf.rename, "LSP Rename" },
 			["<leader>fc"] = { lsp_format_code, "Format code" },
-			["<leader>fl"] = { list_workspace_folder, "LSP Add workspace folder" },
+			-- ["<leader>fl"] = { list_workspace_folder, "LSP Add workspace folder" },
 			["<leader>fa"] = { vim.lsp.buf.add_workspace_folder, "LSP Add workspace folder" },
 			["<leader>fr"] = { vim.lsp.buf.remove_workspace_folder, "LSP Remove workspace folder" },
 		},

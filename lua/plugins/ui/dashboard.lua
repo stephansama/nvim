@@ -1,6 +1,50 @@
 local ASCII_DIR = require("constants.dir").ASCII_DIR
 local load_ascii_headers = require("utils.dashboard").load_ascii_headers
 
+local shortcut = {
+	{
+		key = "u",
+		icon = "",
+		desc = " Update",
+		group = "@variable",
+		action = "Lazy update",
+		icon_hl = "TodoFgTODO",
+	},
+	{
+		icon = "",
+		icon_hl = "TodoFgFIX",
+		group = "@variable",
+		desc = " Files",
+		action = "FzfLua files",
+		key = "f",
+	},
+	{
+		icon = "󰈬",
+		group = "@variable",
+		desc = " Words",
+		icon_hl = "TodoFgHACK",
+		action = "FzfLua live_grep",
+		key = "w",
+	},
+	{
+		icon = "󰌌",
+		group = "@variable",
+		desc = " Keys",
+		icon_hl = "DevIconTerminal",
+		action = "FzfLua keymaps",
+		key = "k",
+	},
+	{
+		icon = "󰑴",
+		icon_hl = "CursorLineNr",
+		key = "l",
+		desc = " Leetcode",
+		action = "Leet",
+		group = "@variable",
+	},
+	{ icon = "", key = "q", action = "qa", desc = " ", group = "@variable", icon_hl = "TodoFgFIX" },
+}
+
 local config = {
 	header = load_ascii_headers(ASCII_DIR, "txt"),
 	footer = function()
@@ -11,49 +55,7 @@ local config = {
 	mru = { enable = true, limit = 9, icon = " ", label = "Files", cwd_only = true },
 	project = { enable = false },
 	packages = { enable = false },
-	shortcut = {
-		{
-			key = "u",
-			icon = "",
-			desc = " Update",
-			group = "@variable",
-			action = "Lazy update",
-			icon_hl = "TodoFgTODO",
-		},
-		{
-			icon = "",
-			icon_hl = "TodoFgFIX",
-			group = "@variable",
-			desc = " Files",
-			action = "Telescope find_files",
-			key = "f",
-		},
-		{
-			icon = "󰈬",
-			group = "@variable",
-			desc = " Words",
-			icon_hl = "TodoFgHACK",
-			action = "Telescope live_grep",
-			key = "w",
-		},
-		{
-			icon = "󰌌",
-			group = "@variable",
-			desc = " Keys",
-			icon_hl = "DevIconTerminal",
-			action = "Telescope keymaps",
-			key = "k",
-		},
-		{
-			icon = "󰑴",
-			icon_hl = "CursorLineNr",
-			key = "l",
-			desc = " Leetcode",
-			action = "Leet",
-			group = "@variable",
-		},
-		{ icon = "", key = "q", action = "qa", desc = " ", group = "@variable", icon_hl = "TodoFgFIX" },
-	},
+	shortcut = shortcut,
 }
 
 local opts = {
@@ -66,6 +68,7 @@ local opts = {
 
 return {
 	"nvimdev/dashboard-nvim",
+	dependencies = { "ibhagwan/fzf-lua" },
 	event = "VimEnter",
 	opts = opts,
 	keys = require("keys.init").dashboard,
