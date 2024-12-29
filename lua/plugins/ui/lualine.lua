@@ -17,7 +17,7 @@ local opts = {
 				path = 3,
 				symbols = require("configs.icons").lualine,
 			},
-			{ utils.lualine_package_info },
+			-- { utils.lualine_package_info },
 		},
 		lualine_x = { utils.lualine_macros, "fileformat", "filetype" },
 	},
@@ -25,6 +25,6 @@ local opts = {
 
 return {
 	"nvim-lualine/lualine.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	opts = opts,
 }

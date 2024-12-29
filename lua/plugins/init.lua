@@ -2,20 +2,6 @@ local keys = require("keys.init")
 
 return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "VeryLazy",
-		config = true,
-		opts = function()
-			return require("configs.gitsigns-opts")
-		end,
-	},
-	{
-		"wassimk/gh-navigator.nvim",
-		version = "*",
-		config = true,
-		keys = require("keys.init").gh_navigator,
-	},
 	{ "axieax/urlview.nvim", config = true, keys = keys.urlview },
 	{
 		"christoomey/vim-tmux-navigator",

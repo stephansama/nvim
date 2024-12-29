@@ -4,7 +4,7 @@ local keys = require("keys.init")
 return {
 	{
 		"folke/todo-comments.nvim",
-		ft = ft,
+		event = "VeryLazy",
 		keys = keys.todo_comments,
 		config = true,
 		dependencies = { "nvim-lua/plenary.nvim" },

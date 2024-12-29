@@ -33,7 +33,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
 		config = true,
-		lazy = false,
+		event = "VeryLazy",
+		-- lazy = false,
 		opts = { ensure_installed = MASON_LSP_ENSURE_INSTALLED, automatic_installation = true },
 	},
 }
