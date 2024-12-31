@@ -18,7 +18,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.cmd([[set shortmess+=I]])
-vim.cmd([[set mouse=]])
 
 expand_settings({
 	wo = { number = true, relativenumber = true },

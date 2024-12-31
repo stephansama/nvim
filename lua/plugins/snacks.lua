@@ -8,7 +8,7 @@ local opts = {
 	dashboard = {
 		enabled = true,
 		sections = {
-			{ section = "header" },
+			{ section = "startup" },
 			{ section = "recent_files" },
 			{
 				key = "b",
@@ -18,6 +18,7 @@ local opts = {
 					Snacks.gitbrowse()
 				end,
 			},
+			{ section = "keys" },
 			{ section = "terminal", cmd = "gh graph" },
 			function()
 				local in_git = Snacks.git.get_root() ~= nil
@@ -60,7 +61,6 @@ local opts = {
 					}, cmd)
 				end, cmds)
 			end,
-			{ section = "startup" },
 		},
 	},
 	gitbrowse = { enabled = true },
