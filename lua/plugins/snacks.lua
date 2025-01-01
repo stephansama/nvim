@@ -157,11 +157,11 @@ local keys = {
 		desc = "Toggle Zen Mode",
 	},
 	{
-		"<leader>Z",
+		"<leader>ld",
 		function()
-			Snacks.zen.zoom()
+			Snacks.dashboard()
 		end,
-		desc = "Toggle Zoom",
+		desc = "Go to dashboard",
 	},
 	{
 		"<leader>.",
