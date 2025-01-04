@@ -216,9 +216,9 @@ local keys = {
 	{
 		"<leader>gf",
 		function()
-			Snacks.lazygit.log_file()
+			Snacks.gitbrowse.open()
 		end,
-		desc = "Lazygit Current File History",
+		desc = "Open current file in git",
 	},
 	{
 		"<leader>gg",
