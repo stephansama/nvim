@@ -25,7 +25,10 @@ local config = {
 			icon_hl = "TodoFgFIX",
 			group = "@variable",
 			desc = " Files",
-			action = "FzfLua files",
+			action = function()
+				require("fzf")
+				vim.cmd([[FzfLua files]])
+			end,
 			key = "f",
 		},
 		{
@@ -33,7 +36,10 @@ local config = {
 			group = "@variable",
 			desc = " Words",
 			icon_hl = "TodoFgHACK",
-			action = "FzfLua live_grep",
+			action = function()
+				require("fzf")
+				vim.cmd([[FzfLua live_grep]])
+			end,
 			key = "w",
 		},
 		{
@@ -41,7 +47,10 @@ local config = {
 			group = "@variable",
 			desc = " Keys",
 			icon_hl = "DevIconTerminal",
-			action = "FzfLua keymaps",
+			action = function()
+				require("fzf")
+				vim.cmd([[FzfLua keymaps]])
+			end,
 			key = "k",
 		},
 		{
@@ -68,6 +77,5 @@ return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
 	opts = opts,
-	dependencies = { "ibhagwan/fzf-lua" },
 	keys = require("keys.init").dashboard,
 }
