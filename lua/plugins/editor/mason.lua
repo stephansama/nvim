@@ -13,7 +13,7 @@ local mason_opts = {
 	registries = { "github:mason-org/mason-registry" },
 	ensure_installed = MASON_ENSURE_INSTALLED,
 	ui = {
-		icons = require("configs.icons").mason,
+		icons = require("icons").mason,
 		border = "rounded",
 		keymaps = require("keys.init").mason,
 	},

@@ -47,7 +47,7 @@ M.lualine = {
 }
 
 M.neotest = {
-	running_animated = require("configs.icons.neotest").unicode_square,
+	running_animated = require("icons.neotest").unicode_square,
 	watching = "󰈈",
 	unknown = "",
 	running = "",

@@ -2,7 +2,7 @@ local expand_plugins = require("utils.expand").expand_plugins
 local ENABLED_PLUGINS = require("constants.pulled").PLUGINS
 local LAZY_DIR = require("constants.dir").LAZY_DIR
 local LAZY_URL = require("constants.url").LAZY_URL
-local icons = require("configs.icons").lazy
+local icons = require("icons").lazy
 
 vim.opt.rtp:prepend(LAZY_DIR)
 if not vim.loop.fs_stat(LAZY_DIR) then

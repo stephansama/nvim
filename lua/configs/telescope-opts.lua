@@ -35,7 +35,7 @@ return {
 	defaults = {
 		theme = "ivy",
 		initial_mode = "insert",
-		prompt_prefix = require("configs.icons").telescope,
+		prompt_prefix = require("icons").telescope,
 		mappings = {
 			i = { [SEND_SELECTED_TO_QFLIST_KEY] = SEND_SELECTED_TO_QFLIST_ACTION },
 			n = { [SEND_SELECTED_TO_QFLIST_KEY] = SEND_SELECTED_TO_QFLIST_ACTION },

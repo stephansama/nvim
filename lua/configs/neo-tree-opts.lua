@@ -1,6 +1,6 @@
 ---@see Neotree https://github.com/nvim-neo-tree/neo-tree.nvim
 local load_neo_tree_icons = require("utils.neotree").load_neo_tree_icons
-local neotreeicons = require("configs.icons.neo-tree-icons")
+local neotreeicons = require("icons.neo-tree-icons")
 
 return {
 	popup_border_style = "rounded",
