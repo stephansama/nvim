@@ -1,6 +1,15 @@
 local M = {}
 
-M.filetypes = { "astro", "css", "less", "scss", "sugarss", "vue", "wxss" }
+M.filetypes = {
+	"astro",
+	"css",
+	"less",
+	"scss",
+	"svelte",
+	"sugarss",
+	"vue",
+	"wxss",
+}
 
 M.settings = {
 	stylelintplus = {
