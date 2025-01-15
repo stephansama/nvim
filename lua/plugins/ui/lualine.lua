@@ -18,7 +18,7 @@ local opts = {
 				path = 3,
 				symbols = require("icons").lualine,
 			},
-			-- { utils.lualine_package_info },
+			{ utils.lualine_package_info },
 		},
 		lualine_x = { utils.lualine_macros, "fileformat", "filetype" },
 	},
