@@ -26,7 +26,7 @@ local config = {
 			group = "@variable",
 			desc = " Files",
 			action = function()
-				require("fzf")
+				require("fzf-lua")
 				vim.cmd([[FzfLua files]])
 			end,
 			key = "f",
@@ -37,7 +37,7 @@ local config = {
 			desc = " Words",
 			icon_hl = "TodoFgHACK",
 			action = function()
-				require("fzf")
+				require("fzf-lua")
 				vim.cmd([[FzfLua live_grep]])
 			end,
 			key = "w",
@@ -48,7 +48,7 @@ local config = {
 			desc = " Keys",
 			icon_hl = "DevIconTerminal",
 			action = function()
-				require("fzf")
+				require("fzf-lua")
 				vim.cmd([[FzfLua keymaps]])
 			end,
 			key = "k",
