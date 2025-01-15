@@ -12,9 +12,8 @@ M.filetypes = {
 }
 
 M.settings = {
-	stylelintplus = {
-		-- see available options in stylelint-lsp documentation
-	},
+	-- https://github.com/bmatcuk/stylelint-lsp?tab=readme-ov-file#settings
+	stylelintplus = {},
 }
 
 return M
