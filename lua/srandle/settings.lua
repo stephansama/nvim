@@ -34,7 +34,6 @@ expand_settings({
 		confirm = true,
 		undofile = true,
 		wildmode = "longest:full,full",
-		-- cmdheight = 0,
 		smartcase = true,
 		clipboard = "unnamedplus", -- use system register
 		undolevels = 10000,
