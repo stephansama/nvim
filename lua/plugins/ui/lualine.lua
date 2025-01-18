@@ -7,6 +7,7 @@ local opts = {
 		globalstatus = true,
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
+		disabled_filetypes = { "dashboard" },
 	},
 	sections = {
 		lualine_c = {
@@ -15,7 +16,7 @@ local opts = {
 				file_status = true,
 				newfile_status = true,
 				path = 3,
-				symbols = require("configs.icons").lualine,
+				symbols = require("icons").lualine,
 			},
 			{ utils.lualine_package_info },
 		},

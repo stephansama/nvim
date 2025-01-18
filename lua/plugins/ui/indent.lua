@@ -17,7 +17,7 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		ft = "*",
-		opts = { symbol = require("configs.icons").indent_blankline, options = { try_as_border = true } },
+		opts = { symbol = require("icons").indent_blankline, options = { try_as_border = true } },
 		init = function()
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = ft.INDENT_EXCLUDE_FILETYPES,

@@ -2,6 +2,7 @@
 local M = {}
 
 local icons = {
+	commitlint = { icon = "󰜘", color = "#429488", name = "commitlint" },
 	stylelint = { icon = "", name = "stylelint" },
 	eslintrc = { icon = "󰱺", name = "eslintrc" },
 	sitemap = { icon = "", name = "sitemap" },
@@ -101,6 +102,15 @@ M.override_by_filename = {
 	["wrangler.toml"] = { icon = "☁", color = "#F38020", name = "cloudflare" },
 	[".babelrc"] = icons.babel,
 	[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
+	[".commitlintrc"] = icons.commitlint,
+	[".commitlintrc.ts"] = icons.commitlint,
+	[".commitlintrc.js"] = icons.commitlint,
+	[".commitlintrc.cjs"] = icons.commitlint,
+	[".commitlintrc.cts"] = icons.commitlint,
+	[".commitlintrc.mjs"] = icons.commitlint,
+	[".commitlintrc.yml"] = icons.commitlint,
+	[".commitlintrc.yaml"] = icons.commitlint,
+	[".commitlintrc.json"] = icons.commitlint,
 	["log.txt"] = { icon = "", name = "log" },
 	["logs.txt"] = { icon = "", name = "log" },
 	["go.mod"] = icons.goextra,

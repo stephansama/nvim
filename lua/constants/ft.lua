@@ -1,6 +1,6 @@
 local M = {}
 
-M.NEOGEN_FILETYPES = {
+M.COMMENT_FILETYPES = {
 	"c",
 	"sh",
 	"go",

@@ -9,9 +9,6 @@ local kv_rename, merge_flat, merge_kv, pull_property_from_languages, pull_plugin
 	pull.pull_telescope_extensions_from_languages
 
 M.TELESCOPE_EXTENSIONS = pull_telescope_extensions_from_languages({
-	"fzf",
-	"tmux",
-	"macros",
 	"git_file_history",
 })
 

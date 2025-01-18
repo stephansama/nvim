@@ -13,7 +13,7 @@ local mason_opts = {
 	registries = { "github:mason-org/mason-registry" },
 	ensure_installed = MASON_ENSURE_INSTALLED,
 	ui = {
-		icons = require("configs.icons").mason,
+		icons = require("icons").mason,
 		border = "rounded",
 		keymaps = require("keys.init").mason,
 	},
@@ -33,7 +33,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
 		config = true,
-		lazy = false,
+		event = "VeryLazy",
+		-- lazy = false,
 		opts = { ensure_installed = MASON_LSP_ENSURE_INSTALLED, automatic_installation = true },
 	},
 }

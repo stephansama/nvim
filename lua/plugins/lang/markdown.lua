@@ -30,9 +30,7 @@ return {
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
+		build = "cd app && yarn install",
 		keys = require("keys.init").markdownpreview,
 	},
 }

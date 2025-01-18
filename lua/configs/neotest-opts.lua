@@ -1,6 +1,6 @@
 local M = {}
 
-M.icons = require("configs.icons").neotest
+M.icons = require("icons").neotest
 
 -- https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners
 M.adapters = {

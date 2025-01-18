@@ -7,23 +7,16 @@ return {
 		config = true,
 	},
 	{
-		"Equilibris/nx.nvim",
-		config = true,
-		keys = require("keys.init").telescope_nx,
-		opts = { nx_cmd_root = "npx nx" },
-		dependencies = { "nvim-telescope/telescope.nvim" },
-	},
-	{
 		"vuki656/package-info.nvim",
 		dependencies = "MunifTanjim/nui.nvim",
 		config = true,
-		lazy = false,
+		ft = "json",
 		opts = {
 			package_manager = "pnpm",
 			hide_up_to_date = false, -- It hides up to date versions when displaying virtual text
 			hide_unstable_versions = true,
 			colors = require("constants.theme").PACKAGE_INFO_COLORS,
-			icons = { enable = true, style = require("configs.icons").packageJSON },
+			icons = { enable = true, style = require("icons").packageJSON },
 		},
 	},
 	{

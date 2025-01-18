@@ -1,6 +1,6 @@
 return {
 	{ "nvim-pack/nvim-spectre", dependencies = { "nvim-lua/plenary.nvim" }, keys = require("keys.init").spectre },
-	{ "kylechui/nvim-surround", version = "*", event = "InsertEnter", config = true },
+	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
 	{ "artemave/workspace-diagnostics.nvim" },
 	{ "folke/trouble.nvim", opts = {}, keys = require("keys.init").trouble },
 	{ "kevinhwang91/nvim-bqf", ft = "qf" },
@@ -49,12 +49,6 @@ return {
 		build = "make install_jsregexp",
 		opts = { history = true, updateevents = "TextChanged,TextChangedI" },
 		config = require("configs.snippets"),
-	},
-	{
-		"ecthelionvi/NeoComposer.nvim",
-		dependencies = { "kkharji/sqlite.lua" },
-		config = true,
-		keys = require("keys.init").neocomposer,
 	},
 	{
 		"RRethy/vim-illuminate",

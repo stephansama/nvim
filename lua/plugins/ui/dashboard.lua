@@ -25,7 +25,10 @@ local config = {
 			icon_hl = "TodoFgFIX",
 			group = "@variable",
 			desc = " Files",
-			action = "Telescope find_files",
+			action = function()
+				require("fzf-lua")
+				vim.cmd([[FzfLua files]])
+			end,
 			key = "f",
 		},
 		{
@@ -33,7 +36,10 @@ local config = {
 			group = "@variable",
 			desc = " Words",
 			icon_hl = "TodoFgHACK",
-			action = "Telescope live_grep",
+			action = function()
+				require("fzf-lua")
+				vim.cmd([[FzfLua live_grep]])
+			end,
 			key = "w",
 		},
 		{
@@ -41,7 +47,10 @@ local config = {
 			group = "@variable",
 			desc = " Keys",
 			icon_hl = "DevIconTerminal",
-			action = "Telescope keymaps",
+			action = function()
+				require("fzf-lua")
+				vim.cmd([[FzfLua keymaps]])
+			end,
 			key = "k",
 		},
 		{

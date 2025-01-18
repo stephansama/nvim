@@ -42,13 +42,13 @@ local opts = {
 return {
 	{
 		"catppuccin/nvim",
-		priority = 1000,
+		priority = 1001,
 		name = "catppuccin",
 		opts = opts,
 	},
 	{
 		"f-person/auto-dark-mode.nvim",
-		priority = 999,
+		priority = 1002,
 		lazy = false,
 		opts = {
 			update_interval = 1000,
