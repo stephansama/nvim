@@ -78,6 +78,7 @@ M.override_by_extension = {
 	yaml = icons.yaml,
 	yml = icons.yaml,
 	xsl = icons.xsl,
+	mts = icons.typescript,
 	ts = icons.typescript,
 	gql = icons.graphql,
 	go = icons.go,
