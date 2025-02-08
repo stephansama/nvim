@@ -1,17 +1,5 @@
 return {
 	{
-		"3rd/image.nvim",
-		config = true,
-		ft = { "markdown", "css", "html" },
-		opts = {
-			integrations = {
-				css = { enabled = true },
-				html = { enabled = true },
-				markdown = { enabled = true, only_render_image_at_cursor = true },
-			},
-		},
-	},
-	{
 		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
 		config = function() end,
