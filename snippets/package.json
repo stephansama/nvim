@@ -40,18 +40,6 @@
 			},
 			{
 				"language": [
-					"astro"
-				],
-				"path": "./js/astro.json"
-			},
-			{
-				"language": [
-					"svelte"
-				],
-				"path": "./js/svelte.json"
-			},
-			{
-				"language": [
 					"javascript",
 					"javascriptreact",
 					"typescript",
@@ -67,6 +55,15 @@
 				],
 				"path": "./js/react-testing-library.json",
 				"references": "https://github.com/deinsoftware/vscode-testing-library-snippets"
+			},
+			{
+				"language": [
+					"javascript",
+					"javascriptreact",
+					"typescriptreact",
+					"typescript"
+				],
+				"path": "./js/js.json"
 			},
 			{
 				"language": [

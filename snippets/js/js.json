@@ -24,9 +24,148 @@
 		"body": "import { ${2:originalName} as ${3:alias} } from '${1:module}';$0",
 		"description": "Imports a specific portion of the module by assigning a local alias in ES6 syntax"
 	},
+	"consoleAssert": {
+		"key": "consoleAssert",
+		"prefix": "cas",
+		"body": [
+			"console.assert(${1:first}, ${2:second})"
+		],
+		"description": "If the specified expression is false, the message is written to the console along with a stack trace",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleClear": {
+		"key": "consoleClear",
+		"prefix": "ccl",
+		"body": [
+			"console.clear()"
+		],
+		"description": "Clears the console",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleCount": {
+		"key": "consoleCount",
+		"prefix": "cco",
+		"body": [
+			"console.count(${1:first})"
+		],
+		"description": "Writes the the number of times that count() has been invoked at the same line and with the same label",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleDir": {
+		"key": "consoleDir",
+		"prefix": "cdi",
+		"body": [
+			"console.dir(${1:first})"
+		],
+		"description": "Prints a JavaScript representation of the specified object",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleError": {
+		"key": "consoleError",
+		"prefix": "cer",
+		"body": [
+			"console.error(${1:first})"
+		],
+		"description": "Displays a message in the console and also includes a stack trace from where the method was called",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleGroup": {
+		"key": "consoleGroup",
+		"prefix": "cgr",
+		"body": [
+			"console.group('${1:first}')"
+		],
+		"description": "Groups and indents all following output by an additional level, until console.groupEnd() is called.",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleGroupEnd": {
+		"key": "consoleGroupEnd",
+		"prefix": "cge",
+		"body": [
+			"console.groupEnd()"
+		],
+		"description": "Closes out the corresponding console.group().",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleLog": {
+		"key": "consoleLog",
+		"prefix": "clg",
+		"body": [
+			"console.log(${1:first})"
+		],
+		"description": "Displays a message in the console",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleTrace": {
+		"key": "consoleTrace",
+		"prefix": "ctr",
+		"body": [
+			"console.trace(${1:first})"
+		],
+		"description": "Prints a stack trace from the point where the method was called",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
 	"consoleLogObject": {
+		"key": "consoleLogObject",
 		"prefix": "clo",
-		"body": "console.log('${1:object} :>> ', ${1:object});",
-		"description": "Displays an object in the console with its name"
+		"body": [
+			"console.log('${1:first}', ${1:first})"
+		],
+		"description": "Logs property with name.",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleLogJson": {
+		"key": "consoleLogJson",
+		"prefix": "clj",
+		"body": [
+			"console.log('${1:first}', JSON.stringify(${1:first}, null, 2))"
+		],
+		"description": "Logs stringified JSON property with name.",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleTime": {
+		"key": "consoleTime",
+		"prefix": "ctm",
+		"body": [
+			"console.time('${1:first}')"
+		],
+		"description": "Console time wrapper",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleTimeEnd": {
+		"key": "consoleTimeEnd",
+		"prefix": "cte",
+		"body": [
+			"console.timeEnd('${1:first}')"
+		],
+		"description": "Console time end wrapper",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleWarn": {
+		"key": "consoleWarn",
+		"prefix": "cwa",
+		"body": [
+			"console.warn(${1:first})"
+		],
+		"description": "Displays a message in the console but also displays a yellow warning icon along with the logged message",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleInfo": {
+		"key": "consoleInfo",
+		"prefix": "cin",
+		"body": [
+			"console.info(${1:first})"
+		],
+		"description": "Displays a message in the console but also displays a blue information icon along with the logged message",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
+	},
+	"consoleTable": {
+		"key": "consoleTable",
+		"prefix": "ctl",
+		"body": [
+			"console.table([${1:first}])"
+		],
+		"description": "Logs table to console",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact"
 	}
 }
