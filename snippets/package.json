@@ -57,7 +57,26 @@
 					"typescript",
 					"typescriptreact"
 				],
-				"path": "./js/react.json"
+				"path": "./js/vitest.json",
+				"references": "https://github.com/deinsoftware/vscode-vitest-snippets"
+			},
+			{
+				"language": [
+					"javascriptreact",
+					"typescriptreact"
+				],
+				"path": "./js/react-testing-library.json",
+				"references": "https://github.com/deinsoftware/vscode-testing-library-snippets"
+			},
+			{
+				"language": [
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact"
+				],
+				"path": "./js/react.json",
+				"references": "https://github.com/r5n-labs/vscode-react-javascript-snippets"
 			},
 			{
 				"language": [
@@ -73,14 +92,16 @@
 					"javascript",
 					"javascriptreact"
 				],
-				"path": "./js/next-js.json"
+				"path": "./js/next-js.json",
+				"references": "https://github.com/pulkitgangwar/next.js-snippets"
 			},
 			{
 				"language": [
 					"typescript",
 					"typescriptreact"
 				],
-				"path": "./js/next-ts.json"
+				"path": "./js/next-ts.json",
+				"references": "https://github.com/pulkitgangwar/next.js-snippets"
 			}
 		]
 	}

@@ -1,0 +1,462 @@
+{
+  "screen.debug": {
+    "prefix": "sd",
+    "body": "screen.debug()$0",
+    "description": "screen debug"
+  },
+  "screen.log.testing-playground": {
+    "prefix": "sltp",
+    "body": "screen.logTestingPlaygroundURL()$0",
+    "description": "screen log testing playground url"
+  },
+  "import.testing-library": {
+    "prefix": "itl",
+    "body": "import { render, screen } from '@testing-library/${1|react,vue|}'$0",
+    "description": "essential imports for testing-library"
+  },
+  "import.testing-library.react": {
+    "prefix": "itr",
+    "body": "import { render, screen } from '@testing-library/react'$0",
+    "description": "essential imports for testing-library"
+  },
+  "import.testing-library.vue": {
+    "prefix": "itv",
+    "body": "import { render, screen } from '@testing-library/vue'$0",
+    "description": "essential imports for testing-library"
+  },
+  "import.testing-library.render-hook": {
+    "prefix": "itrh",
+    "body": "import { renderHook } from '@testing-library/react'$0",
+    "description": "imports renderHook for testing-library"
+  },
+  "import.testing-library.user-event": {
+    "prefix": "itue",
+    "body": "import userEvent from '@testing-library/user-event'$0",
+    "description": "imports user-event for testing-library"
+  },
+  "query.role": {
+    "prefix": "qr",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('${2:id}')$0"
+    ],
+    "description": "Role query"
+  },
+  "query.role.options": {
+    "prefix": "qro",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('${2:id}', {$3})$0"
+    ],
+    "description": "Role query with options"
+  },
+  "query.role.options.name": {
+    "prefix": "qron",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('${2:id}',\t{$3})$0"
+    ],
+    "description": "Role query with name on options"
+  },
+  "query.role.checkbox": {
+    "prefix": "qrc",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('checkbox')$0"
+    ],
+    "description": "Role checkbox"
+  },
+  "query.role.checkbox.checked": {
+    "prefix": "qrcc",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('checkbox', { checked: ${2|true,false|} })$0"
+    ],
+    "description": "Role checkbox checked"
+  },
+  "query.role.heading": {
+    "prefix": "qrh",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('heading')$0"
+    ],
+    "description": "Role heading"
+  },
+  "query.role.heading.level": {
+    "prefix": "qrhl",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Role('heading', { level: ${2|1,2,3,4,5,6|} })$0"
+    ],
+    "description": "Role heading level"
+  },
+  "query.label": {
+    "prefix": "ql",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}LabelText(${2})$0"
+    ],
+    "description": "LabelText query with options"
+  },
+  "query.label.full": {
+    "prefix": "qlf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}LabelText('${2:Text Match}')$0"
+    ],
+    "description": "LabelText query with options"
+  },
+  "query.label.substring": {
+    "prefix": "qls",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}LabelText('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "LabelText query substring match"
+  },
+  "query.label.query": {
+    "prefix": "qlq",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}LabelText('${2:Text Match}', {selector: '${3:query}'})$0"
+    ],
+    "description": "LabelText query with a specific query selector"
+  },
+  "query.label.substring+query": {
+    "prefix": "qlsq",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}LabelText('${2:ext Matc}', {exact: false, selector: '${3:query}'})$0"
+    ],
+    "description": "LabelText query substring match with a specific query selector"
+  },
+  "query.text": {
+    "prefix": "qt",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text($2)$0"
+    ],
+    "description": "Text query"
+  },
+  "query.text.full": {
+    "prefix": "qtf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text('${2:Text Match}')$0"
+    ],
+    "description": "Text query full string match"
+  },
+  "query.text.ignore": {
+    "prefix": "qti",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text('${2:text match}', {ignore: false})$0"
+    ],
+    "description": "Text query full string ignore case"
+  },
+  "query.text.substring": {
+    "prefix": "qts",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "Text query substring match"
+  },
+  "query.text.substring+ignore": {
+    "prefix": "qtsi",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text('${2:ext matc}', {exact: false, ignore: false})$0"
+    ],
+    "description": "Text query substring match ignore case"
+  },
+  "query.text.startWith": {
+    "prefix": "qtsw",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text((content) => content.startsWith('${2:Text}'))$0"
+    ],
+    "description": "Text query start with match"
+  },
+  "query.text.element.startWith": {
+    "prefix": "qtesw",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text((content, element) => {",
+      "\tconst tag = element.tagName.toLowerCase() === '${2:div}'",
+      "\treturn tag && content.startsWith('${3:Text}')",
+      "})"
+    ],
+    "description": "Text query start with match on specific element"
+  },
+  "query.text.endWith": {
+    "prefix": "qtew",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text((content) => content.endsWith('${2:Match}'))$0"
+    ],
+    "description": "Text query end with match"
+  },
+  "query.text.element.endWith": {
+    "prefix": "qteew",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Text((content, element) => {",
+      "\tconst tag = element.tagName.toLowerCase() === '${2:div}'",
+      "\treturn tag && content.endsWith('${3:Match}')",
+      "})"
+    ],
+    "description": "Text query end with match on specific element"
+  },
+  "query.placeholder": {
+    "prefix": "qp",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}PlaceholderText($2)$0"
+    ],
+    "description": "PlaceholderText query"
+  },
+  "query.placeholder.full": {
+    "prefix": "qpf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}PlaceholderText('${2:Text Match}')$0"
+    ],
+    "description": "PlaceholderText query full string match"
+  },
+  "query.placeholder.substring": {
+    "prefix": "qps",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}PlaceholderText('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "PlaceholderText query substring match"
+  },
+  "query.displayValue": {
+    "prefix": "qd",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}DisplayValue($2)$0"
+    ],
+    "description": "DisplayValue query"
+  },
+  "query.displayValue.full": {
+    "prefix": "qdf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}DisplayValue('${2:Text Match}')$0"
+    ],
+    "description": "DisplayValue query full string match"
+  },
+  "query.displayValue.substring": {
+    "prefix": "qds",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}DisplayValue('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "DisplayValue query substring match"
+  },
+  "query.altText": {
+    "prefix": "qa",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}AltText($2)$0"
+    ],
+    "description": "AltText query"
+  },
+  "query.altText.full": {
+    "prefix": "qaf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}AltText('${2:Text Match}')$0"
+    ],
+    "description": "AltText query full string match"
+  },
+  "query.altText.substring": {
+    "prefix": "qas",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}AltText('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "AltText query substring match"
+  },
+  "query.Title": {
+    "prefix": "qtt",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Title($2)$0"
+    ],
+    "description": "Title query"
+  },
+  "query.Title.full": {
+    "prefix": "qttf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Title('${2:Text Match}')$0"
+    ],
+    "description": "Title query full string match"
+  },
+  "query.Title.substring": {
+    "prefix": "qtts",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}Title('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "Title query substring match"
+  },
+  "query.TestId": {
+    "prefix": "qid",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}TestId($2)$0"
+    ],
+    "description": "TestId query"
+  },
+  "query.TestId.full": {
+    "prefix": "qidf",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}TestId('${2:Text Match}')$0"
+    ],
+    "description": "TestId query full string match"
+  },
+  "query.TestId.substring": {
+    "prefix": "qids",
+    "body": [
+      "screen.${1|getBy,getAllBy,queryBy,queryAllBy,findBy,findByAll|}TestId('${2:ext Matc}', {exact: false})$0"
+    ],
+    "description": "TestId query substring match"
+  },
+  "regex.full": {
+    "prefix": "rf",
+    "body": [
+      "/^${1:Text Match}$/$0"
+    ],
+    "description": "regex full string match"
+  },
+  "regex.full+ignore": {
+    "prefix": "rfi",
+    "body": [
+      "/^${1:text match}$/i$0"
+    ],
+    "description": "regex full string match and ignore case"
+  },
+  "regex.substring": {
+    "prefix": "rs",
+    "body": [
+      "/${1:ext Matc}/$0"
+    ],
+    "description": "regex substring match"
+  },
+  "regex.substring+ignore": {
+    "prefix": "rsi",
+    "body": [
+      "/${1:ext matc}/i$0"
+    ],
+    "description": "regex substring match and ignore case"
+  },
+  "regex.start": {
+    "prefix": "rsw",
+    "body": [
+      "/^${1:Text}/$0"
+    ],
+    "description": "regex start with string match"
+  },
+  "regex.start+ignore": {
+    "prefix": "rswi",
+    "body": [
+      "/^${1:text}/i$0"
+    ],
+    "description": "regex start with string match and ignore case"
+  },
+  "regex.end": {
+    "prefix": "rew",
+    "body": [
+      "/${1:Match}$/$0"
+    ],
+    "description": "regex end with string match"
+  },
+  "regex.end+ignore": {
+    "prefix": "rewi",
+    "body": [
+      "/${1:match}$/i$0"
+    ],
+    "description": "regex end with string match and ignore case"
+  },
+  "userEvent.setup": {
+    "prefix": "es",
+    "body": [
+      "userEvent.setup()$0"
+    ],
+    "description": "userEvent setup function"
+  },
+  "userEvent.beforeEach": {
+    "prefix": "bees",
+    "body": [
+      "beforeEach(() => {",
+      "\tuserEvent.setup()",
+      "})$0"
+    ],
+    "description": "beforeEach userEvent setup function is called once before each spec"
+  },
+  "userEvent.click": {
+    "prefix": "ec",
+    "body": [
+      "await userEvent.click(${1:element})$0"
+    ],
+    "description": "userEvent click"
+  },
+  "userEvent.dblClick": {
+    "prefix": "edc",
+    "body": [
+      "await userEvent.dblClick(${1:element})$0"
+    ],
+    "description": "userEvent dblClick"
+  },
+  "userEvent.type": {
+    "prefix": "et",
+    "body": [
+      "await userEvent.type(${1:element}, '${2:text}')$0"
+    ],
+    "description": "userEvent type in a field"
+  },
+  "userEvent.type+submit": {
+    "prefix": "ets",
+    "body": [
+      "await userEvent.type(${1:element}, `${2:text}{enter}`)$0"
+    ],
+    "description": "userEvent type in a field and press enter to submit form"
+  },
+  "userEvent.clear": {
+    "prefix": "ecl",
+    "body": [
+      "await userEvent.clear(${1:element})$0"
+    ],
+    "description": "userEvent to clear a field"
+  },
+  "userEvent.selectOptions": {
+    "prefix": "eso",
+    "body": [
+      "await userEvent.selectOptions(${1:listBoxElement}, ['value/label'])$0"
+    ],
+    "description": "userEvent to select options"
+  },
+  "userEvent.deselectOptions": {
+    "prefix": "edo",
+    "body": [
+      "await userEvent.deselectOptions(${1:listBoxElement}, ['value/label'])$0"
+    ],
+    "description": "userEvent to deselect options"
+  },
+  "userEvent.tab": {
+    "prefix": "etb",
+    "body": [
+      "await userEvent.tab()$0"
+    ],
+    "description": "userEvent tab"
+  },
+  "userEvent.hover": {
+    "prefix": "eh",
+    "body": [
+      "await userEvent.hover(${1:element})$0"
+    ],
+    "description": "userEvent hover"
+  },
+  "userEvent.unhover": {
+    "prefix": "euh",
+    "body": [
+      "await userEvent.unhover(${1:element})$0"
+    ],
+    "description": "userEvent unhover"
+  },
+  "userEvent.paste": {
+    "prefix": "ep",
+    "body": [
+      "await userEvent.paste(${1:element}, '${2:text}')$0"
+    ],
+    "description": "userEvent paste"
+  },
+  "wait.for": {
+    "prefix": "wf",
+    "body": [
+      "await waitFor(",
+      "\t() => $1",
+      ")$0"
+    ],
+    "description": "wait for"
+  },
+  "wait.for.removed": {
+    "prefix": "wfr",
+    "body": [
+      "await waitForElementToBeRemoved(",
+      "\t() => $1",
+      ")$0"
+    ],
+    "description": "wait for element to be removed"
+  }
+}
