@@ -1,4 +1,1138 @@
 {
+	"Basic Function": {
+		"prefix": "fn",
+		"body": [
+			"fn $1($2) -> $3 {",
+			"    $4",
+			"}"
+		],
+		"description": "Create a basic function"
+	},
+	"Basic Struct": {
+		"prefix": "struct",
+		"body": [
+			"struct $1 {",
+			"    $2: $3,",
+			"}",
+			"",
+			"impl $1 {",
+			"    pub fn new($4: $5) -> Self {",
+			"        Self {",
+			"            $2: $4,",
+			"        }",
+			"    }",
+			"}"
+		],
+		"description": "Define a basic struct"
+	},
+	"Basic Enum": {
+		"prefix": "enum",
+		"body": [
+			"enum $1 {",
+			"    $2,",
+			"    $3,",
+			"    $4",
+			"}",
+			"",
+			"impl $1 {",
+			"    pub fn new() -> Self {",
+			"        $2",
+			"    }",
+			"}"
+		],
+		"description": "Define a basic enum"
+	},
+	"Match Statement": {
+		"prefix": "match",
+		"body": [
+			"match $1 {",
+			"    $2 => $3,",
+			"    _ => $4",
+			"}"
+		],
+		"description": "Match statement"
+	},
+	"Error Handling": {
+		"prefix": "err",
+		"body": [
+			"match $1 {",
+			"    Ok(val) => $2,",
+			"    Err(e) => {",
+			"        eprintln!(\"Error: {}\", e);",
+			"        $3",
+			"    }",
+			"}"
+		],
+		"description": "Handle errors with match"
+	},
+	"If Statement": {
+		"prefix": "if",
+		"body": [
+			"if $1 {",
+			"    $2",
+			"} else {",
+			"    $3",
+			"}"
+		],
+		"description": "Basic if-else statement"
+	},
+	"For Loop": {
+		"prefix": "for",
+		"body": [
+			"for $1 in $2 {",
+			"    $3",
+			"}"
+		],
+		"description": "For loop"
+	},
+	"While Loop": {
+		"prefix": "while",
+		"body": [
+			"while $1 {",
+			"    $2",
+			"}"
+		],
+		"description": "While loop"
+	},
+	"Function with Lifetime": {
+		"prefix": "fn-lifetime",
+		"body": [
+			"fn $1<'a>($2: &'a $3) -> $4 {",
+			"    $5",
+			"}"
+		],
+		"description": "Function with lifetime annotation"
+	},
+	"Immutable Variable": {
+		"prefix": "let",
+		"body": [
+			"let $1: $2 = $3;"
+		],
+		"description": "Immutable variable"
+	},
+	"Mutable Variable": {
+		"prefix": "let-mut",
+		"body": [
+			"let mut $1: $2 = $3;"
+		],
+		"description": "Mutable variable"
+	},
+	"Vector Initialization": {
+		"prefix": "vec",
+		"body": [
+			"let $1: Vec<$2> = vec![$3];"
+		],
+		"description": "Vector initialization"
+	},
+	"HashMap Initialization": {
+		"prefix": "hashmap",
+		"body": [
+			"use std::collections::HashMap;",
+			"",
+			"let mut $1: HashMap<$2, $3> = HashMap::new();",
+			"",
+			"$1.insert($4, $5);"
+		],
+		"description": "HashMap initialization"
+	},
+	"Tuple Initialization": {
+		"prefix": "tuple",
+		"body": [
+			"let $1: ($2, $3) = ($4, $5);"
+		],
+		"description": "Tuple initialization"
+	},
+	"Basic Array": {
+		"prefix": "array",
+		"body": [
+			"let $1: [$2; $3] = [$4; $3];"
+		],
+		"description": "Basic array initialization"
+	},
+	"Basic Macro": {
+		"prefix": "macro",
+		"body": [
+			"macro_rules! $1 {",
+			"    ($2) => {",
+			"        $3",
+			"    };",
+			"}"
+		],
+		"description": "Define a basic macro"
+	},
+	"Struct Method": {
+		"prefix": "struct-method",
+		"body": [
+			"impl $1 {",
+			"    pub fn $2(&self) -> $3 {",
+			"        $4",
+			"    }",
+			"}"
+		],
+		"description": "Add a method to a struct"
+	},
+	"Enum Method": {
+		"prefix": "enum-method",
+		"body": [
+			"impl $1 {",
+			"    pub fn $2(&self) -> $3 {",
+			"        $4",
+			"    }",
+			"}"
+		],
+		"description": "Add a method to an enum"
+	},
+	"Trait Definition": {
+		"prefix": "trait",
+		"body": [
+			"trait $1 {",
+			"    fn $2(&self) -> $3;",
+			"}"
+		],
+		"description": "Define a trait"
+	},
+	"Implement Trait": {
+		"prefix": "impl-trait",
+		"body": [
+			"impl $1 for $2 {",
+			"    fn $3(&self) -> $4 {",
+			"        $5",
+			"    }",
+			"}"
+		],
+		"description": "Implement a trait for a type"
+	},
+	"Using Crate": {
+		"prefix": "use",
+		"body": [
+			"use $1::${2};"
+		],
+		"description": "Use an external crate or module"
+	},
+	"Doc Comment": {
+		"prefix": "doc",
+		"body": [
+			"/// $1",
+			"$2"
+		],
+		"description": "Add a documentation comment"
+	},
+	"Unit Test": {
+		"prefix": "test",
+		"body": [
+			"#[cfg(test)]",
+			"mod tests {",
+			"    use super::*;",
+			"",
+			"    #[test]",
+			"    fn $1() {",
+			"        $2",
+			"    }",
+			"}"
+		],
+		"description": "Create a basic unit test"
+	},
+	"Benchmark Test": {
+		"prefix": "bench",
+		"body": [
+			"#[bench]",
+			"fn $1(b: &mut Bencher) {",
+			"    b.iter(|| {",
+			"        $2",
+			"    });",
+			"}"
+		],
+		"description": "Create a basic benchmark test"
+	},
+	"Async Function": {
+		"prefix": "async-fn",
+		"body": [
+			"async fn $1($2) -> $3 {",
+			"    $4",
+			"}"
+		],
+		"description": "Define an async function"
+	},
+	"Await Expression": {
+		"prefix": "await",
+		"body": [
+			"$1.await"
+		],
+		"description": "Await an async expression"
+	},
+	"Option Handling": {
+		"prefix": "option",
+		"body": [
+			"match $1 {",
+			"    Some(val) => $2,",
+			"    None => $3",
+			"}"
+		],
+		"description": "Handle an Option value"
+	},
+	"Result Handling": {
+		"prefix": "result",
+		"body": [
+			"match $1 {",
+			"    Ok(val) => $2,",
+			"    Err(e) => $3",
+			"}"
+		],
+		"description": "Handle a Result value"
+	},
+	"Vec Push": {
+		"prefix": "vec-push",
+		"body": [
+			"$1.push($2);"
+		],
+		"description": "Push a value to a vector"
+	},
+	"Vec Iterate": {
+		"prefix": "vec-iter",
+		"body": [
+			"for $1 in $2.iter() {",
+			"    $3",
+			"}"
+		],
+		"description": "Iterate over a vector"
+	},
+	"Basic Closure": {
+		"prefix": "closure",
+		"body": [
+			"|$1| $2"
+		],
+		"description": "Define a basic closure"
+	},
+	"Basic Iterator": {
+		"prefix": "iter",
+		"body": [
+			"$1.iter().$2(|$3| {",
+			"    $4",
+			"});"
+		],
+		"description": "Basic iterator usage"
+	},
+	"Trait Method Call": {
+		"prefix": "trait-call",
+		"body": [
+			"$1.$2()"
+		],
+		"description": "Call a method defined in a trait"
+	},
+	"Basic Assert": {
+		"prefix": "assert",
+		"body": [
+			"assert_eq!($1, $2);"
+		],
+		"description": "Assert equality in tests"
+	},
+	"Basic Debug Print": {
+		"prefix": "dbg",
+		"body": [
+			"dbg!($1);"
+		],
+		"description": "Print debug information"
+	},
+	"Basic Print": {
+		"prefix": "print",
+		"body": [
+			"println!(\"$1\", $2);"
+		],
+		"description": "Print a message to the console"
+	},
+	"Basic Debug Print with Formatting": {
+		"prefix": "dbg-fmt",
+		"body": [
+			"dbg!(\"$1: {:#?}\", $2);"
+		],
+		"description": "Debug print with formatting"
+	},
+	"File Reading": {
+		"prefix": "read-file",
+		"body": [
+			"use std::fs::File;",
+			"use std::io::{self, Read};",
+			"",
+			"fn read_file(file_path: &str) -> io::Result<String> {",
+			"    let mut file = File::open(file_path)?;",
+			"    let mut contents = String::new();",
+			"    file.read_to_string(&mut contents)?;",
+			"    Ok(contents)",
+			"}"
+		],
+		"description": "Read a file and return its content"
+	},
+	"File Writing": {
+		"prefix": "write-file",
+		"body": [
+			"use std::fs::File;",
+			"use std::io::{self, Write};",
+			"",
+			"fn write_file(file_path: &str, content: &str) -> io::Result<()> {",
+			"    let mut file = File::create(file_path)?;",
+			"    file.write_all(content.as_bytes())?;",
+			"    Ok(())",
+			"}"
+		],
+		"description": "Write content to a file"
+	},
+	"Basic HTTP Request": {
+		"prefix": "http-request",
+		"body": [
+			"use reqwest;",
+			"",
+			"async fn get_request(url: &str) -> reqwest::Result<String> {",
+			"    let response = reqwest::get(url).await?;",
+			"    let body = response.text().await?;",
+			"    Ok(body)",
+			"}"
+		],
+		"description": "Basic HTTP GET request using reqwest"
+	},
+	"Basic Mutex": {
+		"prefix": "mutex",
+		"body": [
+			"use std::sync::Mutex;",
+			"",
+			"let mutex = Mutex::new($1);",
+			"",
+			"let mut data = mutex.lock().unwrap();",
+			"data.$2;"
+		],
+		"description": "Create and use a Mutex"
+	},
+	"Basic Arc": {
+		"prefix": "arc",
+		"body": [
+			"use std::sync::Arc;",
+			"",
+			"let arc = Arc::new($1);",
+			"",
+			"let arc_clone = arc.clone();"
+		],
+		"description": "Create and use an Arc"
+	},
+	"Basic Channel": {
+		"prefix": "channel",
+		"body": [
+			"use std::sync::mpsc;",
+			"",
+			"let (tx, rx) = mpsc::channel();",
+			"",
+			"tx.send($1).unwrap();",
+			"let received = rx.recv().unwrap();"
+		],
+		"description": "Create and use a channel"
+	},
+	"Basic RefCell": {
+		"prefix": "refcell",
+		"body": [
+			"use std::cell::RefCell;",
+			"",
+			"let ref_cell = RefCell::new($1);",
+			"",
+			"let mut data = ref_cell.borrow_mut();",
+			"data.$2;"
+		],
+		"description": "Create and use a RefCell"
+	},
+	"Basic Option Unwrap": {
+		"prefix": "unwrap",
+		"body": [
+			"$1.unwrap()"
+		],
+		"description": "Unwrap an Option value"
+	},
+	"Basic Result Unwrap": {
+		"prefix": "unwrap-res",
+		"body": [
+			"$1.unwrap()"
+		],
+		"description": "Unwrap a Result value"
+	},
+	"Basic Box": {
+		"prefix": "box",
+		"body": [
+			"let boxed = Box::new($1);"
+		],
+		"description": "Create and use a Box"
+	},
+	"Basic Deref": {
+		"prefix": "deref",
+		"body": [
+			"let $1 = *$2;"
+		],
+		"description": "Dereference a Box"
+	},
+	"Basic Drop": {
+		"prefix": "drop",
+		"body": [
+			"drop($1);"
+		],
+		"description": "Explicitly drop a value"
+	},
+	"Basic Deserialize JSON": {
+		"prefix": "deserialize-json",
+		"body": [
+			"use serde::{Deserialize};",
+			"use serde_json;",
+			"",
+			"#[derive(Deserialize)]",
+			"struct $1 {",
+			"    $2: $3,",
+			"}",
+			"",
+			"fn from_json(json_str: &str) -> serde_json::Result<$1> {",
+			"    serde_json::from_str(json_str)",
+			"}"
+		],
+		"description": "Deserialize JSON into a struct"
+	},
+	"Basic Serialize to JSON": {
+		"prefix": "serialize-json",
+		"body": [
+			"use serde::{Serialize};",
+			"use serde_json;",
+			"",
+			"#[derive(Serialize)]",
+			"struct $1 {",
+			"    $2: $3,",
+			"}",
+			"",
+			"fn to_json(value: &$1) -> serde_json::Result<String> {",
+			"    serde_json::to_string(value)",
+			"}"
+		],
+		"description": "Serialize a struct to JSON"
+	},
+	"Basic HTTP Server": {
+		"prefix": "http-server",
+		"body": [
+			"use std::net::{TcpListener, TcpStream};",
+			"use std::io::prelude::*;",
+			"",
+			"fn handle_connection(mut stream: TcpStream) {",
+			"    let mut buffer = [0; 512];",
+			"    stream.read(&mut buffer).unwrap();",
+			"",
+			"    let response = \"HTTP/1.1 200 OK\r\n\r\nHello, world!\";",
+			"    stream.write(response.as_bytes()).unwrap();",
+			"    stream.flush().unwrap();",
+			"}",
+			"",
+			"fn main() {",
+			"    let listener = TcpListener::bind(\"127.0.0.1:7878\").unwrap();",
+			"    for stream in listener.incoming() {",
+			"        let stream = stream.unwrap();",
+			"        handle_connection(stream);",
+			"    }",
+			"}"
+		],
+		"description": "Basic HTTP server implementation"
+	},
+	"Basic Environment Variable Access": {
+		"prefix": "env",
+		"body": [
+			"use std::env;",
+			"",
+			"fn main() {",
+			"    let key = $1;",
+			"    match env::var(key) {",
+			"        Ok(value) => println!(\"{} = {}\", key, value),",
+			"        Err(e) => println!(\"Couldn't read {}: {}\", key, e),",
+			"    }",
+			"}"
+		],
+		"description": "Access environment variables"
+	},
+	"Basic RefCell Borrowing": {
+		"prefix": "refcell-borrow",
+		"body": [
+			"use std::cell::RefCell;",
+			"",
+			"let ref_cell = RefCell::new($1);",
+			"",
+			"let mut data = ref_cell.borrow_mut();",
+			"data.$2;"
+		],
+		"description": "Borrow a RefCell"
+	},
+	"Basic Rc Usage": {
+		"prefix": "rc",
+		"body": [
+			"use std::rc::Rc;",
+			"",
+			"let rc = Rc::new($1);",
+			"",
+			"let rc_clone = rc.clone();"
+		],
+		"description": "Create and use an Rc"
+	},
+	"Basic Deref with Rc": {
+		"prefix": "rc-deref",
+		"body": [
+			"let $1 = Rc::deref(&$2);"
+		],
+		"description": "Dereference an Rc"
+	},
+	"Basic Thread Join": {
+		"prefix": "thread-join",
+		"body": [
+			"use std::thread;",
+			"",
+			"let handle = thread::spawn(|| {",
+			"    println!(\"Thread is running\");",
+			"});",
+			"",
+			"handle.join().unwrap();"
+		],
+		"description": "Join a thread"
+	},
+	"Basic Mutex Locking": {
+		"prefix": "mutex-lock",
+		"body": [
+			"use std::sync::Mutex;",
+			"",
+			"let mutex = Mutex::new($1);",
+			"",
+			"let mut data = mutex.lock().unwrap();",
+			"data.$2;"
+		],
+		"description": "Lock a Mutex"
+	},
+	"Basic Arc with Mutex": {
+		"prefix": "arc-mutex",
+		"body": [
+			"use std::sync::{Arc, Mutex};",
+			"",
+			"let arc_mutex = Arc::new(Mutex::new($1));",
+			"",
+			"let arc_mutex_clone = arc_mutex.clone();"
+		],
+		"description": "Create and use an Arc with Mutex"
+	},
+	"Basic Json Parsing with Serde": {
+		"prefix": "serde-json",
+		"body": [
+			"use serde_json;",
+			"",
+			"fn parse_json(json_str: &str) -> serde_json::Value {",
+			"    let parsed: serde_json::Value = serde_json::from_str(json_str).unwrap();",
+			"    parsed",
+			"}"
+		],
+		"description": "Parse JSON using Serde"
+	},
+	"Basic Unit Testing": {
+		"prefix": "test",
+		"body": [
+			"#[cfg(test)]",
+			"mod tests {",
+			"    use super::*;",
+			"",
+			"    #[test]",
+			"    fn test_example() {",
+			"        assert_eq!(1 + 1, 2);",
+			"    }",
+			"}"
+		],
+		"description": "Basic unit test example"
+	},
+	"Basic Thread Spawning": {
+		"prefix": "thread-spawn",
+		"body": [
+			"use std::thread;",
+			"",
+			"let handle = thread::spawn(|| {",
+			"    println!(\"Thread is running\");",
+			"});"
+		],
+		"description": "Spawn a new thread"
+	},
+	"Basic Match Statement": {
+		"prefix": "match",
+		"body": [
+			"match $1 {",
+			"    $2 => {",
+			"        $3",
+			"    },",
+			"    _ => {",
+			"        $4",
+			"    }",
+			"}"
+		],
+		"description": "Basic match statement"
+	},
+	"Basic Iteration over Vector": {
+		"prefix": "iter-vec",
+		"body": [
+			"for item in $1.iter() {",
+			"    println!(\"{}\", item);",
+			"}"
+		],
+		"description": "Iterate over a vector"
+	},
+	"Basic Iteration over HashMap": {
+		"prefix": "iter-hashmap",
+		"body": [
+			"for (key, value) in $1.iter() {",
+			"    println!(\"{}: {}\", key, value);",
+			"}"
+		],
+		"description": "Iterate over a HashMap"
+	},
+	"Basic Struct Implementation": {
+		"prefix": "struct",
+		"body": [
+			"struct $1 {",
+			"    $2: $3,",
+			"    $4: $5,",
+			"}",
+			"",
+			"impl $1 {",
+			"    fn new($2: $3, $4: $5) -> Self {",
+			"        $1 {",
+			"            $2,",
+			"            $4,",
+			"        }",
+			"    }",
+			"}"
+		],
+		"description": "Basic struct implementation"
+	},
+	"Basic Enum Implementation": {
+		"prefix": "enum",
+		"body": [
+			"enum $1 {",
+			"    $2,",
+			"    $3($4),",
+			"    $5($6, $7),",
+			"}",
+			"",
+			"impl $1 {",
+			"    fn example(&self) {",
+			"        match self {",
+			"            $1::$2 => { $8 },",
+			"            $1::$3(val) => { $9 },",
+			"            $1::$5(val1, val2) => { $10 },",
+			"        }",
+			"    }",
+			"}"
+		],
+		"description": "Basic enum implementation"
+	},
+	"Basic Lifetime Annotation": {
+		"prefix": "lifetime",
+		"body": [
+			"fn function<'a>(input: &'a str) -> &'a str {",
+			"    input",
+			"}"
+		],
+		"description": "Basic lifetime annotation"
+	},
+	"Basic Unsafe Block": {
+		"prefix": "unsafe",
+		"body": [
+			"unsafe {",
+			"    $1",
+			"}"
+		],
+		"description": "Basic unsafe block"
+	},
+	"Basic Clone": {
+		"prefix": "clone",
+		"body": [
+			"let cloned = $1.clone();"
+		],
+		"description": "Clone a value"
+	},
+	"Basic Iterator Adapter": {
+		"prefix": "iter-adapter",
+		"body": [
+			"$1.iter().$2().$3()"
+		],
+		"description": "Basic iterator adapter"
+	},
+	"Basic Error Handling": {
+		"prefix": "err",
+		"body": [
+			"match $1 {",
+			"    Ok(value) => $2,",
+			"    Err(e) => {",
+			"        eprintln!(\"Error: {}\", e);",
+			"        $3",
+			"    }",
+			"}"
+		],
+		"description": "Handle errors with match"
+	},
+	"Result to Option Conversion": {
+		"prefix": "res-to-opt",
+		"body": [
+			"$1.ok()"
+		],
+		"description": "Convert Result to Option"
+	},
+	"Option to Result Conversion": {
+		"prefix": "opt-to-res",
+		"body": [
+			"$1.ok_or_else(|| $2)"
+		],
+		"description": "Convert Option to Result with an error"
+	},
+	"Propagate Error with ? Operator": {
+		"prefix": "propagate",
+		"body": [
+			"$1?;"
+		],
+		"description": "Propagate errors using the ? operator"
+	},
+	"Error Handling with Custom Error Type": {
+		"prefix": "custom-err",
+		"body": [
+			"use std::fmt;",
+			"",
+			"#[derive(Debug)]",
+			"pub enum MyError {",
+			"    CustomError(String),",
+			"}",
+			"",
+			"impl fmt::Display for MyError {",
+			"    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {",
+			"        write!(f, \"{:?}\", self)",
+			"    }",
+			"}",
+			"",
+			"impl std::error::Error for MyError {}",
+			"",
+			"fn my_function() -> Result<(), MyError> {",
+			"    Err(MyError::CustomError(\"An error occurred\".to_string()))",
+			"}"
+		],
+		"description": "Define and use a custom error type"
+	},
+	"Error Handling with Closure": {
+		"prefix": "closure-err",
+		"body": [
+			"let result: Result<_, std::io::Error> = $1;",
+			"result.map_err(|e| {",
+			"    eprintln!(\"Custom error message: {}\", e);",
+			"    e",
+			"})"
+		],
+		"description": "Handle errors using a closure"
+	},
+	"Error Handling with If Let": {
+		"prefix": "if-let",
+		"body": [
+			"if let Err(e) = $1 {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $2",
+			"}"
+		],
+		"description": "Handle errors with if let"
+	},
+	"Match with Error Handling and Return": {
+		"prefix": "match-return",
+		"body": [
+			"match $1 {",
+			"    Ok(value) => $2,",
+			"    Err(e) => {",
+			"        eprintln!(\"Error: {}\", e);",
+			"        return Err(e);",
+			"    }",
+			"}"
+		],
+		"description": "Match with error handling and return"
+	},
+	"Unwrap with Default Value": {
+		"prefix": "unwrap-or",
+		"body": [
+			"$1.unwrap_or($2)"
+		],
+		"description": "Unwrap an Option with a default value"
+	},
+	"Handle Result with Match and Logging": {
+		"prefix": "match-logging",
+		"body": [
+			"match $1 {",
+			"    Ok(value) => {",
+			"        println!(\"Success: {}\", value);",
+			"    },",
+			"    Err(e) => {",
+			"        log::error!(\"Error: {}\", e);",
+			"    }",
+			"}"
+		],
+		"description": "Handle Result with match and logging"
+	},
+	"Handle Multiple Errors": {
+		"prefix": "multiple-errors",
+		"body": [
+			"match $1 {",
+			"    Ok(value) => $2,",
+			"    Err(e) => match e.kind() {",
+			"        std::io::ErrorKind::NotFound => eprintln!(\"File not found: {}\", e),",
+			"        std::io::ErrorKind::PermissionDenied => eprintln!(\"Permission denied: {}\", e),",
+			"        _ => eprintln!(\"An error occurred: {}\", e),",
+			"    }",
+			"}"
+		],
+		"description": "Handle different kinds of errors"
+	},
+	"Early Return on Error": {
+		"prefix": "early-return",
+		"body": [
+			"if let Err(e) = $1 {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    return Err(e);",
+			"}"
+		],
+		"description": "Early return on error"
+	},
+	"Error Handling with Optional Chaining": {
+		"prefix": "opt-chain",
+		"body": [
+			"$1.and_then(|val| $2).unwrap_or_else(|e| {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $3",
+			"})"
+		],
+		"description": "Handle errors with optional chaining"
+	},
+	"Handle Error with Result and Logging": {
+		"prefix": "res-logging",
+		"body": [
+			"let result: Result<_, std::io::Error> = $1;",
+			"result.map_err(|e| {",
+			"    log::error!(\"Error: {}\", e);",
+			"    e",
+			"})"
+		],
+		"description": "Handle Result with logging"
+	},
+	"Handle Error with Default Value": {
+		"prefix": "err-default",
+		"body": [
+			"let value = $1.unwrap_or_else(|e| {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $2",
+			"});"
+		],
+		"description": "Handle Result with a default value on error"
+	},
+	"Custom Error with Context": {
+		"prefix": "context-err",
+		"body": [
+			"use std::fmt;",
+			"",
+			"#[derive(Debug)]",
+			"pub struct MyError {",
+			"    msg: String,",
+			"}",
+			"",
+			"impl fmt::Display for MyError {",
+			"    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {",
+			"        write!(f, \"{}\", self.msg)",
+			"    }",
+			"}",
+			"",
+			"impl std::error::Error for MyError {}",
+			"",
+			"fn my_function() -> Result<(), MyError> {",
+			"    let result: Result<_, std::io::Error> = $1;",
+			"    result.map_err(|e| MyError {",
+			"        msg: format!(\"Custom error context: {}\", e),",
+			"    })",
+			"}"
+		],
+		"description": "Handle errors with custom error context"
+	},
+	"Error Handling with Result and Optional Chaining": {
+		"prefix": "res-opt-chain",
+		"body": [
+			"$1.ok_or_else(|| {",
+			"    let err = $2;",
+			"    eprintln!(\"Error: {}\", err);",
+			"    err",
+			"})"
+		],
+		"description": "Handle Result with optional chaining and error logging"
+	},
+	"Handle Error in Async Context": {
+		"prefix": "async-err",
+		"body": [
+			"async fn my_function() -> Result<(), Box<dyn std::error::Error>> {",
+			"    let result: Result<_, std::io::Error> = $1;",
+			"    result.map_err(|e| {",
+			"        eprintln!(\"Async error: {}\", e);",
+			"        Box::new(e) as Box<dyn std::error::Error>",
+			"    })",
+			"}"
+		],
+		"description": "Handle errors in an async function"
+	},
+	"Error Handling with Match and Option": {
+		"prefix": "match-opt",
+		"body": [
+			"match $1 {",
+			"    Some(value) => $2,",
+			"    None => {",
+			"        eprintln!(\"Error: Value is None\");",
+			"        $3",
+			"    }",
+			"}"
+		],
+		"description": "Handle Option with match"
+	},
+	"Error Handling with Result and Option Chaining": {
+		"prefix": "res-opt",
+		"body": [
+			"$1.and_then(|val| $2).ok_or_else(|| {",
+			"    eprintln!(\"Error: {}\", $3);",
+			"    $4",
+			"})"
+		],
+		"description": "Handle Result with Option chaining"
+	},
+	"Handle Error with Result and Option Chaining": {
+		"prefix": "res-opt-chain",
+		"body": [
+			"$1.ok_or_else(|| {",
+			"    let err = $2;",
+			"    eprintln!(\"Error: {}\", err);",
+			"    err",
+			"})"
+		],
+		"description": "Handle Result with Option chaining and error logging"
+	},
+	"Error Handling with Result and Default Value": {
+		"prefix": "res-default",
+		"body": [
+			"$1.unwrap_or_else(|e| {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $2",
+			"})"
+		],
+		"description": "Handle Result with a default value on error"
+	},
+	"Error Handling with Match and Return": {
+		"prefix": "match-return",
+		"body": [
+			"match $1 {",
+			"    Ok(value) => $2,",
+			"    Err(e) => {",
+			"        eprintln!(\"Error: {}\", e);",
+			"        return Err(e);",
+			"    }",
+			"}"
+		],
+		"description": "Handle Result with match and early return"
+	},
+	"Error Handling in Async Context": {
+		"prefix": "async-error",
+		"body": [
+			"async fn async_function() -> Result<(), Box<dyn std::error::Error>> {",
+			"    let result: Result<_, std::io::Error> = $1;",
+			"    result.map_err(|e| {",
+			"        eprintln!(\"Async error: {}\", e);",
+			"        Box::new(e) as Box<dyn std::error::Error>",
+			"    })",
+			"}"
+		],
+		"description": "Handle errors in an async context"
+	},
+	"Handling Error with Option and Result": {
+		"prefix": "opt-res",
+		"body": [
+			"$1.ok_or_else(|| $2)"
+		],
+		"description": "Handle Option with Result"
+	},
+	"Handling Result with Error and Default Value": {
+		"prefix": "res-err-default",
+		"body": [
+			"$1.unwrap_or_else(|e| {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $2",
+			"})"
+		],
+		"description": "Handle Result with error and default value"
+	},
+	"Error Handling with If Let and Result": {
+		"prefix": "if-let-res",
+		"body": [
+			"if let Err(e) = $1 {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $2",
+			"}"
+		],
+		"description": "Handle Result with if let"
+	},
+	"Error Handling with Custom Error Type and Result": {
+		"prefix": "custom-res",
+		"body": [
+			"use std::fmt;",
+			"",
+			"#[derive(Debug)]",
+			"pub enum MyError {",
+			"    CustomError(String),",
+			"}",
+			"",
+			"impl fmt::Display for MyError {",
+			"    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {",
+			"        write!(f, \"{}\", self.msg)",
+			"    }",
+			"}",
+			"",
+			"impl std::error::Error for MyError {}",
+			"",
+			"fn my_function() -> Result<(), MyError> {",
+			"    let result: Result<_, std::io::Error> = $1;",
+			"    result.map_err(|e| MyError {",
+			"        msg: format!(\"Custom error: {}\", e),",
+			"    })",
+			"}"
+		],
+		"description": "Handle Result with custom error type"
+	},
+	"Error Handling with Option and Result Chaining": {
+		"prefix": "opt-res-chain",
+		"body": [
+			"$1.ok_or_else(|| $2)"
+		],
+		"description": "Handle Option with Result chaining"
+	},
+	"Error Handling with Option and Default Value": {
+		"prefix": "opt-default",
+		"body": [
+			"$1.unwrap_or_else(|| $2)"
+		],
+		"description": "Handle Option with a default value"
+	},
+	"Error Handling with Result and Match": {
+		"prefix": "res-match",
+		"body": [
+			"match $1 {",
+			"    Ok(value) => $2,",
+			"    Err(e) => {",
+			"        eprintln!(\"Error: {}\", e);",
+			"        $3",
+			"    }",
+			"}"
+		],
+		"description": "Handle Result with match"
+	},
+	"Error Handling with Result and Closure": {
+		"prefix": "res-closure",
+		"body": [
+			"$1.map_err(|e| {",
+			"    eprintln!(\"Error: {}\", e);",
+			"    $2",
+			"})"
+		],
+		"description": "Handle Result with a closure"
+	},
 	"test": {
 		"body": [
 			"#[cfg(test)]",
@@ -14,5 +1148,39 @@
 		],
 		"prefix": "test",
 		"scope": "rust"
+	},
+	"Struct Definition": {
+		"prefix": "struct",
+		"body": [
+			"struct $1 {",
+			"    $2",
+			"}",
+			"",
+			"impl $1 {",
+			"    pub fn new($3) -> Self {",
+			"        Self {",
+			"            $4",
+			"        }",
+			"    }",
+			"}"
+		],
+		"description": "Define a struct with implementation"
+	},
+	"Enum Definition": {
+		"prefix": "enum",
+		"body": [
+			"enum $1 {",
+			"    $2,",
+			"    $3,",
+			"    $4",
+			"}",
+			"",
+			"impl $1 {",
+			"    pub fn new() -> Self {",
+			"        $5",
+			"    }",
+			"}"
+		],
+		"description": "Define an enum"
 	}
 }
