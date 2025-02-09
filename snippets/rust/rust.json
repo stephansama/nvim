@@ -1133,22 +1133,6 @@
 		],
 		"description": "Handle Result with a closure"
 	},
-	"test": {
-		"body": [
-			"#[cfg(test)]",
-			"mod tests {",
-			"    use super::*;",
-			"",
-			"    #[test]",
-			"    fn $1() {",
-			"        $2;",
-			"        assert!($3)",
-			"    }",
-			"}"
-		],
-		"prefix": "test",
-		"scope": "rust"
-	},
 	"Struct Definition": {
 		"prefix": "struct",
 		"body": [
