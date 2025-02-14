@@ -42,10 +42,6 @@ require("utils.expand").expand_keymaps({
 		["vw"] = { "viw", "Visually select word" },
 		["v'"] = { "vi'", "Visually select single quotes" },
 		['v"'] = { 'vi"', "Visually select double quotes" },
-
-		--- navigate buffers
-		[")"] = { utils.move_buffer("next"), "Navigate to next buffer" },
-		["("] = { utils.move_buffer("previous"), "Navigate to previous buffer" },
 	},
 	v = {
 		["<"] = { "<gv", "Indent Left" },
