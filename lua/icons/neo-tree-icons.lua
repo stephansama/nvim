@@ -102,7 +102,7 @@ M.icons = {
 	-- public = "󱞊",
 	info = "󱂷",
 	content = "󰣞",
-	fonts = "",
+	font = "",
 	goal = "",
 	target = "",
 	nvim = "",
@@ -111,7 +111,6 @@ M.icons = {
 	robot = "󰚩",
 	debug = "",
 	test = "",
-	tests = "",
 	-- test = "󰙨",
 	temp = "󰪺",
 	tmp = "󰪺",
@@ -177,8 +176,8 @@ M.icons = {
 	import = "󰉗",
 	include = "󰉗",
 	-- images
-	assets = "󰉏",
-	images = "󰉏",
+	asset = "󰉏",
+	image = "󰉏",
 	media = "󰉏",
 	-- configs
 	conf = "",
