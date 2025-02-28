@@ -158,6 +158,7 @@ M.icons = {
 	generate = "󰴋",
 	component = "󰀻",
 	partial = "",
+	patches = "",
 	node_modules = "",
 	pnpm = "",
 	dist = "",
