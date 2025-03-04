@@ -101,6 +101,7 @@ M.override_by_filename = {
 	["_redirects"] = { icon = "" },
 	[".stow-local-ignore"] = { icon = "" },
 	["wrangler.toml"] = { icon = "☁", color = "#F38020", name = "cloudflare" },
+	["ci.config.json"] = { icon = "", color = "#89b4fa", name = "monorepo ci" },
 	[".babelrc"] = icons.babel,
 	[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
 	[".commitlintrc"] = icons.commitlint,
