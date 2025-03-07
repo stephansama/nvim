@@ -13,11 +13,14 @@ local config = {
 	packages = { enable = false },
 	shortcut = {
 		{
-			key = "u",
-			icon = "",
-			desc = " Update",
+			key = "g",
+			icon = "󰊢",
+			desc = " Git files",
 			group = "@variable",
-			action = "Lazy update",
+			action = function()
+				require("fzf-lua")
+				vim.cmd([[FzfLua git_status]])
+			end,
 			icon_hl = "TodoFgTODO",
 		},
 		{
