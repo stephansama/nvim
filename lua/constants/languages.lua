@@ -12,7 +12,7 @@ return {
 	"zig",
 	"rust",
 	"haskell",
-	-- "php",
+	"php",
 	-- "java",
 	-- "godot",
 	-- "python",
