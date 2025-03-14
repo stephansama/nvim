@@ -3,6 +3,7 @@ local M = {}
 
 local icons = {
 	commitlint = { icon = "󰜘", color = "#429488", name = "commitlint" },
+	wrangler = { icon = "☁", color = "#F38020", name = "cloudflare" },
 	stylelint = { icon = "", name = "stylelint" },
 	eslintrc = { icon = "󰱺", name = "eslintrc" },
 	sitemap = { icon = "", name = "sitemap" },
@@ -100,7 +101,8 @@ M.override_by_filename = {
 	["amplify.yml"] = { icon = "󰸏" },
 	["_redirects"] = { icon = "" },
 	[".stow-local-ignore"] = { icon = "" },
-	["wrangler.toml"] = { icon = "☁", color = "#F38020", name = "cloudflare" },
+	["wrangler.toml"] = icons.wrangler,
+	["wrangler.jsonc"] = icons.wrangler,
 	["ci.config.json"] = { icon = "", color = "#89b4fa", name = "monorepoci" },
 	[".babelrc"] = icons.babel,
 	[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
