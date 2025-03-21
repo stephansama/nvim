@@ -73,7 +73,7 @@ M.shell = {
 
 ---@type LanguageObject
 M.data = {
-	mason = { "jsonlint", "yamlfmt", "yamllint", "sqlfmt" },
+	mason = { "jsonlint", "yamlfmt", "yamllint", "sqlfmt", "xmlformatter" },
 	mason_lsp = {
 		"sqls",
 		"taplo",
@@ -86,6 +86,7 @@ M.data = {
 		sql = { "sql_formatter" },
 		toml = { "taplo" },
 		yaml = { "yamlfmt" },
+		xml = { "xmlformatter" },
 		jsonc = require("utils.pull").prettier_formatter_or({}),
 		json = require("utils.pull").prettier_formatter_or({}),
 	},
@@ -98,6 +99,7 @@ M.data = {
 		"yamlls",
 		"jsonls",
 		"graphql",
+		"lemminx",
 	},
 	treesitter = {
 		"csv",
