@@ -23,10 +23,6 @@ require("utils.expand").expand_keymaps({
 		["<leader>vc"] = { "<cmd>!code .<CR>", "Open project in visual studio code" },
 		["<leader>vf"] = { "<cmd>!code '%:p'<CR>", "Open file in visual studio code" },
 
-		--- splits
-		["<leader>sh"] = { "<cmd>sp<CR>", "Split horizontally" },
-		["<leader>sv"] = { "<cmd>vsp<CR>", "Split vertically" },
-
 		--- quick line
 		["o"] = { "o<ESC>zz" },
 		["O"] = { "O<ESC>zz" },
