@@ -19,7 +19,9 @@ require("utils.expand").expand_keymaps({
 		["<leader>tx"] = { vim.cmd.tabnext, "Go to next tab" },
 		["<leader>tn"] = { vim.cmd.tabnew, "Create new tab" },
 		["<leader>se"] = { "<cmd>!open .<CR>", "Open project in finder" },
+		["<leader>sf"] = { "<cmd>!open '%:p'<CR>", "Open file with default provider" },
 		["<leader>vc"] = { "<cmd>!code .<CR>", "Open project in visual studio code" },
+		["<leader>vf"] = { "<cmd>!code '%:p'<CR>", "Open file in visual studio code" },
 
 		--- splits
 		["<leader>sh"] = { "<cmd>sp<CR>", "Split horizontally" },
