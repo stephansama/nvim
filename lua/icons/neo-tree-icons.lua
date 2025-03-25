@@ -76,6 +76,7 @@ M.icons = {
 	key = "󰢬",
 	token = "󰢬",
 	layout = "󰕮",
+	nuxt = "󱄆",
 	middleware = "󰽞",
 	lang = "󰗊",
 	language = "󰗊",
