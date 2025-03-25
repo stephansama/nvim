@@ -27,6 +27,8 @@ require("utils.expand").expand_keymaps({
 		["o"] = { "o<ESC>zz" },
 		["O"] = { "O<ESC>zz" },
 
+		["Q'"] = { "@q", "Quick replay" },
+
 		--- quick actions
 		["cw"] = { "ciw", "Change word" },
 		["c'"] = { "ci'", "Change single quotes" },
