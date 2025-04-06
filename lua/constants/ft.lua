@@ -38,6 +38,10 @@ M.VIM_FT_EXTENSIONS = {
 	j2 = "jinja",
 }
 
+M.VIM_FT_PATTERNS = {
+	[".*%.blade%.php"] = "blade",
+}
+
 M.INDENT_EXCLUDE_BUFTYPES = {
 	"prompt",
 	"nofile",

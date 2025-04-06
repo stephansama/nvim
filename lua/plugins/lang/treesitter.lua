@@ -19,6 +19,9 @@ return {
 			local dir = require("constants.dir").TREESITTER_PARSER_INSTALL_DIR
 			vim.opt.runtimepath:append(dir)
 			require("nvim-treesitter.configs").setup(opts)
+			local parsers = require("constants.pulled").TREESITTER_PARSERS
+			local configs = require("nvim-treesitter.parsers").get_parser_configs()
+			configs = vim.tbl_deep_extend("force", configs, parsers)
 		end,
 		opts = {
 			highlight = { enable = true },

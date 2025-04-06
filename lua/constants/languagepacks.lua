@@ -1,5 +1,14 @@
 local M = {}
 
+---@class TreesitterParserInstallInfo
+---@field url string
+---@field files string[]
+---@field branch string
+
+---@class TreesitterParser
+---@field filetype string
+---@field install_info TreesitterParserInstallInfo
+
 ---object used to describe a specific language toolchain
 ---@class LanguageObject
 --- [Documentation](https://mason-registry.dev/registry/list)
@@ -14,6 +23,8 @@ local M = {}
 ---@field formatters table<string,table<string>|function|nil> | string | nil
 --- [Documentation](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages)
 ---@field treesitter table<string,table> | string | nil
+--- [Documentation]()
+---@field treesitter_parser table<string, TreesitterParser> | nil
 --- Telescope extensions to enable for language
 ---@field telescope_extensions table<string,table> | string | nil
 
@@ -271,12 +282,22 @@ M.zig = { mason_lsp = "zls", servers = "zls", treesitter = "zig" }
 
 ---@type LanguageObject
 M.php = {
-	mason = { "pint", "phpcs" },
+	mason = { "pint", "phpcs", "blade-formatter" },
 	mason_lsp = "intelephense",
 	servers = "intelephense",
 	linters = "phpcs",
-	formatters = "pint",
+	formatters = { "pint", "blade-formatter" },
 	treesitter = { "php", "phpdoc" },
+	treesitter_parser = {
+		["blade"] = {
+			filetype = "blade",
+			install_info = {
+				branch = "main",
+				files = { "src/parser.c" },
+				url = "https://github.com/EmranMR/tree-sitter-blade",
+			},
+		},
+	},
 }
 
 ---@type LanguageObject

@@ -119,7 +119,7 @@ M.pull_plugins_from_languages = function()
 end
 
 ---@see LanguageObject
----@param property 'servers'|'linters'|'formatters'|'treesitter'|'mason'|'mason_lsp'
+---@param property 'servers'|'linters'|'formatters'|'treesitter'|'mason'|'mason_lsp'|'treesitter_parser'
 ---@param callback function | nil
 ---@return table
 M.pull_property_from_languages = function(property, callback)

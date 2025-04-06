@@ -1,5 +1,6 @@
 local ft = require("constants.ft")
-local VIM_FT_EXTENSIONS, VIM_FT_FILENAMES = ft.VIM_FT_EXTENSIONS, ft.VIM_FT_FILENAMES
+local VIM_FT_EXTENSIONS, VIM_FT_FILENAMES, VIM_FT_PATTERNS =
+	ft.VIM_FT_EXTENSIONS, ft.VIM_FT_FILENAMES, ft.VIM_FT_PATTERNS
 local expand_settings = require("utils.expand").expand_settings
 
 vim.g.mapleader = require("keys.init").LEADER
@@ -7,6 +8,7 @@ vim.g.mapleader = require("keys.init").LEADER
 vim.filetype.add({
 	filename = VIM_FT_FILENAMES,
 	extension = VIM_FT_EXTENSIONS,
+	pattern = VIM_FT_PATTERNS,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {

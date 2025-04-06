@@ -26,4 +26,6 @@ M.MASON_LSP_ENSURE_INSTALLED = merge_flat(pull_property_from_languages("mason_ls
 
 M.TREESITTER_ENSURE_INSTALLED = merge_flat(pull_property_from_languages("treesitter"))
 
+M.TREESITTER_PARSERS = merge_kv(pull_property_from_languages("treesitter_parser"))
+
 return M
