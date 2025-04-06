@@ -35,6 +35,7 @@ local icons = {
 	javascript = { icon = "󰌞", color = "#F7DF1E", name = "javascript" },
 	dependabot = { icon = "", color = "#025E8C", name = "dependabot" },
 	unlighthouse = { icon = "󰧿", color = "#F44B21", name = "unlighthouse" },
+	php = { icon = "", color = "#777BB4", name = "php" },
 }
 
 M.strict = true
@@ -96,6 +97,8 @@ M.override_by_extension = {
 }
 
 M.override_by_filename = {
+	["artisan"] = { icon = "󰫐", color = "#FF2D20", name = "laravel" },
+	["phpunit.xml"] = icons.php,
 	["nx.json"] = icons.nx,
 	["project.json"] = icons.nx,
 	["amplify.yml"] = { icon = "󰸏" },
