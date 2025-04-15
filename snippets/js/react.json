@@ -67,7 +67,7 @@
 		"key": "typescriptReactFunctionalExportComponent",
 		"prefix": "tsrfce",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"type Props = {}",
 			"",
@@ -86,7 +86,7 @@
 		"key": "typescriptReactFunctionalComponent",
 		"prefix": "tsrfc",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"type Props = {}",
 			"",
@@ -103,7 +103,7 @@
 		"key": "typescriptReactArrowFunctionExportComponent",
 		"prefix": "tsrafce",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"type Props = {}",
 			"",
@@ -122,7 +122,7 @@
 		"key": "typescriptReactArrowFunctionComponent",
 		"prefix": "tsrafc",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"type Props = {}",
 			"",
@@ -210,7 +210,7 @@
 		"prefix": "tsrnf",
 		"body": [
 			"import { View, Text } from 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"type Props = {}",
 			"",
@@ -232,7 +232,7 @@
 		"prefix": "tsrnfs",
 		"body": [
 			"import { StyleSheet, Text, View } from 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"type Props = {}",
 			"",
@@ -255,7 +255,7 @@
 		"key": "reactArrowFunctionComponent",
 		"prefix": "rafc",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"export const ${1:${TM_FILENAME_BASE}} = () => {",
 			"  return (",
@@ -271,7 +271,7 @@
 		"key": "reactArrowFunctionComponentWithPropTypes",
 		"prefix": "rafcp",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import PropTypes from 'prop-types'",
 			"",
 			"const ${1:${TM_FILENAME_BASE}} = props => {",
@@ -291,7 +291,7 @@
 		"key": "reactArrowFunctionExportComponent",
 		"prefix": "rafce",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"const ${1:${TM_FILENAME_BASE}} = () => {",
 			"  return (",
@@ -536,7 +536,7 @@
 		"key": "reactFunctionalComponent",
 		"prefix": "rfc",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"export default function ${1:${TM_FILENAME_BASE}}() {",
 			"  return (",
@@ -552,7 +552,7 @@
 		"key": "reactFunctionalComponentRedux",
 		"prefix": "rfcredux",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import { connect } from 'react-redux'",
 			"",
 			"export const ${1:${TM_FILENAME_BASE}} = (props) => {",
@@ -575,7 +575,7 @@
 		"prefix": "rfcreduxp",
 		"body": [
 			"import PropTypes from 'prop-types'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import { connect } from 'react-redux'",
 			"",
 			"export const ${1:${TM_FILENAME_BASE}} = (props) => {",
@@ -601,7 +601,7 @@
 		"key": "reactFunctionalComponentWithPropTypes",
 		"prefix": "rfcp",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import PropTypes from 'prop-types'",
 			"",
 			"function ${1:${TM_FILENAME_BASE}}(props) {",
@@ -622,7 +622,7 @@
 		"key": "reactFunctionalExportComponent",
 		"prefix": "rfce",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"function ${1:${TM_FILENAME_BASE}}() {",
 			"  return (",
@@ -793,7 +793,7 @@
 		"key": "importReact",
 		"prefix": "imr",
 		"body": [
-			"import React from 'react'"
+			"import * as React from 'react'"
 		],
 		"scope": "typescript,typescriptreact,javascript,javascriptreact"
 	},
@@ -1256,7 +1256,7 @@
 		"prefix": "rnf",
 		"body": [
 			"import { View, Text } from 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"export default function ${1:${TM_FILENAME_BASE}}() {",
 			"  return (",
@@ -1273,7 +1273,7 @@
 		"prefix": "rnfs",
 		"body": [
 			"import { StyleSheet, Text, View } from 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"export default function ${1:${TM_FILENAME_BASE}}() {",
 			"  return (",
@@ -1292,7 +1292,7 @@
 		"prefix": "rnfe",
 		"body": [
 			"import { View, Text } from 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"const ${1:${TM_FILENAME_BASE}} = () => {",
 			"  return (",
@@ -1311,7 +1311,7 @@
 		"prefix": "rnfes",
 		"body": [
 			"import { StyleSheet, Text, View } from 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"",
 			"const ${1:${TM_FILENAME_BASE}} = () => {",
 			"  return (",
@@ -1504,7 +1504,7 @@
 		"key": "setupReactComponentTestWithRedux",
 		"prefix": "srtest",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import renderer from 'react-test-renderer'",
 			"import { Provider } from 'react-redux'",
 			"",
@@ -1532,7 +1532,7 @@
 		"prefix": "sntest",
 		"body": [
 			"import 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import renderer from 'react-test-renderer'",
 			"",
 			"import ${1:${TM_FILENAME_BASE}} from '../${1:${TM_FILENAME_BASE}}'",
@@ -1553,7 +1553,7 @@
 		"prefix": "snrtest",
 		"body": [
 			"import 'react-native'",
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import renderer from 'react-test-renderer'",
 			"import { Provider } from 'react-redux'",
 			"",
@@ -1579,7 +1579,7 @@
 		"key": "setupReactTest",
 		"prefix": "stest",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import renderer from 'react-test-renderer'",
 			"",
 			"import { ${1:${TM_FILENAME_BASE}} } from '../${1:${TM_FILENAME_BASE}}'",
@@ -1955,7 +1955,7 @@
 		"key": "hocComponentWithRedux",
 		"prefix": "hocredux",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import { connect } from 'react-redux'",
 			"import PropTypes from 'prop-types'",
 			"",
@@ -1980,7 +1980,7 @@
 		"key": "hocComponent",
 		"prefix": "hoc",
 		"body": [
-			"import React from 'react'",
+			"import * as React from 'react'",
 			"import PropTypes from 'prop-types'",
 			"",
 			"export default (WrappedComponent) => {",
