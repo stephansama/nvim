@@ -29,20 +29,10 @@ require("utils.expand").expand_keymaps({
 
 		["Q'"] = { "@q", "Quick replay" },
 
-		--- quick actions
-		["cw"] = { "ciw", "Change word" },
-		["c'"] = { "ci'", "Change single quotes" },
-		['c"'] = { 'ci"', "Change double quotes" },
-		["dw"] = { "diw", "Delete word" },
-		["d'"] = { "di'", "Delete single quotes" },
-		['d"'] = { 'di"', "Delete double quotes" },
-		["yw"] = { "yiw", "Yank word" },
-		["y'"] = { "yi'", "Yank single quotes" },
-		['y"'] = { 'yi"', "Yank double quotes" },
-		["vw"] = { "viw", "Visually select word" },
-		["v'"] = { "vi'", "Visually select single quotes" },
-		['v"'] = { 'vi"', "Visually select double quotes" },
-		["ycc"] = { "yygccp", "Comment out line" },
+		["J"] = { "mzJ`z:delmarks z<cr>", "", { silent = true } },
+	},
+	x = {
+		["/"] = { "<Esc>/\\%V", "Search within lines" },
 	},
 	v = {
 		["<"] = { "<gv", "Indent Left" },
