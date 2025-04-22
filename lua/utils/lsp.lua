@@ -87,13 +87,12 @@ end
 ---@param lspname string lsp name to load
 ---@param on_attach function
 M.load_lsp = function(lspname, capabilities, on_attach)
-	local lspconfig = require("lspconfig")
 	local options = vim.tbl_deep_extend(
 		"force",
 		require(M.convert_dir_to_module(require("constants.dir").LSP_CONFIG_DIR) .. lspname) or {},
 		{ capabilities = capabilities }
 	)
-	lspconfig[lspname].setup(setup_lsp(options, on_attach))
+	vim.lsp.config(lspname, setup_lsp(options, on_attach))
 	print("loading " .. lspname .. " server")
 end
 
@@ -139,7 +138,10 @@ M.setup_borders = function()
 
 	vim.diagnostic.config({
 		float = { border = border, source = diagnostic_source },
-		virtual_text = { source = diagnostic_source },
+		virtual_lines = {
+			current_line = true,
+			source = diagnostic_source,
+		},
 	})
 
 	-- To instead override globally
