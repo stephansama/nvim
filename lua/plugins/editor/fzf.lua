@@ -3,7 +3,10 @@ local opts = function()
 		"default-title",
 		winopts = { preview = { layout = "flex", flip_columns = 600 } },
 		keymap = {
-			fzf = { ["alt-s"] = "select-all+accept" },
+			fzf = {
+				["alt-s"] = "select-all+accept",
+				["alt-q"] = "select+accept",
+			},
 		},
 	}
 end
