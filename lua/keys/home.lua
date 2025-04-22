@@ -42,6 +42,7 @@ require("utils.expand").expand_keymaps({
 		["vw"] = { "viw", "Visually select word" },
 		["v'"] = { "vi'", "Visually select single quotes" },
 		['v"'] = { 'vi"', "Visually select double quotes" },
+		["ycc"] = { "yygccp", "Comment out line" },
 	},
 	v = {
 		["<"] = { "<gv", "Indent Left" },
