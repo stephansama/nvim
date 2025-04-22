@@ -13,12 +13,20 @@ M.list_workspace_folder = function()
 end
 
 M.create_capabilities = function()
-	local c = require("cmp_nvim_lsp").default_capabilities()
-	--- add emmet completion support
-	c.textDocument.completion.completionItem.snippetSupport = true
-	--- add ufo capabilities
-	c.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
-	return c
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+	capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
+
+	capabilities = vim.tbl_deep_extend("force", capabilities, {
+		textDocument = {
+			foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			},
+		},
+	})
+
+	return capabilities
 end
 
 --- create options for lsp
@@ -138,10 +146,7 @@ M.setup_borders = function()
 
 	vim.diagnostic.config({
 		float = { border = border, source = diagnostic_source },
-		virtual_lines = {
-			current_line = true,
-			source = diagnostic_source,
-		},
+		virtual_text = { source = diagnostic_source },
 	})
 
 	-- To instead override globally
