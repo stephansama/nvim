@@ -1,15 +1,13 @@
-local opts = function()
-	return {
-		"default-title",
-		winopts = { preview = { layout = "flex", flip_columns = 600 } },
-		keymap = {
-			fzf = {
-				["alt-s"] = "select-all+accept",
-				["alt-q"] = "select+accept",
-			},
+local opts = {
+	"default-title",
+	winopts = { preview = { layout = "flex", flip_columns = 600 } },
+	keymap = {
+		fzf = {
+			["alt-s"] = "select-all+accept",
+			["alt-q"] = "select+accept",
 		},
-	}
-end
+	},
+}
 
 return {
 	"ibhagwan/fzf-lua",

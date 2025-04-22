@@ -1,4 +1,3 @@
---- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
 local utils = require("utils.ui")
 local theme = require("constants.theme")
 local create_theme_options = require("utils.ui").create_theme_options
@@ -10,42 +9,38 @@ local opts = {
 	show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
 	transparent_background = true,
 	integrations = {
+		blink_cmp = true,
 		cmp = true,
 		dap = true,
-		ufo = true,
-		mason = true,
-		noice = true,
 		dap_ui = true,
-		notify = true,
-		neotest = true,
-		harpoon = true,
-		neotree = true,
-		gitsigns = true,
 		dashboard = true,
-		telescope = true,
+		gitsigns = true,
+		harpoon = true,
 		illuminate = true,
-		treesitter = true,
-		window_picker = true,
-		lsp_trouble = true,
-		render_markdown = true,
-		symbols_outline = true,
 		indent_blankline = true,
-		treesitter_context = true,
+		lsp_trouble = true,
+		mason = true,
 		native_lsp = {
 			enabled = true,
 			underlines = create_theme_options("underline"),
 			virtual_text = create_theme_options("italic"),
 		},
+		neotest = true,
+		neotree = true,
+		noice = true,
+		notify = true,
+		render_markdown = true,
+		symbols_outline = true,
+		telescope = true,
+		treesitter = true,
+		treesitter_context = true,
+		ufo = true,
+		window_picker = true,
 	},
 }
 
 return {
-	{
-		"catppuccin/nvim",
-		priority = 1001,
-		name = "catppuccin",
-		opts = opts,
-	},
+	{ "catppuccin/nvim", priority = 1001, name = "catppuccin", opts = opts },
 	{
 		"f-person/auto-dark-mode.nvim",
 		priority = 1002,

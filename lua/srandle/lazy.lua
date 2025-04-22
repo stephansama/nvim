@@ -1,7 +1,4 @@
-local expand_plugins = require("utils.expand").expand_plugins
-local ENABLED_PLUGINS = require("constants.pulled").PLUGINS
-local LAZY_DIR = require("constants.dir").LAZY_DIR
-local LAZY_URL = require("constants.url").LAZY_URL
+local LAZY_DIR = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local icons = require("icons").lazy
 
 vim.opt.rtp:prepend(LAZY_DIR)
@@ -10,13 +7,16 @@ if not vim.loop.fs_stat(LAZY_DIR) then
 		"git",
 		"clone",
 		"--filter=blob:none",
-		LAZY_URL,
+		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
 		LAZY_DIR,
 	})
 end
 
-require("lazy").setup(expand_plugins(ENABLED_PLUGINS), {
+require("lazy").setup({
+	{ import = "plugins.ui" },
+	{ import = "plugins.editor" },
+}, {
 	defaults = { lazy = true },
 	install = { colorscheme = { "catpuccin" } },
 	ui = { border = "rounded" },

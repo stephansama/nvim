@@ -1,16 +1,3 @@
-local ft = require("constants.ft")
-local VIM_FT_EXTENSIONS, VIM_FT_FILENAMES, VIM_FT_PATTERNS =
-	ft.VIM_FT_EXTENSIONS, ft.VIM_FT_FILENAMES, ft.VIM_FT_PATTERNS
-local expand_settings = require("utils.expand").expand_settings
-
-vim.g.mapleader = require("keys.init").LEADER
-
-vim.filetype.add({
-	filename = VIM_FT_FILENAMES,
-	extension = VIM_FT_EXTENSIONS,
-	pattern = VIM_FT_PATTERNS,
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
@@ -19,36 +6,38 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.g.mapleader = " "
+
 vim.cmd([[set shortmess+=I]])
 
-expand_settings({
-	wo = { number = true, relativenumber = true },
-	bo = { tabstop = 4 },
-	o = {
-		list = true,
-		shiftwidth = 4,
-		scrolloff = 999,
-		listchars = "tab:│ ,trail:·",
-		fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]], -- fold seperator
-	},
-	opt = {
-		tabstop = 4,
-		confirm = true,
-		undofile = true,
-		wildmode = "longest:full,full",
-		smartcase = true,
-		clipboard = "unnamedplus", -- use system register
-		undolevels = 10000,
-		signcolumn = "yes", -- always show sign column to prevent layout shift
-		splitbelow = false,
-		splitright = true,
-		smartindent = true,
-		conceallevel = 1,
-		termguicolors = true,
-		-- https://github.com/kevinhwang91/nvim-ufo?tab=readme-ov-file#minimal-configuration
-		foldlevel = 99,
-		foldcolumn = "1",
-		foldenable = true,
-		foldlevelstart = 99,
-	},
-})
+vim.wo.number = true
+vim.wo.relativenumber = true
+
+vim.bo.tabstop = 4
+
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.list = true
+vim.o.listchars = "tab:│ ,trail:·"
+vim.o.scrolloff = 999
+vim.o.shiftwidth = 4
+
+vim.opt.clipboard = "unnamedplus" -- use system register
+vim.opt.conceallevel = 1
+vim.opt.confirm = true
+vim.opt.signcolumn = "yes" -- always show sign column to prevent layout shift
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.splitbelow = false
+vim.opt.splitright = true
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.termguicolors = true
+vim.opt.undofile = true
+vim.opt.undolevels = 10000
+-- vim.opt.wildmode = "longest:fullfull"
+
+-- https://github.com/kevinhwang91/nvim-ufo?tab=readme-ov-file#minimal-configuration
+vim.opt.foldcolumn = "1"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99

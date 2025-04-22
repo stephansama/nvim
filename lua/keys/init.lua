@@ -1,6 +1,6 @@
 local M = {}
 local harpoon_utils = require("utils.harpoon_utils")
-local execute_neotree = require("utils.neotree").execute_neotree
+local execute_neotree = require("utils.neotree_utils").execute_neotree
 local spectre_function = require("utils").spectre_function
 local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_remove =
 	harpoon_utils.harpoon_modify,
