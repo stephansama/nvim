@@ -14,11 +14,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = { inlay_hints = { enabled = true } },
-		event = "User FilePost",
+		event = "BufEnter",
 		config = function()
-			local LSP_CONFIG_DIR = require("constants.dir").LSP_CONFIG_DIR
-			local lspconfig = require("utils.lsp").convert_dir_to_module(LSP_CONFIG_DIR)
-			require(lspconfig)
+			require("srandle.lsp")
 			require("nvim-highlight-colors").turnOn()
 		end,
 		dependencies = {

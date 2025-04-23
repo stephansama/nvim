@@ -10,13 +10,15 @@ local inlayHints = {
 	includeInlayParameterNameHintsWhenArgumentMatchesName = false,
 }
 
----@param client unknown
----@param bufnr unknown
----@param on_attach function
-M.on_attach = function(client, bufnr, on_attach)
-	on_attach(client, bufnr)
-	require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-end
+M.init_options = {
+	plugins = {
+		{
+			name = "@vue/typescript-plugin",
+			location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+			languages = { "javascript", "typescript", "vue" },
+		},
+	},
+}
 
 M.settings = {
 	javascript = { inlayHints = inlayHints },

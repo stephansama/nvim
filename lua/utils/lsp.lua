@@ -29,31 +29,6 @@ M.create_capabilities = function()
 	return capabilities
 end
 
---- create options for lsp
----@param options table
----@param on_attach function
----@return table
-local setup_lsp = function(options, on_attach)
-	local trimmed_options = require("utils").remove_properties({
-		"setup",
-		"settings",
-		"filetypes",
-		"on_attach",
-		"capabilities",
-		"init_options",
-	}, options)
-	return {
-		setup = options.setup or nil,
-		settings = options.settings or trimmed_options,
-		filetypes = options.filetypes or nil,
-		init_options = options.init_options or nil,
-		capabilities = options.capabilities,
-		on_attach = options.on_attach and function(c, b)
-			options.on_attach(c, b, on_attach)
-		end or on_attach,
-	}
-end
-
 --- convert directory to lua module
 ---@param path string
 M.convert_dir_to_module = function(path)
@@ -68,40 +43,6 @@ M.convert_dir_to_module = function(path)
 	local converted_path = sub_path:gsub("/", ".")
 
 	return converted_path
-end
-
---- load all lsp configs
----@param capabilities table
----@param on_attach function
-M.load_lsp_configs = function(capabilities, on_attach)
-	local LSP_CONFIG_DIR = require("constants.dir").LSP_CONFIG_DIR
-	local module_base = M.convert_dir_to_module(LSP_CONFIG_DIR)
-	local lspconfig = require("lspconfig")
-	local configs = {}
-
-	require("utils.pull").ls_process(LSP_CONFIG_DIR, function(filename)
-		return not vim.tbl_contains(require("constants.ft").LSP_CONFIG_IGNORE_FILES, filename)
-	end, function(filename)
-		configs[filename] = require(module_base .. filename)
-	end)
-
-	for _, lsp in ipairs(require("constants.pulled").SERVERS) do
-		local options = vim.tbl_deep_extend("force", configs[lsp] or {}, { capabilities = capabilities })
-		lspconfig[lsp].setup(setup_lsp(options, on_attach))
-	end
-end
-
---- load a single lsp
----@param lspname string lsp name to load
----@param on_attach function
-M.load_lsp = function(lspname, capabilities, on_attach)
-	local options = vim.tbl_deep_extend(
-		"force",
-		require(M.convert_dir_to_module(require("constants.dir").LSP_CONFIG_DIR) .. lspname) or {},
-		{ capabilities = capabilities }
-	)
-	vim.lsp.config(lspname, setup_lsp(options, on_attach))
-	print("loading " .. lspname .. " server")
 end
 
 M.lsp_hover = function()

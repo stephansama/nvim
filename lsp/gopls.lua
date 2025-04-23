@@ -1,5 +1,3 @@
-local M = {}
-
 local hints = {
 	constantValues = true,
 	parameterNames = true,
@@ -10,8 +8,8 @@ local hints = {
 	compositeLiteralFields = true,
 }
 
-M.gopls = {
-	hints = hints,
+return {
+	settings = {
+		gopls = { hints = hints },
+	},
 }
-
-return M

@@ -1,5 +1,3 @@
-local M = {}
-
 local InlayHints = {
 	Enabled = true,
 	Designators = true,
@@ -7,9 +5,11 @@ local InlayHints = {
 	ParameterNames = true,
 }
 
-M.clangd = {
-	fallbackFlags = { "-std=c++20" },
-	InlayHints = InlayHints,
+return {
+	settings = {
+		clangd = {
+			fallbackFlags = { "-std=c++20" },
+			InlayHints = InlayHints,
+		},
+	},
 }
-
-return M
