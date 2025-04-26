@@ -258,4 +258,10 @@ M.fzf_lua = {
 	{ "<leader>fl", "<cmd>FzfLua resume<CR>", desc = "Resume last fzf search" },
 }
 
+M.laravel = {
+	{ "<leader>la", "<cmd>Laravel artisan<cr>" },
+	{ "<leader>lr", "<cmd>Laravel routes<cr>" },
+	{ "<leader>lt", "<cmd>Laravel related<cr>" },
+}
+
 return M

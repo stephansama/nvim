@@ -8,13 +8,9 @@ return {
 			"kevinhwang91/promise-async",
 		},
 		cmd = { "Laravel" },
-		keys = {
-			{ "<leader>la", ":Laravel artisan<cr>" },
-			{ "<leader>lr", ":Laravel routes<cr>" },
-			{ "<leader>lt", ":Laravel related<cr>" },
-		},
-		filetypes = { "blade", "php" },
-		opts = {},
 		config = true,
+		filetypes = { "blade", "php" },
+		keys = require("keys.init").laravel,
+		opts = {},
 	},
 }
