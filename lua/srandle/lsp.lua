@@ -69,5 +69,7 @@ expand_kemaps({
 		["K"] = { lsp_hover, "LSP Hover" },
 		["gd"] = { vim.lsp.buf.definition, "Go to definition" },
 		["<leader>fc"] = { vim.lsp.buf.format, "Format code" },
+		["[d"] = { vim.diagnostic.goto_prev, "Go to previous diagnostic" },
+		["]d"] = { vim.diagnostic.goto_next, "Go to next diagnostic" },
 	},
 })
