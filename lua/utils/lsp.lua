@@ -1,5 +1,13 @@
 local M = {}
 
+---@param direction 'next'|'prev'
+---@return function
+M.jump = function(direction)
+	return function()
+		vim.diagnostic.jump({ count = direction == "next" and 1 or -1, float = true })
+	end
+end
+
 M.disable_diagnostics = function()
 	vim.diagnostic.enable(false)
 end
