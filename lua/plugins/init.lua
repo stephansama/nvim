@@ -12,6 +12,12 @@ return {
 		end,
 	},
 	{
+		"stephansama/stow.nvim",
+		cmd = "Stow",
+		keys = require("keys.init").stow,
+		config = true,
+	},
+	{
 		"kawre/leetcode.nvim",
 		config = true,
 		build = ":TSUpdate html",

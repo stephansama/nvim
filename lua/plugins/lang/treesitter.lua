@@ -6,7 +6,6 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		event = "VeryLazy",
 		opts = { enable = false },
 		keys = require("keys.init").treesitter_context,
 	},

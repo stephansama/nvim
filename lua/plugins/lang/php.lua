@@ -13,7 +13,7 @@ return {
 			{ "<leader>lr", ":Laravel routes<cr>" },
 			{ "<leader>lt", ":Laravel related<cr>" },
 		},
-		event = { "VeryLazy" },
+		filetypes = { "blade", "php" },
 		opts = {},
 		config = true,
 	},
