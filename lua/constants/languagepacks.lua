@@ -13,8 +13,6 @@ local M = {}
 ---@class LanguageObject
 --- [Documentation](https://mason-registry.dev/registry/list)
 ---@field mason table<string> | nil
---- [Documentation](https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers)
----@field mason_lsp table<string> | string | nil
 --- [Documentation](https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters)
 ---@field linters table<string,table<string>> | string | nil
 --- [Documentation](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
@@ -30,7 +28,6 @@ local M = {}
 
 ---@type LanguageObject
 M.base = {
-	mason_lsp = "vimls",
 	servers = "vimls",
 	treesitter = {
 		"kdl",
@@ -48,7 +45,6 @@ M.base = {
 
 ---@type LanguageObject
 M.nix = {
-	mason_lsp = "nil_ls",
 	servers = "nil_ls",
 	treesitter = "nix",
 }
@@ -58,7 +54,6 @@ M.markdown = {
 	mason = { "markdownlint" },
 	linters = "markdownlint",
 	servers = { "marksman", "mdx_analyzer" },
-	mason_lsp = { "marksman", "mdx_analyzer" },
 	treesitter = { "markdown", "markdown_inline" },
 	formatters = {
 		markdown = require("utils.pull").prettier_formatter_or({ "markdownlint" }),
@@ -69,7 +64,6 @@ M.markdown = {
 M.shell = {
 	mason = { "shfmt", "shellcheck" },
 	servers = "bashls",
-	mason_lsp = "bashls",
 	treesitter = { "bash", "tmux" },
 	linters = {
 		sh = { "shellcheck" },
@@ -85,14 +79,6 @@ M.shell = {
 ---@type LanguageObject
 M.data = {
 	mason = { "jsonlint", "yamlfmt", "yamllint", "sqlfmt", "xmlformatter" },
-	mason_lsp = {
-		"sqls",
-		"taplo",
-		"jsonls",
-		"yamlls",
-		"lemminx",
-		"graphql",
-	},
 	formatters = {
 		sql = { "sql_formatter" },
 		toml = { "taplo" },
@@ -130,7 +116,6 @@ M.lua = {
 	mason = { "luacheck", "stylua" },
 	linters = "luacheck",
 	formatters = "stylua",
-	mason_lsp = "lua_ls",
 	servers = "lua_ls",
 	treesitter = { "lua", "luadoc" },
 }
@@ -145,25 +130,12 @@ M.javascript = {
 		"stylelint",
 		"js-debug-adapter",
 	},
-	mason_lsp = {
-		"html",
-		"htmx",
-		"astro",
-		"cssls",
-		"ts_ls",
-		"volar",
-		"eslint",
-		"svelte",
-		"emmet_ls",
-		"tailwindcss",
-		"cssmodules_ls",
-		"stylelint_lsp",
-	},
 	servers = {
 		"html",
 		"htmx",
 		"astro",
 		"cssls",
+		"emmet_ls",
 		"ts_ls",
 		"volar",
 		"eslint",
@@ -206,7 +178,7 @@ M.javascript = {
 
 ---@type LanguageObject
 M.docker = {
-	mason_lsp = { "dockerls", "docker_compose_language_service" },
+
 	servers = { "dockerls", "docker_compose_language_service" },
 	treesitter = "dockerfile",
 }
@@ -214,7 +186,7 @@ M.docker = {
 ---@type LanguageObject
 M.haskell = {
 	mason = { "ormolu", "hlint" },
-	mason_lsp = "hls",
+
 	servers = "hls",
 	linters = "hlint",
 	formatters = "ormolu",
@@ -225,7 +197,7 @@ M.haskell = {
 M.go = {
 	formatters = "gofmt",
 	mason = { "delve", "go-debug-adapter" },
-	mason_lsp = { "gopls", "templ" },
+
 	servers = { "gopls", "templ" },
 	treesitter = {
 		"go",
@@ -245,7 +217,7 @@ M.cpp = {
 		"cpplint",
 		"cmakelang",
 	},
-	mason_lsp = { "clangd", "cmake" },
+
 	servers = { "clangd", "cmake" },
 	linters = {
 		cpp = { "cpplint" },
@@ -261,7 +233,6 @@ M.cpp = {
 ---@type LanguageObject
 M.python = {
 	mason = { "autopep8", "djlint", "pylint" },
-	mason_lsp = { "pyright", "jinja_lsp" },
 	servers = { "pyright", "jinja_lsp" },
 	linters = {
 		python = { "pylint" },
@@ -278,12 +249,14 @@ M.python = {
 M.rust = { treesitter = "rust" }
 
 ---@type LanguageObject
-M.zig = { mason_lsp = "zls", servers = "zls", treesitter = "zig" }
+M.zig = {
+	servers = "zls",
+	treesitter = "zig",
+}
 
 ---@type LanguageObject
 M.php = {
 	mason = { "pint", "phpcs", "blade-formatter" },
-	mason_lsp = "intelephense",
 	servers = "intelephense",
 	linters = "phpcs",
 	formatters = { "pint", "blade-formatter" },
@@ -301,25 +274,20 @@ M.php = {
 }
 
 ---@type LanguageObject
-M.java = {
-	mason_lsp = "jdtls",
-	servers = "jdtls",
-	treesitter = { "java" },
-}
+M.java = { servers = "jdtls", treesitter = { "java" } }
 
 ---@type LanguageObject
 M.csharp = {
 	mason = { "csharpier" },
-	mason_lsp = "omnisharp",
 	servers = "omnisharp",
 	formatters = "csharpier",
 	treesitter = "c_sharp",
 }
 
 ---@type LanguageObject
-M.snyk = { mason_lsp = "snyk_ls", servers = "snyk_ls" }
+M.snyk = { servers = "snyk_ls" }
 
 ---@type LanguageObject
-M.powershell = { mason_lsp = "powershell_es", servers = "powershell_es", treesitter = "powershell" }
+M.powershell = { servers = "powershell_es", treesitter = "powershell" }
 
 return M

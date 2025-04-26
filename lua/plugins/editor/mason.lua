@@ -1,6 +1,5 @@
 local pulled = require("constants.pulled")
-local MASON_ENSURE_INSTALLED, MASON_LSP_ENSURE_INSTALLED =
-	pulled.MASON_ENSURE_INSTALLED, pulled.MASON_LSP_ENSURE_INSTALLED
+local MASON_ENSURE_INSTALLED = pulled.MASON_ENSURE_INSTALLED
 
 local MasonInstallAll = function()
 	if MASON_ENSURE_INSTALLED and #MASON_ENSURE_INSTALLED > 0 then
@@ -28,13 +27,5 @@ return {
 			require("mason").setup(opts)
 			vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
 		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim" },
-		config = true,
-		event = "VeryLazy",
-		-- lazy = false,
-		opts = { ensure_installed = MASON_LSP_ENSURE_INSTALLED, automatic_installation = true },
 	},
 }

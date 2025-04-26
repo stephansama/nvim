@@ -22,8 +22,6 @@ M.FORMATTERS = merge_kv(pull_property_from_languages("formatters", kv_rename))
 
 M.MASON_ENSURE_INSTALLED = merge_flat(pull_property_from_languages("mason"))
 
-M.MASON_LSP_ENSURE_INSTALLED = merge_flat(pull_property_from_languages("mason_lsp"))
-
 M.TREESITTER_ENSURE_INSTALLED = merge_flat(pull_property_from_languages("treesitter"))
 
 M.TREESITTER_PARSERS = merge_kv(pull_property_from_languages("treesitter_parser"))
