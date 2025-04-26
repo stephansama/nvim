@@ -1,4 +1,6 @@
 local opts = function()
+	local fzf = require("fzf-lua")
+	local actions = fzf.actions
 	return {
 		"default-title",
 		winopts = { preview = { layout = "flex", flip_columns = 600 } },
@@ -6,6 +8,19 @@ local opts = function()
 			fzf = {
 				["alt-s"] = "select-all+accept",
 				["alt-q"] = "select+accept",
+			},
+		},
+		files = {
+			cwd_prompt = false,
+			actions = {
+				["alt-i"] = { actions.toggle_ignore },
+				["alt-h"] = { actions.toggle_hidden },
+			},
+		},
+		grep = {
+			actions = {
+				["alt-i"] = { actions.toggle_ignore },
+				["alt-h"] = { actions.toggle_hidden },
 			},
 		},
 	}
