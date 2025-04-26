@@ -1,5 +1,6 @@
 return {
 	{
+		-- https://cmp.saghen.dev/
 		"saghen/blink.cmp",
 		dependencies = {
 			{
@@ -20,6 +21,7 @@ return {
 				menu = { border = "rounded" },
 			},
 			signature = { window = { border = "rounded" } },
+			snippets = { preset = "luasnip" },
 			sources = { default = { "lsp", "path", "snippets", "buffer" } },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 		},
