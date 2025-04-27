@@ -1,5 +1,26 @@
 local M = {}
 
+---@param fzf_script string
+---@param base string
+M.cd_fzf = function(fzf_script, base)
+	local output = vim.system({ "sh", "-c", fzf_script }):wait()
+	local stdout = output.stdout
+	if not stdout or #stdout < 1 then
+		return
+	end
+	require("utils.dashboard").go_to_dashboard()
+	local dir = base .. "/" .. stdout:sub(1, #stdout - 1)
+	vim.api.nvim_set_current_dir(dir)
+end
+
+---@param fzf_script string
+---@param base string
+M.cd_fzf_keymap = function(fzf_script, base)
+	return function()
+		M.cd_fzf(fzf_script, base)
+	end
+end
+
 ---move buffer in a specific direction
 ---@param direction 'next' | 'previous'
 ---@return function
@@ -26,14 +47,6 @@ M.remove_properties = function(property_list, original_table)
 		copy[lsp] = nil
 	end
 	return copy
-end
-
---- default fields order i.e completion word + item.kind + item.kind icons
-M.cmp_format = function(_, item)
-	local icons = require("icons").cmp
-	local icon = icons[item.kind] or ""
-	item.kind = string.format("%s %s", (icon .. " ") or icon, item.kind or "")
-	return item
 end
 
 --- install telescope extension
