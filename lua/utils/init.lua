@@ -38,17 +38,6 @@ M.delete_buffer = function()
 	print("Deleting buffer...")
 end
 
----remove properties from list
----@param property_list table
----@param original_table table
-M.remove_properties = function(property_list, original_table)
-	local copy = vim.deepcopy(original_table)
-	for _, lsp in pairs(property_list) do
-		copy[lsp] = nil
-	end
-	return copy
-end
-
 --- install telescope extension
 ---@param extensions table
 ---@return function
