@@ -93,9 +93,25 @@ M.setup_borders = function()
 
 	local diagnostic_source = "if_many"
 
+	local diagnostics = require("icons.init").diagnostics
+
 	vim.diagnostic.config({
 		float = { border = border, source = diagnostic_source },
 		virtual_text = { source = diagnostic_source },
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = diagnostics.Error,
+				[vim.diagnostic.severity.WARN] = diagnostics.Warn,
+				[vim.diagnostic.severity.INFO] = diagnostics.Info,
+				[vim.diagnostic.severity.HINT] = diagnostics.Hint,
+			},
+			linehl = {
+				[vim.diagnostic.severity.INFO] = "DiagnosticInfoMsg",
+			},
+			numhl = {
+				[vim.diagnostic.severity.WARN] = "WarningMsg",
+			},
+		},
 	})
 
 	-- To instead override globally
