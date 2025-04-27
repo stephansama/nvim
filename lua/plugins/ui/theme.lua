@@ -1,7 +1,6 @@
 --- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
 local utils = require("utils.ui")
 local theme = require("constants.theme")
-local create_theme_options = require("utils.ui").create_theme_options
 
 ---@module 'catppuccin'
 ---@type CatppuccinOptions
@@ -10,31 +9,33 @@ local opts = {
 	show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
 	transparent_background = true,
 	integrations = {
-		cmp = true,
 		dap = true,
+		fzf = true,
 		ufo = true,
 		mason = true,
 		noice = true,
 		dap_ui = true,
 		notify = true,
-		neotest = true,
 		harpoon = true,
+		neotest = true,
 		neotree = true,
 		gitsigns = true,
+		blink_cmp = true,
 		dashboard = true,
 		telescope = true,
 		illuminate = true,
 		treesitter = true,
-		window_picker = true,
 		lsp_trouble = true,
+		nvim_surround = true,
+		window_picker = true,
 		render_markdown = true,
 		symbols_outline = true,
 		indent_blankline = true,
 		treesitter_context = true,
 		native_lsp = {
 			enabled = true,
-			underlines = create_theme_options("underline"),
-			virtual_text = create_theme_options("italic"),
+			underlines = utils.create_theme_options("underline"),
+			virtual_text = utils.create_theme_options("italic"),
 		},
 	},
 }
