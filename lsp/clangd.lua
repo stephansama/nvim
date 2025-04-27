@@ -5,6 +5,7 @@ local InlayHints = {
 	ParameterNames = true,
 }
 
+---@type vim.lsp.Config
 return {
 	settings = {
 		clangd = {

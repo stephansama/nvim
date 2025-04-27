@@ -136,7 +136,7 @@ M.javascript = {
 		"astro",
 		"cssls",
 		"emmet_ls",
-		"ts_ls",
+		os.getenv("TSGOPATH") and "tsgo" or "ts_ls",
 		"volar",
 		"eslint",
 		"svelte",

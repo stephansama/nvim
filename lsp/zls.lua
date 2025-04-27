@@ -3,6 +3,7 @@ local mason_registry = require("mason-registry")
 local zls = mason_registry.get_package("zls")
 local zlsExecutable = zls:get_install_path() .. "/zls"
 
+---@type vim.lsp.Config
 return {
 	cmd = { zlsExecutable },
 	root_markers = { "zls.json", "build.zig", ".git" },

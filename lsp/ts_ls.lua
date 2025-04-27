@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 local M = {}
 local inlayHints = {
 	includeInlayVariableTypeHints = true,
@@ -24,17 +25,6 @@ M.settings = {
 	javascript = { inlayHints = inlayHints },
 	typescript = { inlayHints = inlayHints },
 	init_options = { preferences = { disableSuggestions = true } },
-}
-
-M.setup = {
-	tsserver = function(_, opts)
-		require("typescript").setup({ server = opts })
-		return true
-	end,
-	astro = function(_, opts)
-		require("astro-language-server").setup({ server = opts })
-		return true
-	end,
 }
 
 return M

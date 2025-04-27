@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 local M = {}
 
 -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267

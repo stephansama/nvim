@@ -8,6 +8,7 @@ local hints = {
 	compositeLiteralFields = true,
 }
 
+---@type vim.lsp.Config
 return {
 	settings = {
 		gopls = { hints = hints },
