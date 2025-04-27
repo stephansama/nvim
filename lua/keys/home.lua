@@ -7,6 +7,22 @@ require("utils.expand").expand_keymaps({
 		["<leader><leader>w"] = { vim.cmd.wqa, "Save and quit all" },
 		["<leader><leader><leader>"] = { vim.cmd.qa, "Quit all" },
 
+		--- FZF keymaps
+		["<leader>gsm"] = {
+			utils.cd_fzf_keymap(
+				"git submodule foreach '' | sed 's/Entering //g' | " .. 'tr -d "\'"' .. " | fzf",
+				vim.fn.getcwd()
+			),
+			"Switch to git submodule",
+		},
+		["<leader>fp"] = {
+			utils.cd_fzf_keymap(
+				'find "$CODE" -type d -mindepth 1 -maxdepth 1 | sed "s@$CODE/@@g" | fzf --ansi',
+				os.getenv("CODE") .. ""
+			),
+			"Switch to project",
+		},
+
 		--- leader functions
 		["<leader>w"] = { vim.cmd.w, "Save buffer" },
 		["<leader>x"] = { vim.cmd.q, "Close window" },
