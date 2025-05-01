@@ -101,6 +101,7 @@ M.override_by_filename = {
 	["phpunit.xml"] = icons.php,
 	["nx.json"] = icons.nx,
 	["project.json"] = icons.nx,
+	["Brewfile"] = { icon = "", color = "#FBB040", name = "Brewfile" },
 	["amplify.yml"] = { icon = "󰸏" },
 	["_redirects"] = { icon = "" },
 	[".stow-local-ignore"] = { icon = "" },
