@@ -28,6 +28,7 @@ local M = {}
 
 ---@type LanguageObject
 M.base = {
+	mason = { "vim-language-server" },
 	servers = "vimls",
 	treesitter = {
 		"kdl",
@@ -78,7 +79,17 @@ M.shell = {
 
 ---@type LanguageObject
 M.data = {
-	mason = { "jsonlint", "yamlfmt", "yamllint", "sqlfmt", "xmlformatter" },
+	mason = {
+		"json-lsp",
+		"jsonlint",
+		"yaml-language-server",
+		"yamlfmt",
+		"yamllint",
+		"sqlfmt",
+		"xmlformatter",
+		"lemminx",
+		"taplo",
+	},
 	formatters = {
 		sql = { "sql_formatter" },
 		toml = { "taplo" },
@@ -124,15 +135,23 @@ M.lua = {
 M.javascript = {
 	telescope_extensions = "package_info",
 	mason = {
+		"emmet-ls",
+		"astro-language-server",
+		"vue-language-server",
+		"svelte-language-server",
+		"cssmodules-language-server",
+		"tailwindcss-language-server",
+		"typescript-language-server",
+		"html-lsp",
 		"htmlhint",
 		"prettier",
 		"prettierd",
 		"stylelint",
+		"stylelint-lsp",
 		"js-debug-adapter",
 	},
 	servers = {
 		"html",
-		"htmx",
 		"astro",
 		"cssls",
 		"emmet_ls",
@@ -152,6 +171,7 @@ M.javascript = {
 	},
 	formatters = {
 		css = { "prettier" },
+		vue = { "prettier" },
 		html = { "prettier" },
 		astro = { "prettier" },
 		svelte = { "prettier" },
@@ -178,15 +198,14 @@ M.javascript = {
 
 ---@type LanguageObject
 M.docker = {
-
+	mason = { "dockerfile-language-server", "docker-compose-language-service" },
 	servers = { "dockerls", "docker_compose_language_service" },
 	treesitter = "dockerfile",
 }
 
 ---@type LanguageObject
 M.haskell = {
-	mason = { "ormolu", "hlint" },
-
+	mason = { "ormolu", "hlint", "haskell-language-server" },
 	servers = "hls",
 	linters = "hlint",
 	formatters = "ormolu",
@@ -196,8 +215,7 @@ M.haskell = {
 ---@type LanguageObject
 M.go = {
 	formatters = "gofmt",
-	mason = { "delve", "go-debug-adapter" },
-
+	mason = { "delve", "go-debug-adapter", "gopls", "templ" },
 	servers = { "gopls", "templ" },
 	treesitter = {
 		"go",
@@ -246,10 +264,15 @@ M.python = {
 }
 
 ---@type LanguageObject
-M.rust = { treesitter = "rust" }
+M.rust = {
+	mason = { "htmx-lsp" },
+	treesitter = "rust",
+	servers = "htmx",
+}
 
 ---@type LanguageObject
 M.zig = {
+	mason = { "zls" },
 	servers = "zls",
 	treesitter = "zig",
 }
