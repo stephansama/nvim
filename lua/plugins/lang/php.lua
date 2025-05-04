@@ -3,7 +3,6 @@ return {
 		"adalessa/laravel.nvim",
 		dependencies = {
 			"tpope/vim-dotenv",
-			"nvim-telescope/telescope.nvim",
 			"MunifTanjim/nui.nvim",
 			"kevinhwang91/promise-async",
 		},
@@ -11,6 +10,11 @@ return {
 		config = true,
 		filetypes = { "blade", "php" },
 		keys = require("keys.init").laravel,
-		opts = {},
+		opts = {
+			pickers = {
+				enable = true,
+				provider = "fzf-lua",
+			},
+		},
 	},
 }
