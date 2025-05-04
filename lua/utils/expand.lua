@@ -5,7 +5,7 @@ local M = {}
 ---@return table paths list of plugin paths
 M.expand_plugins = function(enabled_plugins)
 	local root = "plugins"
-	local paths = { { import = root } }
+	local paths = { { import = root .. ".init" } }
 	for _, plugin in ipairs(enabled_plugins) do
 		table.insert(paths, { import = root .. "." .. plugin })
 	end
