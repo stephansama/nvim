@@ -23,8 +23,6 @@ local M = {}
 ---@field treesitter table<string,table> | string | nil
 --- [Documentation]()
 ---@field treesitter_parser table<string, TreesitterParser> | nil
---- Telescope extensions to enable for language
----@field telescope_extensions table<string,table> | string | nil
 
 ---@type LanguageObject
 M.base = {
@@ -133,7 +131,6 @@ M.lua = {
 
 ---@type LanguageObject
 M.javascript = {
-	telescope_extensions = "package_info",
 	mason = {
 		"emmet-ls",
 		"astro-language-server",

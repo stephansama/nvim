@@ -227,23 +227,6 @@ M.todo_comments = { { "<leader>tt", vim.cmd.TodoFzfLua, desc = "Todo FzfLua" } }
 
 M.markdownpreview = { { "<leader>mp", vim.cmd.MarkdownPreview, desc = "Enable markdown preview" } }
 
-M.telescope_icon_picker = {
-	{ "<leader><leader>i", vim.cmd.IconPickerNormal, desc = "IconPickerNormal" },
-	{ "<leader><leader>y", vim.cmd.IconPickerYank, desc = "IconPickerYank" },
-}
-
-M.telescope = {
-	{ "<leader>fls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find symbols" },
-	{ "<leader>ft", "<cmd>Telescope colorscheme<CR>", desc = "Change colorscheme" },
-	{
-		"<leader>go",
-		"<cmd>Telescope git_file_history theme=dropdown initial_mode=normal<CR>",
-		desc = "Find exact word",
-	},
-}
-
-M.telescope_qflist = "<C-q>"
-
 M.fzf_lua = {
 	{ "<leader><Tab>", "<cmd>FzfLua buffers<CR>", desc = "Find buffers" },
 	{ "<leader>fe", "<cmd>FzfLua grep_cword<CR>", desc = "Find exact word" },
