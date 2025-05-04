@@ -5,6 +5,12 @@ return {
 	{ "folke/trouble.nvim", opts = {}, keys = require("keys.init").trouble },
 	{ "kevinhwang91/nvim-bqf", ft = "qf" },
 	{
+		"mcauley-penney/visual-whitespace.nvim",
+		config = true,
+		event = "ModeChanged *:[vV\22]",
+		opts = {},
+	},
+	{
 		"stevearc/quicker.nvim",
 		event = "FileType qf",
 		---@module "quicker"
