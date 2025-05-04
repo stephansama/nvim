@@ -2,7 +2,7 @@ return {
 	"ui",
 	"editor",
 	"test",
-	"debug",
+	-- "debug.init",
 	"lang.init",
 	"lang.treesitter",
 }

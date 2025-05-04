@@ -1,6 +1,7 @@
 local keys = require("keys.init")
 
 return {
+	{ "dundalek/bloat.nvim", cmd = "Bloat" },
 	{ "dstein64/vim-startuptime", keys = keys.startuptime },
 	{
 		"meznaric/key-analyzer.nvim",
