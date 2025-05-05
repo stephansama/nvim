@@ -27,31 +27,3 @@ M.load_linters = function()
 end
 
 return M
-
--- {
--- 		"mfussenegger/nvim-lint",
--- 		init = function()
--- 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
--- 				callback = function()
--- 					require("lint").try_lint()
--- 					if cspell_enabled then
--- 						require("lint").try_lint("cspell")
--- 					end
--- 				end,
--- 			})
--- 		end,
--- 		config = function()
--- 			require("lint").linters_by_ft = require("constants.pulled").LINTERS
--- 		end,
--- 		keys = {
--- 			{
--- 				"<leader>sp",
--- 				function()
--- 					cspell_enabled = true
--- 					require("lint").try_lint("cspell")
--- 					vim.print("Enabling CSpell...")
--- 				end,
--- 				desc = "lint with cspell",
--- 			},
--- 		},
--- 	}
