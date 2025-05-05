@@ -13,7 +13,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			keymap = { preset = "enter" },
+			keymap = { preset = "enter", ["<C-e>"] = { "hide", "show" } },
 			appearance = { nerd_font_variant = "mono" },
 			cmdline = { completion = { menu = { auto_show = true } } },
 			completion = {
