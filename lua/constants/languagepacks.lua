@@ -26,8 +26,11 @@ local M = {}
 
 ---@type LanguageObject
 M.base = {
-	mason = { "vim-language-server" },
+	mason = { "vim-language-server", "cspell", "editorconfig-checker" },
 	servers = "vimls",
+	linters = {
+		editorconfig = { "editorconfig-checker" },
+	},
 	treesitter = {
 		"kdl",
 		"vim",
@@ -40,12 +43,6 @@ M.base = {
 		"gitignore",
 		"editorconfig",
 	},
-}
-
----@type LanguageObject
-M.nix = {
-	servers = "nil_ls",
-	treesitter = "nix",
 }
 
 ---@type LanguageObject
@@ -132,33 +129,33 @@ M.lua = {
 ---@type LanguageObject
 M.javascript = {
 	mason = {
-		"emmet-ls",
 		"astro-language-server",
-		"vue-language-server",
-		"svelte-language-server",
 		"cssmodules-language-server",
-		"tailwindcss-language-server",
-		"typescript-language-server",
+		"emmet-ls",
 		"html-lsp",
 		"htmlhint",
+		"js-debug-adapter",
 		"prettier",
 		"prettierd",
 		"stylelint",
 		"stylelint-lsp",
-		"js-debug-adapter",
+		"svelte-language-server",
+		"tailwindcss-language-server",
+		"typescript-language-server",
+		"vue-language-server",
 	},
 	servers = {
-		"html",
 		"astro",
 		"cssls",
+		"cssmodules_ls",
 		"emmet_ls",
-		os.getenv("TSGOPATH") and "tsgo" or "ts_ls",
-		"volar",
 		"eslint",
+		"html",
+		"stylelint_lsp",
 		"svelte",
 		"tailwindcss",
-		"cssmodules_ls",
-		"stylelint_lsp",
+		"volar",
+		os.getenv("TSGOPATH") and "tsgo" or "ts_ls",
 	},
 	linters = {
 		css = { "stylelint" },
@@ -178,25 +175,26 @@ M.javascript = {
 		typescriptreact = { "prettier" },
 	},
 	treesitter = {
+		"astro",
 		"css",
-		"tsx",
-		"vue",
 		"html",
 		"http",
-		"scss",
-		"astro",
-		"jsdoc",
-		"svelte",
-		"robots",
 		"javascript",
+		"jsdoc",
+		"robots",
+		"scss",
+		"svelte",
+		"tsx",
 		"typescript",
+		"vue",
 	},
 }
 
 ---@type LanguageObject
 M.docker = {
-	mason = { "dockerfile-language-server", "docker-compose-language-service" },
+	mason = { "hadolint", "dockerfile-language-server", "docker-compose-language-service" },
 	servers = { "dockerls", "docker_compose_language_service" },
+	linters = "hadolint",
 	treesitter = "dockerfile",
 }
 
@@ -211,8 +209,9 @@ M.haskell = {
 
 ---@type LanguageObject
 M.go = {
+	mason = { "delve", "go-debug-adapter", "gopls", "templ", "golangcilint" },
 	formatters = "gofmt",
-	mason = { "delve", "go-debug-adapter", "gopls", "templ" },
+	linters = "golangcilint",
 	servers = { "gopls", "templ" },
 	treesitter = {
 		"go",
@@ -271,6 +270,7 @@ M.rust = {
 M.zig = {
 	mason = { "zls" },
 	servers = "zls",
+	formatters = { "zigfmt" },
 	treesitter = "zig",
 }
 
@@ -309,5 +309,13 @@ M.snyk = { servers = "snyk_ls" }
 
 ---@type LanguageObject
 M.powershell = { servers = "powershell_es", treesitter = "powershell" }
+
+---@type LanguageObject
+M.terraform = {
+	mason = { "tflint" },
+	linters = { "tflint" },
+	servers = { "teerraformls" },
+	treesitter = { "terraform" },
+}
 
 return M
