@@ -1,12 +1,40 @@
 local M = {}
 
+---@param config_files table<string>
+M.config_file_exists = function(config_files)
+	local cwd = vim.fn.getcwd()
+	local ls_output = io.popen("ls -a " .. cwd, "r")
+	local config_exists = false
+
+	if ls_output then
+		for file in ls_output:lines() do
+			config_exists = config_exists or vim.tbl_contains(config_files, file)
+		end
+	end
+
+	return config_exists
+end
+
+M.use_cspell = function()
+	return M.config_file_exists({
+		".cspell.json",
+		"cspell.json",
+		".cSpell.json",
+		"cSpell.json",
+		"cspell.config.js",
+		"cspell.config.cjs",
+		"cspell.config.json",
+		"cspell.config.yaml",
+		"cspell.config.yml",
+		"cspell.yaml",
+		"cspell.yml",
+	})
+end
+
 --- find prettier in cwd or use other formatter
 ---@param other_formatter table<string>
 M.prettier_formatter_or = function(other_formatter)
-	local cwd = vim.fn.getcwd()
-	local ls_output = io.popen("ls -a " .. cwd, "r")
-	local prettierExists = false
-	local prettierConfigFiles = {
+	local prettier_exists = M.config_file_exists({
 		".prettierrc",
 		".prettier.json",
 		".prettier.json5",
@@ -17,13 +45,8 @@ M.prettier_formatter_or = function(other_formatter)
 		".prettierrc.toml",
 		"prettier.config.js",
 		"prettier.config.mjs",
-	}
-	if ls_output then
-		for file in ls_output:lines() do
-			prettierExists = prettierExists or vim.tbl_contains(prettierConfigFiles, file)
-		end
-	end
-	if prettierExists then
+	})
+	if prettier_exists then
 		return { "prettier" }
 	else
 		return other_formatter

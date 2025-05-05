@@ -1,15 +1,12 @@
+local lint = require("utils.lint")
+
 return {
 	{ "nvim-pack/nvim-spectre", dependencies = { "nvim-lua/plenary.nvim" }, keys = require("keys.init").spectre },
 	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
 	{ "artemave/workspace-diagnostics.nvim" },
 	{ "folke/trouble.nvim", opts = {}, keys = require("keys.init").trouble },
 	{ "kevinhwang91/nvim-bqf", ft = "qf" },
-	{
-		"mcauley-penney/visual-whitespace.nvim",
-		config = true,
-		event = "ModeChanged *:[vV\22]",
-		opts = {},
-	},
+	{ "mcauley-penney/visual-whitespace.nvim", config = true, event = "ModeChanged *:[vV\22]", opts = {} },
 	{
 		"stevearc/quicker.nvim",
 		event = "FileType qf",
@@ -20,16 +17,11 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		init = function()
-			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-				callback = function()
-					require("lint").try_lint()
-				end,
-			})
-		end,
-		config = function()
-			require("lint").linters_by_ft = require("constants.pulled").LINTERS
-		end,
+		init = lint.create_lint_init,
+		config = lint.load_linters,
+		keys = {
+			{ "<leader>sp", lint.toggle_cspell, desc = "lint with cspell" },
+		},
 	},
 	{
 		"stevearc/conform.nvim",
