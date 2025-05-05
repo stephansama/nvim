@@ -2,6 +2,7 @@
 local M = {}
 
 local icons = {
+	cspell = { icon = "", color = "#A62C17", name = "cspell" },
 	commitlint = { icon = "󰜘", color = "#429488", name = "commitlint" },
 	wrangler = { icon = "☁", color = "#F38020", name = "cloudflare" },
 	stylelint = { icon = "", name = "stylelint" },
@@ -110,6 +111,17 @@ M.override_by_filename = {
 	["ci.config.json"] = { icon = "", color = "#89b4fa", name = "monorepoci" },
 	[".babelrc"] = icons.babel,
 	[".nvmrc"] = { icon = "󰎙", color = "#339933", name = "nvm" },
+	[".cspell.json"] = icons.cspell,
+	["cspell.json"] = icons.cspell,
+	[".cSpell.json"] = icons.cspell,
+	["cSpell.json"] = icons.cspell,
+	["cspell.config.js"] = icons.cspell,
+	["cspell.config.cjs"] = icons.cspell,
+	["cspell.config.json"] = icons.cspell,
+	["cspell.config.yaml"] = icons.cspell,
+	["cspell.config.yml"] = icons.cspell,
+	["cspell.yaml"] = icons.cspell,
+	["cspell.yml"] = icons.cspell,
 	[".commitlintrc"] = icons.commitlint,
 	[".commitlintrc.ts"] = icons.commitlint,
 	[".commitlintrc.js"] = icons.commitlint,
