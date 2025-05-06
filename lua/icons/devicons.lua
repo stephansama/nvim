@@ -98,6 +98,7 @@ M.override_by_extension = {
 }
 
 M.override_by_filename = {
+	["install"] = { icon = "󰇚", color = "#FF2D20", name = "install" },
 	["artisan"] = { icon = "󰫐", color = "#FF2D20", name = "laravel" },
 	["phpunit.xml"] = icons.php,
 	["nx.json"] = icons.nx,
