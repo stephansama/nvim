@@ -20,7 +20,7 @@ local mason_opts = {
 
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
 		opts = mason_opts,
 		config = function(_, opts)
