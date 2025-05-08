@@ -1,5 +1,13 @@
 local M = {}
 
+---@see BlinkDocumentation https://cmp.saghen.dev/recipes.html#deprioritize-specific-lsp
+M.depriotize_emmet = function(a, b)
+	if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+		return
+	end
+	return b.client_name == "emmet_ls"
+end
+
 ---@param fzf_script string
 ---@param base string
 M.cd_fzf = function(fzf_script, base)
