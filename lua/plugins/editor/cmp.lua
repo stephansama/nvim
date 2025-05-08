@@ -17,19 +17,17 @@ local opts = {
 	},
 }
 
+-- https://cmp.saghen.dev/
 return {
-	{
-		-- https://cmp.saghen.dev/
-		"saghen/blink.cmp",
-		version = "1.*",
-		opts = opts,
-		opts_extend = { "sources.default" },
-		dependencies = {
-			{
-				"windwp/nvim-autopairs",
-				config = true,
-				opts = { fast_wrap = {}, disable_filetype = { "TelescopePrompt", "vim" } },
-			},
+	"saghen/blink.cmp",
+	version = "1.*",
+	opts = opts,
+	opts_extend = { "sources.default" },
+	dependencies = {
+		{
+			"windwp/nvim-autopairs",
+			config = true,
+			opts = { fast_wrap = {}, disable_filetype = { "TelescopePrompt", "vim" } },
 		},
 	},
 }
