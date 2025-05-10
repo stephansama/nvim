@@ -42,6 +42,7 @@ local icons = {
 M.strict = true
 
 M.override_by_extension = {
+	jsonc = { icon = "󰘦", color = "#FFF000", name = "jsonc" },
 	graphqlrc = icons.graphql,
 	["graphqlrc.toml"] = icons.graphql,
 	["graphqlrc.json"] = icons.graphql,
