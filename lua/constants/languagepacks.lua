@@ -276,8 +276,8 @@ M.zig = {
 
 ---@type LanguageObject
 M.php = {
-	mason = { "pint", "phpcs", "blade-formatter" },
-	servers = "intelephense",
+	mason = { "pint", "phpcs", "blade-formatter", "phpactor" },
+	servers = "phpactor",
 	linters = "phpcs",
 	formatters = { "pint", "blade-formatter" },
 	treesitter = { "php", "phpdoc" },
