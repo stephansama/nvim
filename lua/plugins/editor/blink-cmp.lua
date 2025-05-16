@@ -13,7 +13,7 @@ local opts = {
 	sources = { default = { "lsp", "path", "snippets", "buffer" } },
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
-		sorts = { require("utils.init").depriotize_emmet, "score", "sort_text" },
+		sorts = { "exact", require("utils.init").depriotize_emmet, "score", "sort_text" },
 	},
 }
 
