@@ -10,7 +10,7 @@ return {
 		"vuki656/package-info.nvim",
 		dependencies = "MunifTanjim/nui.nvim",
 		config = true,
-		lazy = true,
+		lazy = false,
 		ft = "json",
 		opts = {
 			package_manager = "pnpm",
