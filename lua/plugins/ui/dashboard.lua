@@ -44,12 +44,12 @@ local shortcuts = {
 			require("fzf-lua")
 			vim.cmd([[FzfLua keymaps]])
 		end,
-		key = "k",
+		key = "b",
 	},
 	{
 		icon = "󰑴",
 		icon_hl = "CursorLineNr",
-		key = "l",
+		key = "c",
 		desc = " Leetcode",
 		action = "Leet",
 		group = "@variable",

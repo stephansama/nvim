@@ -121,6 +121,30 @@ M.tmux = {
 	{ "<C-l>", vim.cmd.TmuxNavigateRight },
 }
 
+M.grug_far = {
+	{
+		"<leader>S",
+		function()
+			require("grug-far").toggle_instance({ staticTitle = "Find and Replace" })
+		end,
+		desc = "Toggle Grug Far",
+	},
+	{
+		"<leader>sw",
+		function()
+			require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
+		end,
+		desc = "Search current word",
+	},
+	{
+		"<leader>sf",
+		function()
+			require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+		end,
+		desc = "Search current file",
+	},
+}
+
 M.spectre = {
 	{ "<leader>S", spectre_function("toggle"), desc = "Toggle spectre" },
 	{ "<leader>sw", spectre_function("open_visual"), desc = "Search current word" },

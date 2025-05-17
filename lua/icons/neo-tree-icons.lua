@@ -220,6 +220,7 @@ M.icons = {
 	tmux = "",
 	token = "󰢬",
 	trash = "",
+	trello = "",
 	ts = "󰛦",
 	types = "",
 	typescript = "󰛦",
