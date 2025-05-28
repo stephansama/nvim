@@ -170,6 +170,7 @@ M.icons = {
 	patches = "",
 	picture = "󰉏",
 	pkg = "󰏓",
+	playground = "",
 	plugin = "󰐱",
 	pnpm = "",
 	postcss = "",
