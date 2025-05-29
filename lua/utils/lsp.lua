@@ -62,6 +62,9 @@ M.lsp_hover = function()
 	elseif vim.fn.expand("%:t") == "package.json" then
 		local PACKAGE_JSON_URL = require("constants.url").PACKAGE_JSON_URL
 		local text = vim.api.nvim_get_current_line()
+		if not require("utils.init").is_package(text) then
+			return vim.lsp.buf.hover()
+		end
 		local match = text:match('"(.-)"')
 		local npm_link = PACKAGE_JSON_URL .. match
 		require("utils").openURL(npm_link)
