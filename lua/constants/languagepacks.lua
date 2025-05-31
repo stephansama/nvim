@@ -154,7 +154,7 @@ M.javascript = {
 		"stylelint_lsp",
 		"svelte",
 		"tailwindcss",
-		"volar",
+		"vue_ls",
 		os.getenv("TSGOPATH") and "tsgo" or "ts_ls",
 	},
 	linters = {
