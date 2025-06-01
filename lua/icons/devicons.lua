@@ -74,6 +74,7 @@ M.override_by_extension = {
 	gitignore = icons.git,
 	gitignore_global = icons.git,
 	postcss = icons.postcss,
+	php = icons.php,
 	astro = icons.astro,
 	pcss = icons.postcss,
 	yaml = icons.yaml,
