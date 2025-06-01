@@ -168,6 +168,7 @@ M.icons = {
 	page = "󱧶",
 	partial = "",
 	patches = "",
+	php = "",
 	picture = "󰉏",
 	pkg = "󰏓",
 	playground = "",

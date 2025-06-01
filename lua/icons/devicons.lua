@@ -36,10 +36,8 @@ local icons = {
 	javascript = { icon = "󰌞", color = "#F7DF1E", name = "javascript" },
 	dependabot = { icon = "", color = "#025E8C", name = "dependabot" },
 	unlighthouse = { icon = "󰧿", color = "#F44B21", name = "unlighthouse" },
-	php = { icon = "", color = "#777BB4", name = "php" },
+	php = { icon = "", color = "#777BB4", name = "php" },
 }
-
-M.strict = true
 
 M.override_by_extension = {
 	jsonc = { icon = "󰘦", color = "#FFF000", name = "jsonc" },
@@ -50,7 +48,6 @@ M.override_by_extension = {
 	["graphqlrc.yml"] = icons.graphql,
 	["graphqlrc.js"] = icons.graphql,
 	["graphqlrc.ts"] = icons.graphql,
-	-- [".luacheckrc"] = { icon = "", color = "#2C2D72", name = "lua" },
 	xcf = { icon = "", name = "gimp" },
 	["code-profile"] = { icon = "󰨞", color = "#007ACC", name = "vscode" },
 	prettierrc = icons.prettier,
@@ -240,5 +237,7 @@ M.override_by_filename = {
 	["stylelint.config.cjs"] = icons.stylelint,
 	["stylelint.config.mjs"] = icons.stylelint,
 }
+
+M.strict = true
 
 return M
