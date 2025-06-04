@@ -135,6 +135,7 @@ M.icons = {
 	lang = "󰗊",
 	language = "󰗊",
 	layout = "󰕮",
+	lazygit = "",
 	lib = "󰌱",
 	library = "",
 	linux = "",
