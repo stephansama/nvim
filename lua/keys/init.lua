@@ -271,4 +271,14 @@ M.laravel = {
 	{ "<leader>lt", "<cmd>Laravel related<cr>" },
 }
 
+M.otter = {
+	{
+		"<leader>os",
+		function()
+			require("otter").activate()
+		end,
+		desc = "Start otter server",
+	},
+}
+
 return M

@@ -4,6 +4,13 @@ return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
 	{ "axieax/urlview.nvim", config = true, keys = keys.urlview },
 	{
+		"jmbuhr/otter.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {},
+		config = true,
+		keys = keys.otter,
+	},
+	{
 		"christoomey/vim-tmux-navigator",
 		cmd = { "TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight" },
 		keys = keys.tmux,
