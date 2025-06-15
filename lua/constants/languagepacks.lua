@@ -88,10 +88,10 @@ M.data = {
 	formatters = {
 		sql = { "sql_formatter" },
 		toml = { "taplo" },
-		yaml = { "yamlfmt" },
+		-- yaml = require("utils.pull").prettier_formatter_or({ "yamlfmt" }),
 		xml = { "xmlformatter" },
-		jsonc = require("utils.pull").prettier_formatter_or({}),
-		json = require("utils.pull").prettier_formatter_or({}),
+		jsonc = { "prettier" },
+		json = { "prettier" },
 	},
 	linters = {
 		json = { "jsonlint" },
@@ -131,7 +131,7 @@ M.javascript = {
 	mason = {
 		"astro-language-server",
 		"cssmodules-language-server",
-		"emmet-ls",
+		"emmet-language-server",
 		"html-lsp",
 		"htmlhint",
 		"js-debug-adapter",
@@ -148,7 +148,7 @@ M.javascript = {
 		"astro",
 		"cssls",
 		"cssmodules_ls",
-		"emmet_ls",
+		"emmet_language_server",
 		"eslint",
 		"html",
 		"stylelint_lsp",
@@ -270,7 +270,7 @@ M.rust = {
 M.zig = {
 	mason = { "zls" },
 	servers = "zls",
-	formatters = { "zigfmt" },
+	formatters = { zig = { "zigfmt" } },
 	treesitter = "zig",
 }
 
@@ -279,7 +279,7 @@ M.php = {
 	mason = { "pint", "phpcs", "blade-formatter", "phpactor" },
 	servers = "phpactor",
 	linters = "phpcs",
-	formatters = { "pint", "blade-formatter" },
+	formatters = { php = { "pint" }, blade = { "blade-formatter" } },
 	treesitter = { "php", "phpdoc" },
 	treesitter_parser = {
 		["blade"] = {
