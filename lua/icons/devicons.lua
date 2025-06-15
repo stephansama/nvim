@@ -4,7 +4,7 @@ local M = {}
 local icons = {
 	cspell = { icon = "", color = "#A62C17", name = "cspell" },
 	commitlint = { icon = "󰜘", color = "#429488", name = "commitlint" },
-	wrangler = { icon = "☁", color = "#F38020", name = "cloudflare" },
+	wrangler = { icon = "", color = "#F38020", name = "cloudflare" },
 	stylelint = { icon = "", name = "stylelint" },
 	eslintrc = { icon = "󰱺", name = "eslintrc" },
 	sitemap = { icon = "", name = "sitemap" },
@@ -97,16 +97,19 @@ M.override_by_extension = {
 }
 
 M.override_by_filename = {
+	["turbo.json"] = { icon = "󱪂", color = "#FF1E56", name = "turborepo" },
 	["install"] = { icon = "󰇚", color = "#FF2D20", name = "install" },
 	["artisan"] = { icon = "󰫐", color = "#FF2D20", name = "laravel" },
 	["phpunit.xml"] = icons.php,
 	["nx.json"] = icons.nx,
+	["FUNDING.yml"] = { icon = "", color = "#DF6B92", name = "funding" },
 	["project.json"] = icons.nx,
 	["Brewfile"] = { icon = "", color = "#FBB040", name = "Brewfile" },
 	["amplify.yml"] = { icon = "󰸏" },
 	["_redirects"] = { icon = "" },
 	[".stow-local-ignore"] = { icon = "" },
 	["wrangler.toml"] = icons.wrangler,
+	["wrangler.json"] = icons.wrangler,
 	["wrangler.jsonc"] = icons.wrangler,
 	["ci.config.json"] = { icon = "", color = "#89b4fa", name = "monorepoci" },
 	[".babelrc"] = icons.babel,
