@@ -197,6 +197,7 @@ M.icons = {
 	scraper = "󱇪",
 	script = "󰯂",
 	secure = "󰉐",
+	secrets = "󰢬",
 	seed = "󰹢",
 	seeder = "󰹢",
 	server = "󰒋",
