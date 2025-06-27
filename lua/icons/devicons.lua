@@ -185,6 +185,7 @@ M.override_by_filename = {
 	["unlighthouse.config.js"] = icons.unlighthouse,
 	["unlighthouse.config.ts"] = icons.unlighthouse,
 	-- vite ts
+	["vitest.workspace.mts"] = icons.vite,
 	["vitest.workspace.ts"] = icons.vite,
 	["vite.workspace.ts"] = icons.vite,
 	["vite.config.ts"] = icons.vite,
