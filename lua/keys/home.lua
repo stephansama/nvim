@@ -44,8 +44,6 @@ require("utils.expand").expand_keymaps({
 		["O"] = { "O<ESC>zz" },
 
 		["Q'"] = { "@q", "Quick replay" },
-
-		["J"] = { "mzJ`z:delmarks z<cr>", "", { silent = true } },
 	},
 	x = {
 		["/"] = { "<Esc>/\\%V", "Search within lines" },
