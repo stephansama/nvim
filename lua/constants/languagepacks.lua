@@ -58,7 +58,7 @@ M.markdown = {
 
 ---@type LanguageObject
 M.shell = {
-	mason = { "shfmt", "shellcheck" },
+	mason = { "shfmt", "shellcheck", "bash-language-server" },
 	servers = "bashls",
 	treesitter = { "bash", "tmux" },
 	linters = {
@@ -119,7 +119,7 @@ M.data = {
 
 ---@type LanguageObject
 M.lua = {
-	mason = { "luacheck", "stylua" },
+	mason = { "luacheck", "stylua", "lua-language-server" },
 	linters = "luacheck",
 	formatters = "stylua",
 	servers = "lua_ls",
@@ -149,7 +149,6 @@ M.javascript = {
 		"cssls",
 		"cssmodules_ls",
 		"emmet_language_server",
-		"eslint",
 		"html",
 		"stylelint_lsp",
 		"svelte",
@@ -261,9 +260,7 @@ M.python = {
 
 ---@type LanguageObject
 M.rust = {
-	mason = { "htmx-lsp" },
 	treesitter = "rust",
-	servers = "htmx",
 }
 
 ---@type LanguageObject
