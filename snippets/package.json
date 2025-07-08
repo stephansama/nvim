@@ -1,5 +1,8 @@
 {
 	"name": "snippets",
+	"scripts": {
+		"build": "node ./merge.mjs"
+	},
 	"contributes": {
 		"snippets": [
 			{
@@ -99,6 +102,12 @@
 				],
 				"path": "./js/next-ts.json",
 				"references": "https://github.com/pulkitgangwar/next.js-snippets"
+			},
+			{
+				"language": [
+					"vue"
+				],
+				"path": "./vue/vue.json"
 			}
 		]
 	}
