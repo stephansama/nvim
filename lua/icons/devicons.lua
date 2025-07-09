@@ -103,7 +103,7 @@ M.override_by_filename = {
 	["phpunit.xml"] = icons.php,
 	["nx.json"] = icons.nx,
 	["FUNDING.yml"] = { icon = "", color = "#DF6B92", name = "funding" },
-	["codecov.yml"] = { icon = "", color = "#F01F7A", name = "codecov" },
+	["codecov.yml"] = { icon = "", color = "#F01F7A", name = "codecov" },
 	["project.json"] = icons.nx,
 	["Brewfile"] = { icon = "", color = "#FBB040", name = "Brewfile" },
 	["amplify.yml"] = { icon = "󰸏" },
