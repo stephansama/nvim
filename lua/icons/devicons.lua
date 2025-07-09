@@ -2,6 +2,7 @@
 local M = {}
 
 local icons = {
+	codecov = { icon = "", color = "#F01F7A", name = "codecov" },
 	cspell = { icon = "", color = "#A62C17", name = "cspell" },
 	commitlint = { icon = "󰜘", color = "#429488", name = "commitlint" },
 	wrangler = { icon = "", color = "#F38020", name = "cloudflare" },
@@ -103,7 +104,8 @@ M.override_by_filename = {
 	["phpunit.xml"] = icons.php,
 	["nx.json"] = icons.nx,
 	["FUNDING.yml"] = { icon = "", color = "#DF6B92", name = "funding" },
-	["codecov.yml"] = { icon = "", color = "#F01F7A", name = "codecov" },
+	["codecov.yml"] = icons.codecov,
+	["codecov.yaml"] = icons.codecov,
 	["project.json"] = icons.nx,
 	["Brewfile"] = { icon = "", color = "#FBB040", name = "Brewfile" },
 	["amplify.yml"] = { icon = "󰸏" },
