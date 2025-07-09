@@ -106,6 +106,8 @@ M.override_by_filename = {
 	["FUNDING.yml"] = { icon = "", color = "#DF6B92", name = "funding" },
 	["codecov.yml"] = icons.codecov,
 	["codecov.yaml"] = icons.codecov,
+	[".codecov.yml"] = icons.codecov,
+	[".codecov.yaml"] = icons.codecov,
 	["project.json"] = icons.nx,
 	["Brewfile"] = { icon = "", color = "#FBB040", name = "Brewfile" },
 	["amplify.yml"] = { icon = "󰸏" },
