@@ -1,1 +1,0 @@
-../docs/snippets.md
