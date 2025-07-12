@@ -143,6 +143,7 @@ M.javascript = {
 		"tailwindcss-language-server",
 		"typescript-language-server",
 		"vue-language-server",
+		"vtsls",
 	},
 	servers = {
 		"astro",
@@ -154,7 +155,7 @@ M.javascript = {
 		"svelte",
 		"tailwindcss",
 		"vue_ls",
-		os.getenv("TSGOPATH") and "tsgo" or "ts_ls",
+		os.getenv("TSGOPATH") and "tsgo" or "vtsls",
 	},
 	linters = {
 		css = { "stylelint" },
