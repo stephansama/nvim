@@ -31,28 +31,6 @@ M.use_cspell = function()
 	})
 end
 
---- find prettier in cwd or use other formatter
----@param other_formatter table<string>
-M.prettier_formatter_or = function(other_formatter)
-	local prettier_exists = M.config_file_exists({
-		".prettierrc",
-		".prettier.json",
-		".prettier.json5",
-		".prettier.yaml",
-		".prettier.yml",
-		".prettierrc.js",
-		".prettierrc.mjs",
-		".prettierrc.toml",
-		"prettier.config.js",
-		"prettier.config.mjs",
-	})
-	if prettier_exists then
-		return { "prettier" }
-	else
-		return other_formatter
-	end
-end
-
 M.ls_process = function(directory, condition, process)
 	local ls_output = io.popen("ls " .. directory, "r")
 

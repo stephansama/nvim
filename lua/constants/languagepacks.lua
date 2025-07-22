@@ -52,7 +52,7 @@ M.markdown = {
 	servers = { "marksman", "mdx_analyzer" },
 	treesitter = { "markdown", "markdown_inline" },
 	formatters = {
-		markdown = require("utils.pull").prettier_formatter_or({ "markdownlint" }),
+		markdown = { "prettier", "markdownlint" },
 	},
 }
 
@@ -86,12 +86,12 @@ M.data = {
 		"taplo",
 	},
 	formatters = {
-		sql = { "sql_formatter" },
-		toml = { "taplo" },
-		yaml = require("utils.pull").prettier_formatter_or({ "yamlfmt" }),
-		xml = { "xmlformatter" },
 		jsonc = { "prettier" },
 		json = { "prettier" },
+		toml = { "taplo" },
+		yaml = { "prettier", "yamlfmt" },
+		sql = { "sql_formatter" },
+		xml = { "xmlformatter" },
 	},
 	linters = {
 		json = { "jsonlint" },
@@ -133,6 +133,7 @@ M.javascript = {
 		"cssmodules-language-server",
 		"emmet-language-server",
 		"html-lsp",
+		"eslint-lsp",
 		"htmlhint",
 		"js-debug-adapter",
 		"prettier",
@@ -148,6 +149,7 @@ M.javascript = {
 	servers = {
 		"astro",
 		"cssls",
+		"eslint",
 		"cssmodules_ls",
 		"emmet_language_server",
 		"html",
@@ -160,6 +162,7 @@ M.javascript = {
 	linters = {
 		css = { "stylelint" },
 		html = { "htmlhint" },
+		astro = { "eslint" },
 		javascript = { "eslint" },
 		typescript = { "eslint" },
 	},
