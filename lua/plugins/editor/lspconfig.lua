@@ -28,6 +28,7 @@ return {
 					{ "luukvbaal/statuscol.nvim", lazy = false, opts = statuscol_opts, config = true },
 				},
 			},
+			{ "mason-org/mason.nvim" },
 			{
 				"brenoprata10/nvim-highlight-colors",
 				config = true,
