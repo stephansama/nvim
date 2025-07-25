@@ -1,32 +1,59 @@
----@type vim.lsp.Config
+---@class vim.lsp.Config
 local M = {}
 
 local inlayHints = {
-	parameterNames = { enabled = "all" },
-	variableTypes = { enabled = true },
-	propertyDeclarationTypes = { enabled = true },
 	functionLikeReturnTypes = { enabled = true },
-	parameterTypes = { enabled = true },
 	implementationsCodeLens = { enabled = true },
+	parameterNames = { enabled = "all" },
+	parameterTypes = { enabled = true },
+	propertyDeclarationTypes = { enabled = true },
 	referencesCodeLens = { enabled = true },
+	variableTypes = { enabled = true },
 }
 
-local astroTsPlugin = {
+local astro_plugin = {
 	name = "@astrojs/ts-plugin",
 	location = vim.fn.expand("$MASON/packages/astro-language-server/node_modules/@astrojs/ts-plugin/"),
 	enableForWorkspaceTypeScriptVersions = true,
 }
 
+local vue_language_server_path = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server/")
+
+local vue_plugin = {
+	name = "@vue/typescript-plugin",
+	location = vue_language_server_path,
+	languages = { "vue" },
+	configNamespace = "typescript",
+	enableForWorkspaceTypeScriptVersions = true,
+}
+
+M.filetypes = {
+	"javascript",
+	"javascript.jsx",
+	"javascriptreact",
+	"typescript",
+	"typescript.tsx",
+	"typescriptreact",
+	"vue",
+}
+
+local globalPlugins = { astro_plugin, vue_plugin }
+
 M.settings = {
-	javascript = { inlayHints = inlayHints },
-	typescript = { inlayHints = inlayHints },
+	javascript = {
+		inlayHints = inlayHints,
+		suggest = { completeFunctionCalls = true },
+		updateImportsOnFileMove = { enabled = "always" },
+	},
+	typescript = {
+		inlayHints = inlayHints,
+		suggest = { completeFunctionCalls = true },
+		updateImportsOnFileMove = { enabled = "always" },
+	},
 	vtsls = {
+		autoUseWorkspaceTsdk = true,
 		enableMoveToFileCodeAction = true,
-		tsserver = {
-			globalPlugins = {
-				astroTsPlugin,
-			},
-		},
+		tsserver = { globalPlugins = globalPlugins },
 	},
 }
 

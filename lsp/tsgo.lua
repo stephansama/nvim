@@ -8,7 +8,7 @@ if root_dir == nil then
 	return
 end
 
----@type vim.lsp.Config
+---@class vim.lsp.Config
 local M = {}
 
 M.cmd = { os.getenv("TSGOPATH"), "lsp", "--stdio" }

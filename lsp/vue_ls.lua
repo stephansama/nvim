@@ -1,4 +1,4 @@
----@type vim.lsp.Config
+---@class vim.lsp.Config
 local M = {}
 
 M.init_options = {

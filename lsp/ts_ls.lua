@@ -1,4 +1,4 @@
----@type vim.lsp.Config
+---@class vim.lsp.Config
 local M = {}
 local inlayHints = {
 	includeInlayVariableTypeHints = true,
@@ -11,7 +11,7 @@ local inlayHints = {
 	includeInlayParameterNameHintsWhenArgumentMatchesName = false,
 }
 
-M.filetypes = { "javascript", "typescript", "vue" }
+-- M.filetypes = { "javascript", "typescript", "vue" }
 
 M.init_options = {
 	plugins = {
