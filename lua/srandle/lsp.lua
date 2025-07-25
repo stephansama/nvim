@@ -29,7 +29,7 @@ expand_kemaps({
 		["K"] = { lsp.lsp_hover, "LSP Hover" },
 		["gd"] = { vim.lsp.buf.definition, "Go to definition" },
 		["<leader>fc"] = { vim.lsp.buf.format, "Format code" },
-		["<leader>ef"] = { ":LspEslintFixAll", "Fix all eslint issues" },
+		["<leader>ef"] = { ":LspEslintFixAll<CR>", "Fix all eslint issues" },
 		["[d"] = { lsp.jump("prev"), "Go to previous diagnostic" },
 		["]d"] = { lsp.jump("next"), "Go to next diagnostic" },
 	},
