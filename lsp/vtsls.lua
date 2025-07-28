@@ -54,6 +54,10 @@ M.settings = {
 		autoUseWorkspaceTsdk = true,
 		enableMoveToFileCodeAction = true,
 		tsserver = { globalPlugins = globalPlugins },
+		experimental = {
+			maxInlayHintLength = 30,
+			completion = { enableServerSideFuzzyMatch = true },
+		},
 	},
 }
 
