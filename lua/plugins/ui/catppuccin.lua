@@ -5,6 +5,10 @@ local theme = require("constants.theme")
 ---@module 'catppuccin'
 ---@type CatppuccinOptions
 local opts = {
+	float = {
+		transparent = true,
+		solid = false,
+	},
 	flavour = "mocha",
 	show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
 	transparent_background = true,
