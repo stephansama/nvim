@@ -1,4 +1,4 @@
-local load_snippets = function(_, opts)
+return function(_, opts)
 	local luasnip, from_vscode, from_snipmate, from_lua =
 		require("luasnip"),
 		require("luasnip.loaders.from_vscode"),
@@ -23,5 +23,3 @@ local load_snippets = function(_, opts)
 
 	vim.api.nvim_create_autocmd("InsertLeave", { callback = callback })
 end
-
-return load_snippets

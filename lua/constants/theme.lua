@@ -10,7 +10,25 @@ M.PACKAGE_INFO_COLORS = {
 	outdated = "#F5E3B5",
 }
 
-M.DASHBOARD_COLORS = {
+M.DASHBOARD_LIGHTMODE = {
+	"#dc8a78",
+	"#dd7878",
+	"#ea76cb",
+	"#8839ef",
+	"#d20f39",
+	"#e64553",
+	"#fe640b",
+	"#df8e1d",
+	"#40a02b",
+	"#179299",
+	"#04a5e5",
+	"#209fb5",
+	"#1e66f5",
+	"#7287fd",
+	"#5c5f77",
+}
+
+M.DASHBOARD_DARKMODE = {
 	"#F5E0DC",
 	"#F2CDCD",
 	"#F5C2E7",
@@ -26,5 +44,12 @@ M.DASHBOARD_COLORS = {
 	"#89B4FA",
 	"#B4BEFE",
 }
+
+M.DASHBOARD_COLORS = function()
+	if vim.g.colors_name == M.THEME_DARKMODE then
+		return M.DASHBOARD_DARKMODE
+	end
+	return M.DASHBOARD_LIGHTMODE
+end
 
 return M

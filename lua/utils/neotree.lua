@@ -15,7 +15,7 @@ end
 ---@param name string
 ---@return string
 M.get_icon = function(name)
-	local icons = require("icons.neo-tree-icons").icons
+	local icons = require("icons.neotree").icons
 	name = string.lower(name)
 	local last_element = string.len(name) - 1
 	local name_without_first_char = string.sub(name, 2)

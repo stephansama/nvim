@@ -16,7 +16,7 @@ return {
 		opts = { inlay_hints = { enabled = true } },
 		event = "BufEnter",
 		config = function()
-			require("srandle.lsp")
+			require("utils.lspsetup")
 			require("nvim-highlight-colors").turnOn()
 		end,
 		dependencies = {
