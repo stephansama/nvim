@@ -11,11 +11,7 @@ local opts = function()
 				local full_path = root .. "/" .. rel_path
 
 				if root:match("srandle-blog") then
-					if full_path:match("__tests__") then
-						return true
-					else
-						return false
-					end
+					return full_path:match("__tests__") ~= nil
 				else
 					return name ~= "node_modules"
 				end
