@@ -1,14 +1,9 @@
 local ft = require("constants.ft")
-local VIM_FT_EXTENSIONS, VIM_FT_FILENAMES, VIM_FT_PATTERNS =
-	ft.VIM_FT_EXTENSIONS, ft.VIM_FT_FILENAMES, ft.VIM_FT_PATTERNS
-local expand_settings = require("utils.expand").expand_settings
-
-vim.g.mapleader = require("keys.init").LEADER
 
 vim.filetype.add({
-	filename = VIM_FT_FILENAMES,
-	extension = VIM_FT_EXTENSIONS,
-	pattern = VIM_FT_PATTERNS,
+	filename = ft.VIM_FT_FILENAMES,
+	extension = ft.VIM_FT_EXTENSIONS,
+	pattern = ft.VIM_FT_PATTERNS,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -19,9 +14,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+---> autocmd to underline all links <---
+vim.cmd([[autocmd BufEnter * match Underlined /https\?:\/\/\S\+/]])
 vim.cmd([[set shortmess+=I]])
 
-expand_settings({
+vim.g.mapleader = require("keys.init").LEADER
+
+require("utils.expand").expand_settings({
 	wo = { number = true, relativenumber = true },
 	bo = { tabstop = 4 },
 	o = {

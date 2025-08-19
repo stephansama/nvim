@@ -1,5 +1,5 @@
 ---@see Illuminate https://github.com/RRethy/vim-illuminate
-return {
+local opts = {
 	-- providers: provider used to get references in the buffer, ordered by priority
 	providers = { "lsp", "treesitter", "regex" },
 	-- delay: delay in milliseconds
@@ -46,4 +46,12 @@ return {
 	end,
 	-- case_insensitive_regex: sets regex case sensitivity
 	case_insensitive_regex = false,
+}
+
+return {
+	"RRethy/vim-illuminate",
+	lazy = false,
+	config = function()
+		require("illuminate").configure(opts)
+	end,
 }

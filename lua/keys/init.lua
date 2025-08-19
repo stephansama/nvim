@@ -1,7 +1,6 @@
 local M = {}
 local harpoon_utils = require("utils.harpoon_utils")
 local execute_neotree = require("utils.neotree").execute_neotree
-local spectre_function = require("utils").spectre_function
 local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_remove =
 	harpoon_utils.harpoon_modify,
 	harpoon_utils.harpoon_toggle,
@@ -12,19 +11,6 @@ local harpoon_modify, harpoon_toggle, clear_harpoon, harpoon_select, harpoon_rem
 M.LEADER = " "
 
 M.dashboard = { { "<leader>ld", require("utils.dashboard").go_to_dashboard, desc = "Go to Dashboard" } }
-
-M.dashboard_actions = {
-	{ "", "f", "Find  file", "Telescope find_files" },
-	{ "", "r", "Find  recent", "Telescope oldfiles" },
-	{ "", "w", "Find  words", "Telescope live_grep" },
-	{ "󰌌", "k", "Find  keymaps", "Telescope keymaps" },
-	{ "󰑴", "l", "Open leetcode", "Leet" },
-	{ "", "q", "Quit", "qa" },
-}
-
-M.dbui = {
-	{ "<leader>od", vim.cmd.DBUIToggle, desc = "Open Database UI" },
-}
 
 M.harpoon = {
 	{ "<leader>R", harpoon_modify("remove"), desc = "Remove current buffer from harpoon" },
@@ -91,18 +77,6 @@ M.treesitter_incremental_selection = {
 	scope_incremental = "<leader>sc",
 }
 
-M.cmp = {
-	NEXT = "<C-n>",
-	PREV = "<C-p>",
-	CLOSE = "<C-e>",
-	SELECT = "<CR>",
-	COMPLETE = "<C-y>",
-	NEXT_OR_SNIPPET = "<Tab>",
-	PREV_OR_SNIPPET = "<S-Tab>",
-	SCROLL_DOCS_BACKWARD = "<C-d>",
-	SCROLL_DOCS_FORWARD = "<C-f>",
-}
-
 M.mason = {
 	uninstall_server = "X",
 	install_server = "i",
@@ -145,12 +119,6 @@ M.grug_far = {
 	},
 }
 
-M.spectre = {
-	{ "<leader>S", spectre_function("toggle"), desc = "Toggle spectre" },
-	{ "<leader>sw", spectre_function("open_visual"), desc = "Search current word" },
-	{ "<leader>sf", spectre_function("open_file_search"), desc = "Search current file" },
-}
-
 M.crates = {
 	{ "<leader>cs", "<cmd>Crates show_popup<cr>", desc = "Crates.nvim open features list" },
 	{ "<leader>cu", "<cmd>Crates update_crate<cr>", desc = "Crates.nvim update crate" },
@@ -171,11 +139,6 @@ M.key_analyzer = {
 	{ "<leader>ka", ":KeyAnalyzer ", desc = "Key Analyzer" },
 	{ "<leader>kc", ":KeyAnalyzer <C-<CR>", desc = "Key Analyzer for ctrl" },
 	{ "<leader>kl", analyze_leader, desc = "Key Analyzer for leader" },
-}
-
-M.notify = {
-	{ "<leader>nt", "<cmd>Telescope notify theme=ivy<CR>", desc = "Open Notify Telescope" },
-	{ "<leader>nd", "<cmd>lua require('notify').dismiss()<CR>", desc = "Dismis notifications" },
 }
 
 M.noice = {
@@ -217,17 +180,10 @@ M.gh_navigator = {
 	{ "<leader>gP", "<cmd>GH repo pulls<CR>", desc = "Open github repo pull requests" },
 }
 
-M.oatmeal = {
-	{ "<leader>om", mode = "n", desc = "Start Oatmeal session" },
-	{ "<leader>om", mode = "v", desc = "Start Oatmeal session" },
-}
-
 M.stow = {
 	{ "<leader>sr", "<cmd>Stow remove<CR>", desc = "Remove Stow symlink" },
 	{ "<leader>sa", "<cmd>Stow reapply<CR>", desc = "Reapply Stow symlink" },
 }
-
-M.oil = { { "-", vim.cmd.Oil, desc = "Open Oil.nvim" } }
 
 M.outline = { { "|", vim.cmd.Outline, desc = "Toggle Outline" } }
 
@@ -240,8 +196,6 @@ M.maximizer = { { "<leader>sm", vim.cmd.MaximizerToggle, desc = "Toggle maximize
 M.liveserver = { { "<leader>ls", vim.cmd.LiveServerToggle, desc = "Toggle live server" } }
 
 M.table_mode = { { "<leader>mt", vim.cmd.TableModeToggle, desc = "Toggle markdown table mode" } }
-
-M.neocomposer = { { "<leader>mm", vim.cmd.EditMacros, desc = "Edit macros" } }
 
 M.startuptime = { { "<leader>st", vim.cmd.StartupTime, desc = "Debug neovim StartupTime" } }
 
@@ -269,16 +223,6 @@ M.laravel = {
 	{ "<leader>la", "<cmd>Laravel artisan<cr>" },
 	{ "<leader>lr", "<cmd>Laravel routes<cr>" },
 	{ "<leader>lt", "<cmd>Laravel related<cr>" },
-}
-
-M.otter = {
-	{
-		"<leader>os",
-		function()
-			require("otter").activate()
-		end,
-		desc = "Start otter server",
-	},
 }
 
 return M

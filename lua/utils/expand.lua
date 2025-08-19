@@ -50,24 +50,4 @@ M.expand_settings = function(settings)
 	end
 end
 
----used for `dashboard.lua`
----expand actions object into the proper shape
----order of action is as follows
----
---- `{ "icon", "key", "desc", "action" }`
----@param actions table
----@return table
-M.expand_actions = function(actions)
-	local response = {}
-	local mappings = { "icon", "key", "desc", "action" }
-	for i, action in ipairs(actions) do
-		table.insert(response, {})
-		for k, val in ipairs(action) do
-			local map = mappings[k]
-			response[i][map] = map == "icon" and val .. " " or val
-		end
-	end
-	return response
-end
-
 return M

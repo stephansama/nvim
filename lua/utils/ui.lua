@@ -41,6 +41,7 @@ M.reset_ui = function()
 	vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
 	vim.cmd([[hi MiniIndentscopeSymbol guifg=#C93638 guibg=none]])
 	vim.cmd([[hi NoiceCmdlinePopupBorder guifg=#C93638 guibg=none]])
+
 	if package.preload["ufo"] then
 		vim.cmd([[UfoEnableFold]])
 	end
