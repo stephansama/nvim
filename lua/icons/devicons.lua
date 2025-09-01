@@ -187,8 +187,11 @@ M.override_by_filename = {
 	[".eslintrc.cjs"] = icons.eslintrc,
 	[".eslintrc.json"] = icons.eslintrc,
 	["eslint.config.js"] = icons.eslintrc,
+	["eslint.config.ts"] = icons.eslintrc,
 	["eslint.config.cjs"] = icons.eslintrc,
+	["eslint.config.cts"] = icons.eslintrc,
 	["eslint.config.mjs"] = icons.eslintrc,
+	["eslint.config.mts"] = icons.eslintrc,
 	["unlighthouse.config.js"] = icons.unlighthouse,
 	["unlighthouse.config.ts"] = icons.unlighthouse,
 	-- vite ts
