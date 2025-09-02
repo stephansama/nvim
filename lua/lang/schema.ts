@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const languageSchema = z.object({
+const languageSchema = z.object({
 	mason: z.string().array().meta({
 		description: "https://mason-registry.dev/registry/list",
 	}),
@@ -36,6 +36,3 @@ export const languageSchema = z.object({
 export const languagePackSchema = z.record(z.string(), languageSchema);
 
 export type Schema = z.infer<typeof languageSchema>;
-export type List = Schema["servers"][];
-export type KV = Schema["linters"][];
-export type KVParser = Schema["treesitter_parser"][];
