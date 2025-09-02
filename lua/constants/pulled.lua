@@ -3,7 +3,11 @@ local pull = require("utils.pull")
 
 M.PLUGINS = pull.pull_plugins_from_languages()
 
-M.SERVERS = pull.merge_flat(pull.pull_property_from_languages("servers"))
+local SERVERS = require("lang.pulled").SERVERS
+vim.print(vim.inspect(SERVERS))
+
+M.SERVERS = SERVERS
+-- pull.merge_flat(pull.pull_property_from_languages("servers"))
 
 M.LINTERS = pull.merge_kv(pull.pull_property_from_languages("linters", pull.kv_rename))
 

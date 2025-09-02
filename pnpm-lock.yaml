@@ -1,0 +1,207 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@gkzhb/lua-types-nvim':
+        specifier: ^0.0.7
+        version: 0.0.7
+      '@prettier/plugin-lua':
+        specifier: ^0.0.3
+        version: 0.0.3(prettier@3.6.2)
+      lua-types:
+        specifier: ^2.13.1
+        version: 2.13.1
+      prettier:
+        specifier: ^3.6.2
+        version: 3.6.2
+      prettier-plugin-organize-imports:
+        specifier: ^4.2.0
+        version: 4.2.0(prettier@3.6.2)(typescript@5.9.2)
+      prettier-plugin-sort-package-json:
+        specifier: ^1.1.0
+        version: 1.1.0(prettier@3.6.2)
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
+      typescript-to-lua:
+        specifier: ^1.32.0
+        version: 1.32.0(typescript@5.9.2)
+      zod:
+        specifier: ^4.1.5
+        version: 4.1.5
+
+packages:
+
+  '@gkzhb/lua-types-nvim@0.0.7':
+    resolution: {integrity: sha512-+XBpAXjBYxicd8xTNK+R+b0SX4+VkJw/qJ36ZMMDXGtIE7DpRlStxrGXVV7CTVxPIreDfzG+q5d0Sz4Jr4U3/Q==}
+
+  '@prettier/plugin-lua@0.0.3':
+    resolution: {integrity: sha512-Fn7rf/9BTisEShgSN7iSKxgBo3MkHnAptNI7+4JC7E3wi2ElfzcR194QswblbY6X0fTdaHz3yG0GQcuwtxZKoQ==}
+    engines: {node: '>=10.13.0'}
+    peerDependencies:
+      prettier: '>=2.0.0'
+
+  '@typescript-to-lua/language-extensions@1.19.0':
+    resolution: {integrity: sha512-Os5wOKwviTD4LeqI29N0btYOjokSJ97iCf45EOjIABlb5IwNQy7AE/AqZJobRw3ywHH8+KzJUMkEirWPzh2tUA==}
+
+  enhanced-resolve@5.8.2:
+    resolution: {integrity: sha512-F27oB3WuHDzvR2DOGNTaYy0D5o0cnrv8TeI482VM4kYgQd/FT9lUQwuNsJ0oOHtBUq7eiW5ytqzp7nBFknL+GA==}
+    engines: {node: '>=10.13.0'}
+
+  function-bind@1.1.2:
+    resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
+
+  graceful-fs@4.2.11:
+    resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  hasown@2.0.2:
+    resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
+    engines: {node: '>= 0.4'}
+
+  is-core-module@2.16.1:
+    resolution: {integrity: sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==}
+    engines: {node: '>= 0.4'}
+
+  lua-types@2.13.1:
+    resolution: {integrity: sha512-rRwtvX6kS+5MpuO3xpvKsnYjdSDDI064Qq1OqX8gY+r+0l7m3dFLiZPDFoHqH22jaBpEvcHcPs6+WD7qkdmFsA==}
+
+  luaparse@0.2.1:
+    resolution: {integrity: sha512-VKBcryd5nJte4ZNR29NOk8F/UkMipjeb4yoxcSS51z6QAzg9DXUC2WsfLniS0J1eh3pr/ZL3e9ha6V8fhoLbBQ==}
+    hasBin: true
+
+  path-parse@1.0.7:
+    resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
+
+  picomatch@2.3.1:
+    resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
+    engines: {node: '>=8.6'}
+
+  prettier-plugin-organize-imports@4.2.0:
+    resolution: {integrity: sha512-Zdy27UhlmyvATZi67BTnLcKTo8fm6Oik59Sz6H64PgZJVs6NJpPD1mT240mmJn62c98/QaL+r3kx9Q3gRpDajg==}
+    peerDependencies:
+      prettier: '>=2.0'
+      typescript: '>=2.9'
+      vue-tsc: ^2.1.0 || 3
+    peerDependenciesMeta:
+      vue-tsc:
+        optional: true
+
+  prettier-plugin-sort-package-json@1.1.0:
+    resolution: {integrity: sha512-vbOfkAvNjqbpZT7QdhGS/KE66C8J789zdzJtQvKHuM46+nBz7+A+2DrDuBriVPd9uf3qDRCKxHGKZ31bJQ87tA==}
+    peerDependencies:
+      prettier: ^3.0.0
+
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+
+  resolve@1.22.10:
+    resolution: {integrity: sha512-NPRy+/ncIMeDlTAsuqwKIiferiawhefFJtkNSW0qZJEqMEb+qBt/77B/jGeeek+F0uOeN05CDa6HXbbIgtVX4w==}
+    engines: {node: '>= 0.4'}
+    hasBin: true
+
+  source-map@0.7.6:
+    resolution: {integrity: sha512-i5uvt8C3ikiWeNZSVZNWcfZPItFQOsYTUAOkcUPGd8DqDy1uOUikjt5dG+uRlwyvR108Fb9DOd4GvXfT0N2/uQ==}
+    engines: {node: '>= 12'}
+
+  supports-preserve-symlinks-flag@1.0.0:
+    resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
+    engines: {node: '>= 0.4'}
+
+  tapable@2.2.3:
+    resolution: {integrity: sha512-ZL6DDuAlRlLGghwcfmSn9sK3Hr6ArtyudlSAiCqQ6IfE+b+HHbydbYDIG15IfS5do+7XQQBdBiubF/cV2dnDzg==}
+    engines: {node: '>=6'}
+
+  typescript-to-lua@1.32.0:
+    resolution: {integrity: sha512-RVopoyoYiYJFrv/0Yw6i77lBI9DhNhAGxuq6TV4b3JzCWjabzwUd/yhTCSVKzWiiAs0zj24Mi7iH9biWG6Phjw==}
+    engines: {node: '>=16.10.0'}
+    hasBin: true
+    peerDependencies:
+      typescript: 5.8.2
+
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  zod@4.1.5:
+    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
+
+snapshots:
+
+  '@gkzhb/lua-types-nvim@0.0.7': {}
+
+  '@prettier/plugin-lua@0.0.3(prettier@3.6.2)':
+    dependencies:
+      luaparse: 0.2.1
+      prettier: 3.6.2
+
+  '@typescript-to-lua/language-extensions@1.19.0': {}
+
+  enhanced-resolve@5.8.2:
+    dependencies:
+      graceful-fs: 4.2.11
+      tapable: 2.2.3
+
+  function-bind@1.1.2: {}
+
+  graceful-fs@4.2.11: {}
+
+  hasown@2.0.2:
+    dependencies:
+      function-bind: 1.1.2
+
+  is-core-module@2.16.1:
+    dependencies:
+      hasown: 2.0.2
+
+  lua-types@2.13.1: {}
+
+  luaparse@0.2.1: {}
+
+  path-parse@1.0.7: {}
+
+  picomatch@2.3.1: {}
+
+  prettier-plugin-organize-imports@4.2.0(prettier@3.6.2)(typescript@5.9.2):
+    dependencies:
+      prettier: 3.6.2
+      typescript: 5.9.2
+
+  prettier-plugin-sort-package-json@1.1.0(prettier@3.6.2):
+    dependencies:
+      prettier: 3.6.2
+
+  prettier@3.6.2: {}
+
+  resolve@1.22.10:
+    dependencies:
+      is-core-module: 2.16.1
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
+
+  source-map@0.7.6: {}
+
+  supports-preserve-symlinks-flag@1.0.0: {}
+
+  tapable@2.2.3: {}
+
+  typescript-to-lua@1.32.0(typescript@5.9.2):
+    dependencies:
+      '@typescript-to-lua/language-extensions': 1.19.0
+      enhanced-resolve: 5.8.2
+      picomatch: 2.3.1
+      resolve: 1.22.10
+      source-map: 0.7.6
+      typescript: 5.9.2
+
+  typescript@5.9.2: {}
+
+  zod@4.1.5: {}

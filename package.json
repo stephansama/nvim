@@ -1,0 +1,22 @@
+{
+	"private": true,
+	"name": "nvim",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"build": "tstl",
+		"build:schema": "node ./scripts/build-schema.mjs",
+		"dev": "tstl --watch"
+	},
+	"devDependencies": {
+		"@gkzhb/lua-types-nvim": "^0.0.7",
+		"@prettier/plugin-lua": "^0.0.3",
+		"lua-types": "^2.13.1",
+		"prettier": "^3.6.2",
+		"prettier-plugin-organize-imports": "^4.2.0",
+		"prettier-plugin-sort-package-json": "^1.1.0",
+		"typescript": "^5.9.2",
+		"typescript-to-lua": "^1.32.0",
+		"zod": "^4.1.5"
+	}
+}
