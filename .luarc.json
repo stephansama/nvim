@@ -1,6 +1,7 @@
 {
 	"workspace.checkThirdParty": "Disable",
 	"workspace.library": [
+		"lua",
 		"~/.local/share/nvim/lazy/",
 		"/opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime"
 	]

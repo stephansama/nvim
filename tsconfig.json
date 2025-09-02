@@ -11,7 +11,11 @@
 		"types": ["lua-types/5.1", "@gkzhb/lua-types-nvim"],
 		"strict": true
 	},
-	"tstl": { "luaTarget": "JIT", "luaLibImport": "require-minimal" },
+	"tstl": {
+		"luaTarget": "JIT",
+		"luaLibImport": "require-minimal",
+		"noResolvePaths": ["zod"]
+	},
 	"include": ["lua/**/*.ts"],
-	"exclude": ["**/scripts/**", "schema.json", "schema.ts"]
+	"exclude": ["schema.*", "schema.ts"]
 }
