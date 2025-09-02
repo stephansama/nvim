@@ -2,5 +2,6 @@ lazy-lock.json
 node_modules
 lualib_bundle.lua
 scripts/language-pack.json
-lua/lang/schema.json
+**/*schema.json
 lua/lang/*.lua
+*import.lua

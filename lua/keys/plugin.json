@@ -1,0 +1,8 @@
+{
+	"$schema": "./plugin-schema.json",
+	"laravel": [
+		"<leader><Tab>",
+		"<cmd>FzfLua buffers<CR>",
+		{ "desc": "Find buffers" }
+	]
+}

@@ -8,7 +8,7 @@ dev:
 	pnpm run build:schema && pnpm run dev
 
 clean:
-	rm -rf node_modules lua/lang/zod.lua
+	rm -rf node_modules && find . -type f -name '*schema.lua' -exec rm {} \;
 
 clean-all:
 	git clean -dfX
