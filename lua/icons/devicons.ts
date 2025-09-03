@@ -1,4 +1,5 @@
-import type { DeviconMap } from "./type";
+type Devicon = { icon: string; name?: string; color?: string };
+type DeviconMap = Record<string, Devicon>;
 
 const icons = {
 	env: { icon: "", name: "env" },
