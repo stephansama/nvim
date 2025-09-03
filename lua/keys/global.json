@@ -1,0 +1,48 @@
+{
+	"$schema": "./global-keymap-schema.json",
+	"n": {
+		"o": ["o<ESC>zz"],
+		"O": ["O<ESC>zz"],
+		"Q'": ["@q", "Quick Replay"],
+		"<ESC>": [":noh<CR>", "Escape"],
+		"<leader>w": [":w<CR>", "Save"],
+		"<leader>x": [":q<CR>", "Close window"],
+		"<leader>vc": [":!code .<CR>", "Open project in vscode"],
+		"<leader>vf": [":!code '%:p'<CR>", "Open file in vscode"],
+		"<leader>se": [":!open .<CR>", "Open directory in finder"],
+		"<leader>sf": [":!open '%:p'<CR>", "Open file using default provider"],
+		"<leader>tc": [":tabnew<CR>", "Create new tab"],
+		"<leader>tn": [":tabnext<CR>", "Go to next tab"],
+		"<leader>tp": [":tabprevious<CR>", "Go to previous tab"],
+		"<leader>tx": [":tabclose<CR>", "Close current tab"],
+		"<leader>ll": [":Lazy<CR>", "Lazy plugin manager"],
+		"<leader>lm": [":Mason<CR>", "Mason plugin manager"],
+		"<leader><leader>w": [":wqa<CR>", "Save and quit all"],
+		"<leader><leader><leader>": [":qa<CR>", "Quit all"]
+	},
+	"n,v": {
+		"%": ["%zz"],
+		"G": ["Gzz"],
+		"u": ["uzz"],
+		"{": ["{zz"],
+		"}": ["}zz"],
+		"k": ["gkzz"],
+		"j": ["gjzz"],
+		"``": ["``zz"],
+		"<C-D>": ["<C-D>zz"],
+		"<C-R>": ["<C-R>zz"],
+		"<C-U>": ["<C-U>zz"]
+	},
+	"n,o,v,x": {
+		"H": ["^", "Move to beginning of line"],
+		"L": ["$", "Move to end of line"]
+	},
+	"v": {
+		"J": [":m '>+1<CR>gv=gvzz", "Move line up", { "silent": true }],
+		"K": [":m '<-2<CR>gv=gvzz", "Move line down", { "silent": true }],
+		"<": ["<gv", "Indent Left"],
+		">": [">gv", "Indent Right"]
+	},
+	"v,x": { "p": ["\"_dP", "Paste without copying"] },
+	"x": { "/": ["<ESC>/\\%V", "Search within lines"] }
+}
