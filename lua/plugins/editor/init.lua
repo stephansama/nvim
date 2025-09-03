@@ -2,11 +2,28 @@ local keys = require("keys.init")
 local lint = require("utils.lint")
 
 return {
-	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = true,
+	},
 	{ "artemave/workspace-diagnostics.nvim" },
-	{ "folke/trouble.nvim", opts = {}, keys = keys.trouble },
-	{ "kevinhwang91/nvim-bqf", ft = "qf" },
-	{ "mcauley-penney/visual-whitespace.nvim", config = true, event = "ModeChanged *:[vV\22]", opts = {} },
+	{
+		"folke/trouble.nvim",
+		opts = {},
+		keys = keys.trouble,
+	},
+	{
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+	},
+	{
+		"mcauley-penney/visual-whitespace.nvim",
+		config = true,
+		event = "ModeChanged *:[vV\22]",
+		opts = {},
+	},
 	{
 		"stevearc/quicker.nvim",
 		event = "FileType qf",
@@ -19,29 +36,26 @@ return {
 		"mfussenegger/nvim-lint",
 		init = lint.create_lint_init,
 		config = lint.load_linters,
-		keys = {
-			{ "<leader>sp", lint.toggle_cspell, desc = "lint with cspell" },
-		},
+		keys = { {
+			"<leader>sp",
+			lint.toggle_cspell,
+			desc = "lint with cspell",
+		} },
 	},
 	{
 		"stevearc/conform.nvim",
 		event = "BufWritePre",
 		config = true,
 		opts = {
-			formatters = { prettier = { require_cwd = true } },
-			format_on_save = { timeout_ms = 1000, lsp_fallback = true },
+			formatters = {
+				prettier = { require_cwd = true },
+			},
+			format_on_save = {
+				timeout_ms = 1000,
+				lsp_fallback = true,
+			},
 			formatters_by_ft = require("constants.pulled").FORMATTERS,
 		},
-	},
-	{
-		"ThePrimeagen/harpoon",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
-		keys = require("keys.init").harpoon,
-		branch = "harpoon2",
-		config = function(_, opts)
-			require("harpoon"):setup(opts)
-		end,
 	},
 	{
 		"wassimk/gh-navigator.nvim",
@@ -52,7 +66,10 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		build = "make install_jsregexp",
-		opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+		opts = {
+			history = true,
+			updateevents = "TextChanged,TextChangedI",
+		},
 		config = require("utils.snippets"),
 	},
 	{
@@ -66,7 +83,11 @@ return {
 	},
 	{
 		"mbbill/undotree",
-		keys = { { "<leader>u", "<CMD>UndotreeToggle<CR>", desc = "UndotreeToggle" } },
+		keys = { {
+			"<leader>u",
+			"<CMD>UndotreeToggle<CR>",
+			desc = "UndotreeToggle",
+		} },
 		config = function()
 			vim.g.undotree_WindowLayout = 3
 			vim.g.undotree_SetFocusWhenToggle = 1
