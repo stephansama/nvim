@@ -1,5 +1,4 @@
-type Icon = { icon: string; name?: string; color?: string };
-type IconMap = Record<string, Icon>;
+import type { DeviconMap } from "./type";
 
 const icons = {
 	env: { icon: "", name: "env" },
@@ -38,7 +37,7 @@ const icons = {
 	test_js: { icon: "", color: "#F7DF1E", name: "test_javascript" },
 	test_ts: { icon: "", color: "#3178C6", name: "test_typescript" },
 	unlighthouse: { icon: "󰧿", color: "#F44B21", name: "unlighthouse" },
-} satisfies IconMap;
+} satisfies DeviconMap;
 
 export const override_by_extension = {
 	Jenkinsfile: { icon: "", name: "jenkins", color: "white" },
@@ -92,7 +91,7 @@ export const override_by_extension = {
 	yaml: icons.yaml,
 	yml: icons.yaml,
 	zip: icons.archive,
-} satisfies IconMap;
+} satisfies DeviconMap;
 
 export const override_by_filename = {
 	[".babelrc"]: icons.babel,
@@ -243,6 +242,6 @@ export const override_by_filename = {
 	["wrangler.jsonc"]: icons.wrangler,
 	["wrangler.toml"]: icons.wrangler,
 	["yarn.lock"]: icons.yarn,
-} satisfies IconMap;
+} satisfies DeviconMap;
 
 export const strict = true;
