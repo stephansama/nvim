@@ -31,5 +31,5 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = true,
 	opts = opts,
-	keys = require("keys.init").fzf_lua,
+	keys = require("keys.plugin").fzf_lua,
 }

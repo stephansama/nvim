@@ -14,7 +14,7 @@ local mason_opts = {
 	ui = {
 		icons = require("icons").mason,
 		border = "rounded",
-		keymaps = require("keys.init").mason,
+		keymaps = require("keys.plugin").mason,
 	},
 }
 

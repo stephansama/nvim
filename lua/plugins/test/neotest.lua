@@ -36,6 +36,6 @@ return {
 		"thenbe/neotest-playwright",
 	},
 	config = true,
-	keys = require("keys.init").neotest,
+	keys = require("keys.plugin").neotest,
 	opts = opts,
 }

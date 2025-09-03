@@ -1,4 +1,4 @@
-local keys = require("keys.init")
+local keys = require("keys.plugin")
 local lint = require("utils.lint")
 
 return {

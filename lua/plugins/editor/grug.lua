@@ -480,6 +480,6 @@ local opts = {
 return {
 	"MagicDuck/grug-far.nvim",
 	config = true,
-	keys = require("keys.init").grug_far,
+	keys = require("keys.plugin").grug_far,
 	opts = opts,
 }

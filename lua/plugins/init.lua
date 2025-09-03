@@ -1,4 +1,4 @@
-local keys = require("keys.init")
+local keys = require("keys.plugin")
 
 return {
 	{ "nvim-lua/plenary.nvim", lazy = false },
@@ -14,14 +14,14 @@ return {
 	{
 		"stephansama/stow.nvim",
 		cmd = "Stow",
-		keys = require("keys.init").stow,
+		keys = require("keys.plugin").stow,
 		config = true,
 	},
 	{
 		"kawre/leetcode.nvim",
 		config = true,
 		build = ":TSUpdate html",
-		keys = require("keys.init").leetcode,
+		keys = require("keys.plugin").leetcode,
 		cmd = "Leet",
 		dependencies = {
 			"ibhagwan/fzf-lua",

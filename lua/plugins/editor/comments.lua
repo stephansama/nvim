@@ -1,5 +1,5 @@
 local ft = require("constants.ft").COMMENT_FILETYPES
-local keys = require("keys.init")
+local keys = require("keys.plugin")
 
 local opts = function()
 	return {

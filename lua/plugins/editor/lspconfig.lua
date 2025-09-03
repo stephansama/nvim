@@ -51,7 +51,7 @@ return {
 	},
 	{
 		"MysticalDevil/inlay-hints.nvim",
-		keys = require("keys.init").inlay_hints,
+		keys = require("keys.plugin").inlay_hints,
 		event = "LspAttach",
 		config = true,
 		dependencies = { "neovim/nvim-lspconfig" },

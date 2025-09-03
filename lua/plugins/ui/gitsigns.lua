@@ -1,6 +1,6 @@
 local opts = function()
 	return {
-		on_attach = require("keys.gitsigns").load_gitsigns_keymap,
+		-- on_attach = require("keys.").load_gitsigns_keymap,
 		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 		linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
 		word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -21,7 +21,8 @@ local opts = function()
 			ignore_whitespace = false,
 			virt_text_priority = 100,
 		},
-		preview_config = { --- Options passed to nvim_open_win
+		preview_config = {
+			--- Options passed to nvim_open_win
 			row = 0,
 			col = 1,
 			style = "minimal",
@@ -44,4 +45,5 @@ return {
 	event = "VeryLazy",
 	config = true,
 	opts = opts,
+	keys = require("keys.plugin").gitsigns,
 }

@@ -38,7 +38,7 @@ return {
 		cmd = { "Laravel" },
 		config = true,
 		filetypes = { "blade", "php" },
-		keys = require("keys.init").laravel,
+		keys = require("keys.plugin").laravel,
 		opts = opts,
 		dependencies = {
 			"tpope/vim-dotenv",

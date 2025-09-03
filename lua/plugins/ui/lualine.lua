@@ -1,13 +1,18 @@
 local utils = require("utils.ui")
 
+local blank_separators = {
+	left = "",
+	right = "",
+}
+
 ---@see Default_Configuration https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#default-configuration
 local opts = {
 	options = {
 		theme = require("constants.theme").THEME,
 		globalstatus = true,
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
 		disabled_filetypes = { "dashboard" },
+		section_separators = blank_separators,
+		component_separators = blank_separators,
 	},
 	sections = {
 		lualine_c = {

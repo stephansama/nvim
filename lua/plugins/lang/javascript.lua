@@ -1,5 +1,5 @@
 return {
-	{ "rest-nvim/rest.nvim", keys = require("keys.init").rest, ft = "http" },
+	{ "rest-nvim/rest.nvim", keys = require("keys.plugin").rest, ft = "http" },
 	{ "windwp/nvim-ts-autotag", ft = require("constants.ft").WEB_FILETYPES, config = true },
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -24,7 +24,7 @@ return {
 		"barrett-ruth/live-server.nvim",
 		config = true,
 		build = "pnpm add -g live-server",
-		keys = require("keys.init").liveserver,
+		keys = require("keys.plugin").liveserver,
 		cmd = { "LiveServerStart", "LiveServerStop" },
 	},
 }

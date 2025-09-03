@@ -1,4 +1,4 @@
-local keys = require("keys.init")
+local keys = require("keys.plugin")
 
 return {
 	{ "dstein64/vim-startuptime", keys = keys.startuptime },

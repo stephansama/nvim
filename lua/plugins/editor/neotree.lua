@@ -44,7 +44,7 @@ return {
 		cmd = "Neotree",
 		branch = "v3.x",
 		config = true,
-		keys = require("keys.init").neo_tree,
+		keys = require("keys.plugin").neo_tree,
 		opts = opts,
 		dependencies = {
 			"nvim-lua/plenary.nvim",

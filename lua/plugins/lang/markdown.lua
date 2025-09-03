@@ -3,7 +3,7 @@ return {
 		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
 		config = function() end,
-		keys = require("keys.init").table_mode,
+		keys = require("keys.plugin").table_mode,
 		init = function()
 			vim.g.table_mode_tableize_map = "<leader>mc"
 		end,
@@ -19,6 +19,6 @@ return {
 		ft = { "markdown" },
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && yarn install",
-		keys = require("keys.init").markdownpreview,
+		keys = require("keys.plugin").markdownpreview,
 	},
 }
