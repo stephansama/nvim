@@ -59,31 +59,10 @@ M.load_neo_tree_icons = function(config, node)
 		end
 	end
 
-	return { text = current_icon .. padding, highlight = highlight }
-end
-
-M.execute_neotree = function(opts)
-	return function()
-		local reveal_file = vim.fn.expand("%:p")
-		if reveal_file == "" then
-			reveal_file = vim.fn.getcwd()
-		else
-			local f = io.open(reveal_file, "r")
-			if f then
-				f.close(f)
-			else
-				reveal_file = vim.fn.getcwd()
-			end
-		end
-		require("neo-tree.command").execute(vim.tbl_deep_extend("force", {
-			source = "filesystem",
-			action = "focus",
-			toggle = true,
-			position = "right",
-			reveal_file = reveal_file,
-			reveal_force_cwd = true,
-		}, opts or {}))
-	end
+	return {
+		text = current_icon .. padding,
+		highlight = highlight,
+	}
 end
 
 return M
