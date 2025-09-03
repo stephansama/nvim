@@ -1,4 +1,4 @@
-import { z } from "zod";
+import z from "zod";
 
 const languageSchema = z.object({
 	mason: z.string().array().meta({
