@@ -18,5 +18,4 @@ export const enabled = [
 	// "godot",
 	// "python",
 	// "csharp",
-	// "snyk",
-] as const satisfies (keyof typeof packs)[];
+] satisfies (keyof typeof packs)[];

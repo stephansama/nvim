@@ -3,13 +3,12 @@ import type { Schema } from "./schema";
 import { enabled } from "./enabled";
 import * as packs from "./packs.json";
 
-const parsers = pullProperty("treesitter_parser");
-export const FORMATTERS = mergeKeyValue(pullProperty("formatters"));
-export const LINTERS = mergeKeyValue(pullProperty("linters"));
+export const FORMATTERS = mergeKV(pullProperty("formatters"));
+export const LINTERS = mergeKV(pullProperty("linters"));
 export const MASON = mergeFlat(pullProperty("mason"));
 export const SERVERS = mergeFlat(pullProperty("servers"));
 export const TREESITTER = mergeFlat(pullProperty("treesitter"));
-export const TREESITTER_PARSERS = mergeKeyValue(parsers);
+export const TREESITTER_PARSERS = mergeKV(pullProperty("treesitter_parser"));
 
 function mergeFlat<T>(this: void, arr: T[][]) {
 	const result = [];
@@ -23,7 +22,7 @@ function mergeFlat<T>(this: void, arr: T[][]) {
 	return result;
 }
 
-function mergeKeyValue<T>(this: void, records: Record<string, T>[]) {
+function mergeKV<T>(this: void, records: Record<string, T>[]) {
 	const result: Record<string, T> = {};
 
 	for (const record of records) {
@@ -42,7 +41,7 @@ function pullProperty<T extends keyof Schema, R = Schema[T]>(
 	const result = [];
 
 	for (const language of enabled) {
-		const schemaPack = packs[language as keyof typeof packs] as Schema;
+		const schemaPack = packs[language] as Schema;
 		const pack = schemaPack[key];
 
 		result.push(pack);
