@@ -1,7 +1,4 @@
-import { z } from "zod";
-
-import "./global.json";
-import "./plugin.json";
+import z from "zod";
 
 const MODES = ["c", "i", "l", "n", "o", "s", "t", "v", "x"] as const;
 
@@ -50,9 +47,9 @@ function generateModeOptions<T extends readonly string[]>(modes: T): string[] {
 				combo.push(modes[i]);
 			}
 		}
-		combo.sort(); // alphabetical
+		combo.sort();
 		results.add(combo.join(","));
 	}
 
-	return Array.from(results).sort(); // optional: sort final array alphabetically
+	return Array.from(results).sort();
 }

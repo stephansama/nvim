@@ -1,6 +1,52 @@
 {
 	"$schema": "./plugin-keymap-schema.json",
-	"LEADER": " ",
+	"gitsigns": [
+		[
+			"[h",
+			"<cmd>lua require('gitsigns').prev_hunk()<CR>",
+			{ "desc": "Git prev hunk" }
+		],
+		[
+			"]h",
+			"<cmd>lua require('gitsigns').next_hunk()<CR>",
+			{ "desc": "Git prev hunk" }
+		],
+		[
+			"<leader>gr",
+			"<cmd>lua require('gitsigns').reset_hunk({ vim.fn.line(\".\"), vim.fn.line(\"v\") })<CR>",
+			{ "desc": "Git reset hunk" }
+		],
+		[
+			"<leader>hd",
+			"<cmd>lua require('gitsigns').diffthis()<CR>",
+			{ "desc": "Git diffthis" }
+		],
+		[
+			"<leader>hs",
+			"<cmd>lua require('gitsigns').stage_hunk()<CR>",
+			{ "desc": "Git stage hunk" }
+		],
+		[
+			"<leader>hS",
+			"<cmd>lua require('gitsigns').stage_buffer()<CR>",
+			{ "desc": "Git stage buffer" }
+		],
+		[
+			"<leader>hu",
+			"<cmd>lua require('gitsigns').undo_stage_hunk()<CR>",
+			{ "desc": "Git undo stage hunk" }
+		],
+		[
+			"<leader>hb",
+			"<cmd>lua require('gitsigns').blame_line({ full = true })<CR>",
+			{ "desc": "Git blame line" }
+		],
+		[
+			"<leader>gp",
+			"<cmd>lua require('gitsigns').preview_hunk()<CR>",
+			{ "desc": "Git preview hunk" }
+		]
+	],
 	"neo_tree": [
 		["\\", "<cmd>Neotree filesystem toggle right<CR>"],
 		["g\\", "<cmd>Neotree git_status toggle right<CR>"]
@@ -18,7 +64,7 @@
 	],
 	"inlay_hints": [
 		[
-			"<leader>tt",
+			"<leader>th",
 			"<cmd>InlayHintsToggle<CR>",
 			{ "desc": "Toggle inlay hints" }
 		]
