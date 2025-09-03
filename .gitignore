@@ -4,4 +4,5 @@ lualib_bundle.lua
 scripts/language-pack.json
 **/*schema.json
 lua/lang/*.lua
+lua/icons/*.lua
 *import.lua
