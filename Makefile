@@ -5,7 +5,7 @@ build:
 	pnpm run build
 
 dev:
-	pnpm run build:schema && pnpm run dev
+	make install && pnpm run build:schema && pnpm run dev
 
 clean:
 	rm -rf node_modules && find . -type f -name '*schema.lua' -exec rm {} \;
