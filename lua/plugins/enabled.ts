@@ -1,6 +1,5 @@
 export const enabled = [
 	"editor",
-	"lang.init",
 	"lang.treesitter",
 	"test",
 	"ui",

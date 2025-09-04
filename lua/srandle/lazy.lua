@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(LAZY_DIR) then
 	})
 end
 
-require("lazy").setup(require("lang.pulled").PLUGINS, {
+require("lazy").setup(require("plugins.lang").PLUGINS, {
 	defaults = { lazy = true },
 	install = {
 		colorscheme = { "catpuccin" },

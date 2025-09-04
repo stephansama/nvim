@@ -1,4 +1,4 @@
-local MASON_ENSURE_INSTALLED = require("lang.pulled").MASON
+local MASON_ENSURE_INSTALLED = require("plugins.lang").MASON
 
 local MasonInstallAll = function()
 	if MASON_ENSURE_INSTALLED and #MASON_ENSURE_INSTALLED > 0 then
@@ -17,12 +17,14 @@ local mason_opts = {
 	},
 }
 
-return { {
-	"mason-org/mason.nvim",
-	cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-	opts = mason_opts,
-	config = function(_, opts)
-		require("mason").setup(opts)
-		vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
-	end,
-} }
+return {
+	{
+		"mason-org/mason.nvim",
+		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+		opts = mason_opts,
+		config = function(_, opts)
+			require("mason").setup(opts)
+			vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
+		end,
+	},
+}

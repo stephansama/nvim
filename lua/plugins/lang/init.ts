@@ -1,9 +1,11 @@
 import type { Schema } from "./schema";
 
-import { PLUGIN_LANG_DIR } from "../constants/init";
-import { enabled as enabledPlugins } from "../plugins/enabled";
-import { enabled } from "./enabled";
+import { PLUGIN_LANG_DIR } from "../../constants/init";
+import { enabled as enabledPlugins } from "../enabled";
+import { enabled as enabledLanguages } from "./enabled";
 import * as packs from "./packs.json";
+
+type EnabledLanguageKey = (typeof enabledLanguages)[number];
 
 export const PLUGINS = loadPluginDirectories();
 export const FORMATTERS = mergeKV(pullProperty("formatters"));
@@ -43,7 +45,7 @@ function pullProperty<T extends keyof Schema, R = Schema[T]>(
 ): R[] {
 	const result = [];
 
-	for (const language of enabled) {
+	for (const language of enabledLanguages) {
 		const schemaPack = packs[language] as Schema;
 		const pack = schemaPack[key];
 
@@ -60,7 +62,7 @@ function loadPluginDirectories(this: void) {
 	if (output) {
 		for (const [line] of output.lines()) {
 			const [filename] = line.split(".");
-			if (enabled.includes(filename as (typeof enabled)[number])) {
+			if (enabledLanguages.includes(filename as EnabledLanguageKey)) {
 				foundPlugins.push("lang." + filename);
 			}
 		}
