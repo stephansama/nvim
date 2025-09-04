@@ -1,8 +1,11 @@
 import type { Schema } from "./schema";
 
+import { PLUGIN_LANG_DIR } from "../constants/init";
+import { enabled as enabledPlugins } from "../plugins/enabled";
 import { enabled } from "./enabled";
 import * as packs from "./packs.json";
 
+export const PLUGINS = loadPluginDirectories();
 export const FORMATTERS = mergeKV(pullProperty("formatters"));
 export const LINTERS = mergeKV(pullProperty("linters"));
 export const MASON = mergeFlat(pullProperty("mason"));
@@ -48,4 +51,27 @@ function pullProperty<T extends keyof Schema, R = Schema[T]>(
 	}
 
 	return result as R[];
+}
+
+function loadPluginDirectories(this: void) {
+	const foundPlugins: string[] = enabledPlugins;
+
+	const [output] = io.popen(`ls ${PLUGIN_LANG_DIR}`, "r");
+	if (output) {
+		for (const [line] of output.lines()) {
+			const [filename] = line.split(".");
+			if (enabled.includes(filename as (typeof enabled)[number])) {
+				foundPlugins.push("lang." + filename);
+			}
+		}
+	}
+
+	const root = "plugins";
+	const plugins = [{ import: `${root}.init` }];
+
+	for (const plugin of foundPlugins) {
+		plugins.push({ import: `${root}.${plugin}` });
+	}
+
+	return plugins;
 }

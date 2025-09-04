@@ -12,10 +12,4 @@ export const enabled = [
 	"rust",
 	"shell",
 	"zig",
-	// "php",
-	// "haskell",
-	// "java",
-	// "godot",
-	// "python",
-	// "csharp",
 ] satisfies (keyof typeof packs)[];
