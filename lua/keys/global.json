@@ -3,9 +3,30 @@
 	"n": {
 		"o": ["o<ESC>zz"],
 		"O": ["O<ESC>zz"],
+		"K": ["<cmd>LspHover<CR>", "LSP Hover"],
+		"gd": ["<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"],
+		"<leader>ld": ["<cmd>GoToDashboard<CR>", "Go to dashboard"],
+		"<leader>fc": [
+			"<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
+			"Format code"
+		],
+		"<leader>ef": [
+			"<cmd>LspEslintFixAll<CR>",
+			"Fix all eslint issues",
+			{ "silent": true }
+		],
+		"[d": [
+			"<cmd>lua vim.diagnostic.jump({ count = -1 , float = true })<CR>",
+			"Go to previous diagnostic"
+		],
+		"]d": [
+			"<cmd>lua vim.diagnostic.jump({ count = 1 , float = true })<CR>",
+			"Go to next diagnostic"
+		],
 		"Q'": ["@q", "Quick Replay"],
 		"<ESC>": ["<cmd>noh<CR>", "Escape"],
 		"<leader>w": ["<cmd>w<CR>", "Save"],
+		"<leader>d": ["<cmd>bd<CR>", "Save"],
 		"<leader>1": ["1gt", "Go to tab 1"],
 		"<leader>2": ["2gt", "Go to tab 2"],
 		"<leader>3": ["3gt", "Go to tab 3"],

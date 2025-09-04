@@ -11,27 +11,28 @@ const rhsSchema = z.object({
 	silent: z.boolean(),
 });
 
+export const pluginKeymapConfigSchema = z.tuple([
+	z.string().describe("keymap"),
+	z.string().describe("action"),
+	rhsSchema.optional(),
+]);
+
 export const pluginKeymapSchema = z.record(
 	z.string(),
-	z
-		.tuple([
-			z.string().describe("keymap"),
-			z.string().describe("action"),
-			rhsSchema.optional(),
-		])
-		.array(),
+	pluginKeymapConfigSchema.array(),
 );
+
+export const globalKeymapConfigSchema = z.tuple([
+	z.string().describe("action"),
+	z.string().describe("description"),
+	rhsSchema.optional(),
+]);
+
+export type GlobalKeymapConfig = z.infer<typeof globalKeymapConfigSchema>;
 
 export const globalKeymapSchema = z.record(
 	z.enum(generateModeOptions(MODES)),
-	z.record(
-		z.string().describe("keymap"),
-		z.tuple([
-			z.string().describe("action"),
-			z.string().describe("description"),
-			rhsSchema.optional(),
-		]),
-	),
+	z.record(z.string().describe("keymap"), globalKeymapConfigSchema),
 );
 
 // ai generated function to comma separate every possibility
