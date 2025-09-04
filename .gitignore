@@ -2,10 +2,13 @@ lazy-lock.json
 node_modules
 lualib_bundle.lua
 scripts/language-pack.json
+**/*schema.lua
 **/*schema.json
-lua/lang/*.lua
 lua/constants/*.lua
 lua/plugins/ui/dashboard/*.lua
+lua/plugins/lang/enabled.lua
+lua/plugins/lang/init.lua
+lua/plugins/lang/packs.lua
 lua/plugins/enabled.lua
 lua/icons/*.lua
 lua/keys/*.lua
