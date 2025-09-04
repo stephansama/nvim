@@ -6,6 +6,8 @@
 	"scripts": {
 		"dev": "tstl --watch",
 		"build": "tstl",
+		"fmt:check": "prettier . --check",
+		"fmt:write": "prettier . --write",
 		"build:schema": "node ./scripts/build-schema.mjs",
 		"snippets:sync": "node ./scripts/snippets-sync.mjs",
 		"snippets:merge": "node ./scripts/snippets-merge.mjs"

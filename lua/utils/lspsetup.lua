@@ -12,12 +12,16 @@ if lsp_config_output then
 	end
 end
 
-require("utils.pull").ls_process(LSP_CONFIG_DIR, function()
-	return true
-end, function(client)
-	local config = dofile(LSP_CONFIG_DIR .. client .. ".lua")
-	vim.lsp.config(client, config)
-end)
+require("utils.pull").ls_process(
+	LSP_CONFIG_DIR,
+	function()
+		return true
+	end,
+	function(client)
+		local config = dofile(LSP_CONFIG_DIR .. client .. ".lua")
+		vim.lsp.config(client, config)
+	end
+)
 
 vim.cmd([[hi FloatShadow guifg=white guibg=#1f2335]])
 vim.cmd([[hi FloatShadowThrough guifg=white guibg=#1f2335]])

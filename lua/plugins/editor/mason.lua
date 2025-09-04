@@ -17,14 +17,12 @@ local mason_opts = {
 	},
 }
 
-return {
-	{
-		"mason-org/mason.nvim",
-		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-		opts = mason_opts,
-		config = function(_, opts)
-			require("mason").setup(opts)
-			vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
-		end,
-	},
-}
+return { {
+	"mason-org/mason.nvim",
+	cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+	opts = mason_opts,
+	config = function(_, opts)
+		require("mason").setup(opts)
+		vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
+	end,
+} }
