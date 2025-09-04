@@ -1,12 +1,21 @@
-local ft = require("constants.ft").COMMENT_FILETYPES
+local ft = require("constants").COMMENT_FILETYPES
 local keys = require("keys.plugin")
 
 local opts = function()
 	return {
 		--- LHS of operator-pending mappings in NORMAL and VISUAL mode
-		opleader = { line = "gc", block = "gC" },
-		toggler = { line = "gcc", block = "gCc" },
-		extra = { above = "gcO", below = "gco" },
+		opleader = {
+			line = "gc",
+			block = "gC",
+		},
+		toggler = {
+			line = "gcc",
+			block = "gCc",
+		},
+		extra = {
+			above = "gcO",
+			below = "gco",
+		},
 		pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 	}
 end
@@ -31,6 +40,9 @@ return {
 		ft = ft,
 		config = true,
 		keys = keys.neogen,
-		opts = { enabled = true, snippet_engine = "luasnip" },
+		opts = {
+			enabled = true,
+			snippet_engine = "luasnip",
+		},
 	},
 }

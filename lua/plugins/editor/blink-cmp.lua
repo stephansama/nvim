@@ -1,19 +1,37 @@
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
 local opts = {
-	keymap = { preset = "enter", ["<C-e>"] = { "hide", "show" } },
+	keymap = {
+		preset = "enter",
+		["<C-e>"] = { "hide", "show" },
+	},
 	appearance = { nerd_font_variant = "mono" },
-	cmdline = { completion = { menu = { auto_show = true } } },
+	cmdline = {
+		completion = {
+			menu = { auto_show = true },
+		},
+	},
 	completion = {
-		accept = { auto_brackets = { enabled = false } },
+		accept = {
+			auto_brackets = { enabled = false },
+		},
 		menu = { border = "rounded" },
 	},
-	signature = { window = { border = "rounded" } },
+	signature = {
+		window = { border = "rounded" },
+	},
 	snippets = { preset = "luasnip" },
-	sources = { default = { "lsp", "path", "snippets", "buffer" } },
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
-		sorts = { "exact", require("utils.init").depriotize_emmet, "score", "sort_text" },
+		sorts = {
+			"exact",
+			require("utils.init").depriotize_emmet,
+			"score",
+			"sort_text",
+		},
 	},
 }
 
@@ -27,7 +45,10 @@ return {
 		{
 			"windwp/nvim-autopairs",
 			config = true,
-			opts = { fast_wrap = {}, disable_filetype = { "TelescopePrompt", "vim" } },
+			opts = {
+				fast_wrap = {},
+				disable_filetype = { "vim" },
+			},
 		},
 	},
 }

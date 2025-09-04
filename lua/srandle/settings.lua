@@ -1,8 +1,8 @@
-local ft = require("constants.ft")
+local ft = require("constants")
 
 vim.filetype.add({
-	filename = ft.VIM_FT_FILENAMES,
 	extension = ft.VIM_FT_EXTENSIONS,
+	filename = ft.VIM_FT_FILENAMES,
 	pattern = ft.VIM_FT_PATTERNS,
 })
 
@@ -18,36 +18,30 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.cmd([[autocmd BufEnter * match Underlined /https\?:\/\/\S\+/]])
 vim.cmd([[set shortmess+=I]])
 
-vim.g.mapleader = require("keys.init").LEADER
+vim.g.mapleader = " "
 
-require("utils.expand").expand_settings({
-	wo = { number = true, relativenumber = true },
-	bo = { tabstop = 4 },
-	o = {
-		list = true,
-		shiftwidth = 4,
-		scrolloff = 999,
-		listchars = "tab:│ ,trail:·",
-		fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]], -- fold seperator
-	},
-	opt = {
-		tabstop = 4,
-		confirm = true,
-		undofile = true,
-		wildmode = "longest:full,full",
-		smartcase = true,
-		clipboard = "unnamedplus", -- use system register
-		undolevels = 10000,
-		signcolumn = "yes", -- always show sign column to prevent layout shift
-		splitbelow = false,
-		splitright = true,
-		smartindent = true,
-		conceallevel = 1,
-		termguicolors = true,
-		-- https://github.com/kevinhwang91/nvim-ufo?tab=readme-ov-file#minimal-configuration
-		foldlevel = 99,
-		foldcolumn = "1",
-		foldenable = true,
-		foldlevelstart = 99,
-	},
-})
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.bo.tabstop = 4
+vim.o.list = true
+vim.o.shiftwidth = 4
+vim.o.scrolloff = 999
+vim.o.listchars = "tab:│ ,trail:·"
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.opt.tabstop = 4
+vim.opt.confirm = true
+vim.opt.undofile = true
+vim.opt.wildmode = "longest:full,full"
+vim.opt.smartcase = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.undolevels = 10000
+vim.opt.signcolumn = "yes"
+vim.opt.splitbelow = false
+vim.opt.splitright = true
+vim.opt.smartindent = true
+vim.opt.conceallevel = 1
+vim.opt.termguicolors = true
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = "1"
+vim.opt.foldenable = true
+vim.opt.foldlevelstart = 99

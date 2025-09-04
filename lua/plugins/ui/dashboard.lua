@@ -1,3 +1,5 @@
+local constants = require("constants")
+
 local opts = {
 	theme = "hyper",
 	change_to_vcs_root = true,
@@ -5,12 +7,19 @@ local opts = {
 	disable_move = true,
 	config = {
 		shortcut = require("plugins.ui.dashboard.shortcuts").shortcuts,
-		header = require("utils.dashboard").load_ascii_headers(require("constants.dir").ASCII_DIR, "txt"),
+		header = require("utils.dashboard").load_ascii_headers(constants.ASCII_DIR, "txt"),
 		footer = function()
 			local stats = require("lazy").stats()
 			local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 			return {
-				" loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
+				constants.NVIM_APPNAME
+					.. " loaded "
+					.. stats.loaded
+					.. "/"
+					.. stats.count
+					.. " plugins in "
+					.. ms
+					.. "ms",
 			}
 		end,
 		mru = {

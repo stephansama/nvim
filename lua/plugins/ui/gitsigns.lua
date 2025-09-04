@@ -1,6 +1,9 @@
-local opts = function()
-	return {
-		-- on_attach = require("keys.").load_gitsigns_keymap,
+return {
+	"lewis6991/gitsigns.nvim",
+	config = true,
+	event = "VeryLazy",
+	keys = require("keys.plugin").gitsigns,
+	opts = {
 		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 		linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
 		word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -37,13 +40,5 @@ local opts = function()
 			changedelete = { text = "~" },
 			untracked = { text = "│" },
 		},
-	}
-end
-
-return {
-	"lewis6991/gitsigns.nvim",
-	event = "VeryLazy",
-	config = true,
-	opts = opts,
-	keys = require("keys.plugin").gitsigns,
+	},
 }

@@ -1,5 +1,4 @@
-local pulled = require("constants.pulled")
-local MASON_ENSURE_INSTALLED = pulled.MASON_ENSURE_INSTALLED
+local MASON_ENSURE_INSTALLED = require("lang.pulled").MASON
 
 local MasonInstallAll = function()
 	if MASON_ENSURE_INSTALLED and #MASON_ENSURE_INSTALLED > 0 then

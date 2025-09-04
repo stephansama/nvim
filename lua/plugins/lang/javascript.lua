@@ -1,6 +1,14 @@
 return {
-	{ "rest-nvim/rest.nvim", keys = require("keys.plugin").rest, ft = "http" },
-	{ "windwp/nvim-ts-autotag", ft = require("constants.ft").WEB_FILETYPES, config = true },
+	{
+		"rest-nvim/rest.nvim",
+		keys = require("keys.plugin").rest,
+		ft = "http",
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		ft = require("constants").WEB_FILETYPES,
+		config = true,
+	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		opts = { enable_autocmd = false },
@@ -16,8 +24,11 @@ return {
 			package_manager = "pnpm",
 			hide_up_to_date = false, -- It hides up to date versions when displaying virtual text
 			hide_unstable_versions = true,
-			colors = require("constants.theme").PACKAGE_INFO_COLORS,
-			icons = { enable = true, style = require("icons").packageJSON },
+			colors = require("constants").PACKAGE_INFO_COLORS,
+			icons = {
+				enable = true,
+				style = require("icons").packageJSON,
+			},
 		},
 	},
 	{

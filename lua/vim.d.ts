@@ -11,8 +11,15 @@ declare global {
 		replace_keycodes?: boolean;
 	}
 
+	// https://neovim.io/doc/user/lua.html#_lua-module:-vim.keymap
 	interface Keymap {
-		del: (this: void) => void;
+		del: (
+			this: void,
+			modes: string | string[],
+			lhs: string,
+			rhs: string | Function,
+			opts?: KeymapOpts,
+		) => void;
 		set: (
 			this: void,
 			modes: string | string[],
@@ -23,8 +30,8 @@ declare global {
 	}
 
 	interface IVim {
-		// https://neovim.io/doc/user/lua.html#_lua-module:-vim.keymap
 		keymap: Keymap;
+		print: (this: void, ...rest: string[]) => void;
 	}
 }
 

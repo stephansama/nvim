@@ -1,12 +1,24 @@
 local keys = require("keys.plugin")
 
 return {
-	{ "nvim-lua/plenary.nvim", lazy = false },
-	{ "axieax/urlview.nvim", config = true, keys = keys.urlview },
+	{
+		"nvim-lua/plenary.nvim",
+		lazy = false,
+	},
+	{
+		"axieax/urlview.nvim",
+		config = true,
+		keys = keys.urlview,
+	},
 	{
 		"christoomey/vim-tmux-navigator",
-		cmd = { "TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight" },
 		keys = keys.tmux,
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+		},
 		init = function()
 			vim.g.tmux_navigator_no_mappings = 1
 		end,
@@ -14,14 +26,14 @@ return {
 	{
 		"stephansama/stow.nvim",
 		cmd = "Stow",
-		keys = require("keys.plugin").stow,
+		keys = keys.stow,
 		config = true,
 	},
 	{
 		"kawre/leetcode.nvim",
 		config = true,
 		build = ":TSUpdate html",
-		keys = require("keys.plugin").leetcode,
+		keys = keys.leetcode,
 		cmd = "Leet",
 		dependencies = {
 			"ibhagwan/fzf-lua",

@@ -1,25 +1,5 @@
 local M = {}
 
----@param direction 'next'|'prev'
----@return function
-M.jump = function(direction)
-	return function()
-		vim.diagnostic.jump({ count = direction == "next" and 1 or -1, float = true })
-	end
-end
-
-M.disable_diagnostics = function()
-	vim.diagnostic.enable(false)
-end
-
-M.lsp_format_code = function()
-	vim.lsp.buf.format({ async = true })
-end
-
-M.list_workspace_folder = function()
-	print(vim.inspect(vim.lsp.buf.list_workspace_folder()))
-end
-
 M.create_capabilities = function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -37,22 +17,6 @@ M.create_capabilities = function()
 	return capabilities
 end
 
---- convert directory to lua module
----@param path string
-M.convert_dir_to_module = function(path)
-	local pattern = "lua"
-	local start_pos = path:find(pattern)
-	if not start_pos then
-		return nil
-	end
-
-	local sub_path = path:sub(start_pos + string.len(pattern))
-
-	local converted_path = sub_path:gsub("/", ".")
-
-	return converted_path
-end
-
 M.lsp_hover = function()
 	local filetype = vim.bo.filetype
 	if vim.tbl_contains({ "vim", "help" }, filetype) then
@@ -60,13 +24,12 @@ M.lsp_hover = function()
 	elseif vim.tbl_contains({ "man" }, filetype) then
 		vim.cmd("Man " .. vim.fn.expand("<cword>"))
 	elseif vim.fn.expand("%:t") == "package.json" then
-		local PACKAGE_JSON_URL = require("constants.url").PACKAGE_JSON_URL
 		local text = vim.api.nvim_get_current_line()
 		if not require("utils.init").is_package(text) then
 			return vim.lsp.buf.hover()
 		end
 		local match = text:match('"(.-)"')
-		local npm_link = PACKAGE_JSON_URL .. match
+		local npm_link = require("constants").PACKAGE_JSON_URL .. match
 		require("utils").openURL(npm_link)
 	elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
 		require("crates").show_popup()
@@ -78,6 +41,11 @@ M.lsp_hover = function()
 	end
 end
 
+if not _G.LspHoverCommandLoaded then
+	_G.LspHoverCommandLoaded = true
+	vim.api.nvim_create_user_command("LspHover", M.lsp_hover, { nargs = 0 })
+end
+
 M.setup_borders = function()
 	--- LSP Border
 	vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
@@ -86,7 +54,9 @@ M.setup_borders = function()
 	local border = require("utils.ui").border("FloatBorder")
 
 	local handlers = {
-		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = border,
+		}),
 		["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 	}
 
@@ -99,7 +69,10 @@ M.setup_borders = function()
 	local diagnostics = require("icons.init").diagnostics
 
 	vim.diagnostic.config({
-		float = { border = border, source = diagnostic_source },
+		float = {
+			border = border,
+			source = diagnostic_source,
+		},
 		virtual_text = { source = diagnostic_source },
 		signs = {
 			text = {
@@ -108,12 +81,8 @@ M.setup_borders = function()
 				[vim.diagnostic.severity.INFO] = diagnostics.Info,
 				[vim.diagnostic.severity.HINT] = diagnostics.Hint,
 			},
-			linehl = {
-				[vim.diagnostic.severity.INFO] = "DiagnosticInfoMsg",
-			},
-			numhl = {
-				[vim.diagnostic.severity.WARN] = "WarningMsg",
-			},
+			linehl = { [vim.diagnostic.severity.INFO] = "DiagnosticInfoMsg" },
+			numhl = { [vim.diagnostic.severity.WARN] = "WarningMsg" },
 		},
 	})
 

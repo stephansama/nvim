@@ -2,13 +2,13 @@ local keys = require("keys.plugin")
 local lint = require("utils.lint")
 
 return {
+	{ "artemave/workspace-diagnostics.nvim" },
 	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
 		config = true,
 	},
-	{ "artemave/workspace-diagnostics.nvim" },
 	{
 		"folke/trouble.nvim",
 		opts = {},
@@ -35,26 +35,23 @@ return {
 	{
 		"mfussenegger/nvim-lint",
 		init = lint.create_lint_init,
-		config = lint.load_linters,
-		keys = { {
-			"<leader>sp",
-			lint.toggle_cspell,
-			desc = "lint with cspell",
-		} },
+		config = function()
+			require("lint").linters_by_ft = require("lang.pulled").LINTERS
+		end,
 	},
 	{
 		"stevearc/conform.nvim",
-		event = "BufWritePre",
 		config = true,
+		event = "BufWritePre",
 		opts = {
-			formatters = {
-				prettier = { require_cwd = true },
-			},
+			formatters_by_ft = require("lang.pulled").FORMATTERS,
 			format_on_save = {
 				timeout_ms = 1000,
 				lsp_fallback = true,
 			},
-			formatters_by_ft = require("constants.pulled").FORMATTERS,
+			formatters = {
+				prettier = { require_cwd = true },
+			},
 		},
 	},
 	{
@@ -65,12 +62,12 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
+		config = require("utils.snippets"),
 		build = "make install_jsregexp",
 		opts = {
 			history = true,
 			updateevents = "TextChanged,TextChangedI",
 		},
-		config = require("utils.snippets"),
 	},
 	{
 		"mg979/vim-visual-multi",
@@ -83,11 +80,7 @@ return {
 	},
 	{
 		"mbbill/undotree",
-		keys = { {
-			"<leader>u",
-			"<CMD>UndotreeToggle<CR>",
-			desc = "UndotreeToggle",
-		} },
+		keys = keys.undotree,
 		config = function()
 			vim.g.undotree_WindowLayout = 3
 			vim.g.undotree_SetFocusWhenToggle = 1

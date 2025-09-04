@@ -1,6 +1,6 @@
 --- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
 local utils = require("utils.ui")
-local theme = require("constants.theme")
+local theme = require("constants")
 
 ---@module 'catppuccin'
 ---@type CatppuccinOptions

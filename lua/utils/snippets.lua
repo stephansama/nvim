@@ -7,7 +7,9 @@ return function(_, opts)
 
 	luasnip.config.set_config(opts)
 
-	from_vscode.lazy_load({ paths = { require("constants.dir").SNIPPETS_DIR } })
+	local snippetsDir = { "./snippets" }
+
+	from_vscode.lazy_load({ paths = snippetsDir })
 
 	from_snipmate.load()
 	from_snipmate.lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
