@@ -4,9 +4,19 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"dev": "tstl --watch",
 		"build": "tstl",
 		"build:schema": "node ./scripts/build-schema.mjs",
-		"dev": "tstl --watch"
+		"snippets:sync": "node ./scripts/snippets-sync.mjs",
+		"snippets:merge": "node ./scripts/snippets-merge.mjs"
+	},
+	"prettier": {
+		"quoteProps": "consistent",
+		"plugins": [
+			"prettier-plugin-organize-imports",
+			"prettier-plugin-sort-package-json",
+			"@prettier/plugin-lua"
+		]
 	},
 	"devDependencies": {
 		"@gkzhb/lua-types-nvim": "^0.0.7",
