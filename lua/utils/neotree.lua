@@ -21,12 +21,9 @@ M.get_icon = function(name)
 	local name_without_first_char = string.sub(name, 2)
 	local name_without_last_char = string.sub(name, 1, last_element)
 	local name_without_ending_chars = string.sub(name, 2, last_element)
-	local name_without_ending_two_chars = string.sub(name, 3, string.len(name) - 2)
-	return icons[name]
-		or icons[name_without_first_char]
-		or icons[name_without_last_char]
-		or icons[name_without_ending_chars]
-		or icons[name_without_ending_two_chars]
+	local name_without_ending_two_chars =
+		string.sub(name, 3, string.len(name) - 2)
+	return icons[name] or icons[name_without_first_char] or icons[name_without_last_char] or icons[name_without_ending_chars] or icons[name_without_ending_two_chars]
 end
 
 --- load neotree icons from devicons

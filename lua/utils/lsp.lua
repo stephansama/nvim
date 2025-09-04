@@ -3,7 +3,12 @@ local M = {}
 M.create_capabilities = function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-	capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
+	capabilities =
+		vim.tbl_deep_extend(
+			"force",
+			capabilities,
+			require("blink.cmp").get_lsp_capabilities({}, false)
+		)
 
 	capabilities = vim.tbl_deep_extend("force", capabilities, {
 		textDocument = {
@@ -31,7 +36,9 @@ M.lsp_hover = function()
 		local match = text:match('"(.-)"')
 		local npm_link = require("constants").PACKAGE_JSON_URL .. match
 		require("utils").openURL(npm_link)
-	elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+	elseif vim.fn.expand("%:t") == "Cargo.toml" and require(
+		"crates"
+	).popup_available() then
 		require("crates").show_popup()
 	else
 		local winid = require("ufo").peekFoldedLinesUnderCursor()
@@ -49,7 +56,9 @@ end
 M.setup_borders = function()
 	--- LSP Border
 	vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
-	vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
+	vim.cmd(
+		[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+	)
 
 	local border = require("utils.ui").border("FloatBorder")
 
@@ -57,7 +66,10 @@ M.setup_borders = function()
 		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = border,
 		}),
-		["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+		["textDocument/signatureHelp"] = vim.lsp.with(
+			vim.lsp.handlers.signature_help,
+			{ border = border }
+		),
 	}
 
 	for key, v in pairs(handlers) do

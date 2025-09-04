@@ -1,413 +1,407 @@
 {
-  "toBe": {
-    "prefix": "tb",
-    "body": "expect($1).toBe($2)$0",
-    "description": "expects the first argument to be equal with the second one"
-  },
-  "toBeCloseTo": {
-    "prefix": "tbct",
-    "body": "expect($1).toBeCloseTo(${2:number}, ${3:delta})$0",
-    "description": "expects the first argument to be close to the second one base on the delta"
-  },
-  "toBeDefined": {
-    "prefix": "tbd",
-    "body": "expect($1).toBeDefined()$0",
-    "description": "expects the argument is defined"
-  },
-  "toBeFalsy": {
-    "prefix": "tbf",
-    "body": "expect($1).toBeFalsy()$0",
-    "description": "expects the argument is falsy"
-  },
-  "toBeGreaterThan": {
-    "prefix": "tbgt",
-    "body": "expect($1).toBeGreaterThan($2)$0",
-    "description": "expects the argument is greater than or equal"
-  },
-  "toBeGreaterThanOrEqual": {
-    "prefix": "tbgte",
-    "body": "expect($1).toBeGreaterThanOrEqual($2)$0",
-    "description": "expects the argument is greater than"
-  },
-  "toBeInTheDocument": {
-    "prefix": "tbid",
-    "body": "expect($1).toBeInTheDocument()$0",
-    "description": "expects the argument to be in the document"
-  },
-  "toBeInstanceOf": {
-    "prefix": "tbi",
-    "body": "expect($1).toBeInstanceOf($2)$0",
-    "description": "expects the argument is less than"
-  },
-  "toBeLessThan": {
-    "prefix": "tblt",
-    "body": "expect($1).toBeLessThan($2)$0",
-    "description": "expects the argument is less than"
-  },
-  "toBeLessThanOrEqual": {
-    "prefix": "tblte",
-    "body": "expect($1).toBeLessThanOrEqual($2)$0",
-    "description": "expects the argument is less than or equal"
-  },
-  "toBeNull": {
-    "prefix": "tbn",
-    "body": "expect($1).toBeNull()$0",
-    "description": "expects the argument is null"
-  },
-  "toBeTruthy": {
-    "prefix": "tbt",
-    "body": "expect($1).toBeTruthy()$0",
-    "description": "expects the argument is truthy"
-  },
-  "toBeUndefined": {
-    "prefix": "tbu",
-    "body": "expect($1).toBeUndefined()$0",
-    "description": "expects the argument is undefined"
-  },
-  "toContain": {
-    "prefix": "tc",
-    "body": "expect(${1:list}).toContain($2)$0",
-    "description": "expects the list contains the item (===)"
-  },
-  "toContainEqual": {
-    "prefix": "tce",
-    "body": "expect(${1:list}).toContainEqual($2)$0",
-    "description": "expects the list contains the item (equals)"
-  },
-  "toEqual": {
-    "prefix": "te",
-    "body": "expect($1).toEqual($2)$0",
-    "description": "expects the first argument to be equal with the second one"
-  },
-  "toHaveBeenCalled": {
-    "prefix": "thbc",
-    "body": "expect($1).toHaveBeenCalled()$0",
-    "description": "returns true if the spy was called"
-  },
-  "toHaveBeenCalledTimes": {
-    "prefix": "thbct",
-    "body": "expect($1).toHaveBeenCalledTimes($2)$0",
-    "description": "returns true if the spy has been called given times"
-  },
-  "toHaveBeenCalledWith": {
-    "prefix": "thbcw",
-    "body": "expect($1).toHaveBeenCalledWith($2)$0",
-    "description": "returns true if the spy has been called with"
-  },
-  "toHaveBeenLastCalledWith": {
-    "prefix": "thblcw",
-    "body": "expect($1).toHaveBeenLastCalledWith($2)$0",
-    "description": "returns true if the spy has been last called with"
-  },
-  "toHaveLength": {
-    "prefix": "thl",
-    "body": "expect($1).toHaveLength($2)$0",
-    "description": "expects the object to have length"
-  },
-  "toHaveProperty": {
-    "prefix": "thp",
-    "body": "expect($1).toHaveProperty(${2:keyPath}, ${3:value})$0",
-    "description": "returns true if the argument matches the second object"
-  },
-  "toHavePropertyDisabled": {
-    "prefix": "thpd",
-    "body": "expect($1).toHaveProperty('disabled')$0",
-    "description": "returns true if the property disabled"
-  },
-  "toHavePropertySelected": {
-    "prefix": "thps",
-    "body": "expect($1).toHaveProperty('disabled')$0",
-    "description": "returns true if the property selected"
-  },
-  "toMatch": {
-    "prefix": "tm",
-    "body": "expect($1).toMatch($2)$0",
-    "description": "returns true if the argument matches the second value"
-  },
-  "toMatchInlineSnapshot": {
-    "prefix": "tmis",
-    "body": "expect($1).toMatchInlineSnapshot($2)$0",
-    "description": "returns true if the argument matches the most recent inline snapshot"
-  },
-  "toMatchObject": {
-    "prefix": "tmo",
-    "body": "expect($1).toMatchObject($2)$0",
-    "description": "returns true if the argument matches the second object"
-  },
-  "toMatchSnapshot": {
-    "prefix": "tms",
-    "body": "expect($1).toMatchSnapshot($2)$0",
-    "description": "returns true if the argument matches the most recent snapshot"
-  },
-  "toStrictEqual": {
-    "prefix": "tse",
-    "body": "expect($1).toStrictEqual($2)$0",
-    "description": "expects the first argument to be strictly equal with the second one"
-  },
-  "toThrow": {
-    "prefix": "tt",
-    "body": "expect(() => {\n\t$0\n}).toThrow($1)",
-    "description": "expects that the method will throw an error"
-  },
-  "toThrowError": {
-    "prefix": "tte",
-    "body": "expect(() => {\n\t$0\n}).toThrowError($1)",
-    "description": "expects that the method will throw an error"
-  },
-  "toThrowErrorMatchingInlineSnapshot": {
-    "prefix": "ttemis",
-    "body": "expect(() => {\n\t$0\n}).toThrowErrorMatchingInlineSnapshot()",
-    "description": "expects that the method will throw an error matching the inline snapshot"
-  },
-  "toThrowErrorMatchingSnapshot": {
-    "prefix": "ttems",
-    "body": "expect(() => {\n\t$0\n}).toThrowErrorMatchingSnapshot()",
-    "description": "expects that the method will throw an error matching the snapshot"
-  },
-  "describe": {
-    "prefix": [
-      "d",
-      "desc"
-    ],
-    "body": "describe('${1:group}', () => {\n\t$0\n})",
-    "description": "creates a describe block"
-  },
-  "describe.only": {
-    "prefix": "do",
-    "body": "describe.only('${1:group}', () => {\n\t$0\n})",
-    "description": "creates a describe block that runs only"
-  },
-  "describe.skip": {
-    "prefix": "ds",
-    "body": "describe.skip('${1:group}', () => {\n\t$0\n})",
-    "description": "creates a describe block that will be skipped"
-  },
-  "expect": {
-    "prefix": "e",
-    "body": "expect($0)",
-    "description": "expect actual value"
-  },
-  "expect.assertions": {
-    "prefix": "ea",
-    "body": "expect.assertions($0)",
-    "description": "expects the test to make the indicated number of assertions (useful for async)"
-  },
-  "expect.hasAssertions": {
-    "prefix": "eha",
-    "body": "expect.hasAssertions()$0",
-    "description": "expects the test to make at least one assertion (useful for async)"
-  },
-  "expect.rejects": {
-    "prefix": "erj",
-    "body": "expect($1).rejects$0",
-    "description": "expect promise rejects to"
-  },
-  "expect.resolves": {
-    "prefix": "ers",
-    "body": "expect($1).resolves$0",
-    "description": "expect promise resolves to"
-  },
-  "import.vitest": {
-    "prefix": "iv",
-    "body": "import { it, expect, describe } from 'vitest'$0",
-    "description": "essential imports for vitest"
-  },
-  "import.vitest.extra": {
-    "prefix": "ive",
-    "body": "import { beforeEach, afterEach, it, expect, describe, vi } from 'vitest'$0",
-    "description": "extra imports for vitest"
-  },
-  "it": {
-    "prefix": [
-      "i",
-      "it"
-    ],
-    "body": "it('${1:should}', () => {\n\t$0\n})",
-    "description": "creates an it block"
-  },
-  "it.only": {
-    "prefix": "io",
-    "body": "it.only('${1:should}', () => {\n\t$0\n})",
-    "description": "creates an it block that runs only"
-  },
-  "it.skip": {
-    "prefix": "is",
-    "body": "it.skip('${1:should}', () => {\n\t$0\n})",
-    "description": "creates an it block that will be skipped"
-  },
-  "it.todo": {
-    "prefix": "itd",
-    "body": "it.todo('${0:should}')",
-    "description": "creates a test placeholder"
-  },
-  "it:async": {
-    "prefix": "ia",
-    "body": "it('${1:should}', async () => {\n\t$0\n})",
-    "description": "creates an it block with async callback function"
-  },
-  "vi.afterEach.mockClearReset": {
-    "prefix": "aevcr",
-    "body": [
-      "afterEach(() => {",
-      "\tvi.clearAllMocks()",
-      "\tvi.resetAllMocks()",
-      "})$0"
-    ],
-    "description": "afterEach mock clear and reset functions called once after each spec"
-  },
-  "vi.mock": {
-    "prefix": "vm",
-    "body": "vi.mock('${1:path}')$0",
-    "description": "creates vi.mock()"
-  },
-  "vi.mock.mockResolvedValue": {
-    "prefix": "vmrv",
-    "body": "vi.mock('${1:path}').mockResolvedValue($0)",
-    "description": "creates vi.mock() with resolved value"
-  },
-  "vi.fn": {
-    "prefix": "vf",
-    "body": "vi.fn()$0",
-    "description": "creates vi.fn()"
-  },
-  "vi.fn.mockResolvedValue": {
-    "prefix": "vfrv",
-    "body": "vi.fn().mockResolvedValue($0)",
-    "description": "creates vi.fn() with resolved value"
-  },
-  "const.fn": {
-    "prefix": "cf",
-    "body": "const ${1:name}Mock = vi.fn()$0",
-    "description": "creates a mock variable for a vi.fn()"
-  },
-  "const.fn.mockResolvedValue": {
-    "prefix": "cfrv",
-    "body": "const ${1:name}Mock = vi.fn().mockResolvedValue($0)",
-    "description": "creates a mock variable for a vi.fn() with resolved value"
-  },
-  "mock.mockReturnValue": {
-    "prefix": "mrv",
-    "body": "${1:mock}.mockReturnValue($0)",
-    "description": "assign a return value"
-  },
-  "mock.mockReturnValueOnce": {
-    "prefix": "mrvo",
-    "body": "${1:mock}.mockReturnValueOnce($0)",
-    "description": "assign a return value for only one call"
-  },
-  "vi.spyOn": {
-    "prefix": "vs",
-    "body": "vi.spyOn(${1:global}, '${2:method}'))$0",
-    "description": "creates vi.spyOn()"
-  },
-  "vi.spyOn.mockImplementation": {
-    "prefix": "vsi",
-    "body": "vi.spyOn(${1:global}, '${2:method}')).mockImplementation(() => $0)",
-    "description": "creates vi.spyOn() with mock implementation"
-  },
-  "const.spyOn": {
-    "prefix": "cs",
-    "body": "const ${2:method}Spy = vi.spyOn(${1:global}, '${2:method}'))$0",
-    "description": "creates a spy variable for a vi.spyOn()"
-  },
-  "const.spyOn.mockImplementation": {
-    "prefix": "csi",
-    "body": "const ${2:method}Spy = vi.spyOn(${1:global}, '${2:method}')).mockImplementation(() => $0)",
-    "description": "creates a spy variable for a vi.spyOn() with mock implementation"
-  },
-  "afterAll": {
-    "prefix": "aa",
-    "body": "afterAll(() => {\n\t$0\n})",
-    "description": "afterAll function is called once after all specs"
-  },
-  "afterEach": {
-    "prefix": "ae",
-    "body": "afterEach(() => {\n\t$0\n})",
-    "description": "afterEach function is called once after each spec"
-  },
-  "beforeEach": {
-    "prefix": "be",
-    "body": "beforeEach(() => {\n\t$0\n})",
-    "description": "beforeEach function is called once before each spec"
-  },
-  "beforeEach:async": {
-    "prefix": "bea",
-    "body": "beforeEach(async () => {\n\t$0\n})",
-    "description": "beforeEach with async callback function is called once before each spec"
-  },
-  "beforeAll": {
-    "prefix": "ba",
-    "body": "beforeAll(() => {\n\t$0\n})",
-    "description": "beforeAll function is called once before all specs"
-  },
-  "beforeAll:async": {
-    "prefix": "baa",
-    "body": "beforeAll(async () => {\n\t$0\n})",
-    "description": "beforeAll with async function is called once before all specs"
-  },
-  "test": {
-    "prefix": "t",
-    "body": "test('${1:should}', () => {\n\t$0\n})",
-    "description": "creates a test block"
-  },
-  "test.only": {
-    "prefix": "to",
-    "body": "test.only('${1:should}', () => {\n\t$0\n})",
-    "description": "creates a test block that runs only"
-  },
-  "test.skip": {
-    "prefix": "ts",
-    "body": "test.skip('${1:should}', () => {\n\t$0\n})",
-    "description": "creates a test block that will be skipped"
-  },
-  "test.todo": {
-    "prefix": "ttd",
-    "body": "test.todo('${0:should}')",
-    "description": "creates a test placeholder"
-  },
-  "test:async": {
-    "prefix": "ta",
-    "body": "test('${1:should}', async () => {\n\t$0\n})",
-    "description": "creates an test block with async callback function"
-  },
-  "expect.any.type": {
-    "prefix": "eav",
-    "body": "expect.any($1)$0",
-    "description": "expect any value type"
-  },
-  "expect.any.string": {
-    "prefix": "eas",
-    "body": "expect.any(String)$0",
-    "description": "expect any string type"
-  },
-  "expect.any.number": {
-    "prefix": "ean",
-    "body": "expect.any(Number)$0",
-    "description": "expect any number type"
-  },
-  "expect.any.boolean": {
-    "prefix": "eab",
-    "body": "expect.any(Boolean)$0",
-    "description": "expect any boolean type"
-  },
-  "expect.any.date": {
-    "prefix": "ead",
-    "body": "expect.any(Date)$0",
-    "description": "expect any date type"
-  },
-  "expect.any.function": {
-    "prefix": "eaf",
-    "body": "expect.any(Function)$0",
-    "description": "expect any function type"
-  },
-  "expect.any.array": {
-    "prefix": "eaa",
-    "body": "expect.any(Array)$0",
-    "description": "expect any array type"
-  },
-  "expect.any.thing": {
-    "prefix": "eat",
-    "body": "expect.anything()$0",
-    "description": "expect anything"
-  }
+	"toBe": {
+		"prefix": "tb",
+		"body": "expect($1).toBe($2)$0",
+		"description": "expects the first argument to be equal with the second one"
+	},
+	"toBeCloseTo": {
+		"prefix": "tbct",
+		"body": "expect($1).toBeCloseTo(${2:number}, ${3:delta})$0",
+		"description": "expects the first argument to be close to the second one base on the delta"
+	},
+	"toBeDefined": {
+		"prefix": "tbd",
+		"body": "expect($1).toBeDefined()$0",
+		"description": "expects the argument is defined"
+	},
+	"toBeFalsy": {
+		"prefix": "tbf",
+		"body": "expect($1).toBeFalsy()$0",
+		"description": "expects the argument is falsy"
+	},
+	"toBeGreaterThan": {
+		"prefix": "tbgt",
+		"body": "expect($1).toBeGreaterThan($2)$0",
+		"description": "expects the argument is greater than or equal"
+	},
+	"toBeGreaterThanOrEqual": {
+		"prefix": "tbgte",
+		"body": "expect($1).toBeGreaterThanOrEqual($2)$0",
+		"description": "expects the argument is greater than"
+	},
+	"toBeInTheDocument": {
+		"prefix": "tbid",
+		"body": "expect($1).toBeInTheDocument()$0",
+		"description": "expects the argument to be in the document"
+	},
+	"toBeInstanceOf": {
+		"prefix": "tbi",
+		"body": "expect($1).toBeInstanceOf($2)$0",
+		"description": "expects the argument is less than"
+	},
+	"toBeLessThan": {
+		"prefix": "tblt",
+		"body": "expect($1).toBeLessThan($2)$0",
+		"description": "expects the argument is less than"
+	},
+	"toBeLessThanOrEqual": {
+		"prefix": "tblte",
+		"body": "expect($1).toBeLessThanOrEqual($2)$0",
+		"description": "expects the argument is less than or equal"
+	},
+	"toBeNull": {
+		"prefix": "tbn",
+		"body": "expect($1).toBeNull()$0",
+		"description": "expects the argument is null"
+	},
+	"toBeTruthy": {
+		"prefix": "tbt",
+		"body": "expect($1).toBeTruthy()$0",
+		"description": "expects the argument is truthy"
+	},
+	"toBeUndefined": {
+		"prefix": "tbu",
+		"body": "expect($1).toBeUndefined()$0",
+		"description": "expects the argument is undefined"
+	},
+	"toContain": {
+		"prefix": "tc",
+		"body": "expect(${1:list}).toContain($2)$0",
+		"description": "expects the list contains the item (===)"
+	},
+	"toContainEqual": {
+		"prefix": "tce",
+		"body": "expect(${1:list}).toContainEqual($2)$0",
+		"description": "expects the list contains the item (equals)"
+	},
+	"toEqual": {
+		"prefix": "te",
+		"body": "expect($1).toEqual($2)$0",
+		"description": "expects the first argument to be equal with the second one"
+	},
+	"toHaveBeenCalled": {
+		"prefix": "thbc",
+		"body": "expect($1).toHaveBeenCalled()$0",
+		"description": "returns true if the spy was called"
+	},
+	"toHaveBeenCalledTimes": {
+		"prefix": "thbct",
+		"body": "expect($1).toHaveBeenCalledTimes($2)$0",
+		"description": "returns true if the spy has been called given times"
+	},
+	"toHaveBeenCalledWith": {
+		"prefix": "thbcw",
+		"body": "expect($1).toHaveBeenCalledWith($2)$0",
+		"description": "returns true if the spy has been called with"
+	},
+	"toHaveBeenLastCalledWith": {
+		"prefix": "thblcw",
+		"body": "expect($1).toHaveBeenLastCalledWith($2)$0",
+		"description": "returns true if the spy has been last called with"
+	},
+	"toHaveLength": {
+		"prefix": "thl",
+		"body": "expect($1).toHaveLength($2)$0",
+		"description": "expects the object to have length"
+	},
+	"toHaveProperty": {
+		"prefix": "thp",
+		"body": "expect($1).toHaveProperty(${2:keyPath}, ${3:value})$0",
+		"description": "returns true if the argument matches the second object"
+	},
+	"toHavePropertyDisabled": {
+		"prefix": "thpd",
+		"body": "expect($1).toHaveProperty('disabled')$0",
+		"description": "returns true if the property disabled"
+	},
+	"toHavePropertySelected": {
+		"prefix": "thps",
+		"body": "expect($1).toHaveProperty('disabled')$0",
+		"description": "returns true if the property selected"
+	},
+	"toMatch": {
+		"prefix": "tm",
+		"body": "expect($1).toMatch($2)$0",
+		"description": "returns true if the argument matches the second value"
+	},
+	"toMatchInlineSnapshot": {
+		"prefix": "tmis",
+		"body": "expect($1).toMatchInlineSnapshot($2)$0",
+		"description": "returns true if the argument matches the most recent inline snapshot"
+	},
+	"toMatchObject": {
+		"prefix": "tmo",
+		"body": "expect($1).toMatchObject($2)$0",
+		"description": "returns true if the argument matches the second object"
+	},
+	"toMatchSnapshot": {
+		"prefix": "tms",
+		"body": "expect($1).toMatchSnapshot($2)$0",
+		"description": "returns true if the argument matches the most recent snapshot"
+	},
+	"toStrictEqual": {
+		"prefix": "tse",
+		"body": "expect($1).toStrictEqual($2)$0",
+		"description": "expects the first argument to be strictly equal with the second one"
+	},
+	"toThrow": {
+		"prefix": "tt",
+		"body": "expect(() => {\n\t$0\n}).toThrow($1)",
+		"description": "expects that the method will throw an error"
+	},
+	"toThrowError": {
+		"prefix": "tte",
+		"body": "expect(() => {\n\t$0\n}).toThrowError($1)",
+		"description": "expects that the method will throw an error"
+	},
+	"toThrowErrorMatchingInlineSnapshot": {
+		"prefix": "ttemis",
+		"body": "expect(() => {\n\t$0\n}).toThrowErrorMatchingInlineSnapshot()",
+		"description": "expects that the method will throw an error matching the inline snapshot"
+	},
+	"toThrowErrorMatchingSnapshot": {
+		"prefix": "ttems",
+		"body": "expect(() => {\n\t$0\n}).toThrowErrorMatchingSnapshot()",
+		"description": "expects that the method will throw an error matching the snapshot"
+	},
+	"describe": {
+		"prefix": ["d", "desc"],
+		"body": "describe('${1:group}', () => {\n\t$0\n})",
+		"description": "creates a describe block"
+	},
+	"describe.only": {
+		"prefix": "do",
+		"body": "describe.only('${1:group}', () => {\n\t$0\n})",
+		"description": "creates a describe block that runs only"
+	},
+	"describe.skip": {
+		"prefix": "ds",
+		"body": "describe.skip('${1:group}', () => {\n\t$0\n})",
+		"description": "creates a describe block that will be skipped"
+	},
+	"expect": {
+		"prefix": "e",
+		"body": "expect($0)",
+		"description": "expect actual value"
+	},
+	"expect.assertions": {
+		"prefix": "ea",
+		"body": "expect.assertions($0)",
+		"description": "expects the test to make the indicated number of assertions (useful for async)"
+	},
+	"expect.hasAssertions": {
+		"prefix": "eha",
+		"body": "expect.hasAssertions()$0",
+		"description": "expects the test to make at least one assertion (useful for async)"
+	},
+	"expect.rejects": {
+		"prefix": "erj",
+		"body": "expect($1).rejects$0",
+		"description": "expect promise rejects to"
+	},
+	"expect.resolves": {
+		"prefix": "ers",
+		"body": "expect($1).resolves$0",
+		"description": "expect promise resolves to"
+	},
+	"import.vitest": {
+		"prefix": "iv",
+		"body": "import { it, expect, describe } from 'vitest'$0",
+		"description": "essential imports for vitest"
+	},
+	"import.vitest.extra": {
+		"prefix": "ive",
+		"body": "import { beforeEach, afterEach, it, expect, describe, vi } from 'vitest'$0",
+		"description": "extra imports for vitest"
+	},
+	"it": {
+		"prefix": ["i", "it"],
+		"body": "it('${1:should}', () => {\n\t$0\n})",
+		"description": "creates an it block"
+	},
+	"it.only": {
+		"prefix": "io",
+		"body": "it.only('${1:should}', () => {\n\t$0\n})",
+		"description": "creates an it block that runs only"
+	},
+	"it.skip": {
+		"prefix": "is",
+		"body": "it.skip('${1:should}', () => {\n\t$0\n})",
+		"description": "creates an it block that will be skipped"
+	},
+	"it.todo": {
+		"prefix": "itd",
+		"body": "it.todo('${0:should}')",
+		"description": "creates a test placeholder"
+	},
+	"it:async": {
+		"prefix": "ia",
+		"body": "it('${1:should}', async () => {\n\t$0\n})",
+		"description": "creates an it block with async callback function"
+	},
+	"vi.afterEach.mockClearReset": {
+		"prefix": "aevcr",
+		"body": [
+			"afterEach(() => {",
+			"\tvi.clearAllMocks()",
+			"\tvi.resetAllMocks()",
+			"})$0"
+		],
+		"description": "afterEach mock clear and reset functions called once after each spec"
+	},
+	"vi.mock": {
+		"prefix": "vm",
+		"body": "vi.mock('${1:path}')$0",
+		"description": "creates vi.mock()"
+	},
+	"vi.mock.mockResolvedValue": {
+		"prefix": "vmrv",
+		"body": "vi.mock('${1:path}').mockResolvedValue($0)",
+		"description": "creates vi.mock() with resolved value"
+	},
+	"vi.fn": {
+		"prefix": "vf",
+		"body": "vi.fn()$0",
+		"description": "creates vi.fn()"
+	},
+	"vi.fn.mockResolvedValue": {
+		"prefix": "vfrv",
+		"body": "vi.fn().mockResolvedValue($0)",
+		"description": "creates vi.fn() with resolved value"
+	},
+	"const.fn": {
+		"prefix": "cf",
+		"body": "const ${1:name}Mock = vi.fn()$0",
+		"description": "creates a mock variable for a vi.fn()"
+	},
+	"const.fn.mockResolvedValue": {
+		"prefix": "cfrv",
+		"body": "const ${1:name}Mock = vi.fn().mockResolvedValue($0)",
+		"description": "creates a mock variable for a vi.fn() with resolved value"
+	},
+	"mock.mockReturnValue": {
+		"prefix": "mrv",
+		"body": "${1:mock}.mockReturnValue($0)",
+		"description": "assign a return value"
+	},
+	"mock.mockReturnValueOnce": {
+		"prefix": "mrvo",
+		"body": "${1:mock}.mockReturnValueOnce($0)",
+		"description": "assign a return value for only one call"
+	},
+	"vi.spyOn": {
+		"prefix": "vs",
+		"body": "vi.spyOn(${1:global}, '${2:method}'))$0",
+		"description": "creates vi.spyOn()"
+	},
+	"vi.spyOn.mockImplementation": {
+		"prefix": "vsi",
+		"body": "vi.spyOn(${1:global}, '${2:method}')).mockImplementation(() => $0)",
+		"description": "creates vi.spyOn() with mock implementation"
+	},
+	"const.spyOn": {
+		"prefix": "cs",
+		"body": "const ${2:method}Spy = vi.spyOn(${1:global}, '${2:method}'))$0",
+		"description": "creates a spy variable for a vi.spyOn()"
+	},
+	"const.spyOn.mockImplementation": {
+		"prefix": "csi",
+		"body": "const ${2:method}Spy = vi.spyOn(${1:global}, '${2:method}')).mockImplementation(() => $0)",
+		"description": "creates a spy variable for a vi.spyOn() with mock implementation"
+	},
+	"afterAll": {
+		"prefix": "aa",
+		"body": "afterAll(() => {\n\t$0\n})",
+		"description": "afterAll function is called once after all specs"
+	},
+	"afterEach": {
+		"prefix": "ae",
+		"body": "afterEach(() => {\n\t$0\n})",
+		"description": "afterEach function is called once after each spec"
+	},
+	"beforeEach": {
+		"prefix": "be",
+		"body": "beforeEach(() => {\n\t$0\n})",
+		"description": "beforeEach function is called once before each spec"
+	},
+	"beforeEach:async": {
+		"prefix": "bea",
+		"body": "beforeEach(async () => {\n\t$0\n})",
+		"description": "beforeEach with async callback function is called once before each spec"
+	},
+	"beforeAll": {
+		"prefix": "ba",
+		"body": "beforeAll(() => {\n\t$0\n})",
+		"description": "beforeAll function is called once before all specs"
+	},
+	"beforeAll:async": {
+		"prefix": "baa",
+		"body": "beforeAll(async () => {\n\t$0\n})",
+		"description": "beforeAll with async function is called once before all specs"
+	},
+	"test": {
+		"prefix": "t",
+		"body": "test('${1:should}', () => {\n\t$0\n})",
+		"description": "creates a test block"
+	},
+	"test.only": {
+		"prefix": "to",
+		"body": "test.only('${1:should}', () => {\n\t$0\n})",
+		"description": "creates a test block that runs only"
+	},
+	"test.skip": {
+		"prefix": "ts",
+		"body": "test.skip('${1:should}', () => {\n\t$0\n})",
+		"description": "creates a test block that will be skipped"
+	},
+	"test.todo": {
+		"prefix": "ttd",
+		"body": "test.todo('${0:should}')",
+		"description": "creates a test placeholder"
+	},
+	"test:async": {
+		"prefix": "ta",
+		"body": "test('${1:should}', async () => {\n\t$0\n})",
+		"description": "creates an test block with async callback function"
+	},
+	"expect.any.type": {
+		"prefix": "eav",
+		"body": "expect.any($1)$0",
+		"description": "expect any value type"
+	},
+	"expect.any.string": {
+		"prefix": "eas",
+		"body": "expect.any(String)$0",
+		"description": "expect any string type"
+	},
+	"expect.any.number": {
+		"prefix": "ean",
+		"body": "expect.any(Number)$0",
+		"description": "expect any number type"
+	},
+	"expect.any.boolean": {
+		"prefix": "eab",
+		"body": "expect.any(Boolean)$0",
+		"description": "expect any boolean type"
+	},
+	"expect.any.date": {
+		"prefix": "ead",
+		"body": "expect.any(Date)$0",
+		"description": "expect any date type"
+	},
+	"expect.any.function": {
+		"prefix": "eaf",
+		"body": "expect.any(Function)$0",
+		"description": "expect any function type"
+	},
+	"expect.any.array": {
+		"prefix": "eaa",
+		"body": "expect.any(Array)$0",
+		"description": "expect any array type"
+	},
+	"expect.any.thing": {
+		"prefix": "eat",
+		"body": "expect.anything()$0",
+		"description": "expect anything"
+	}
 }

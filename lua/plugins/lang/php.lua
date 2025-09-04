@@ -10,8 +10,14 @@ local opts = function()
 		features = {
 			model_info = { enable = true },
 			override = { enable = true },
-			pickers = { enable = true, provider = "fzf-lua" },
-			route_info = { enable = true, view = "right" },
+			pickers = {
+				enable = true,
+				provider = "fzf-lua",
+			},
+			route_info = {
+				enable = true,
+				view = "right",
+			},
 		},
 		providers = {
 			require("laravel.providers.laravel_provider"),
@@ -32,18 +38,16 @@ local opts = function()
 	}
 end
 
-return {
-	{
-		"adalessa/laravel.nvim",
-		cmd = { "Laravel" },
-		config = true,
-		filetypes = { "blade", "php" },
-		keys = require("keys.plugin").laravel,
-		opts = opts,
-		dependencies = {
-			"tpope/vim-dotenv",
-			"MunifTanjim/nui.nvim",
-			"kevinhwang91/promise-async",
-		},
+return { {
+	"adalessa/laravel.nvim",
+	cmd = { "Laravel" },
+	config = true,
+	filetypes = { "blade", "php" },
+	keys = require("keys.plugin").laravel,
+	opts = opts,
+	dependencies = {
+		"tpope/vim-dotenv",
+		"MunifTanjim/nui.nvim",
+		"kevinhwang91/promise-async",
 	},
-}
+} }

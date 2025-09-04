@@ -10,9 +10,7 @@ end
 
 ---@see BlinkDocumentation https://cmp.saghen.dev/recipes.html#deprioritize-specific-lsp
 M.depriotize_emmet = function(a, b)
-	if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
-		return
-	end
+	if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then return end
 	return b.client_name == "emmet_ls"
 end
 
@@ -21,9 +19,7 @@ end
 M.cd_fzf = function(fzf_script, base)
 	local output = vim.system({ "sh", "-c", fzf_script }):wait()
 	local stdout = output.stdout
-	if not stdout or #stdout < 1 then
-		return
-	end
+	if not stdout or #stdout < 1 then return end
 	require("utils.dashboard").go_to_dashboard()
 	local dir = base .. "/" .. stdout:sub(1, #stdout - 1)
 	vim.api.nvim_set_current_dir(dir)
@@ -65,7 +61,8 @@ M.is_package = function(text)
 		return false
 	end
 
-	local prefixes = { "beta", "canary", "catalog:", "latest", "next", "patches/" }
+	local prefixes =
+		{ "beta", "canary", "catalog:", "latest", "next", "patches/" }
 
 	for _, val in ipairs(prefixes) do
 		if string.sub(text, 1, #val) == val then

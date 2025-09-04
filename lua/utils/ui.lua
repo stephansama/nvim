@@ -52,7 +52,9 @@ M.reset_ui = function()
 	vim.cmd([[hi MiniIndentscopeSymbol guifg=#C93638 guibg=none]])
 	vim.cmd([[hi NoiceCmdlinePopupBorder guifg=#C93638 guibg=none]])
 	vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
-	vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
+	vim.cmd(
+		[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+	)
 
 	require("utils.dashboard").color_dashboard()
 end
@@ -64,7 +66,11 @@ M.auto_theme = function(theme)
 	local themes = require("constants.init")
 	local is_darkmode = theme == themes.THEME_DARKMODE
 	return function()
-		vim.api.nvim_set_option_value("background", is_darkmode and "dark" or "light", {})
+		vim.api.nvim_set_option_value(
+			"background",
+			is_darkmode and "dark" or "light",
+			{}
+		)
 		vim.cmd(string.format("colorscheme %s", theme))
 		if is_darkmode then
 			vim.cmd([[hi BqfPreviewFloat guibg=#1e1e2e]])

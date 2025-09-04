@@ -16,33 +16,31 @@ local opts = function()
 			above = "gcO",
 			below = "gco",
 		},
-		pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+		pre_hook = require(
+			"ts_context_commentstring.integrations.comment_nvim"
+		).create_pre_hook(),
 	}
 end
 
-return {
-	{
-		"folke/todo-comments.nvim",
-		keys = keys.todo_comments,
-		event = "VeryLazy",
-		config = true,
-		dependencies = { "nvim-lua/plenary.nvim" },
+return { {
+	"folke/todo-comments.nvim",
+	keys = keys.todo_comments,
+	event = "VeryLazy",
+	config = true,
+	dependencies = { "nvim-lua/plenary.nvim" },
+}, {
+	"numToStr/Comment.nvim",
+	ft = ft,
+	opts = opts,
+	config = true,
+	dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+}, {
+	"danymat/neogen",
+	ft = ft,
+	config = true,
+	keys = keys.neogen,
+	opts = {
+		enabled = true,
+		snippet_engine = "luasnip",
 	},
-	{
-		"numToStr/Comment.nvim",
-		ft = ft,
-		opts = opts,
-		config = true,
-		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-	},
-	{
-		"danymat/neogen",
-		ft = ft,
-		config = true,
-		keys = keys.neogen,
-		opts = {
-			enabled = true,
-			snippet_engine = "luasnip",
-		},
-	},
-}
+} }

@@ -15,16 +15,13 @@ local opts = {
 		component_separators = blank_separators,
 	},
 	sections = {
-		lualine_c = {
-			{
-				"filename",
-				file_status = true,
-				newfile_status = true,
-				path = 3,
-				symbols = require("icons").lualine,
-			},
-			{ utils.lualine_package_info },
-		},
+		lualine_c = { {
+			"filename",
+			file_status = true,
+			newfile_status = true,
+			path = 3,
+			symbols = require("icons").lualine,
+		}, { utils.lualine_package_info } },
 		lualine_x = { utils.lualine_macros, "fileformat", "filetype" },
 	},
 }

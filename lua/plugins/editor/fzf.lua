@@ -3,7 +3,12 @@ local opts = function()
 	local actions = fzf.actions
 	return {
 		"default-title",
-		winopts = { preview = { layout = "flex", flip_columns = 600 } },
+		winopts = {
+			preview = {
+				layout = "flex",
+				flip_columns = 600,
+			},
+		},
 		keymap = {
 			fzf = {
 				["alt-s"] = "select-all+accept",

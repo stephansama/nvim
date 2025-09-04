@@ -14,19 +14,19 @@ local inlayHints = {
 -- M.filetypes = { "javascript", "typescript", "vue" }
 
 M.init_options = {
-	plugins = {
-		{
-			name = "@vue/typescript-plugin",
-			location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-			languages = { "javascript", "typescript", "vue" },
-		},
-	},
+	plugins = { {
+		name = "@vue/typescript-plugin",
+		location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+		languages = { "javascript", "typescript", "vue" },
+	} },
 }
 
 M.settings = {
 	javascript = { inlayHints = inlayHints },
 	typescript = { inlayHints = inlayHints },
-	init_options = { preferences = { disableSuggestions = true } },
+	init_options = {
+		preferences = { disableSuggestions = true },
+	},
 }
 
 return M

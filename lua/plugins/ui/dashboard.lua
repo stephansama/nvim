@@ -7,19 +7,15 @@ local opts = {
 	disable_move = true,
 	config = {
 		shortcut = require("plugins.ui.dashboard.shortcuts").shortcuts,
-		header = require("utils.dashboard").load_ascii_headers(constants.ASCII_DIR, "txt"),
+		header = require("utils.dashboard").load_ascii_headers(
+			constants.ASCII_DIR,
+			"txt"
+		),
 		footer = function()
 			local stats = require("lazy").stats()
 			local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 			return {
-				constants.NVIM_APPNAME
-					.. " loaded "
-					.. stats.loaded
-					.. "/"
-					.. stats.count
-					.. " plugins in "
-					.. ms
-					.. "ms",
+				constants.NVIM_APPNAME .. " loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
 			}
 		end,
 		mru = {

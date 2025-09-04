@@ -44,21 +44,18 @@ local opts = {
 	},
 }
 
-return {
-	{
-		"catppuccin/nvim",
-		priority = 1001,
-		name = "catppuccin",
-		opts = opts,
+return { {
+	"catppuccin/nvim",
+	priority = 1001,
+	name = "catppuccin",
+	opts = opts,
+}, {
+	"f-person/auto-dark-mode.nvim",
+	priority = 1002,
+	lazy = false,
+	opts = {
+		update_interval = 1000,
+		set_dark_mode = utils.auto_theme(theme.THEME_DARKMODE),
+		set_light_mode = utils.auto_theme(theme.THEME_LIGHTMODE),
 	},
-	{
-		"f-person/auto-dark-mode.nvim",
-		priority = 1002,
-		lazy = false,
-		opts = {
-			update_interval = 1000,
-			set_dark_mode = utils.auto_theme(theme.THEME_DARKMODE),
-			set_light_mode = utils.auto_theme(theme.THEME_LIGHTMODE),
-		},
-	},
-}
+} }

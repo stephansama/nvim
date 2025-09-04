@@ -41,14 +41,12 @@ return {
 	version = "1.*",
 	opts = opts,
 	opts_extend = { "sources.default" },
-	dependencies = {
-		{
-			"windwp/nvim-autopairs",
-			config = true,
-			opts = {
-				fast_wrap = {},
-				disable_filetype = { "vim" },
-			},
+	dependencies = { {
+		"windwp/nvim-autopairs",
+		config = true,
+		opts = {
+			fast_wrap = {},
+			disable_filetype = { "vim" },
 		},
-	},
+	} },
 }
