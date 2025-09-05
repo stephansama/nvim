@@ -1,4 +1,3 @@
-local lsp = require("utils.lsp")
 local SERVERS = require("plugins.lang").SERVERS
 local LSP_CONFIG_DIR = require("config.constants").LSP_CONFIG_DIR
 
