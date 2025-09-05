@@ -30,7 +30,7 @@
 		"Q'": ["@q", "Quick Replay"],
 		"<ESC>": ["<cmd>noh<CR>", "Escape"],
 		"<leader>w": ["<cmd>w<CR>", "Save"],
-		"<leader>d": ["<cmd>bd<CR>", "Save"],
+		"<leader>d": ["<cmd>bd<CR>", "Delete buffer"],
 		"<leader>1": ["1gt", "Go to tab 1"],
 		"<leader>2": ["2gt", "Go to tab 2"],
 		"<leader>3": ["3gt", "Go to tab 3"],

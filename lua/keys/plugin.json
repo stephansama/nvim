@@ -117,8 +117,8 @@
 	],
 	"treesitter_context": [
 		[
-			"<leader>tc",
-			"<cmd>TSContextToggle<CR>",
+			"<leader>ts",
+			"<cmd>TSContext toggle<CR>",
 			{ "desc": "Toggle treesitter context" }
 		],
 		[
