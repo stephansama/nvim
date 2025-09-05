@@ -14,11 +14,10 @@ if config_files then
 	end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities =
+local capabilities =
 	vim.tbl_deep_extend(
 		"force",
-		capabilities,
+		vim.lsp.protocol.make_client_capabilities(),
 		require("blink.cmp").get_lsp_capabilities({}, false)
 	)
 capabilities = vim.tbl_deep_extend("force", capabilities, {
