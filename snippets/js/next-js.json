@@ -245,9 +245,7 @@
 	},
 	"Nextjs use link": {
 		"prefix": "nul",
-		"body": [
-			"<Link href='${1:path}'>${2:link}</Link>"
-		],
+		"body": ["<Link href='${1:path}'>${2:link}</Link>"],
 		"description": "Nextjs use link Element"
 	},
 	"Nextjs arrow function export at the end": {
@@ -398,47 +396,27 @@
 	},
 	"Nextjs route handler get request": {
 		"prefix": "nrget",
-		"body": [
-			"export async function GET(${1:request}) {",
-			"\t${2:}",
-			"}"
-		],
+		"body": ["export async function GET(${1:request}) {", "\t${2:}", "}"],
 		"description": "Nextjs get request route handler"
 	},
 	"Nextjs route handler post request": {
 		"prefix": "nrpost",
-		"body": [
-			"export async function POST(${1:request}) {",
-			"\t${2:}",
-			"}"
-		],
+		"body": ["export async function POST(${1:request}) {", "\t${2:}", "}"],
 		"description": "Nextjs post request route handler"
 	},
 	"Nextjs route handler put request": {
 		"prefix": "nrput",
-		"body": [
-			"export async function PUT(${1:request}) {",
-			"\t${2:}",
-			"}"
-		],
+		"body": ["export async function PUT(${1:request}) {", "\t${2:}", "}"],
 		"description": "Nextjs put request route handler"
 	},
 	"Nextjs route handler patch request": {
 		"prefix": "nrpatch",
-		"body": [
-			"export async function PATCH(${1:request}) {",
-			"\t${2:}",
-			"}"
-		],
+		"body": ["export async function PATCH(${1:request}) {", "\t${2:}", "}"],
 		"description": "Nextjs patch request route handler"
 	},
 	"Nextjs route handler delete request": {
 		"prefix": "nrdelete",
-		"body": [
-			"export async function DELETE(${1:request}) {",
-			"\t${2:}",
-			"}"
-		],
+		"body": ["export async function DELETE(${1:request}) {", "\t${2:}", "}"],
 		"description": "Nextjs delete request route handler"
 	},
 	"Nextjs Api route": {
@@ -588,74 +566,52 @@
 	},
 	"Nextjs import for Link component": {
 		"prefix": "nil",
-		"body": [
-			"import ${1:Link} from 'next/link';"
-		],
+		"body": ["import ${1:Link} from 'next/link';"],
 		"description": "next import Link"
 	},
 	"Nextjs import for Router(default) component": {
 		"prefix": "nir",
-		"body": [
-			"import ${1:Router} from 'next/router';"
-		],
+		"body": ["import ${1:Router} from 'next/router';"],
 		"description": "next import Router(default)"
 	},
 	"Nextjs import for useRouter component": {
 		"prefix": "niur",
-		"body": [
-			"import {useRouter} from 'next/router';"
-		],
+		"body": ["import {useRouter} from 'next/router';"],
 		"description": "next import useRouter"
 	},
 	"Nextjs import for Head component": {
 		"prefix": "nih",
-		"body": [
-			"import ${1:Head} from 'next/head';"
-		],
+		"body": ["import ${1:Head} from 'next/head';"],
 		"description": "next import Head"
 	},
 	"Nextjs import for Image component": {
 		"prefix": "nii",
-		"body": [
-			"import ${1:Image} from 'next/image';"
-		],
+		"body": ["import ${1:Image} from 'next/image';"],
 		"description": "next import Image"
 	},
 	"Nextjs import for Dynamic": {
 		"prefix": "nid",
-		"body": [
-			"import ${1:dynamic} from 'next/dynamic';"
-		],
+		"body": ["import ${1:dynamic} from 'next/dynamic';"],
 		"description": "next import dynamic"
 	},
 	"Nextjs link component defination with href": {
 		"prefix": "nulwhref",
-		"body": [
-			"<Link href='${1:path}'>${2:link}</Link>"
-		],
+		"body": ["<Link href='${1:path}'>${2:link}</Link>"],
 		"description": "nextjs usage of link component with href"
 	},
 	"Nextjs useRouter component defination": {
 		"prefix": "nuur",
-		"body": [
-			"const ${1:router} = useRouter();"
-		],
+		"body": ["const ${1:router} = useRouter();"],
 		"description": "nextjs usage of useRouter component"
 	},
 	"Nextjs Head component defination": {
 		"prefix": "nuh",
-		"body": [
-			"<Head>",
-			"\t<title>${1:Title}</title>",
-			"</Head>"
-		],
+		"body": ["<Head>", "\t<title>${1:Title}</title>", "</Head>"],
 		"description": "nextjs usage of Head Component"
 	},
 	"Nextjs Image component defination": {
 		"prefix": "nui",
-		"body": [
-			"<Image src='${1:path}' width='' height='' alt='' />"
-		],
+		"body": ["<Image src='${1:path}' width='' height='' alt='' />"],
 		"description": "nextjs usage of Image Component"
 	},
 	"Nextjs Dynamic Import defination": {

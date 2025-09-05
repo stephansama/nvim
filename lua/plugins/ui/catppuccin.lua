@@ -1,11 +1,14 @@
 --- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
 local utils = require("utils.ui")
-local theme = require("constants.theme")
+local theme = require("config.constants")
 
 ---@module 'catppuccin'
 ---@type CatppuccinOptions
 local opts = {
-	float = { transparent = true, solid = false },
+	float = {
+		transparent = true,
+		solid = false,
+	},
 	flavour = "mocha",
 	show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
 	transparent_background = true,
@@ -41,21 +44,18 @@ local opts = {
 	},
 }
 
-return {
-	{
-		"catppuccin/nvim",
-		priority = 1001,
-		name = "catppuccin",
-		opts = opts,
+return { {
+	"catppuccin/nvim",
+	priority = 1001,
+	name = "catppuccin",
+	opts = opts,
+}, {
+	"f-person/auto-dark-mode.nvim",
+	priority = 1002,
+	lazy = false,
+	opts = {
+		update_interval = 1000,
+		set_dark_mode = utils.auto_theme(theme.THEME_DARKMODE),
+		set_light_mode = utils.auto_theme(theme.THEME_LIGHTMODE),
 	},
-	{
-		"f-person/auto-dark-mode.nvim",
-		priority = 1002,
-		lazy = false,
-		opts = {
-			update_interval = 1000,
-			set_dark_mode = utils.auto_theme(theme.THEME_DARKMODE),
-			set_light_mode = utils.auto_theme(theme.THEME_LIGHTMODE),
-		},
-	},
-}
+} }

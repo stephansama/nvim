@@ -1,7 +1,7 @@
 ---@class vim.lsp.Config
 local M = {}
 
-M.filetypes = require("constants.ft").EMMET_FILETYPES
+M.filetypes = require("config.constants").EMMET_FILETYPES
 
 M.settings = {}
 

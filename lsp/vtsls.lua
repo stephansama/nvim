@@ -13,11 +13,16 @@ local inlayHints = {
 
 local astro_plugin = {
 	name = "@astrojs/ts-plugin",
-	location = vim.fn.expand("$MASON/packages/astro-language-server/node_modules/@astrojs/ts-plugin/"),
+	location = vim.fn.expand(
+		"$MASON/packages/astro-language-server/node_modules/@astrojs/ts-plugin/"
+	),
 	enableForWorkspaceTypeScriptVersions = true,
 }
 
-local vue_language_server_path = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server/")
+local vue_language_server_path =
+	vim.fn.expand(
+		"$MASON/packages/vue-language-server/node_modules/@vue/language-server/"
+	)
 
 local vue_plugin = {
 	name = "@vue/typescript-plugin",
@@ -27,15 +32,16 @@ local vue_plugin = {
 	enableForWorkspaceTypeScriptVersions = true,
 }
 
-M.filetypes = {
-	"javascript",
-	"javascript.jsx",
-	"javascriptreact",
-	"typescript",
-	"typescript.tsx",
-	"typescriptreact",
-	"vue",
-}
+M.filetypes =
+	{
+		"javascript",
+		"javascript.jsx",
+		"javascriptreact",
+		"typescript",
+		"typescript.tsx",
+		"typescriptreact",
+		"vue",
+	}
 
 local globalPlugins = { astro_plugin, vue_plugin }
 

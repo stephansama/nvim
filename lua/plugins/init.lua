@@ -1,34 +1,40 @@
-local keys = require("keys.init")
+local keys = require("keys.plugin")
 
-return {
-	{ "nvim-lua/plenary.nvim", lazy = false },
-	{ "axieax/urlview.nvim", config = true, keys = keys.urlview },
-	{
-		"christoomey/vim-tmux-navigator",
-		cmd = { "TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight" },
-		keys = keys.tmux,
-		init = function()
-			vim.g.tmux_navigator_no_mappings = 1
-		end,
+return { {
+	"nvim-lua/plenary.nvim",
+	lazy = false,
+}, {
+	"axieax/urlview.nvim",
+	config = true,
+	keys = keys.urlview,
+}, {
+	"christoomey/vim-tmux-navigator",
+	keys = keys.tmux,
+	cmd = {
+		"TmuxNavigateLeft",
+		"TmuxNavigateDown",
+		"TmuxNavigateUp",
+		"TmuxNavigateRight",
 	},
-	{
-		"stephansama/stow.nvim",
-		cmd = "Stow",
-		keys = require("keys.init").stow,
-		config = true,
+	init = function()
+		vim.g.tmux_navigator_no_mappings = 1
+	end,
+}, {
+	"stephansama/stow.nvim",
+	cmd = "Stow",
+	keys = keys.stow,
+	config = true,
+}, {
+	"kawre/leetcode.nvim",
+	config = true,
+	build = ":TSUpdate html",
+	keys = keys.leetcode,
+	cmd = "Leet",
+	dependencies = {
+		"ibhagwan/fzf-lua",
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-tree/nvim-web-devicons",
 	},
-	{
-		"kawre/leetcode.nvim",
-		config = true,
-		build = ":TSUpdate html",
-		keys = require("keys.init").leetcode,
-		cmd = "Leet",
-		dependencies = {
-			"ibhagwan/fzf-lua",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-}
+} }

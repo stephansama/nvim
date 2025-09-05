@@ -3,7 +3,12 @@ local opts = function()
 	local actions = fzf.actions
 	return {
 		"default-title",
-		winopts = { preview = { layout = "flex", flip_columns = 600 } },
+		winopts = {
+			preview = {
+				layout = "flex",
+				flip_columns = 600,
+			},
+		},
 		keymap = {
 			fzf = {
 				["alt-s"] = "select-all+accept",
@@ -31,5 +36,5 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = true,
 	opts = opts,
-	keys = require("keys.init").fzf_lua,
+	keys = require("keys.plugin").fzf_lua,
 }

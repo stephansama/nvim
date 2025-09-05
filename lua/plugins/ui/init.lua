@@ -1,6 +1,14 @@
-return {
-	{ "nvim-tree/nvim-web-devicons", opts = require("icons.devicons") },
-	{ "szw/vim-maximizer", keys = require("keys.init").maximizer },
-	{ "chentoast/marks.nvim", event = "VeryLazy", opts = { sign_priority = 90 } },
-	{ "stevearc/dressing.nvim", init = require("utils.ui").override_builtins({ "select", "input" }) },
-}
+return { {
+	"nvim-tree/nvim-web-devicons",
+	opts = require("icons.devicons"),
+}, {
+	"szw/vim-maximizer",
+	keys = require("keys.plugin").maximizer,
+}, {
+	"chentoast/marks.nvim",
+	event = "VeryLazy",
+	opts = { sign_priority = 90 },
+}, {
+	"stevearc/dressing.nvim",
+	init = require("utils.ui").override_builtins({ "select", "input" }),
+} }

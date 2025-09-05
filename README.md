@@ -1,4 +1,5 @@
 <!-- markdownlint-disable RULE33 -->
+
 # `nvim/`
 
 ![Screenshot](https://i.imgur.com/RrehNix.png)
@@ -7,4 +8,4 @@
 
 [interactive bundle visualization](https://files.stephansama.info/nvim/)
 
-*bundle visualization generated using [bloat.nvim](https://github.com/dundalek/bloat.nvim) and [Esbuild analyzer](https://esbuild.github.io/analyze/)*
+_bundle visualization generated using [bloat.nvim](https://github.com/dundalek/bloat.nvim) and [Esbuild analyzer](https://esbuild.github.io/analyze/)_

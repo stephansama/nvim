@@ -10,8 +10,14 @@ local opts = {
 	},
 	views = {
 		cmdline_popup = {
-			position = { row = 5, col = "50%" },
-			size = { width = 60, height = "auto" },
+			position = {
+				row = 5,
+				col = "50%",
+			},
+			size = {
+				width = 60,
+				height = "auto",
+			},
 		},
 	},
 	presets = {
@@ -25,5 +31,5 @@ return {
 	dependencies = { "MunifTanjim/nui.nvim" },
 	event = "VeryLazy",
 	opts = opts,
-	keys = require("keys.init").noice,
+	keys = require("keys.plugin").noice,
 }

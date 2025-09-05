@@ -1,4 +1,7 @@
-local opts = { validate = true, lint = { unknownAtRules = "ignore" } }
+local opts = {
+	validate = true,
+	lint = { unknownAtRules = "ignore" },
+}
 
 ---@type vim.lsp.Config
 return {

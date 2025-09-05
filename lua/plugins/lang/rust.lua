@@ -14,37 +14,37 @@ vim.g.rustaceanvim = function()
 			end,
 			default_settings = {
 				["rust-analyzer"] = {
-					files = {
-						excludeDirs = "node_modules/**",
-					},
+					files = { excludeDirs = "node_modules/**" },
 				},
 			},
 		},
-		dap = { adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path) },
+		dap = {
+			adapter = require(
+				"rustaceanvim.config"
+			).get_codelldb_adapter(codelldb_path, liblldb_path),
+		},
 	}
 end
 
-return {
-	{
-		"rust-lang/rust.vim",
-		ft = "rust",
-		lazy = true,
-		init = function()
-			vim.g.rustfmt_autosave = 1
-		end,
+return { {
+	"rust-lang/rust.vim",
+	ft = "rust",
+	lazy = true,
+	init = function()
+		vim.g.rustfmt_autosave = 1
+	end,
+}, {
+	"mrcjkb/rustaceanvim",
+	ft = { "rust" },
+	version = "^4",
+	dependencies = "neovim/nvim-lspconfig",
+}, {
+	"saecki/crates.nvim",
+	config = true,
+	event = { "BufRead Cargo.toml" },
+	--- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
+	opts = {
+		popup = { border = require("utils.ui").border("FloatBorder") },
 	},
-	{
-		"mrcjkb/rustaceanvim",
-		ft = { "rust" },
-		version = "^4",
-		dependencies = "neovim/nvim-lspconfig",
-	},
-	{
-		"saecki/crates.nvim",
-		config = true,
-		event = { "BufRead Cargo.toml" },
-		--- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
-		opts = { popup = { border = require("utils.ui").border("FloatBorder") } },
-		keys = require("keys.init").crates,
-	},
-}
+	keys = require("keys.plugin").crates,
+} }

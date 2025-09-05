@@ -1,1 +1,1 @@
-require("srandle")
+require("config")

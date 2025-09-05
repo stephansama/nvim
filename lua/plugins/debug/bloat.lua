@@ -1,1 +1,4 @@
-return { "dundalek/bloat.nvim", cmd = "Bloat" }
+return {
+	"dundalek/bloat.nvim",
+	cmd = "Bloat",
+}

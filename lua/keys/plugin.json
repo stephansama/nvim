@@ -1,0 +1,317 @@
+{
+	"$schema": "./plugin-keymap-schema.json",
+	"undotree": [
+		["<leader>u", "<CMD>UndotreeToggle<CR>", { "desc": "UndotreeToggle" }]
+	],
+	"stow": [
+		["<leader>sr", "<cmd>Stow remove<CR>", "Remove stow configuration"],
+		["<leader>sa", "<cmd>Stow reapply<CR>", "Reapply stow configuration"]
+	],
+	"treesitter_incremental_selection": {
+		"init_selection": "<leader>ss",
+		"node_incremental": "<leader>si",
+		"node_decremental": "<leader>sd",
+		"scope_incremental": "<leader>sc"
+	},
+	"noice": [
+		["<leader>na", "<cmd>NoiceAll<CR>", { "desc": "Open noice log history" }],
+		["<leader>nl", "<cmd>NoiceLast<CR>", { "desc": "Open last noice log" }]
+	],
+	"neogen": [
+		[
+			"<leader>cg",
+			"<cmd>lua require(\"neogen\").generate()<CR>",
+			{ "desc": "Generate comment" }
+		]
+	],
+	"neotest": [
+		[
+			"<C-\\>",
+			"<cmd>Neotest summary<CR>",
+			{ "desc": "Open neotest summary panel" }
+		],
+		[
+			"<leader>rt",
+			"<cmd>lua require(\"neotest\").run.run(vim.fn.expand(\"%\"))<CR>",
+			{ "desc": "Neotest run all tests in current file" }
+		],
+		[
+			"<leader>ro",
+			"<cmd>Neotest output<CR>",
+			{ "desc": "Open Neotest output" }
+		],
+		[
+			"<leader>rp",
+			"<cmd>Neotest output-panel<CR>",
+			{ "desc": "Open Neotest output-panel" }
+		]
+	],
+	"gitsigns": [
+		[
+			"[h",
+			"<cmd>lua require('gitsigns').prev_hunk()<CR>",
+			{ "desc": "Git prev hunk" }
+		],
+		[
+			"]h",
+			"<cmd>lua require('gitsigns').next_hunk()<CR>",
+			{ "desc": "Git next hunk" }
+		],
+		[
+			"<leader>gr",
+			"<cmd>lua require('gitsigns').reset_hunk({ vim.fn.line(\".\"), vim.fn.line(\"v\") })<CR>",
+			{ "desc": "Git reset hunk" }
+		],
+		[
+			"<leader>hd",
+			"<cmd>lua require('gitsigns').diffthis()<CR>",
+			{ "desc": "Git diffthis" }
+		],
+		[
+			"<leader>hs",
+			"<cmd>lua require('gitsigns').stage_hunk()<CR>",
+			{ "desc": "Git stage hunk" }
+		],
+		[
+			"<leader>hS",
+			"<cmd>lua require('gitsigns').stage_buffer()<CR>",
+			{ "desc": "Git stage buffer" }
+		],
+		[
+			"<leader>hu",
+			"<cmd>lua require('gitsigns').undo_stage_hunk()<CR>",
+			{ "desc": "Git undo stage hunk" }
+		],
+		[
+			"<leader>hb",
+			"<cmd>lua require('gitsigns').blame_line({ full = true })<CR>",
+			{ "desc": "Git blame line" }
+		],
+		[
+			"<leader>gp",
+			"<cmd>lua require('gitsigns').preview_hunk()<CR>",
+			{ "desc": "Git preview hunk" }
+		]
+	],
+	"neo_tree": [
+		["\\", "<cmd>Neotree filesystem toggle right<CR>"],
+		["g\\", "<cmd>Neotree git_status toggle right<CR>"]
+	],
+	"outline": [["|", "<cmd>Outline<CR>", { "desc": "Toggle Outline" }]],
+	"markdownpreview": [
+		[
+			"<leader>mp",
+			"<cmd>MarkdownPreview<CR>",
+			{ "desc": "Toggle Markdown Preview" }
+		]
+	],
+	"todo_comments": [
+		["<leader>tt", "<cmd>TodoFzfLua<CR>", { "desc": "Todo FzfLua" }]
+	],
+	"inlay_hints": [
+		[
+			"<leader>th",
+			"<cmd>InlayHintsToggle<CR>",
+			{ "desc": "Toggle inlay hints" }
+		]
+	],
+	"treesitter_context": [
+		[
+			"<leader>ts",
+			"<cmd>TSContext toggle<CR>",
+			{ "desc": "Toggle treesitter context" }
+		],
+		[
+			"[c",
+			"<cmd>lua require('treesitter-context').go_to_context(vim.v.count1)<CR>",
+			{
+				"desc": "Go to treesitter context"
+			}
+		]
+	],
+	"urlview": [["<leader>gx", "<cmd>UrlView<CR>", { "desc": "Open urlview" }]],
+	"startuptime": [
+		[
+			"<leader>st",
+			"<cmd>StartupTime<CR>",
+			{ "desc": "Debug neovim StartupTime" }
+		]
+	],
+	"table_mode": [
+		[
+			"<leader>mt",
+			"<cmd>TableModeToggle<CR>",
+			{ "desc": "Toggle markdown table mode" }
+		]
+	],
+	"maximizer": [
+		[
+			"<leader>sm",
+			"<cmd>MaximizerToggle<CR>",
+			{ "desc": "Toggle maximizer on a split" }
+		]
+	],
+	"quicker": [
+		[
+			"<leader>q",
+			"<cmd>lua require('quicker').toggle()<CR>",
+			{ "desc": "Toggle quickfixlist" }
+		]
+	],
+	"rest": [
+		[
+			"<leader>rr",
+			"<cmd>Rest run<CR>",
+			{ "desc": "Run rest command under cursor" }
+		],
+		[
+			"<leader>rl",
+			"<cmd>Rest last<CR>",
+			{ "desc": "Run rest command under cursor" }
+		],
+		[
+			"<leader>re",
+			"<cmd>Rest env select_env<CR>",
+			{ "desc": "Select environment variable for rest" }
+		]
+	],
+	"liveserver": [
+		[
+			"<leader>ls",
+			"<cmd>LiveServerToggle<CR>",
+			{ "desc": "Toggle live server" }
+		]
+	],
+	"grug_far": [
+		[
+			"<leader>S",
+			"<cmd>lua require(\"grug-far\").toggle_instance({ staticTitle = \"Find and Replace\" })<CR>",
+			{ "desc": "Toggle Grug Far" }
+		],
+		[
+			"<leader>sw",
+			"<cmd>lua require(\"grug-far\").open({ prefills = { search = vim.fn.expand(\"<cword>\") } })<CR>",
+			{ "desc": "Search current word" }
+		],
+		[
+			"<leader>sf",
+			"<cmd>lua require(\"grug-far\").open({ prefills = { paths = vim.fn.expand(\"%\") } })<CR>",
+			{ "desc": "Search current file" }
+		]
+	],
+	"key_analyzer": [
+		["<leader>ka", "<cmd>KeyAnalyzer ", { "desc": "Key Analyzer" }],
+		[
+			"<leader>kc",
+			"<cmd>KeyAnalyzer <C-<CR>",
+			{ "desc": "Key Analyzer for ctrl" }
+		]
+	],
+	"gh_navigator": [
+		["<leader>gh", "<cmd>GH repo<CR>", { "desc": "Open GitHub repo" }],
+		[
+			"<leader>gb",
+			"<cmd>GH browse<CR>",
+			{ "desc": "Open github file in blob view" }
+		],
+		[
+			"<leader>gP",
+			"<cmd>GH repo pulls",
+			{ "desc": "Open github repo pull requests" }
+		]
+	],
+	"tmux": [
+		["<C-h>", "<cmd>TmuxNavigateLeft<CR>"],
+		["<C-j>", "<cmd>TmuxNavigateDown<CR>"],
+		["<C-k>", "<cmd>TmuxNavigateUp<CR>"],
+		["<C-l>", "<cmd>TmuxNavigateRight<CR>"]
+	],
+	"crates": [
+		[
+			"<leader>cs",
+			"<cmd>Crates show_popup<CR>",
+			{ "desc": "Crates.nvim open features list" }
+		],
+		[
+			"<leader>cu",
+			"<cmd>Crates update_crates<CR>",
+			{ "desc": "Crates.nvim update crates" }
+		],
+		[
+			"<leader>ch",
+			"<cmd>Crates open_homepage<CR>",
+			{ "desc": "Crates.nvim open homepage" }
+		],
+		[
+			"<leader>cc",
+			"<cmd>Crates open_cratesio<CR>",
+			{ "desc": "Crates.nvim open crates.io" }
+		],
+		[
+			"<leader>cr",
+			"<cmd>Crates open_repository<CR>",
+			{ "desc": "Crates.nvim open repository" }
+		],
+		[
+			"<leader>cd",
+			"<cmd>Crates open_documentation<CR>",
+			{ "desc": "Crates.nvim open docs.rs" }
+		],
+		[
+			"<leader>cf",
+			"<cmd>Crates show_features_popup<CR>",
+			{ "desc": "Crates.nvim open features list" }
+		],
+		[
+			"<leader>ce",
+			"<cmd>Crates show_dependencies_popup<CR>",
+			{ "desc": "Crates.nvim open dependencies list" }
+		]
+	],
+	"leetcode": [
+		["<leader>le", "<cmd>Leet<CR>", { "desc": "Open Leet" }],
+		["<leader>lr", "<cmd>Leet run<CR>", { "desc": "Run leet" }],
+		["<leader>lp", "<cmd>Leet open<CR>"],
+		["<leader>li", "<cmd>Leet info<CR>", { "desc": "Leet info" }],
+		[
+			"<leader>lc",
+			"<cmd>Leet lang<CR>",
+			{ "desc": "Open leet language picker" }
+		],
+		[
+			"<leader>lh",
+			"<cmd>lua vim.fn.jobstart({ \"open\", \"https://github.com/kawre/leetcode.nvim?tab=readme-ov-file\" })<CR>",
+			{ "desc": "Open leet.nvim readme" }
+		]
+	],
+	"fzf_lua": [
+		["<leader>fj", "<cmd>FzfLua jumps<CR>", { "desc": "Find jumps" }],
+		["<leader>ff", "<cmd>FzfLua files<CR>", { "desc": "Find files" }],
+		["<leader>fm", "<cmd>FzfLua marks<CR>", { "desc": "Find marks" }],
+		["<leader>fw", "<cmd>FzfLua live_grep<CR>", { "desc": "Find word" }],
+		["<leader>fk", "<cmd>FzfLua keymaps<CR>", { "desc": "Find keymaps" }],
+		["<leader>fo", "<cmd>FzfLua oldfiles<CR>", { "desc": "Find oldfiles" }],
+		["<leader>fe", "<cmd>FzfLua grep_cword<CR>", { "desc": "Find exact word" }],
+		["<leader><Tab>", "<cmd>FzfLua buffers<CR>", { "desc": "Find buffers" }],
+		[
+			"<leader>gs",
+			"<cmd>FzfLua git_status<CR>",
+			{ "desc": "Find within git status" }
+		],
+		[
+			"<leader>fs",
+			":FzfLua grep_curbuf<CR>",
+			{ "desc": "Find within current buffer" }
+		],
+		[
+			"<leader>fl",
+			"<cmd>FzfLua resume<CR>",
+			{ "desc": "Resume last fzf search" }
+		]
+	],
+	"laravel": [
+		["<leader>la", "<cmd>Laravel artisan<cr>"],
+		["<leader>lr", "<cmd>Laravel routes<cr>"],
+		["<leader>lt", "<cmd>Laravel related<cr>"]
+	]
+}

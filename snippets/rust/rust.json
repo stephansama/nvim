@@ -1,11 +1,7 @@
 {
 	"Basic Function": {
 		"prefix": "fn",
-		"body": [
-			"fn $1($2) -> $3 {",
-			"    $4",
-			"}"
-		],
+		"body": ["fn $1($2) -> $3 {", "    $4", "}"],
 		"description": "Create a basic function"
 	},
 	"Basic Struct": {
@@ -44,12 +40,7 @@
 	},
 	"Match Statement": {
 		"prefix": "match",
-		"body": [
-			"match $1 {",
-			"    $2 => $3,",
-			"    _ => $4",
-			"}"
-		],
+		"body": ["match $1 {", "    $2 => $3,", "    _ => $4", "}"],
 		"description": "Match statement"
 	},
 	"Error Handling": {
@@ -67,61 +58,37 @@
 	},
 	"If Statement": {
 		"prefix": "if",
-		"body": [
-			"if $1 {",
-			"    $2",
-			"} else {",
-			"    $3",
-			"}"
-		],
+		"body": ["if $1 {", "    $2", "} else {", "    $3", "}"],
 		"description": "Basic if-else statement"
 	},
 	"For Loop": {
 		"prefix": "for",
-		"body": [
-			"for $1 in $2 {",
-			"    $3",
-			"}"
-		],
+		"body": ["for $1 in $2 {", "    $3", "}"],
 		"description": "For loop"
 	},
 	"While Loop": {
 		"prefix": "while",
-		"body": [
-			"while $1 {",
-			"    $2",
-			"}"
-		],
+		"body": ["while $1 {", "    $2", "}"],
 		"description": "While loop"
 	},
 	"Function with Lifetime": {
 		"prefix": "fn-lifetime",
-		"body": [
-			"fn $1<'a>($2: &'a $3) -> $4 {",
-			"    $5",
-			"}"
-		],
+		"body": ["fn $1<'a>($2: &'a $3) -> $4 {", "    $5", "}"],
 		"description": "Function with lifetime annotation"
 	},
 	"Immutable Variable": {
 		"prefix": "let",
-		"body": [
-			"let $1: $2 = $3;"
-		],
+		"body": ["let $1: $2 = $3;"],
 		"description": "Immutable variable"
 	},
 	"Mutable Variable": {
 		"prefix": "let-mut",
-		"body": [
-			"let mut $1: $2 = $3;"
-		],
+		"body": ["let mut $1: $2 = $3;"],
 		"description": "Mutable variable"
 	},
 	"Vector Initialization": {
 		"prefix": "vec",
-		"body": [
-			"let $1: Vec<$2> = vec![$3];"
-		],
+		"body": ["let $1: Vec<$2> = vec![$3];"],
 		"description": "Vector initialization"
 	},
 	"HashMap Initialization": {
@@ -137,27 +104,17 @@
 	},
 	"Tuple Initialization": {
 		"prefix": "tuple",
-		"body": [
-			"let $1: ($2, $3) = ($4, $5);"
-		],
+		"body": ["let $1: ($2, $3) = ($4, $5);"],
 		"description": "Tuple initialization"
 	},
 	"Basic Array": {
 		"prefix": "array",
-		"body": [
-			"let $1: [$2; $3] = [$4; $3];"
-		],
+		"body": ["let $1: [$2; $3] = [$4; $3];"],
 		"description": "Basic array initialization"
 	},
 	"Basic Macro": {
 		"prefix": "macro",
-		"body": [
-			"macro_rules! $1 {",
-			"    ($2) => {",
-			"        $3",
-			"    };",
-			"}"
-		],
+		"body": ["macro_rules! $1 {", "    ($2) => {", "        $3", "    };", "}"],
 		"description": "Define a basic macro"
 	},
 	"Struct Method": {
@@ -184,11 +141,7 @@
 	},
 	"Trait Definition": {
 		"prefix": "trait",
-		"body": [
-			"trait $1 {",
-			"    fn $2(&self) -> $3;",
-			"}"
-		],
+		"body": ["trait $1 {", "    fn $2(&self) -> $3;", "}"],
 		"description": "Define a trait"
 	},
 	"Implement Trait": {
@@ -204,17 +157,12 @@
 	},
 	"Using Crate": {
 		"prefix": "use",
-		"body": [
-			"use $1::${2};"
-		],
+		"body": ["use $1::${2};"],
 		"description": "Use an external crate or module"
 	},
 	"Doc Comment": {
 		"prefix": "doc",
-		"body": [
-			"/// $1",
-			"$2"
-		],
+		"body": ["/// $1", "$2"],
 		"description": "Add a documentation comment"
 	},
 	"Unit Test": {
@@ -246,105 +194,67 @@
 	},
 	"Async Function": {
 		"prefix": "async-fn",
-		"body": [
-			"async fn $1($2) -> $3 {",
-			"    $4",
-			"}"
-		],
+		"body": ["async fn $1($2) -> $3 {", "    $4", "}"],
 		"description": "Define an async function"
 	},
 	"Await Expression": {
 		"prefix": "await",
-		"body": [
-			"$1.await"
-		],
+		"body": ["$1.await"],
 		"description": "Await an async expression"
 	},
 	"Option Handling": {
 		"prefix": "option",
-		"body": [
-			"match $1 {",
-			"    Some(val) => $2,",
-			"    None => $3",
-			"}"
-		],
+		"body": ["match $1 {", "    Some(val) => $2,", "    None => $3", "}"],
 		"description": "Handle an Option value"
 	},
 	"Result Handling": {
 		"prefix": "result",
-		"body": [
-			"match $1 {",
-			"    Ok(val) => $2,",
-			"    Err(e) => $3",
-			"}"
-		],
+		"body": ["match $1 {", "    Ok(val) => $2,", "    Err(e) => $3", "}"],
 		"description": "Handle a Result value"
 	},
 	"Vec Push": {
 		"prefix": "vec-push",
-		"body": [
-			"$1.push($2);"
-		],
+		"body": ["$1.push($2);"],
 		"description": "Push a value to a vector"
 	},
 	"Vec Iterate": {
 		"prefix": "vec-iter",
-		"body": [
-			"for $1 in $2.iter() {",
-			"    $3",
-			"}"
-		],
+		"body": ["for $1 in $2.iter() {", "    $3", "}"],
 		"description": "Iterate over a vector"
 	},
 	"Basic Closure": {
 		"prefix": "closure",
-		"body": [
-			"|$1| $2"
-		],
+		"body": ["|$1| $2"],
 		"description": "Define a basic closure"
 	},
 	"Basic Iterator": {
 		"prefix": "iter",
-		"body": [
-			"$1.iter().$2(|$3| {",
-			"    $4",
-			"});"
-		],
+		"body": ["$1.iter().$2(|$3| {", "    $4", "});"],
 		"description": "Basic iterator usage"
 	},
 	"Trait Method Call": {
 		"prefix": "trait-call",
-		"body": [
-			"$1.$2()"
-		],
+		"body": ["$1.$2()"],
 		"description": "Call a method defined in a trait"
 	},
 	"Basic Assert": {
 		"prefix": "assert",
-		"body": [
-			"assert_eq!($1, $2);"
-		],
+		"body": ["assert_eq!($1, $2);"],
 		"description": "Assert equality in tests"
 	},
 	"Basic Debug Print": {
 		"prefix": "dbg",
-		"body": [
-			"dbg!($1);"
-		],
+		"body": ["dbg!($1);"],
 		"description": "Print debug information"
 	},
 	"Basic Print": {
 		"prefix": "print",
-		"body": [
-			"println!(\"$1\", $2);"
-		],
+		"body": ["println!(\"$1\", $2);"],
 		"description": "Print a message to the console"
 	},
 	"Basic Debug Print with Formatting": {
 		"prefix": "dbg-fmt",
-		"body": [
-			"dbg!(\"$1: {:#?}\", $2);"
-		],
+		"body": ["dbg!(\"$1: {:#?}\", $2);"],
 		"description": "Debug print with formatting"
 	},
 	"File Reading": {
@@ -438,37 +348,27 @@
 	},
 	"Basic Option Unwrap": {
 		"prefix": "unwrap",
-		"body": [
-			"$1.unwrap()"
-		],
+		"body": ["$1.unwrap()"],
 		"description": "Unwrap an Option value"
 	},
 	"Basic Result Unwrap": {
 		"prefix": "unwrap-res",
-		"body": [
-			"$1.unwrap()"
-		],
+		"body": ["$1.unwrap()"],
 		"description": "Unwrap a Result value"
 	},
 	"Basic Box": {
 		"prefix": "box",
-		"body": [
-			"let boxed = Box::new($1);"
-		],
+		"body": ["let boxed = Box::new($1);"],
 		"description": "Create and use a Box"
 	},
 	"Basic Deref": {
 		"prefix": "deref",
-		"body": [
-			"let $1 = *$2;"
-		],
+		"body": ["let $1 = *$2;"],
 		"description": "Dereference a Box"
 	},
 	"Basic Drop": {
 		"prefix": "drop",
-		"body": [
-			"drop($1);"
-		],
+		"body": ["drop($1);"],
 		"description": "Explicitly drop a value"
 	},
 	"Basic Deserialize JSON": {
@@ -570,9 +470,7 @@
 	},
 	"Basic Deref with Rc": {
 		"prefix": "rc-deref",
-		"body": [
-			"let $1 = Rc::deref(&$2);"
-		],
+		"body": ["let $1 = Rc::deref(&$2);"],
 		"description": "Dereference an Rc"
 	},
 	"Basic Thread Join": {
@@ -665,11 +563,7 @@
 	},
 	"Basic Iteration over Vector": {
 		"prefix": "iter-vec",
-		"body": [
-			"for item in $1.iter() {",
-			"    println!(\"{}\", item);",
-			"}"
-		],
+		"body": ["for item in $1.iter() {", "    println!(\"{}\", item);", "}"],
 		"description": "Iterate over a vector"
 	},
 	"Basic Iteration over HashMap": {
@@ -723,34 +617,22 @@
 	},
 	"Basic Lifetime Annotation": {
 		"prefix": "lifetime",
-		"body": [
-			"fn function<'a>(input: &'a str) -> &'a str {",
-			"    input",
-			"}"
-		],
+		"body": ["fn function<'a>(input: &'a str) -> &'a str {", "    input", "}"],
 		"description": "Basic lifetime annotation"
 	},
 	"Basic Unsafe Block": {
 		"prefix": "unsafe",
-		"body": [
-			"unsafe {",
-			"    $1",
-			"}"
-		],
+		"body": ["unsafe {", "    $1", "}"],
 		"description": "Basic unsafe block"
 	},
 	"Basic Clone": {
 		"prefix": "clone",
-		"body": [
-			"let cloned = $1.clone();"
-		],
+		"body": ["let cloned = $1.clone();"],
 		"description": "Clone a value"
 	},
 	"Basic Iterator Adapter": {
 		"prefix": "iter-adapter",
-		"body": [
-			"$1.iter().$2().$3()"
-		],
+		"body": ["$1.iter().$2().$3()"],
 		"description": "Basic iterator adapter"
 	},
 	"Basic Error Handling": {
@@ -768,23 +650,17 @@
 	},
 	"Result to Option Conversion": {
 		"prefix": "res-to-opt",
-		"body": [
-			"$1.ok()"
-		],
+		"body": ["$1.ok()"],
 		"description": "Convert Result to Option"
 	},
 	"Option to Result Conversion": {
 		"prefix": "opt-to-res",
-		"body": [
-			"$1.ok_or_else(|| $2)"
-		],
+		"body": ["$1.ok_or_else(|| $2)"],
 		"description": "Convert Option to Result with an error"
 	},
 	"Propagate Error with ? Operator": {
 		"prefix": "propagate",
-		"body": [
-			"$1?;"
-		],
+		"body": ["$1?;"],
 		"description": "Propagate errors using the ? operator"
 	},
 	"Error Handling with Custom Error Type": {
@@ -847,9 +723,7 @@
 	},
 	"Unwrap with Default Value": {
 		"prefix": "unwrap-or",
-		"body": [
-			"$1.unwrap_or($2)"
-		],
+		"body": ["$1.unwrap_or($2)"],
 		"description": "Unwrap an Option with a default value"
 	},
 	"Handle Result with Match and Logging": {
@@ -1044,9 +918,7 @@
 	},
 	"Handling Error with Option and Result": {
 		"prefix": "opt-res",
-		"body": [
-			"$1.ok_or_else(|| $2)"
-		],
+		"body": ["$1.ok_or_else(|| $2)"],
 		"description": "Handle Option with Result"
 	},
 	"Handling Result with Error and Default Value": {
@@ -1098,16 +970,12 @@
 	},
 	"Error Handling with Option and Result Chaining": {
 		"prefix": "opt-res-chain",
-		"body": [
-			"$1.ok_or_else(|| $2)"
-		],
+		"body": ["$1.ok_or_else(|| $2)"],
 		"description": "Handle Option with Result chaining"
 	},
 	"Error Handling with Option and Default Value": {
 		"prefix": "opt-default",
-		"body": [
-			"$1.unwrap_or_else(|| $2)"
-		],
+		"body": ["$1.unwrap_or_else(|| $2)"],
 		"description": "Handle Option with a default value"
 	},
 	"Error Handling with Result and Match": {

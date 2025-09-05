@@ -3,8 +3,8 @@
 import cp from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import rl from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
+import rl from "node:readline/promises";
 
 const sh = String.raw;
 const rlInterface = rl.createInterface({ input, output });

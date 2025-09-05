@@ -1,0 +1,6 @@
+.gitignore
+.prettierignore
+Makefile
+commit-msg
+pnpm-lock.yaml
+pre-commit

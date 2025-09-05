@@ -4,101 +4,111 @@ local dap_function = function(func_name)
 	end
 end
 
-local js_based_languages = {
-	"vue",
-	"astro",
-	"svelte",
-	"typescript",
-	"javascript",
-	"javascriptreact",
-	"typescriptreact",
-}
+local js_based_languages =
+	{
+		"vue",
+		"astro",
+		"svelte",
+		"typescript",
+		"javascript",
+		"javascriptreact",
+		"typescriptreact",
+	}
 
-vim.fn.sign_define("DapBreakpoint", { text = "󰓛", texthl = "FloatBorder", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "󰐊", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", {
+	text = "󰓛",
+	texthl = "FloatBorder",
+	linehl = "",
+	numhl = "",
+})
+vim.fn.sign_define("DapStopped", {
+	text = "󰐊",
+	texthl = "",
+	linehl = "",
+	numhl = "",
+})
 
 local dapui_config = {
-	layouts = {
-		{
-			size = 40,
-			position = "right",
-			elements = {
-				{ id = "scopes", size = 0.25 },
-				{ id = "breakpoints", size = 0.25 },
-				{ id = "stacks", size = 0.25 },
-				{ id = "watches", size = 0.25 },
-			},
-		},
-		{
-			size = 10,
-			position = "bottom", -- Can be "bottom" or "top"
-			elements = { "repl", "console" },
-		},
-	},
+	layouts = { {
+		size = 40,
+		position = "right",
+		elements = { {
+			id = "scopes",
+			size = 0.25,
+		}, {
+			id = "breakpoints",
+			size = 0.25,
+		}, {
+			id = "stacks",
+			size = 0.25,
+		}, {
+			id = "watches",
+			size = 0.25,
+		} },
+	}, {
+		size = 10,
+		position = "bottom", -- Can be "bottom" or "top"
+		elements = { "repl", "console" },
+	} },
 }
 
 return {
 	"mfussenegger/nvim-dap",
-	dependencies = {
-		{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
-		{
-			"theHamsta/nvim-dap-virtual-text",
-			opts = {
-				virt_text_pos = "eol",
-				highlight_new_as_changed = false,
-				highlight_changed_variables = true,
-			},
-			config = true,
+	dependencies = { {
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "nvim-neotest/nvim-nio" },
+	}, {
+		"theHamsta/nvim-dap-virtual-text",
+		opts = {
+			virt_text_pos = "eol",
+			highlight_new_as_changed = false,
+			highlight_changed_variables = true,
 		},
-		{
-			"leoluz/nvim-dap-go",
-			config = true,
-			opts = {
-				dap_configurations = {
-					{ type = "go", name = "Attach remote", mode = "remote", request = "attach" },
-				},
-				delve = {
-					cwd = nil,
-					args = {},
-					path = "dlv",
-					port = "${port}",
-					detached = true,
-					build_flags = "",
-					initialize_timeout_sec = 20,
-				},
-			},
-		},
-		{
-			"mxsdev/nvim-dap-vscode-js",
-			dependencies = {
-				{
-					"microsoft/vscode-js-debug",
-					build = "npm i --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-				},
-				{
-					"joakker/lua-json5",
-					build = "./install.sh",
-				},
+		config = true,
+	}, {
+		"leoluz/nvim-dap-go",
+		config = true,
+		opts = {
+			dap_configurations = { {
+				type = "go",
+				name = "Attach remote",
+				mode = "remote",
+				request = "attach",
+			} },
+			delve = {
+				cwd = nil,
+				args = {},
+				path = "dlv",
+				port = "${port}",
+				detached = true,
+				build_flags = "",
+				initialize_timeout_sec = 20,
 			},
 		},
-	},
+	}, {
+		"mxsdev/nvim-dap-vscode-js",
+		dependencies = { {
+			"microsoft/vscode-js-debug",
+			build = "npm i --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+		}, {
+			"joakker/lua-json5",
+			build = "./install.sh",
+		} },
+	} },
 	keys = {
 		{ "<leader>bb", dap_function("toggle_breakpoint") },
-		{
-			"<leader>bc",
-			function()
-				if vim.fn.filereadable(".vscode/launch.json") then
-					local dap_vscode = require("dap.ext.vscode")
-					dap_vscode.load_launchjs(nil, {
-						["pwa-node"] = js_based_languages,
-						["node"] = js_based_languages,
-						["chrome"] = js_based_languages,
-						["pwa-chrome"] = js_based_languages,
-					})
-				end
-				require("dap").continue()
-			end,
-		},
+		{ "<leader>bc", function()
+			if vim.fn.filereadable(".vscode/launch.json") then
+				local dap_vscode = require("dap.ext.vscode")
+				dap_vscode.load_launchjs(nil, {
+					["pwa-node"] = js_based_languages,
+					node = js_based_languages,
+					chrome = js_based_languages,
+					["pwa-chrome"] = js_based_languages,
+				})
+			end
+			require("dap").continue()
+		end },
 		{ "<C-'>", dap_function("step_over") },
 		{ "<C-;>", dap_function("step_into") },
 		{ "<C-:>", dap_function("step_out") },
@@ -106,8 +116,10 @@ return {
 	config = function()
 		local dap = require("dap")
 		require("dap.ext.vscode").load_launchjs(nil, {})
-		local jsDebugAdapter = vim.fn.stdpath("data")
-			.. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
+		local jsDebugAdapter =
+			vim.fn.stdpath(
+				"data"
+			) .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
 		dap.adapters["node-terminal"] = {
 			type = "server",
 			host = "localhost",
@@ -127,15 +139,13 @@ return {
 			},
 		}
 
-		dap.configurations.javascript = {
-			{
-				cwd = "${workspaceFolder}",
-				type = "pwa-node",
-				name = "Launch file",
-				request = "launch",
-				program = "${file}",
-			},
-		}
+		dap.configurations.javascript = { {
+			cwd = "${workspaceFolder}",
+			type = "pwa-node",
+			name = "Launch file",
+			request = "launch",
+			program = "${file}",
+		} }
 
 		-- require("dap-vscode-js").setup({
 		-- 	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
@@ -249,18 +259,20 @@ return {
 			},
 		}
 
-		local codelldb_options = {
-			{
-				stopOnEntry = false,
-				cwd = "${workspaceFolder}",
-				name = "Launch file",
-				type = "codelldb",
-				request = "launch",
-				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-				end,
-			},
-		}
+		local codelldb_options = { {
+			stopOnEntry = false,
+			cwd = "${workspaceFolder}",
+			name = "Launch file",
+			type = "codelldb",
+			request = "launch",
+			program = function()
+				return vim.fn.input(
+					"Path to executable: ",
+					vim.fn.getcwd() .. "/",
+					"file"
+				)
+			end,
+		} }
 
 		dap.configurations.c = codelldb_options
 		dap.configurations.cpp = codelldb_options

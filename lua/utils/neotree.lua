@@ -21,12 +21,9 @@ M.get_icon = function(name)
 	local name_without_first_char = string.sub(name, 2)
 	local name_without_last_char = string.sub(name, 1, last_element)
 	local name_without_ending_chars = string.sub(name, 2, last_element)
-	local name_without_ending_two_chars = string.sub(name, 3, string.len(name) - 2)
-	return icons[name]
-		or icons[name_without_first_char]
-		or icons[name_without_last_char]
-		or icons[name_without_ending_chars]
-		or icons[name_without_ending_two_chars]
+	local name_without_ending_two_chars =
+		string.sub(name, 3, string.len(name) - 2)
+	return icons[name] or icons[name_without_first_char] or icons[name_without_last_char] or icons[name_without_ending_chars] or icons[name_without_ending_two_chars]
 end
 
 --- load neotree icons from devicons
@@ -59,31 +56,10 @@ M.load_neo_tree_icons = function(config, node)
 		end
 	end
 
-	return { text = current_icon .. padding, highlight = highlight }
-end
-
-M.execute_neotree = function(opts)
-	return function()
-		local reveal_file = vim.fn.expand("%:p")
-		if reveal_file == "" then
-			reveal_file = vim.fn.getcwd()
-		else
-			local f = io.open(reveal_file, "r")
-			if f then
-				f.close(f)
-			else
-				reveal_file = vim.fn.getcwd()
-			end
-		end
-		require("neo-tree.command").execute(vim.tbl_deep_extend("force", {
-			source = "filesystem",
-			action = "focus",
-			toggle = true,
-			position = "right",
-			reveal_file = reveal_file,
-			reveal_force_cwd = true,
-		}, opts or {}))
-	end
+	return {
+		text = current_icon .. padding,
+		highlight = highlight,
+	}
 end
 
 return M

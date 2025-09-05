@@ -1,0 +1,75 @@
+{
+	"$schema": "./global-keymap-schema.json",
+	"n": {
+		"o": ["o<ESC>zz"],
+		"O": ["O<ESC>zz"],
+		"K": ["<cmd>LspHover<CR>", "LSP Hover"],
+		"gd": ["<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"],
+		"<leader>ld": ["<cmd>GoToDashboard<CR>", "Go to dashboard"],
+		"<leader>sp": [
+			"<cmd>lua _G.cspell = not _G.cspell<CR>",
+			"Toggle cspell being enabled"
+		],
+		"<leader>fc": [
+			"<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
+			"Format code"
+		],
+		"<leader>ef": [
+			"<cmd>LspEslintFixAll<CR>",
+			"Fix all eslint issues",
+			{ "silent": true }
+		],
+		"[d": [
+			"<cmd>lua vim.diagnostic.jump({ count = -1 , float = true })<CR>",
+			"Go to previous diagnostic"
+		],
+		"]d": [
+			"<cmd>lua vim.diagnostic.jump({ count = 1 , float = true })<CR>",
+			"Go to next diagnostic"
+		],
+		"Q'": ["@q", "Quick Replay"],
+		"<ESC>": ["<cmd>noh<CR>", "Escape"],
+		"<leader>w": ["<cmd>w<CR>", "Save"],
+		"<leader>d": ["<cmd>bd<CR>", "Delete buffer"],
+		"<leader>1": ["1gt", "Go to tab 1"],
+		"<leader>2": ["2gt", "Go to tab 2"],
+		"<leader>3": ["3gt", "Go to tab 3"],
+		"<leader>4": ["4gt", "Go to tab 4"],
+		"<leader>x": ["<cmd>q<CR>", "Close window"],
+		"<leader>vc": ["<cmd>!code .<CR>", "Open project in vscode"],
+		"<leader>vf": ["<cmd>!code '%:p'<CR>", "Open file in vscode"],
+		"<leader>se": ["<cmd>!open .<CR>", "Open directory in finder"],
+		"<leader>sf": ["<cmd>!open '%:p'<CR>", "Open file using default provider"],
+		"<leader>tc": ["<cmd>tabnew<CR>", "Create new tab"],
+		"<leader>tx": ["<cmd>tabclose<CR>", "Close current tab"],
+		"<leader>ll": ["<cmd>Lazy<CR>", "Lazy plugin manager"],
+		"<leader>lm": ["<cmd>Mason<CR>", "Mason plugin manager"],
+		"<leader><leader>w": ["<cmd>wqa<CR>", "Save and quit all"],
+		"<leader><leader><leader>": ["<cmd>qa<CR>", "Quit all"]
+	},
+	"n,v": {
+		"%": ["%zz"],
+		"G": ["Gzz"],
+		"u": ["uzz"],
+		"{": ["{zz"],
+		"}": ["}zz"],
+		"k": ["gkzz"],
+		"j": ["gjzz"],
+		"``": ["``zz"],
+		"<C-D>": ["<C-D>zz"],
+		"<C-R>": ["<C-R>zz"],
+		"<C-U>": ["<C-U>zz"]
+	},
+	"n,o,v,x": {
+		"H": ["^", "Move to beginning of line"],
+		"L": ["$", "Move to end of line"]
+	},
+	"v": {
+		"J": [":m '>+1<CR>gv=gvzz", "Move line up", { "silent": true }],
+		"K": [":m '<-2<CR>gv=gvzz", "Move line down", { "silent": true }],
+		"<": ["<gv", "Indent Left"],
+		">": [">gv", "Indent Right"]
+	},
+	"v,x": { "p": ["\"_dP", "Paste without copying"] },
+	"x": { "/": ["<ESC>/\\%V", "Search within lines"] }
+}

@@ -6,19 +6,20 @@ local opts = function()
 	-- https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners
 	M.adapters = {
 		require("rustaceanvim.neotest"),
-		require("neotest-vitest")({
-			filter_dir = function(name, rel_path, root)
-				local full_path = root .. "/" .. rel_path
+		require("neotest-vitest")({ filter_dir = function(name, rel_path, root)
+			local full_path = root .. "/" .. rel_path
 
-				if root:match("srandle-blog") then
-					return full_path:match("__tests__") ~= nil
-				else
-					return name ~= "node_modules"
-				end
-			end,
-		}),
+			if root:match("srandle-blog") then
+				return full_path:match("__tests__") ~= nil
+			else
+				return name ~= "node_modules"
+			end
+		end }),
 		require("neotest-playwright").adapter({
-			options = { persist_project_selection = true, enable_dynamic_test_discovery = true },
+			options = {
+				persist_project_selection = true,
+				enable_dynamic_test_discovery = true,
+			},
 		}),
 	}
 
@@ -36,6 +37,6 @@ return {
 		"thenbe/neotest-playwright",
 	},
 	config = true,
-	keys = require("keys.init").neotest,
+	keys = require("keys.plugin").neotest,
 	opts = opts,
 }

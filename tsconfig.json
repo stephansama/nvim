@@ -1,0 +1,22 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"moduleResolution": "node",
+		"rootDir": "lua",
+		"outDir": "lua",
+		"target": "ESNext",
+		"lib": ["ESNext"],
+		"types": ["lua-types/5.1", "@gkzhb/lua-types-nvim", "./lua/vim.d.ts"],
+		"strict": true
+	},
+	"tstl": {
+		"luaLibImport": "require-minimal",
+		"luaTarget": "JIT",
+		"noResolvePaths": ["zod", "lang-schema"],
+		"tstlVerbose": false
+	},
+	"include": ["lua/**/*.ts"],
+	"exclude": ["lua/**/schema.ts", "lua/**/schema.json"]
+}
