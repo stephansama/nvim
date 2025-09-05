@@ -8,8 +8,7 @@ local opts = {
 	config = {
 		shortcut = require("plugins.ui.dashboard.shortcuts").shortcuts,
 		header = require("utils.dashboard").load_ascii_headers(
-			constants.ASCII_DIR,
-			"txt"
+			constants.ASCII_DIR
 		),
 		footer = function()
 			local stats = require("lazy").stats()
