@@ -1,4 +1,4 @@
-local ft = require("constants")
+local ft = require("config.constants")
 
 vim.filetype.add({
 	extension = ft.VIM_FT_EXTENSIONS,

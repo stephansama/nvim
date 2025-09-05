@@ -7,7 +7,7 @@ if not vim.loop.fs_stat(LAZY_DIR) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		LAZY_DIR,
 	})
 end
@@ -17,6 +17,8 @@ require("lazy").setup(require("plugins.lang").PLUGINS, {
 	install = {
 		colorscheme = { "catpuccin" },
 	},
-	ui = { border = "rounded" },
-	{ icons = require("icons").lazy },
+	ui = {
+		border = "rounded",
+		icons = require("icons").lazy,
+	},
 })

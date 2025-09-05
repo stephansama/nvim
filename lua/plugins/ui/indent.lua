@@ -1,4 +1,4 @@
-local ft = require("constants")
+local ft = require("config.constants")
 
 local exclude = {
 	buftypes = ft.INDENT_EXCLUDE_BUFTYPES,

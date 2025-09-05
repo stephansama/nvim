@@ -1,4 +1,4 @@
-local ft = require("constants").COMMENT_FILETYPES
+local ft = require("config.constants").COMMENT_FILETYPES
 local keys = require("keys.plugin")
 
 local opts = function()

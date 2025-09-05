@@ -1,7 +1,7 @@
 local keys = require("keys.plugin")
 local lang = require("plugins.lang")
 local TREESITTER_PARSER_INSTALL_DIR =
-	require("constants.init").TREESITTER_PARSER_INSTALL_DIR
+	require("config.constants").TREESITTER_PARSER_INSTALL_DIR
 
 return { {
 	"hedyhli/outline.nvim",

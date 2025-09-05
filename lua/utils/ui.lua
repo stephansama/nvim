@@ -63,7 +63,7 @@ end
 ---@param theme string
 ---@return function
 M.auto_theme = function(theme)
-	local themes = require("constants.init")
+	local themes = require("config.constants")
 	local is_darkmode = theme == themes.THEME_DARKMODE
 	return function()
 		vim.api.nvim_set_option_value(

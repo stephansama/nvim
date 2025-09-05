@@ -34,7 +34,7 @@ M.lsp_hover = function()
 			return vim.lsp.buf.hover()
 		end
 		local match = text:match('"(.-)"')
-		local npm_link = require("constants").PACKAGE_JSON_URL .. match
+		local npm_link = require("config.constants").PACKAGE_JSON_URL .. match
 		require("utils").openURL(npm_link)
 	elseif vim.fn.expand("%:t") == "Cargo.toml" and require(
 		"crates"

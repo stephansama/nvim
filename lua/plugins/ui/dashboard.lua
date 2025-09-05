@@ -1,4 +1,4 @@
-local constants = require("constants")
+local constants = require("config.constants")
 
 local opts = {
 	theme = "hyper",

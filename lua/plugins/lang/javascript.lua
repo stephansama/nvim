@@ -4,7 +4,7 @@ return { {
 	ft = "http",
 }, {
 	"windwp/nvim-ts-autotag",
-	ft = require("constants").WEB_FILETYPES,
+	ft = require("config.constants").WEB_FILETYPES,
 	config = true,
 }, {
 	"JoosepAlviste/nvim-ts-context-commentstring",
@@ -20,7 +20,7 @@ return { {
 		package_manager = "pnpm",
 		hide_up_to_date = false, -- It hides up to date versions when displaying virtual text
 		hide_unstable_versions = true,
-		colors = require("constants").PACKAGE_INFO_COLORS,
+		colors = require("config.constants").PACKAGE_INFO_COLORS,
 		icons = {
 			enable = true,
 			style = require("icons").packageJSON,

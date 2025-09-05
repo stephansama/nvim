@@ -2,7 +2,7 @@ local M = {}
 
 M.color_dashboard = function()
 	math.randomseed(os.time())
-	local const = require("constants.init")
+	local const = require("config.constants")
 	local COLORS =
 		vim.g.colors_name == const.THEME_DARKMODE and const.DASHBOARD_DARKMODE or const.DASHBOARD_LIGHTMODE
 	local selected = COLORS[math.random(#COLORS)]

@@ -41,17 +41,4 @@ M.use_cspell = function()
 	})
 end
 
-M.ls_process = function(directory, condition, process)
-	local ls_output = io.popen("ls " .. directory, "r")
-
-	if ls_output then
-		for file in ls_output:lines() do
-			local filename = string.match(file, "(.+)%..+")
-			if filename and condition(filename) then
-				process(filename)
-			end
-		end
-	end
-end
-
 return M

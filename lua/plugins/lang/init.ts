@@ -1,6 +1,6 @@
 import type { Schema } from "./schema";
 
-import { PLUGIN_LANG_DIR } from "../../constants/init";
+import { PLUGIN_LANG_DIR } from "../../config/constants";
 import { enabled as enabledPlugins } from "../enabled";
 import { enabled as enabledLanguages } from "./enabled";
 import * as packs from "./packs.json";
