@@ -4,7 +4,7 @@
 	"workspace.checkThirdParty": "Disable",
 	"workspace.library": [
 		"lua",
-		"~/.local/share/nvim/lazy/",
+		"${env:HOME}/.local/share/nvim/lazy/",
 		"${env:HOME}/.local/share/bob/v0.11.4/share/nvim/runtime"
 	]
 }

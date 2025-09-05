@@ -22,9 +22,12 @@
 		]
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
 		"@gkzhb/lua-types-nvim": "^0.0.7",
 		"@prettier/plugin-lua": "^0.0.3",
-		"husky": "^4.3.8",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.6",
 		"lua-types": "^2.13.1",
 		"prettier": "^3.6.2",
 		"prettier-plugin-organize-imports": "^4.2.0",
@@ -33,9 +36,12 @@
 		"typescript-to-lua": "^1.32.0",
 		"zod": "^4.1.5"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "echo 'test'"
-		}
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*": "prettier --write"
 	}
 }
