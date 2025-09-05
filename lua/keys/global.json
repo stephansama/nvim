@@ -6,6 +6,10 @@
 		"K": ["<cmd>LspHover<CR>", "LSP Hover"],
 		"gd": ["<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"],
 		"<leader>ld": ["<cmd>GoToDashboard<CR>", "Go to dashboard"],
+		"<leader>sp": [
+			"<cmd>lua _G.cspell = not _G.cspell<CR>",
+			"Toggle cspell being enabled"
+		],
 		"<leader>fc": [
 			"<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
 			"Format code"
