@@ -58,10 +58,10 @@ function pullProperty<T extends keyof Schema, R = Schema[T]>(
 function loadPluginDirectories(this: void) {
 	const foundPlugins: string[] = enabledPlugins;
 
-	const output = vim.fn.readdir(PLUGIN_LANG_DIR) as string[];
-	if (output) {
-		for (const line of output) {
-			const [filename] = line.split(".");
+	const files = vim.fn.readdir(PLUGIN_LANG_DIR) as string[];
+	if (files) {
+		for (const file of files) {
+			const [filename] = file.split(".");
 			if (enabledLanguages.includes(filename as EnabledLanguageKey)) {
 				foundPlugins.push("lang." + filename);
 			}
