@@ -59,7 +59,7 @@ function loadPluginDirectories(this: void) {
 	const foundPlugins: string[] = enabledPlugins;
 
 	const files = vim.fn.readdir(PLUGIN_LANG_DIR) as string[];
-	if (files) {
+	if (files.length > 0) {
 		for (const file of files) {
 			const [filename] = file.split(".");
 			if (enabledLanguages.includes(filename as EnabledLanguageKey)) {

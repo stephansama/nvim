@@ -5,10 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tstl --watch",
+		"prebuild": "pnpm run build:modes",
 		"build": "tstl",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
+		"prebuild:schema": "pnpm run build:modes",
 		"build:schema": "node ./scripts/build-schema.mjs",
+		"build:modes": "node ./scripts/build-modes.mjs",
 		"snippets:sync": "node ./scripts/snippets-sync.mjs",
 		"snippets:merge": "node ./scripts/snippets-merge.mjs",
 		"prepare": "husky"
