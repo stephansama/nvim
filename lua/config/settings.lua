@@ -1,9 +1,9 @@
-local ft = require("config.constants")
+local constants = require("config.constants")
 
 vim.filetype.add({
-	extension = ft.VIM_FT_EXTENSIONS,
-	filename = ft.VIM_FT_FILENAMES,
-	pattern = ft.VIM_FT_PATTERNS,
+	extension = constants.VIM_FT_EXTENSIONS,
+	filename = constants.VIM_FT_FILENAMES,
+	pattern = constants.VIM_FT_PATTERNS,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -18,11 +18,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.cmd([[autocmd BufEnter * match Underlined /https\?:\/\/\S\+/]])
 vim.cmd([[set shortmess+=I]])
 
-vim.g.mapleader = " "
+vim.g.mapleader = constants.LEADER
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.bo.tabstop = 4
 vim.o.list = true
 vim.o.shiftwidth = 4
 vim.o.scrolloff = 999

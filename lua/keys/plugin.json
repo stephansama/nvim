@@ -3,12 +3,49 @@
 	"undotree": [
 		["<leader>u", "<CMD>UndotreeToggle<CR>", { "desc": "UndotreeToggle" }]
 	],
+	"stow": [
+		["<leader>sr", "<cmd>Stow remove<CR>", "Remove stow configuration"],
+		["<leader>sa", "<cmd>Stow reapply<CR>", "Reapply stow configuration"]
+	],
 	"treesitter_incremental_selection": {
 		"init_selection": "<leader>ss",
 		"node_incremental": "<leader>si",
 		"node_decremental": "<leader>sd",
 		"scope_incremental": "<leader>sc"
 	},
+	"noice": [
+		["<leader>na", "<cmd>NoiceAll<CR>", { "desc": "Open noice log history" }],
+		["<leader>nl", "<cmd>NoiceLast<CR>", { "desc": "Open last noice log" }]
+	],
+	"neogen": [
+		[
+			"<leader>cg",
+			"<cmd>lua require(\"neogen\").generate()<CR>",
+			{ "desc": "Generate comment" }
+		]
+	],
+	"neotest": [
+		[
+			"<C-\\>",
+			"<cmd>Neotest summary<CR>",
+			{ "desc": "Open neotest summary panel" }
+		],
+		[
+			"<leader>rt",
+			"<cmd>lua require(\"neotest\").run.run(vim.fn.expand(\"%\"))<CR>",
+			{ "desc": "Neotest run all tests in current file" }
+		],
+		[
+			"<leader>ro",
+			"<cmd>Neotest output<CR>",
+			{ "desc": "Open Neotest output" }
+		],
+		[
+			"<leader>rp",
+			"<cmd>Neotest output-panel<CR>",
+			{ "desc": "Open Neotest output-panel" }
+		]
+	],
 	"gitsigns": [
 		[
 			"[h",
@@ -18,7 +55,7 @@
 		[
 			"]h",
 			"<cmd>lua require('gitsigns').next_hunk()<CR>",
-			{ "desc": "Git prev hunk" }
+			{ "desc": "Git next hunk" }
 		],
 		[
 			"<leader>gr",
@@ -61,7 +98,7 @@
 		["g\\", "<cmd>Neotree git_status toggle right<CR>"]
 	],
 	"outline": [["|", "<cmd>Outline<CR>", { "desc": "Toggle Outline" }]],
-	"markdown_preview": [
+	"markdownpreview": [
 		[
 			"<leader>mp",
 			"<cmd>MarkdownPreview<CR>",
@@ -93,6 +130,20 @@
 		]
 	],
 	"urlview": [["<leader>gx", "<cmd>UrlView<CR>", { "desc": "Open urlview" }]],
+	"startuptime": [
+		[
+			"<leader>st",
+			"<cmd>StartupTime<CR>",
+			{ "desc": "Debug neovim StartupTime" }
+		]
+	],
+	"table_mode": [
+		[
+			"<leader>mt",
+			"<cmd>TableModeToggle<CR>",
+			{ "desc": "Toggle markdown table mode" }
+		]
+	],
 	"maximizer": [
 		[
 			"<leader>sm",
@@ -129,6 +180,31 @@
 			"<leader>ls",
 			"<cmd>LiveServerToggle<CR>",
 			{ "desc": "Toggle live server" }
+		]
+	],
+	"grug_far": [
+		[
+			"<leader>S",
+			"<cmd>lua require(\"grug-far\").toggle_instance({ staticTitle = \"Find and Replace\" })<CR>",
+			{ "desc": "Toggle Grug Far" }
+		],
+		[
+			"<leader>sw",
+			"<cmd>lua require(\"grug-far\").open({ prefills = { search = vim.fn.expand(\"<cword>\") } })<CR>",
+			{ "desc": "Search current word" }
+		],
+		[
+			"<leader>sf",
+			"<cmd>lua require(\"grug-far\").open({ prefills = { paths = vim.fn.expand(\"%\") } })<CR>",
+			{ "desc": "Search current file" }
+		]
+	],
+	"key_analyzer": [
+		["<leader>ka", "<cmd>KeyAnalyzer ", { "desc": "Key Analyzer" }],
+		[
+			"<leader>kc",
+			"<cmd>KeyAnalyzer <C-<CR>",
+			{ "desc": "Key Analyzer for ctrl" }
 		]
 	],
 	"gh_navigator": [
@@ -234,6 +310,8 @@
 		]
 	],
 	"laravel": [
-		["<leader><Tab>", "<cmd>FzfLua buffers<CR>", { "desc": "Find buffers" }]
+		["<leader>la", "<cmd>Laravel artisan<cr>"],
+		["<leader>lr", "<cmd>Laravel routes<cr>"],
+		["<leader>lt", "<cmd>Laravel related<cr>"]
 	]
 }

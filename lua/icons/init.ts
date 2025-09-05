@@ -1,6 +1,6 @@
 import * as neotestAscii from "./neotest.json";
 
-export const indent_blankline = "";
+export const indent_blankline = "│";
 
 export const diagnostics = {
 	Error: "󰅙 ",

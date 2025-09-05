@@ -11,7 +11,7 @@ const rhsSchema = z.object({
 	silent: z.boolean(),
 });
 
-export const pluginKeymapConfigSchema = z.tuple([
+const pluginKeymapConfigSchema = z.tuple([
 	z.string().describe("keymap"),
 	z.string().describe("action"),
 	rhsSchema.optional(),
@@ -22,7 +22,7 @@ export const pluginKeymapSchema = z.record(
 	pluginKeymapConfigSchema.array(),
 );
 
-export const globalKeymapConfigSchema = z.tuple([
+const globalKeymapConfigSchema = z.tuple([
 	z.string().describe("action"),
 	z.string().describe("description"),
 	rhsSchema.optional(),

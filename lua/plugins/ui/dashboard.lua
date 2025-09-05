@@ -15,7 +15,7 @@ local opts = {
 			local stats = require("lazy").stats()
 			local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 			return {
-				constants.NVIM_APPNAME .. " loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
+				" loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
 			}
 		end,
 		mru = {

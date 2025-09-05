@@ -19,14 +19,12 @@ await Promise.all(
 		const dirname = path.dirname(schema.filename);
 		return Object.entries(schema.module).map(
 			async ([name, zodSchema], i, all) => {
-				console.log("evaluating ", name);
 				const hasMore = all.length > 1;
 				const jsonSchema = z.toJSONSchema(zodSchema);
 				const jsonFile = JSON.stringify(jsonSchema);
 				const filename = hasMore ? format(name) : "schema.json";
 				const filepath = path.resolve(dirname, filename);
 				await fsp.writeFile(filepath, jsonFile);
-				console.log("done evaluating");
 			},
 		);
 	}),

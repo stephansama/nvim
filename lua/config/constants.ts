@@ -1,5 +1,7 @@
 export const PACKAGE_JSON_URL = `https://www.npmjs.com/package/`;
 
+export const LEADER = " ";
+
 export const HOME = os.getenv("HOME");
 export const NVIM_APPNAME = os.getenv("NVIM_APPNAME") || "nvim";
 
