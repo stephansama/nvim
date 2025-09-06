@@ -1,19 +1,5 @@
 local utils = require("utils")
 local SERVERS = require("plugins.lang").SERVERS
-local LSP_CONFIG_DIR = require("config.constants").LSP_CONFIG_DIR
-
-local config_files = vim.fn.readdir(LSP_CONFIG_DIR)
-
-if config_files then
-	for _, entry in ipairs(config_files) do
-		local full_path = LSP_CONFIG_DIR .. entry
-		if vim.fn.filereadable(full_path) == 1 then
-			local server = string.match(entry, "(.+)%..+")
-			local config = dofile(full_path)
-			vim.lsp.config(server, config)
-		end
-	end
-end
 
 local capabilities =
 	vim.tbl_deep_extend(
