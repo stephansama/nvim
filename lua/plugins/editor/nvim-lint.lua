@@ -1,5 +1,3 @@
-local M = {}
-
 local function use_cspell(config_files)
 	local cwd = vim.fn.getcwd()
 
@@ -15,7 +13,7 @@ local function use_cspell(config_files)
 	return false
 end
 
-M.cspell_enabled =
+_G.cspell_enabled =
 	use_cspell({
 		".cSpell.json",
 		".cspell.json",
@@ -30,16 +28,23 @@ M.cspell_enabled =
 		"cspell.yml",
 	})
 
-M.lint = function()
+local function lint_file()
 	local lint = require("lint")
 	lint.try_lint()
-	if M.cspell_enabled or _G.cspell_enabled then
+	if _G.cspell_enabled then
 		lint.try_lint("cspell")
 	end
 end
 
-M.create_lint_init = function()
-	vim.api.nvim_create_autocmd({ "BufWritePost" }, { callback = M.lint })
-end
-
-return M
+return {
+	"mfussenegger/nvim-lint",
+	init = function()
+		vim.api.nvim_create_autocmd(
+			{ "BufWritePost" },
+			{ callback = lint_file }
+		)
+	end,
+	config = function()
+		require("lint").linters_by_ft = require("plugins.lang").LINTERS
+	end,
+}

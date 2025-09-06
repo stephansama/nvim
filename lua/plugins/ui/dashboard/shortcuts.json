@@ -1,5 +1,5 @@
 {
-	"$schema": "./schema.json",
+	"$schema": "../../../schemas/shortcuts.json",
 	"shortcuts": [
 		{
 			"key": "g",

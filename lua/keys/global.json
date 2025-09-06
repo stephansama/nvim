@@ -1,5 +1,5 @@
 {
-	"$schema": "./global-keymap-schema.json",
+	"$schema": "../schemas/global-keymap.json",
 	"n": {
 		"o": ["o<ESC>zz"],
 		"O": ["O<ESC>zz"],

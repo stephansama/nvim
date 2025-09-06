@@ -8,7 +8,7 @@ dev:
 	make install && pnpm run build:schema && pnpm run dev
 
 clean:
-	rm -rf node_modules && rm -rf ./.husky/_/ && find . -type f \( -name '*schema.lua' -o -name '*modes.lua' -o -name '*modes.json' \) -exec rm {} \;
+	rm -rf node_modules && rm -rf ./.husky/_/ && find . -type f \( -name './lua/schemas/*.lua' -o -name './lua/schemas/*.json' \) -exec rm {} \;
 
 clean-all:
 	git clean -dfX

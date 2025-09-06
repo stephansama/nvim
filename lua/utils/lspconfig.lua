@@ -1,3 +1,4 @@
+local utils = require("utils")
 local SERVERS = require("plugins.lang").SERVERS
 local LSP_CONFIG_DIR = require("config.constants").LSP_CONFIG_DIR
 
@@ -20,6 +21,7 @@ local capabilities =
 		vim.lsp.protocol.make_client_capabilities(),
 		require("blink.cmp").get_lsp_capabilities({}, false)
 	)
+
 capabilities = vim.tbl_deep_extend("force", capabilities, {
 	textDocument = {
 		foldingRange = {
@@ -43,7 +45,7 @@ vim.cmd(
 	[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 )
 
-local border = require("utils.ui").border("FloatBorder")
+local border = utils.border("FloatBorder")
 
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -93,18 +95,22 @@ end
 
 local function lsp_hover()
 	local filetype = vim.bo.filetype
+
 	if vim.tbl_contains({ "vim", "help" }, filetype) then
 		vim.cmd("h " .. vim.fn.expand("<cword>"))
 	elseif vim.tbl_contains({ "man" }, filetype) then
 		vim.cmd("Man " .. vim.fn.expand("<cword>"))
 	elseif vim.fn.expand("%:t") == "package.json" then
 		local text = vim.api.nvim_get_current_line()
-		if not require("utils.init").is_package(text) then
+
+		if not require("utils.pkgjson").is_package(text) then
 			return vim.lsp.buf.hover()
 		end
+
 		local match = text:match('"(.-)"')
 		local npm_link = require("config.constants").PACKAGE_JSON_URL .. match
-		require("utils").openURL(npm_link)
+
+		vim.cmd("exec \"!open '" .. npm_link .. "'\"")
 	elseif vim.fn.expand("%:t") == "Cargo.toml" and require(
 		"crates"
 	).popup_available() then

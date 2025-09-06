@@ -1,4 +1,4 @@
-return function(_, opts)
+local function config(_, opts)
 	local luasnip, from_vscode, from_snipmate, from_lua =
 		require("luasnip"),
 		require("luasnip.loaders.from_vscode"),
@@ -7,7 +7,7 @@ return function(_, opts)
 
 	luasnip.config.set_config(opts)
 
-	local snippetsDir = { "./snippets" }
+	local snippetsDir = { require("config.constants").SNIPPETS_DIR }
 
 	from_vscode.lazy_load({ paths = snippetsDir })
 
@@ -25,3 +25,13 @@ return function(_, opts)
 
 	vim.api.nvim_create_autocmd("InsertLeave", { callback = callback })
 end
+
+return {
+	"L3MON4D3/LuaSnip",
+	config = config,
+	build = "make install_jsregexp",
+	opts = {
+		history = true,
+		updateevents = "TextChanged,TextChangedI",
+	},
+}

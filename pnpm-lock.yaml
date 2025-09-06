@@ -39,7 +39,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(prettier@3.6.2)
       typescript:
-        specifier: ^5.9.2
+        specifier: ^5.8.2
         version: 5.9.2
       typescript-to-lua:
         specifier: ^1.32.0

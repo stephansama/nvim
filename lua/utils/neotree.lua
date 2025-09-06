@@ -34,8 +34,8 @@ end
 M.load_neo_tree_icons = function(config, node)
 	local highlights = require("neo-tree.ui.highlights")
 	local current_icon = config.default or " "
-	local padding = config.padding or " "
 	local highlight = config.highlight or highlights.FILE_ICON
+	local padding = config.padding or " "
 
 	if node.type == "directory" then
 		highlight = highlights.DIRECTORY_ICON

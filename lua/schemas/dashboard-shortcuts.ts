@@ -1,5 +1,7 @@
 import z from "zod";
 
+/** @see https://github.com/nvimdev/dashboard-nvim?tab=readme-ov-file#example-config */
+
 const dashboardShortcutsSchema = z.object({
 	key: z.string().optional(),
 	icon: z.string().optional(),

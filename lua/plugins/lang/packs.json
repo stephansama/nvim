@@ -1,5 +1,5 @@
 {
-	"$schema": "./schema.json",
+	"$schema": "../../schemas/language-pack.json",
 	"base": {
 		"mason": ["vim-language-server", "cspell", "editorconfig-checker"],
 		"servers": ["vimls"],
@@ -91,7 +91,7 @@
 	"lua": {
 		"mason": ["luacheck", "stylua", "lua-language-server"],
 		"linters": { "lua": ["luacheck"] },
-		"formatters": { "lua": ["prettier", "stylua"] },
+		"formatters": { "lua": ["prettier"] },
 		"servers": ["lua_ls"],
 		"treesitter": ["lua", "luadoc"]
 	},
