@@ -1,4 +1,4 @@
-import * as neotestAscii from "./neotest.json";
+import * as spinners from "./spinners.json";
 
 export const indent_blankline = "│";
 
@@ -42,8 +42,33 @@ export const lualine = {
 	newfile: "",
 };
 
+export const grug_far = {
+	enabled: true,
+	fileIconsProvider: "first_available",
+	actionEntryBullet: " ",
+	searchInput: " ",
+	replaceInput: " ",
+	filesFilterInput: " ",
+	flagsInput: "󰮚 ",
+	pathsInput: " ",
+	resultsStatusReady: "󱩾 ",
+	resultsStatusError: " ",
+	resultsStatusSuccess: "󰗡 ",
+	resultsActionMessage: "  ",
+	resultsEngineLeft: "⟪",
+	resultsEngineRight: "⟫",
+	resultsChangeIndicator: "┃",
+	resultsAddedIndicator: "▒",
+	resultsRemovedIndicator: "▒",
+	resultsDiffSeparatorIndicator: "┊",
+	historyTitle: "   ",
+	helpTitle: " 󰘥  ",
+	lineNumbersEllipsis: " ",
+	newline: " ",
+};
+
 export const neotest = {
-	running_animated: neotestAscii.unicode_square,
+	running_animated: spinners.unicode_square,
 	watching: "󰈈",
 	unknown: "",
 	running: "",
