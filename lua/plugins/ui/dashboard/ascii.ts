@@ -6,12 +6,11 @@ export function loadAscii(this: void) {
 	const collected = [];
 	const filenames = vim.fn.readdir(ASCII_DIR);
 
-	if (filenames.length > 0) {
-		for (const filename of filenames) {
-			const fullPath = ASCII_DIR + filename;
-			if (vim.fn.filereadable(fullPath) === 1) {
-				collected.push(fullPath);
-			}
+	if (filenames.length === 0) return [];
+	for (const filename of filenames) {
+		const fullPath = ASCII_DIR + filename;
+		if (vim.fn.filereadable(fullPath) === 1) {
+			collected.push(fullPath);
 		}
 	}
 
