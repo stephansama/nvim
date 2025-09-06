@@ -3,4 +3,4 @@ require("config.lazy")
 
 require("keys")
 
-require("utils.ui").reset_ui()
+vim.cmd([[ResetUI]])

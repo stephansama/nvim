@@ -5,15 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tstl --watch",
-		"prebuild": "pnpm run build:modes",
+		"prebuild": "pnpm run prepare:schema",
 		"build": "tstl",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
-		"prebuild:schema": "pnpm run build:modes",
-		"build:schema": "node ./scripts/build-schema.mjs",
-		"build:modes": "node ./scripts/build-modes.mjs",
-		"snippets:sync": "node ./scripts/snippets-sync.mjs",
-		"snippets:merge": "node ./scripts/snippets-merge.mjs",
+		"build:schema": "node ./lua/schemas/build.mjs",
+		"snippets:merge": "node ./snippets/merge.mjs",
+		"prepare:schema": "ONLY_PREPARE_SCHEMA=true node ./lua/schemas/build.mjs",
 		"prepare": "husky"
 	},
 	"prettier": {
@@ -35,7 +33,7 @@
 		"prettier": "^3.6.2",
 		"prettier-plugin-organize-imports": "^4.2.0",
 		"prettier-plugin-sort-package-json": "^1.1.0",
-		"typescript": "^5.9.2",
+		"typescript": "^5.8.2",
 		"typescript-to-lua": "^1.32.0",
 		"zod": "^4.1.5"
 	},

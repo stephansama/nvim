@@ -44,7 +44,7 @@ return { {
 	event = { "BufRead Cargo.toml" },
 	--- https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#config
 	opts = {
-		popup = { border = require("utils.ui").border("FloatBorder") },
+		popup = { border = require("utils").border("FloatBorder") },
 	},
 	keys = require("keys.plugin").crates,
 } }

@@ -22,7 +22,7 @@ return { {
 	},
 	event = "BufEnter",
 	config = function()
-		require("utils.lspsetup")
+		require("utils.lspconfig")
 		require("nvim-highlight-colors").turnOn()
 	end,
 	dependencies = { {

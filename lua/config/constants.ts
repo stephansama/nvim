@@ -5,6 +5,7 @@ export const LEADER = " ";
 export const HOME = os.getenv("HOME");
 export const NVIM_APPNAME = os.getenv("NVIM_APPNAME") || "nvim";
 
+export const SNIPPETS_DIR = "./snippets/";
 export const NVIM_CONFIG_DIR = HOME + "/.config/" + NVIM_APPNAME;
 export const ASCII_DIR = NVIM_CONFIG_DIR + "/images/";
 export const LSP_CONFIG_DIR = NVIM_CONFIG_DIR + "/lsp/";

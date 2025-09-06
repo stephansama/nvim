@@ -8,7 +8,4 @@ return { {
 	"chentoast/marks.nvim",
 	event = "VeryLazy",
 	opts = { sign_priority = 90 },
-}, {
-	"stevearc/dressing.nvim",
-	init = require("utils.ui").override_builtins({ "select", "input" }),
 } }

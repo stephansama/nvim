@@ -1,5 +1,3 @@
-local utils = require("utils.ui")
-
 local blank_separators = {
 	left = "",
 	right = "",
@@ -21,8 +19,12 @@ local opts = {
 			newfile_status = true,
 			path = 3,
 			symbols = require("icons").lualine,
-		}, { utils.lualine_package_info } },
-		lualine_x = { utils.lualine_macros, "fileformat", "filetype" },
+		}, { function()
+			return require("package-info").get_status()
+		end } },
+		lualine_x = { function()
+			return require("NeoComposer.ui").status_recording()
+		end, "fileformat", "filetype" },
 	},
 }
 

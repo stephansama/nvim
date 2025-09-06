@@ -1,7 +1,7 @@
-import z from "zod";
+import * as z from "zod";
 import * as allModes from "./modes.json";
 
-const MODES = ["c", "i", "l", "n", "o", "s", "t", "v", "x"] as const;
+export const MODES = ["c", "i", "l", "n", "o", "s", "t", "v", "x"] as const;
 
 const rhsSchema = z.object({
 	buffer: z.number().or(z.boolean()),

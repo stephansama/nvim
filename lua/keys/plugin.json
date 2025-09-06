@@ -1,5 +1,5 @@
 {
-	"$schema": "./plugin-keymap-schema.json",
+	"$schema": "../schemas/plugin-keymap.json",
 	"undotree": [
 		["<leader>u", "<CMD>UndotreeToggle<CR>", { "desc": "UndotreeToggle" }]
 	],
@@ -32,7 +32,7 @@
 		],
 		[
 			"<leader>rt",
-			"<cmd>lua require(\"neotest\").run.run(vim.fn.expand(\"%\"))<CR>",
+			"<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
 			{ "desc": "Neotest run all tests in current file" }
 		],
 		[
@@ -59,7 +59,7 @@
 		],
 		[
 			"<leader>gr",
-			"<cmd>lua require('gitsigns').reset_hunk({ vim.fn.line(\".\"), vim.fn.line(\"v\") })<CR>",
+			"<cmd>lua require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })<CR>",
 			{ "desc": "Git reset hunk" }
 		],
 		[
@@ -182,20 +182,48 @@
 			{ "desc": "Toggle live server" }
 		]
 	],
+	"grug_far_internal": {
+		"replace": { "n": "<localleader>r" },
+		"qflist": { "n": "<localleader>q" },
+		"syncLocations": { "n": "<localleader>s" },
+		"syncLine": { "n": "<localleader>l" },
+		"close": { "n": "<localleader>c" },
+		"historyOpen": { "n": "<localleader>t" },
+		"historyAdd": { "n": "<localleader>a" },
+		"refresh": { "n": "<localleader>f" },
+		"openLocation": { "n": "<localleader>o" },
+		"openNextLocation": { "n": "<down>" },
+		"openPrevLocation": { "n": "<up>" },
+		"gotoLocation": { "n": "<enter>" },
+		"pickHistoryEntry": { "n": "<enter>" },
+		"abort": { "n": "<localleader>b" },
+		"help": { "n": "g?" },
+		"toggleShowCommand": { "n": "<localleader>w" },
+		"swapEngine": { "n": "<localleader>e" },
+		"previewLocation": { "n": "<localleader>i" },
+		"swapReplacementInterpreter": { "n": "<localleader>x" },
+		"applyNext": { "n": "<localleader>j" },
+		"applyPrev": { "n": "<localleader>k" },
+		"syncNext": { "n": "<localleader>n" },
+		"syncPrev": { "n": "<localleader>p" },
+		"syncFile": { "n": "<localleader>v" },
+		"nextInput": { "n": "<tab>" },
+		"prevInput": { "n": "<s-tab>" }
+	},
 	"grug_far": [
 		[
 			"<leader>S",
-			"<cmd>lua require(\"grug-far\").toggle_instance({ staticTitle = \"Find and Replace\" })<CR>",
+			"<cmd>lua require('grug-far').toggle_instance({ staticTitle = 'Find and Replace' })<CR>",
 			{ "desc": "Toggle Grug Far" }
 		],
 		[
 			"<leader>sw",
-			"<cmd>lua require(\"grug-far\").open({ prefills = { search = vim.fn.expand(\"<cword>\") } })<CR>",
+			"<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<CR>",
 			{ "desc": "Search current word" }
 		],
 		[
 			"<leader>sf",
-			"<cmd>lua require(\"grug-far\").open({ prefills = { paths = vim.fn.expand(\"%\") } })<CR>",
+			"<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<CR>",
 			{ "desc": "Search current file" }
 		]
 	],
@@ -208,9 +236,9 @@
 		]
 	],
 	"gh_navigator": [
-		["<leader>gh", "<cmd>GH repo<CR>", { "desc": "Open GitHub repo" }],
+		["<leader>gF", "<cmd>GH repo<CR>", { "desc": "Open GitHub repo" }],
 		[
-			"<leader>gb",
+			"<leader>gf",
 			"<cmd>GH browse<CR>",
 			{ "desc": "Open github file in blob view" }
 		],
@@ -280,7 +308,7 @@
 		],
 		[
 			"<leader>lh",
-			"<cmd>lua vim.fn.jobstart({ \"open\", \"https://github.com/kawre/leetcode.nvim?tab=readme-ov-file\" })<CR>",
+			"<cmd>lua vim.fn.jobstart({ 'open', 'https://github.com/kawre/leetcode.nvim?tab=readme-ov-file' })<CR>",
 			{ "desc": "Open leet.nvim readme" }
 		]
 	],
@@ -300,7 +328,7 @@
 		],
 		[
 			"<leader>fs",
-			":FzfLua grep_curbuf<CR>",
+			"<cmd>FzfLua grep_curbuf<CR>",
 			{ "desc": "Find within current buffer" }
 		],
 		[

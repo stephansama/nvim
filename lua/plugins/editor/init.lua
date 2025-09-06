@@ -1,5 +1,4 @@
 local keys = require("keys.plugin")
-local lint = require("utils.lint")
 
 return { { "artemave/workspace-diagnostics.nvim" }, {
 	"kylechui/nvim-surround",
@@ -26,12 +25,6 @@ return { { "artemave/workspace-diagnostics.nvim" }, {
 	opts = {},
 	keys = keys.quicker,
 }, {
-	"mfussenegger/nvim-lint",
-	init = lint.create_lint_init,
-	config = function()
-		require("lint").linters_by_ft = require("plugins.lang").LINTERS
-	end,
-}, {
 	"stevearc/conform.nvim",
 	config = true,
 	event = "BufWritePre",
@@ -50,14 +43,6 @@ return { { "artemave/workspace-diagnostics.nvim" }, {
 	version = "*",
 	config = true,
 	keys = keys.gh_navigator,
-}, {
-	"L3MON4D3/LuaSnip",
-	config = require("utils.snippets"),
-	build = "make install_jsregexp",
-	opts = {
-		history = true,
-		updateevents = "TextChanged,TextChangedI",
-	},
 }, {
 	"mg979/vim-visual-multi",
 	lazy = false,

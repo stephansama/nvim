@@ -26,16 +26,15 @@ local opts = {
 	},
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
-		sorts = {
-			"exact",
-			require("utils.init").depriotize_emmet,
-			"score",
-			"sort_text",
-		},
+		---@see BlinkDocumentation https://cmp.saghen.dev/recipes.html#deprioritize-specific-lsp
+		sorts = { "exact", function(a, b)
+			if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then return end
+			return b.client_name == "emmet_ls"
+		end, "score", "sort_text" },
 	},
 }
 
--- https://cmp.saghen.dev/
+--- https://cmp.saghen.dev/
 return {
 	"saghen/blink.cmp",
 	version = "1.*",

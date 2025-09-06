@@ -1,6 +1,8 @@
+import * as possible from "@/schemas/possible-plugins.json";
+
 export const enabled = [
 	"editor",
 	"lang.treesitter",
 	"test",
 	"ui",
-] as const satisfies ("debug" | "editor" | "test" | "ui" | `lang.${string}`)[];
+] satisfies (keyof typeof possible)[];

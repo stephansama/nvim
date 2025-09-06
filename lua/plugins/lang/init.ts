@@ -1,7 +1,7 @@
-import type { Schema } from "./schema";
+import type { Schema } from "@/schemas/language-packs";
 
-import { PLUGIN_LANG_DIR } from "../../config/constants";
-import { enabled as enabledPlugins } from "../enabled";
+import { PLUGIN_LANG_DIR } from "@/config/constants";
+import { enabled as enabledPlugins } from "@/plugins/enabled";
 import { enabled as enabledLanguages } from "./enabled";
 import * as packs from "./packs.json";
 
