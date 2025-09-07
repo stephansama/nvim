@@ -6,6 +6,11 @@ return { { "artemave/workspace-diagnostics.nvim" }, {
 	event = "VeryLazy",
 	config = true,
 }, {
+	"tomiis4/Hypersonic.nvim",
+	cmd = "Hypersonic",
+	event = "CmdlineEnter",
+	config = true,
+}, {
 	"folke/trouble.nvim",
 	opts = {},
 	keys = keys.trouble,

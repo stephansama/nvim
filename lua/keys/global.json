@@ -65,6 +65,11 @@
 		"L": ["$", "Move to end of line"]
 	},
 	"v": {
+		"<": ["<gv", "Indent Left"],
+		">": [">gv", "Indent Right"],
+		"J": [":m '>+1<CR>gv=gvzz", "Move line up", { "silent": true }],
+		"K": [":m '<-2<CR>gv=gvzz", "Move line down", { "silent": true }],
+		"<leader>rg": [":'<,'>Hypersonic<CR>", "Explain regex", { "silent": true }],
 		"<leader>sa": [
 			":'<,'>sort<CR>",
 			"Sort lines alphabetically",
@@ -74,11 +79,7 @@
 			":'<,'> ! awk '{ print length(), $0 | \"sort -n | cut -d\\\\  -f2-\" }'<CR>",
 			"Sort lines numerically",
 			{ "silent": true }
-		],
-		"J": [":m '>+1<CR>gv=gvzz", "Move line up", { "silent": true }],
-		"K": [":m '<-2<CR>gv=gvzz", "Move line down", { "silent": true }],
-		"<": ["<gv", "Indent Left"],
-		">": [">gv", "Indent Right"]
+		]
 	},
 	"v,x": { "p": ["\"_dP", "Paste without copying"] },
 	"x": { "/": ["<ESC>/\\%V", "Search within lines"] }
