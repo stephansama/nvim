@@ -4,9 +4,9 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "tstl --watch",
 		"prebuild": "pnpm run prepare:schema",
 		"build": "tstl",
+		"dev": "tstl --watch",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
 		"build:schema": "node ./lua/schemas/build.mjs",
