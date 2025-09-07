@@ -35,33 +35,32 @@ end
 
 vim.api.nvim_create_user_command("ResetUI", reset_ui, { nargs = 0 })
 
----> autocmd to underline all links <---
 vim.cmd([[autocmd BufEnter * match Underlined /https\?:\/\/\S\+/]])
 vim.cmd([[set shortmess+=I]])
 
 vim.g.mapleader = constants.LEADER
 
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.o.list = true
-vim.o.shiftwidth = 4
-vim.o.scrolloff = 999
-vim.o.listchars = "tab:│ ,trail:·"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.opt.tabstop = 4
-vim.opt.confirm = true
-vim.opt.undofile = true
-vim.opt.wildmode = "longest:full,full"
-vim.opt.smartcase = true
+vim.o.list = true
+vim.o.listchars = "tab:│ ,trail:·"
+vim.o.scrolloff = 999
+vim.o.shiftwidth = 4
 vim.opt.clipboard = "unnamedplus"
-vim.opt.undolevels = 10000
-vim.opt.signcolumn = "yes"
-vim.opt.splitbelow = false
-vim.opt.splitright = true
-vim.opt.smartindent = true
 vim.opt.conceallevel = 1
-vim.opt.termguicolors = true
-vim.opt.foldlevel = 99
+vim.opt.confirm = true
 vim.opt.foldcolumn = "1"
 vim.opt.foldenable = true
+vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+vim.opt.signcolumn = "yes"
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.splitbelow = false
+vim.opt.splitright = true
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.undofile = true
+vim.opt.undolevels = 10000
+vim.opt.wildmode = "longest:full,full"
+vim.wo.number = true
+vim.wo.relativenumber = true
