@@ -67,6 +67,8 @@ export const grug_far = {
 	newline: " ",
 };
 
+export const grug_spinner = spinners.clock;
+
 export const neotest = {
 	running_animated: spinners.unicode_square,
 	watching: "󰈈",

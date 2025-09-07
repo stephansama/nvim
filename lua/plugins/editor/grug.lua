@@ -1,4 +1,5 @@
 local keys = require("keys.plugin")
+local icons = require("icons.init")
 
 local opts = {
 	debounceMs = 500,
@@ -96,9 +97,9 @@ local opts = {
 		return first_part_len, first_part_len + delta
 	end,
 	filePathConcealChar = "…",
-	spinnerStates = require("icons.spinners").clock,
+	spinnerStates = icons.grug_spinner,
 	reportDuration = true,
-	icons = require("icons").grug_far,
+	icons = icons.grug_far,
 	prefills = {
 		search = nil,
 		replacement = nil,
