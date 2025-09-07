@@ -3,7 +3,7 @@ import * as global from "./global.json";
 
 type Schema = Omit<typeof global, "$schema">;
 type SchemaKey = keyof Schema;
-type SchemaElement = Schema[keyof Schema];
+type SchemaElement = Schema[SchemaKey];
 
 for (const modes in global) {
 	if (modes === "$schema") continue;
