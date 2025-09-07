@@ -99,9 +99,6 @@ local opts = {
 	spinnerStates = require("icons.spinners").clock,
 	reportDuration = true,
 	icons = require("icons").grug_far,
-	--
-
-	--
 	prefills = {
 		search = nil,
 		replacement = nil,
