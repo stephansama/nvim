@@ -1,17 +1,17 @@
-<!-- markdownlint-disable RULE33 MD041 -->
+<!-- markdownlint-disable RULE33 MD033 MD041 -->
 
 <div align="center">
 
-# [`@stephansama`](https://files.stephansama.info/configs/neovim) nvim config
+# [`@stephansama`](https://github.com/stephansama/stephansama) nvim config
 
 </div>
 
 <div align="center">
 
-[![Lua](https://img.shields.io/badge/Lua-5.1-2C2D72.svg?logo=lua&logoColor=white&labelColor=2C2D72)](https://github.com/search?q=user%3Astephansama+language%3Abash)
-[![LazyVim](https://img.shields.io/badge/LazyVim-2E7DE9.svg?logo=lazyvim&logoColor=white)](https://github.com/search?q=user%3Astephansama+language%3Abash)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-3178C6.svg?logo=typescript&logoColor=white&labelColor=3178C6)](https://github.com/search?q=user%3Astephansama+language%3Abash)
-[![Zod](https://img.shields.io/badge/Zod-4.1.5-408AFF.svg?logo=zod&logoColor=white&labelColor=408AFF)](https://github.com/search?q=user%3Astephansama+language%3Abash)
+[![Lua](https://img.shields.io/badge/Lua-5.1-2C2D72.svg?logo=lua&logoColor=white&labelColor=2C2D72)](https://github.com/search?q=repo%3Astephansama%2Fnvim%20language%3Alua&type=code)
+[![LazyVim](https://img.shields.io/badge/LazyVim-2E7DE9.svg?logo=lazyvim&logoColor=white)](https://www.lazyvim.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-3178C6.svg?logo=typescript&logoColor=white&labelColor=3178C6)](https://github.com/search?q=repo%3Astephansama%2Fnvim%20language%3ATypeScript&type=code)
+[![Zod](https://img.shields.io/badge/Zod-4.1.5-408AFF.svg?logo=zod&logoColor=white&labelColor=408AFF)](https://zod.dev/)
 
 </div>
 
