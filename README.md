@@ -19,6 +19,23 @@
 
 _bundle visualization generated using [bloat.nvim](https://github.com/dundalek/bloat.nvim) and [Esbuild analyzer](https://esbuild.github.io/analyze/)_
 
+## ⚙️ Installation
+
+Install directly to neovim config with the following command
+
+```sh
+git clone https://github.com/stephansama/nvim ~/.config/nvim
+```
+
+or install to a specific folder and invoke the config with the following command
+
+```sh
+git clone https://github.com/stephansama/nvim ~/.config/stephansamanvim
+
+# then launch neovim with the newly downloaded configuration
+NVIM_APPNAME=stephansamanvim nvim
+```
+
 ## ✨ Features
 
 This Neovim configuration is built to be a highly customized and efficient development environment. Here are some of the key features:
@@ -28,6 +45,8 @@ This Neovim configuration is built to be a highly customized and efficient devel
 - **Lua Type-Checking**: Utilizes [`tstl`](https://github.com/TypeScriptToLua/TypeScriptToLua) to generate Lua from TypeScript, enabling robust type-checking and autocompletion for the Lua configuration within the editor.
 - **🧩 Modular Structure**: The configuration is broken down into logical modules for plugins, LSP settings, key mappings, and utilities, making it easy to manage and extend.
 - **🚀 Built-in Tooling**: Includes scripts for building schemas, syncing snippets, and other automation tasks, managed via `pnpm` and a `Makefile`.
+
+## 📁 File structure
 
 ```mermaid
 graph TD
