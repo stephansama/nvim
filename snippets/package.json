@@ -1,8 +1,6 @@
 {
 	"name": "snippets",
-	"scripts": {
-		"build": "node ./merge.mjs"
-	},
+	"homepage": "https://snippets.madprofessorblog.org/",
 	"contributes": {
 		"snippets": [
 			{
