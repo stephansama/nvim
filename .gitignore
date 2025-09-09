@@ -5,6 +5,7 @@ lazy-lock.json
 lua/config/constants.lua
 lua/icons/*.lua
 lua/keys/*.lua
+lua/schemas/modes.ts
 lua/schemas/*.lua
 lua/schemas/*.json
 lua/plugins/enabled.lua

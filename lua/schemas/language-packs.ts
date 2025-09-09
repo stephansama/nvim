@@ -1,9 +1,22 @@
 import z from "zod";
 
 const languageSchema = z.object({
-	mason: z.string().array().meta({
-		description: "https://mason-registry.dev/registry/list",
+	formatters: z.record(z.string(), z.string().array()).meta({
+		description:
+			"https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters",
 	}),
+	linters: z.record(z.string(), z.string().array()).meta({
+		description:
+			"https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters",
+	}),
+	mason: z
+		.string()
+		.array()
+		.meta({ description: "https://mason-registry.dev/registry/list" }),
+	mason_registries: z
+		.string()
+		.array()
+		.meta({ description: "List of mason registries to use" }),
 	servers: z.string().array().meta({
 		description:
 			"https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md",
@@ -11,14 +24,6 @@ const languageSchema = z.object({
 	treesitter: z.string().array().meta({
 		description:
 			"https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages",
-	}),
-	linters: z.record(z.string(), z.string().array()).meta({
-		description:
-			"https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters",
-	}),
-	formatters: z.record(z.string(), z.string().array()).meta({
-		description:
-			"https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters",
 	}),
 	treesitter_parser: z.record(
 		z.string(),
