@@ -1,6 +1,7 @@
 local opts = function()
 	---@see Neotree https://github.com/nvim-neo-tree/neo-tree.nvim
 	local neotreeicons = require("icons.neotree")
+	---@type neotree.Config
 	return {
 		popup_border_style = "rounded",
 		enable_git_status = true,
