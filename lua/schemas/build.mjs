@@ -81,8 +81,12 @@ async function createPossiblePluginsFile() {
 
 async function createAllModesFile() {
 	await fsp.writeFile(
-		path.resolve(import.meta.dirname, "modes.json"),
-		JSON.stringify(generateModeOptions()),
+		path.resolve(import.meta.dirname, "modes.ts"),
+		`
+export const MODES = ["c", "i", "l", "n", "o", "s", "t", "v", "x"] as const;
+
+export const ALL_MODES = ${JSON.stringify(generateModeOptions())} as const;
+		`.trim(),
 	);
 }
 

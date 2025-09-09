@@ -1,4 +1,8 @@
+---@type LazyPluginSpec
 return {
-	"Hoffs/omnisharp-extended-lsp.nvim",
-	config = true,
+	"seblyng/roslyn.nvim",
+	ft = { "cs" },
+	---@module 'roslyn.config'
+	---@type RoslynNvimConfig
+	opts = {},
 }

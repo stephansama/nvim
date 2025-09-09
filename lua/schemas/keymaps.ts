@@ -1,7 +1,7 @@
 import * as z from "zod";
-import * as allModes from "./modes.json";
 
-export const MODES = ["c", "i", "l", "n", "o", "s", "t", "v", "x"] as const;
+// @ts-expect-error need to import relative file for node
+import { ALL_MODES, MODES } from "./modes.ts";
 
 const rhsSchema = z.object({
 	buffer: z.number().or(z.boolean()),
@@ -32,6 +32,6 @@ const globalKeymapConfigSchema = z.tuple([
 export type GlobalKeymapConfig = z.infer<typeof globalKeymapConfigSchema>;
 
 export const globalKeymapSchema = z.record(
-	z.enum(allModes),
+	z.enum(ALL_MODES),
 	z.record(z.string().describe("keymap"), globalKeymapConfigSchema),
 );

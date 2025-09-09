@@ -74,3 +74,9 @@ graph TD
         R4 --> R4_5["ui/"];
     end
 ```
+
+<div align="center">
+
+Copyright © 2023-present [`@stephansama`](https://github.com/stephansama)
+
+</div>

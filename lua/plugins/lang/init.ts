@@ -11,6 +11,7 @@ export const PLUGINS = loadPluginDirectories();
 export const FORMATTERS = mergeKV(pullProperty("formatters"));
 export const LINTERS = mergeKV(pullProperty("linters"));
 export const MASON = mergeFlat(pullProperty("mason"));
+export const MASON_REGISTRIES = mergeFlat(pullProperty("mason_registries"));
 export const SERVERS = mergeFlat(pullProperty("servers"));
 export const TREESITTER = mergeFlat(pullProperty("treesitter"));
 export const TREESITTER_PARSERS = mergeKV(pullProperty("treesitter_parser"));
