@@ -320,7 +320,7 @@
 		["<leader>fk", "<cmd>FzfLua keymaps<CR>", { "desc": "Find keymaps" }],
 		["<leader>fo", "<cmd>FzfLua oldfiles<CR>", { "desc": "Find oldfiles" }],
 		["<leader>fe", "<cmd>FzfLua grep_cword<CR>", { "desc": "Find exact word" }],
-		["<leader><Tab>", "<cmd>FzfLua buffers<CR>", { "desc": "Find buffers" }],
+		["<leader><Tab>", "<cmd>FzfLua tabs<CR>", { "desc": "Find tabs" }],
 		[
 			"<leader>gs",
 			"<cmd>FzfLua git_status<CR>",

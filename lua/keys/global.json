@@ -1,6 +1,7 @@
 {
 	"$schema": "../schemas/global-keymap.json",
 	"n": {
+		"-": ["<cmd>Ex<CR>", "Open netrw"],
 		"o": ["o<ESC>zz"],
 		"O": ["O<ESC>zz"],
 		"K": ["<cmd>LspHover<CR>", "LSP Hover"],
