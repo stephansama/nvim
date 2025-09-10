@@ -17,29 +17,23 @@ capabilities = vim.tbl_deep_extend("force", capabilities, {
 	},
 })
 
-vim.cmd([[hi FloatShadow guifg=white guibg=#1f2335]])
-vim.cmd([[hi FloatShadowThrough guifg=white guibg=#1f2335]])
-
 vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.enable(SERVERS)
 
-require("ufo").setup()
-
---- LSP Border
-vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
-vim.cmd(
-	[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-)
-
 local border = utils.border("FloatBorder")
+local max_width = 60
+
+local handler_opts = {
+	border = border,
+	max_width = max_width,
+	wrap = true,
+}
 
 local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = border,
-	}),
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, handler_opts),
 	["textDocument/signatureHelp"] = vim.lsp.with(
 		vim.lsp.handlers.signature_help,
-		{ border = border }
+		handler_opts
 	),
 }
 
@@ -109,7 +103,4 @@ local function lsp_hover()
 	end
 end
 
-if not _G.LspHoverCommandLoaded then
-	_G.LspHoverCommandLoaded = true
-	vim.api.nvim_create_user_command("LspHover", lsp_hover, { nargs = 0 })
-end
+vim.api.nvim_create_user_command("LspHover", lsp_hover, { nargs = 0 })
