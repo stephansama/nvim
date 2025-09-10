@@ -103,4 +103,7 @@ local function lsp_hover()
 	end
 end
 
-vim.api.nvim_create_user_command("LspHover", lsp_hover, { nargs = 0 })
+if not _G.LspHoverCommandLoaded then
+	_G.LspHoverCommandLoaded = true
+	vim.api.nvim_create_user_command("LspHover", lsp_hover, { nargs = 0 })
+end
