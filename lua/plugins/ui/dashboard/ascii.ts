@@ -17,5 +17,9 @@ export function loadAscii(this: void) {
 	const random = math.random(collected.length);
 	const picked = collected[random];
 
-	return vim.fn.readfile(picked);
+	if (vim.fn.filereadable(picked) === 1) {
+		return vim.fn.readfile(picked);
+	}
+
+	return vim.print(`failed to load ${picked} file`);
 }
