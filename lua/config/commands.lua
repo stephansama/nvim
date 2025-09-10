@@ -14,42 +14,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	command = [[match Underlined /https\?:\/\/\S\+/]],
 })
 
---- reset specific highlight groups when changing color schemes
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1f2335" })
-		vim.api.nvim_set_hl(0, "FloatBorder", {
-			fg = "white",
-			bg = "#1f2335",
-		})
-	end,
-})
-
 local function reset_ui()
 	if package.preload["ufo"] then
 		vim.cmd([[UfoEnableFold]])
 	end
 
-	vim.api.nvim_set_hl(0, "FloatBorder", {
-		fg = "White",
-		bg = "none",
-	})
-
-	vim.api.nvim_set_hl(0, "LspInlayHint", {
-		fg = "#646464",
-		bg = "none",
-	})
-
-	vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
-		fg = "#C93638",
-		bg = "none",
-	})
-
-	vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", {
-		fg = "#C93638",
-		bg = "none",
-	})
+	vim.cmd([[hi FloatBorder guifg=White guibg=none]])
+	vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
+	vim.cmd([[hi MiniIndentscopeSymbol guifg=#C93638 guibg=none]])
+	vim.cmd([[hi NoiceCmdlinePopupBorder guifg=#C93638 guibg=none]])
+	vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
+	vim.cmd(
+		[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+	)
 
 	if package.preload["dashboard"] then
 		vim.cmd([[ColorDashboard]])
