@@ -1,3 +1,5 @@
+local keys = require("keys.plugin")
+
 local statuscol_opts = function()
 	local builtin = require("statuscol.builtin")
 	return {
@@ -15,6 +17,17 @@ local statuscol_opts = function()
 	}
 end
 
+local ufo_opts = {
+	preview = {
+		mappings = keys.ufo,
+		win_config = {
+			border = { "", "─", "", "", "", "─", "", "" },
+			winhighlight = "Normal:Folded",
+			winblend = 0,
+		},
+	},
+}
+
 return { {
 	"neovim/nvim-lspconfig",
 	opts = {
@@ -24,14 +37,12 @@ return { {
 	config = function()
 		require("utils.lspconfig")
 		require("nvim-highlight-colors").turnOn()
+		require("ufo").setup(ufo_opts)
 	end,
 	dependencies = { {
-		-- install ufo for better code folding support
 		"kevinhwang91/nvim-ufo",
-		lazy = false,
 		dependencies = { "kevinhwang91/promise-async", {
 			"luukvbaal/statuscol.nvim",
-			lazy = false,
 			opts = statuscol_opts,
 			config = true,
 		} },
@@ -55,7 +66,7 @@ return { {
 	} },
 }, {
 	"MysticalDevil/inlay-hints.nvim",
-	keys = require("keys.plugin").inlay_hints,
+	keys = keys.inlay_hints,
 	event = "LspAttach",
 	config = true,
 	dependencies = { "neovim/nvim-lspconfig" },

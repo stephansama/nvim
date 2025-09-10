@@ -1,8 +1,7 @@
 local theme = require("config.constants")
 
 local function auto_theme(current_theme)
-	local themes = require("config.constants")
-	local is_darkmode = current_theme == themes.THEME_DARKMODE
+	local is_darkmode = current_theme == theme.THEME_DARKMODE
 	return function()
 		local next_theme = is_darkmode and "dark" or "light"
 		vim.api.nvim_set_option_value("background", next_theme, {})

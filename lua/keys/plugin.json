@@ -60,7 +60,7 @@
 		[
 			"<leader>gr",
 			"<cmd>lua require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })<CR>",
-			{ "desc": "Git reset hunk" }
+			{ "desc": "Git reset hunk", "buffer": true }
 		],
 		[
 			"<leader>hd",
@@ -320,7 +320,7 @@
 		["<leader>fk", "<cmd>FzfLua keymaps<CR>", { "desc": "Find keymaps" }],
 		["<leader>fo", "<cmd>FzfLua oldfiles<CR>", { "desc": "Find oldfiles" }],
 		["<leader>fe", "<cmd>FzfLua grep_cword<CR>", { "desc": "Find exact word" }],
-		["<leader><Tab>", "<cmd>FzfLua buffers<CR>", { "desc": "Find buffers" }],
+		["<leader><Tab>", "<cmd>FzfLua tabs<CR>", { "desc": "Find tabs" }],
 		[
 			"<leader>gs",
 			"<cmd>FzfLua git_status<CR>",
@@ -341,5 +341,11 @@
 		["<leader>la", "<cmd>Laravel artisan<cr>"],
 		["<leader>lr", "<cmd>Laravel routes<cr>"],
 		["<leader>lt", "<cmd>Laravel related<cr>"]
-	]
+	],
+	"ufo": {
+		"scrollU": "<C-u>",
+		"scrollD": "<C-d>",
+		"jumpTop": "[",
+		"jumpBot": "]"
+	}
 }
