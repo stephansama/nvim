@@ -21,13 +21,8 @@ vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.enable(SERVERS)
 
 local border = utils.border("FloatBorder")
-local max_width = 60
 
-local handler_opts = {
-	border = border,
-	max_width = max_width,
-	wrap = true,
-}
+local handler_opts = { border = border }
 
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, handler_opts),
