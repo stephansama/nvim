@@ -12,6 +12,9 @@ local function auto_theme(current_theme)
 			vim.cmd([[hi BqfPreviewFloat guibg=#1e1e2e]])
 			vim.cmd([[hi BqfPreviewTitle guibg=#1e1e2e]])
 			vim.cmd([[hi BqfPreviewBorder guibg=#1e1e2e]])
+			vim.cmd([[hi MiniNotifyBorder guibg=none ctermbg=none]])
+			vim.cmd([[hi MiniNotifyNormal guibg=none ctermbg=none]])
+			vim.cmd([[hi MiniNotifyTitle guibg=none ctermbg=none]])
 		end
 
 		vim.cmd([[ResetUI]])

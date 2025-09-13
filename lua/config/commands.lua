@@ -45,3 +45,82 @@ local function reset_ui()
 end
 
 vim.api.nvim_create_user_command("ResetUI", reset_ui, { nargs = 0 })
+
+local function cd_fzf(script, base)
+	local output = vim.system({ "sh", "-c", script .. " | fzf --tmux" }):wait()
+	local stdout = output.stdout
+	if not stdout or #stdout < 1 then return end
+	local dir = base .. "/" .. vim.fn.trim(stdout)
+	vim.api.nvim_set_current_dir(dir)
+	vim.cmd([[GoToDashboard]])
+end
+
+vim.api.nvim_create_user_command(
+	"FzfProject",
+	function()
+		cd_fzf(
+			'find "$CODE" -type d -mindepth 1 -maxdepth 1 | sed "s@$CODE/@@g"',
+			os.getenv("CODE")
+		)
+	end,
+	{ nargs = 0 }
+)
+
+vim.api.nvim_create_user_command(
+	"FzfGitSubmodules",
+	function()
+		cd_fzf("git submodule --quiet foreach 'echo $path'", vim.fn.getcwd())
+	end,
+	{ nargs = 0 }
+)
+
+local function get_top_level()
+	return vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+end
+
+local function go_to_git_root()
+	local current = vim.fn.getcwd()
+
+	-- Try to cd into the git toplevel
+	local toplevel = get_top_level()
+	if not toplevel or toplevel == "" then
+		vim.notify("Not inside a Git repo", vim.log.levels.WARN)
+		return
+	end
+
+	vim.fn.chdir(toplevel)
+
+	-- If still in the same directory, go up one and try again
+	if vim.fn.getcwd() == current then
+		vim.fn.chdir("..")
+		toplevel = get_top_level()
+		if toplevel and toplevel ~= "" and not string.find(
+			toplevel,
+			"fatal"
+		) then
+			vim.fn.chdir(toplevel)
+			vim.cmd([[GoToDashboard]])
+		else
+			-- Could not find parent git repo, go back to original directory
+			vim.fn.chdir(current)
+			vim.notify("Could not find parent git repo", vim.log.levels.WARN)
+			return
+		end
+	end
+end
+
+vim.api.nvim_create_user_command("GoToGitRoot", go_to_git_root, { nargs = 0 })
+
+local function go_to_dotfiles()
+	local dir = os.getenv("DOTFILES")
+	if dir and vim.fn.isdirectory(dir) == 1 then
+		vim.fn.chdir(dir)
+		vim.cmd([[GoToDashboard]])
+	else
+		local reason = "($DOTFILES env not set)"
+		local message = "failed to change directory to dotfiles " .. reason
+		vim.notify(message, vim.log.levels.ERROR)
+	end
+end
+
+vim.api.nvim_create_user_command("GoToDotfiles", go_to_dotfiles, { nargs = 0 })
