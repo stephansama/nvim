@@ -315,8 +315,19 @@
 			{ "desc": "Open leet.nvim readme" }
 		]
 	],
+	"fzf_tmux_runner": [
+		[
+			"<leader>fm",
+			"<cmd>FzfTmuxMake<CR>",
+			{ "desc": "launch makefile target" }
+		],
+		[
+			"<leader>fj",
+			"<cmd>FzfTmuxPackageJson<CR>",
+			{ "desc": "launch package json script" }
+		]
+	],
 	"fzf_lua": [
-		["<leader>fj", "<cmd>FzfLua jumps<CR>", { "desc": "Find jumps" }],
 		["<leader>ff", "<cmd>FzfLua files<CR>", { "desc": "Find files" }],
 		["<leader>f`", "<cmd>FzfLua marks<CR>", { "desc": "Find marks" }],
 		["<leader>fw", "<cmd>FzfLua live_grep<CR>", { "desc": "Find word" }],
@@ -325,7 +336,7 @@
 		["<leader>fe", "<cmd>FzfLua grep_cword<CR>", { "desc": "Find exact word" }],
 		["<leader><Tab>", "<cmd>FzfLua tabs<CR>", { "desc": "Find tabs" }],
 		[
-			"<leader>gs",
+			"<leader>gss",
 			"<cmd>FzfLua git_status<CR>",
 			{ "desc": "Find within git status" }
 		],
