@@ -1,4 +1,4 @@
-return { {
+return {
 	"DrKJeff16/project.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	cmd = {
@@ -14,4 +14,4 @@ return { {
 	---@module 'project'
 	---@type Project.Config.Options
 	opts = {},
-} }
+}
