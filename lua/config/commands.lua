@@ -33,7 +33,6 @@ local function reset_ui()
 	vim.cmd([[hi FloatBorder guifg=White guibg=none]])
 	vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
 	vim.cmd([[hi MiniIndentscopeSymbol guifg=#C93638 guibg=none]])
-	vim.cmd([[hi NoiceCmdlinePopupBorder guifg=#C93638 guibg=none]])
 	vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 	vim.cmd(
 		[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
@@ -117,7 +116,7 @@ local function go_to_dotfiles()
 		vim.fn.chdir(dir)
 		vim.cmd([[GoToDashboard]])
 	else
-		local reason = "($DOTFILES env not set)"
+		local reason = "($DOTFILES env not set or is not a directory)"
 		local message = "failed to change directory to dotfiles " .. reason
 		vim.notify(message, vim.log.levels.ERROR)
 	end

@@ -25,6 +25,17 @@ return { {
 	keys = keys.stow,
 	config = true,
 }, {
+	"stephansama/fzf-tmux-runner.nvim",
+	cmd = { "FzfTmuxPackageJson", "FzfTmuxMake" },
+	keys = keys.fzf_tmux_runner,
+	config = true,
+	---@module "fzf-tmux-runner"
+	---@type FzfTmuxRunnerOpts
+	opts = {
+		package_manager = "nr",
+		direction = "vertical",
+	},
+}, {
 	"kawre/leetcode.nvim",
 	config = true,
 	build = ":TSUpdate html",
