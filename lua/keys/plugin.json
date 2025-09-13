@@ -46,6 +46,9 @@
 			{ "desc": "Open Neotest output-panel" }
 		]
 	],
+	"project": [
+		["<leader>fr", "<cmd>ProjectFzf<CR>", { "desc": "Find recent projects" }]
+	],
 	"gitsigns": [
 		[
 			"[h",
@@ -315,7 +318,7 @@
 	"fzf_lua": [
 		["<leader>fj", "<cmd>FzfLua jumps<CR>", { "desc": "Find jumps" }],
 		["<leader>ff", "<cmd>FzfLua files<CR>", { "desc": "Find files" }],
-		["<leader>fm", "<cmd>FzfLua marks<CR>", { "desc": "Find marks" }],
+		["<leader>f`", "<cmd>FzfLua marks<CR>", { "desc": "Find marks" }],
 		["<leader>fw", "<cmd>FzfLua live_grep<CR>", { "desc": "Find word" }],
 		["<leader>fk", "<cmd>FzfLua keymaps<CR>", { "desc": "Find keymaps" }],
 		["<leader>fo", "<cmd>FzfLua oldfiles<CR>", { "desc": "Find oldfiles" }],
