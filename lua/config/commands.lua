@@ -50,7 +50,7 @@ local function cd_fzf(script, base)
 	local output = vim.system({ "sh", "-c", script .. " | fzf --tmux" }):wait()
 	local stdout = output.stdout
 	if not stdout or #stdout < 1 then return end
-	local dir = base .. "/" .. stdout:sub(1, #stdout - 1)
+	local dir = base .. "/" .. vim.fn.trim(stdout)
 	vim.api.nvim_set_current_dir(dir)
 	vim.cmd([[GoToDashboard]])
 end
@@ -94,9 +94,17 @@ local function go_to_git_root()
 	if vim.fn.getcwd() == current then
 		vim.fn.chdir("..")
 		toplevel = get_top_level()
-		if toplevel and toplevel ~= "" then
+		if toplevel and toplevel ~= "" and not string.find(
+			toplevel,
+			"fatal"
+		) then
 			vim.fn.chdir(toplevel)
 			vim.cmd([[GoToDashboard]])
+		else
+			-- Could not find parent git repo, go back to original directory
+			vim.fn.chdir(current)
+			vim.notify("Could not find parent git repo", vim.log.levels.WARN)
+			return
 		end
 	end
 end
@@ -105,12 +113,13 @@ vim.api.nvim_create_user_command("GoToGitRoot", go_to_git_root, { nargs = 0 })
 
 local function go_to_dotfiles()
 	local dir = os.getenv("DOTFILES")
-	if dir then
+	if dir and vim.fn.isdirectory(dir) == 1 then
 		vim.fn.chdir(dir)
 		vim.cmd([[GoToDashboard]])
 	else
 		local reason = "($DOTFILES env not set)"
-		vim.notify("failed to change directory to dotfiles " .. reason)
+		local message = "failed to change directory to dotfiles " .. reason
+		vim.notify(message, vim.log.levels.ERROR)
 	end
 end
 
