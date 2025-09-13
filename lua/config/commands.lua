@@ -9,10 +9,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 --- write to home directory the last known position of neovim before quitting
 --- (useful for when changing directory within neovim)
-vim.api.nvim_create_autocmd("VimLeavePre", { callback = function()
-	local cwd = vim.fn.getcwd()
-	vim.fn.writefile({ cwd }, vim.fn.expand("~/.nvim_cwd"))
-end })
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	group = vim.api.nvim_create_augroup("SaveCWDOnExit", { clear = true }),
+	desc = "Write last known working directory to file on exit",
+	callback = function()
+		local cwd = vim.fn.getcwd()
+		vim.fn.writefile({ cwd }, vim.fn.expand("~/.nvim_cwd"))
+	end,
+})
 
 --- underline found links
 vim.api.nvim_create_autocmd("BufEnter", {
