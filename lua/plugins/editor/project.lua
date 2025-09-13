@@ -9,7 +9,7 @@ return {
 		"ProjectRecents",
 		"ProjectRoot",
 	},
-	cond = vim.fn.has("nvim-0.11") == 1,
+	cond = vim.version().minor >= 11,
 	keys = require("keys.plugin").project,
 	---@module 'project'
 	---@type Project.Config.Options
