@@ -34,6 +34,7 @@ local opts = {
 		neotest = true,
 		neotree = true,
 		gitsigns = true,
+		grug_far = true,
 		blink_cmp = true,
 		dashboard = true,
 		telescope = true,
@@ -46,6 +47,11 @@ local opts = {
 		symbols_outline = true,
 		indent_blankline = true,
 		treesitter_context = true,
+		mini = {
+			notify = true,
+			enabled = true,
+			indent_blankline = true,
+		},
 		native_lsp = {
 			enabled = true,
 			underlines = create_theme_options("underline"),
@@ -54,9 +60,9 @@ local opts = {
 	},
 }
 
-return { {
+return {
 	"catppuccin/nvim",
 	priority = 1001,
 	name = "catppuccin",
 	opts = opts,
-} }
+}
