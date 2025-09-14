@@ -81,6 +81,7 @@ export const VIM_FT_FILENAMES = {
 };
 
 export const VIM_FT_EXTENSIONS = {
+	["code-snippets"]: "jsonc",
 	mdx: "markdown.mdx",
 	zsh: "sh",
 	pcss: "css",

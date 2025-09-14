@@ -33,27 +33,5 @@ return {
 	event = "VeryLazy",
 	opts = opts,
 	keys = require("keys.plugin").noice,
-	dependencies = { "MunifTanjim/nui.nvim", {
-		"nvim-mini/mini.notify",
-		opts = {
-			lsp_progress = { enable = true },
-			window = {
-				max_width_share = 0.50,
-				winblend = 0,
-			},
-		},
-		config = function(_, options)
-			local notify = require("mini.notify")
-
-			notify.setup(options)
-
-			vim.notify = notify.make_notify()
-
-			vim.api.nvim_create_user_command(
-				"Notifications",
-				notify.show_history,
-				{ nargs = 0 }
-			)
-		end,
-	} },
+	dependencies = { "MunifTanjim/nui.nvim", "nvim-mini/mini.notify" },
 }
