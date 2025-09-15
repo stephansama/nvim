@@ -33,7 +33,7 @@ return { {
 	---@type FzfTmuxRunnerOpts
 	opts = {
 		package_manager = "nr",
-		direction = "vertical",
+		direction = "horizontal",
 	},
 }, {
 	"kawre/leetcode.nvim",
