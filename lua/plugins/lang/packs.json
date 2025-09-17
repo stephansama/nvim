@@ -31,6 +31,13 @@
 		"formatters": { "csharp": ["csharpier"] },
 		"treesitter": ["c_sharp"]
 	},
+	"python": {
+		"mason": ["ruff", "basedpyright"],
+		"linters": { "python": ["ruff"] },
+		"formatters": { "python": ["ruff_format", "ruff_organize_imports"] },
+		"servers": ["basedpyright"],
+		"treesitter": ["python"]
+	},
 	"data": {
 		"linters": { "json": ["jsonlint"] },
 		"servers": ["sqls", "taplo", "yamlls", "jsonls", "graphql", "lemminx"],
@@ -76,7 +83,7 @@
 		"treesitter": ["dockerfile"]
 	},
 	"go": {
-		"mason": ["delve", "go-debug-adapter", "gopls", "templ", "golangcilint"],
+		"mason": ["delve", "go-debug-adapter", "gopls", "templ", "golangci-lint"],
 		"formatters": { "go": ["gofmt"] },
 		"linters": { "go": "golangcilint" },
 		"servers": ["gopls", "templ"],
