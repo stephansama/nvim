@@ -26,7 +26,7 @@ return { {
 	config = true,
 }, {
 	"stephansama/fzf-tmux-runner.nvim",
-	cmd = { "FzfTmuxPackageJson", "FzfTmuxMake" },
+	cmd = { "FzfTmuxMake", "FzfTmuxMise", "FzfTmuxPackageJson" },
 	keys = keys.fzf_tmux_runner,
 	config = true,
 	---@module "fzf-tmux-runner"
@@ -34,6 +34,7 @@ return { {
 	opts = {
 		package_manager = "nr",
 		direction = "horizontal",
+		interactive = true,
 	},
 }, {
 	"kawre/leetcode.nvim",

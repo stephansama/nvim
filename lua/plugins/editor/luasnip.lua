@@ -7,9 +7,25 @@ local function config(_, opts)
 
 	luasnip.config.set_config(opts)
 
-	local snippetsDir = { require("config.constants").SNIPPETS_DIR }
+	from_vscode.lazy_load({
+		paths = { require("config.constants").SNIPPETS_DIR },
+	})
 
-	from_vscode.lazy_load({ paths = snippetsDir })
+	local vscode_folder = "./.vscode/"
+
+	if vim.fn.isdirectory(vscode_folder) then
+		local dir = vim.fn.readdir(vscode_folder)
+		if #dir > 0 then
+			for _, filename in ipairs(dir) do
+				if filename:match("%.code%-snippets$") then
+					from_vscode.load_standalone({
+						path = vscode_folder .. filename,
+						override_priority = true,
+					})
+				end
+			end
+		end
+	end
 
 	from_snipmate.load()
 	from_snipmate.lazy_load({ paths = vim.g.snipmate_snippets_path or "" })

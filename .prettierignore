@@ -1,4 +1,5 @@
 *.txt
+*.scm
 .gitignore
 .prettierignore
 Makefile
