@@ -29,7 +29,9 @@
 			"<cmd>lua vim.diagnostic.jump({ count = 1 , float = true })<CR>",
 			"Go to next diagnostic"
 		],
-		"Q'": ["@q", "Quick Replay"],
+		"Q": ["@q", "Quick Replay"],
+		"<leader>me": ["<cmd>new<CR><cmd>put q<CR>", "Edit Macro"],
+		"<leader>ms": ["\"qyy", "Save line as Macro"],
 		"<ESC>": ["<cmd>noh<CR>", "Escape"],
 		"<leader>w": ["<cmd>w<CR>", "Save"],
 		"<leader>d": ["<cmd>bd<CR>", "Delete buffer"],
@@ -38,6 +40,7 @@
 		"<leader>3": ["3gt", "Go to tab 3"],
 		"<leader>4": ["4gt", "Go to tab 4"],
 		"<leader>x": ["<cmd>q<CR>", "Close window"],
+		"<leader>gd": ["<cmd>GoToDotfiles<CR>", "Go to dotfiles"],
 		"<leader>fp": ["<cmd>FzfProject<CR>", "Fzf all projects"],
 		"<leader>gsm": ["<cmd>FzfGitSubmodules<CR>", "Fzf all git submodules"],
 		"<leader>vc": ["<cmd>!code .<CR>", "Open project in vscode"],
