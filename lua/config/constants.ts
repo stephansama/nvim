@@ -71,6 +71,7 @@ export const COMMENT_FILETYPES = [
 ];
 
 export const VIM_FT_FILENAMES = {
+	[".zsh_plugins.txt"]: "conf",
 	[".env.local"]: "sh",
 	[".env.sample"]: "sh",
 	[".env.example"]: "sh",
