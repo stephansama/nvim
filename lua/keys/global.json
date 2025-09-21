@@ -30,8 +30,11 @@
 			"Go to next diagnostic"
 		],
 		"Q": ["@q", "Quick Replay"],
-		"<leader>me": ["<cmd>new<CR><cmd>put q<CR>", "Edit Macro"],
-		"<leader>ms": ["\"qyy", "Save line as Macro"],
+		"<leader>me": ["<cmd>new<CR><cmd>0put q<CR>", "Edit Macro"],
+		"<leader>ms": [
+			"\"qyy<cmd>q!<CR>",
+			"Save line as Macro and quit edit macro buffer"
+		],
 		"<ESC>": ["<cmd>noh<CR>", "Escape"],
 		"<leader>w": ["<cmd>w<CR>", "Save"],
 		"<leader>d": ["<cmd>bd<CR>", "Delete buffer"],
