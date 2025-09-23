@@ -1,17 +1,14 @@
-mise:
-	. /tmp/mise.sh
-
-install: mise
-	pnpm install
+install:
+	. /tmp/mise.sh; pnpm install
 
 build:
-	pnpm run build
+	. /tmp/mise.sh; pnpm run build
 
 schema: install
-	pnpm run build:schema
+	. /tmp/mise.sh; pnpm run build:schema
 
 dev: install schema
-	pnpm run dev
+	. /tmp/mise.sh; pnpm run dev
 
 clean:
 	rm -rf node_modules ./.husky/_/ && find . -type f \( -name '*.lua' -o -name '*.json' \) -path './lua/schemas/**' -exec rm {} \;
