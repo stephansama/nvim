@@ -71,28 +71,30 @@ export const COMMENT_FILETYPES = [
 ];
 
 export const VIM_FT_FILENAMES = {
-	[".zsh_plugins.txt"]: "conf",
-	[".env.local"]: "sh",
-	[".env.sample"]: "sh",
 	[".env.example"]: "sh",
+	[".env.local"]: "sh",
 	[".env.production"]: "sh",
-	["kitty.conf"]: "kconfig",
+	[".env.sample"]: "sh",
+	[".zsh_plugins.txt"]: "conf",
 	["hyprland.conf"]: "hyprlang",
 	["hyprpaper.conf"]: "hyprlang",
+	["kitty.conf"]: "kconfig",
 };
 
 export const VIM_FT_EXTENSIONS = {
 	["code-snippets"]: "jsonc",
-	mdx: "markdown.mdx",
-	zsh: "sh",
-	pcss: "css",
+	gitconfig: "toml",
 	http: "http",
-	rasi: "rasi",
-	templ: "templ",
-	postcss: "css",
+	ini: "toml",
+	j2: "jinja",
 	jinja2: "jinja",
 	jinja: "jinja",
-	j2: "jinja",
+	mdx: "markdown.mdx",
+	pcss: "css",
+	postcss: "css",
+	rasi: "rasi",
+	templ: "templ",
+	zsh: "sh",
 };
 
 export const VIM_FT_PATTERNS = { ".*%.blade%.php": "blade" };
