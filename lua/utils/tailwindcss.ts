@@ -12,8 +12,8 @@ export function getLocalTailwindSettings() {
 	for (const [key, value] of Object.entries(vscodeSettings)) {
 		if (!key.startsWith("tailwindCSS")) continue;
 
+		let current: Record<string, any> = twSettings;
 		const sections = key.split(".");
-		let current: any = twSettings;
 
 		for (let i = 0; i < sections.length; i++) {
 			const section = sections[i];
@@ -43,8 +43,8 @@ function transformValue(
 
 	const transformed: Record<string, string> = {};
 
-	for (const [key, curr] of Object.entries(value)) {
-		transformed[key] = transform(curr);
+	for (const [currKey, curr] of Object.entries(value)) {
+		transformed[currKey] = transform(curr);
 	}
 
 	return transformed;
