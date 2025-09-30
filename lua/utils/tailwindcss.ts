@@ -1,13 +1,20 @@
-export function getLocalTailwindSettings() {
+export function getLocalTailwindSettings(this: void) {
 	const vscodeSettingsPath = ".vscode/settings.json";
 
 	if (vim.fn.filereadable(vscodeSettingsPath) !== 1) return {};
 
 	const file = vim.fn.readfile(vscodeSettingsPath) as string[];
 
-	const vscodeSettings = vim.json.decode(table.concat(file));
+	const vscodeSettings = safeDecode(table.concat(file));
 
-	const twSettings = {};
+	if (vscodeSettings === false) {
+		vim.print(
+			"Failed to load '.vscode/settings.json': invalid JSON syntax.",
+		);
+		return {};
+	}
+
+	const twSettings: { tailwindCSS?: unknown } = {};
 
 	for (const [key, value] of Object.entries(vscodeSettings)) {
 		if (!key.startsWith("tailwindCSS")) continue;
@@ -29,10 +36,19 @@ export function getLocalTailwindSettings() {
 		}
 	}
 
-	return twSettings;
+	return twSettings.tailwindCSS || {};
+}
+
+function safeDecode(this: void, str: string) {
+	try {
+		return vim.json.decode(str);
+	} catch (e) {
+		return false;
+	}
 }
 
 function transformValue(
+	this: void,
 	key: string,
 	value: string | Record<string, string>,
 	transform = (str: string) => `${vim.fn.getcwd()}/${str}`,
