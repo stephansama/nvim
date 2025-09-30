@@ -29,9 +29,20 @@ declare global {
 		) => void;
 	}
 
+	interface JsonEncodeOpts {
+		luanil: {
+			object?: boolean;
+			string?: boolean;
+		};
+	}
+
 	interface IVim {
 		keymap: Keymap;
 		print: (this: void, ...rest: string[]) => void;
+		json: {
+			encode: (this: void, obj: object, opts?: JsonEncodeOpts) => string;
+			decode: (this: void, str: string, opts?: JsonEncodeOpts) => object;
+		};
 	}
 }
 
