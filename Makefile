@@ -1,14 +1,16 @@
+MISE = if [ -f /tmp/mise.sh ]; then . /tmp/mise.sh; fi;
+
 install:
-	. /tmp/mise.sh; pnpm install
+	$(MISE) pnpm install
 
 build:
-	. /tmp/mise.sh; pnpm run build
+	$(MISE) pnpm run build
 
 schema: install
-	. /tmp/mise.sh; pnpm run build:schema
+	$(MISE) pnpm run build:schema
 
 dev: install schema
-	. /tmp/mise.sh; pnpm run dev
+	$(MISE) pnpm run dev
 
 clean:
 	rm -rf node_modules ./.husky/_/ && find . -type f \( -name '*.lua' -o -name '*.json' \) -path './lua/schemas/**' -exec rm {} \;

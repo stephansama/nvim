@@ -9,6 +9,7 @@ export const enabled = [
 	"javascript",
 	"lua",
 	"markdown",
+	"python",
 	"rust",
 	"shell",
 	"zig",

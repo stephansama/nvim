@@ -172,6 +172,7 @@ export const override_by_filename = {
 	"eslint.config.mts": icons.eslintrc,
 	"eslint.config.ts": icons.eslintrc,
 	"extensions.json": { icon: "", color: "#C59F46", name: "extensions" },
+	"ffmpeg.txt": { icon: "", color: "#007808", name: "ffmpeg" },
 	"gatsby-browser.js": icons.gatsby,
 	"gatsby-config.js": icons.gatsby,
 	"gatsby-ssr.js": icons.gatsby,
