@@ -60,7 +60,7 @@ function transformValue(
 	const transformed: Record<string, string> = {};
 
 	for (const [currKey, curr] of Object.entries(value)) {
-		transformed[currKey] = transform(curr);
+		transformed[transform(currKey)] = transform(curr);
 	}
 
 	return transformed;

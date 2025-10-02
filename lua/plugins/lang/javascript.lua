@@ -20,7 +20,7 @@ return { {
 		package_manager = "pnpm",
 		hide_up_to_date = false, -- It hides up to date versions when displaying virtual text
 		hide_unstable_versions = true,
-		colors = require("config.constants").PACKAGE_INFO_COLORS,
+		highlights = require("config.constants").PACKAGE_INFO_COLORS,
 		icons = {
 			enable = true,
 			style = require("icons").packageJSON,

@@ -16,8 +16,8 @@ export const THEME_DARKMODE = "catppuccin-mocha";
 export const THEME_LIGHTMODE = "catppuccin-latte";
 
 export const PACKAGE_INFO_COLORS = {
-	up_to_date: "#9CDAE9",
-	outdated: "#F5E3B5",
+	up_to_date: { fg: "#9CDAE9" },
+	outdated: { fg: "#F5E3B5" },
 };
 
 export const DASHBOARD_LIGHTMODE = [
