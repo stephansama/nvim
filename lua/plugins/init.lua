@@ -20,23 +20,6 @@ return { {
 		vim.g.tmux_navigator_no_mappings = 1
 	end,
 }, {
-	"stephansama/stow.nvim",
-	cmd = "Stow",
-	keys = keys.stow,
-	config = true,
-}, {
-	"stephansama/fzf-tmux-runner.nvim",
-	cmd = { "FzfTmuxMake", "FzfTmuxMise", "FzfTmuxPackageJson" },
-	keys = keys.fzf_tmux_runner,
-	config = true,
-	---@module "fzf-tmux-runner"
-	---@type FzfTmuxRunnerOpts
-	opts = {
-		package_manager = "nr",
-		direction = "horizontal",
-		interactive = true,
-	},
-}, {
 	"kawre/leetcode.nvim",
 	config = true,
 	build = ":TSUpdate html",

@@ -318,8 +318,8 @@
 	"fzf_tmux_runner": [
 		[
 			"<leader>fm",
-			"<cmd>FzfTmuxMake<CR>",
-			{ "desc": "launch makefile target" }
+			"<cmd>FzfTmuxMiseOrMake<CR>",
+			{ "desc": "launch makefile target or mise.toml target" }
 		],
 		[
 			"<leader>fj",
