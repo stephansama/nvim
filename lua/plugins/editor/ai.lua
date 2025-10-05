@@ -8,7 +8,6 @@ return { {
 				backend = "tmux",
 				enabled = true,
 			},
-			win = { layout = "float" },
 		},
 	},
 	-- stylua: ignore
