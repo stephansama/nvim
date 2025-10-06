@@ -74,6 +74,9 @@
 		"H": ["^", "Move to beginning of line"],
 		"L": ["$", "Move to end of line"]
 	},
+	"t": {
+		"<ESC>": ["<C-\\><C-n>", "Escape from the terminal"]
+	},
 	"v": {
 		"<": ["<gv", "Indent Left"],
 		">": [">gv", "Indent Right"],

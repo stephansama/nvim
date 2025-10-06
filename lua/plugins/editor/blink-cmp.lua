@@ -22,7 +22,15 @@ local opts = {
 	},
 	snippets = { preset = "luasnip" },
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer" },
+		default = { "copilot", "lsp", "path", "snippets", "buffer" },
+		providers = {
+			copilot = {
+				name = "copilot",
+				module = "blink-copilot",
+				score_offset = 100,
+				async = true,
+			},
+		},
 	},
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
@@ -40,7 +48,7 @@ return {
 	version = "1.*",
 	opts = opts,
 	opts_extend = { "sources.default" },
-	dependencies = { {
+	dependencies = { "fang2hou/blink-copilot", {
 		"windwp/nvim-autopairs",
 		config = true,
 		opts = {
