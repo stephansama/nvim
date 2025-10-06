@@ -9,7 +9,6 @@ return { {
 	keys = keys.urlview,
 }, {
 	"christoomey/vim-tmux-navigator",
-	keys = keys.tmux,
 	cmd = {
 		"TmuxNavigateLeft",
 		"TmuxNavigateDown",

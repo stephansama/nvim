@@ -74,12 +74,14 @@
 		"H": ["^", "Move to beginning of line"],
 		"L": ["$", "Move to end of line"]
 	},
+	"n,t": {
+		"<C-h>": ["<cmd>TmuxNavigateLeft<CR>", "Navigate to left vim/tmux pane"],
+		"<C-j>": ["<cmd>TmuxNavigateDown<CR>", "Navigate to bottom vim/tmux pane"],
+		"<C-k>": ["<cmd>TmuxNavigateUp<CR>", "Navigate to top vim/tmux pane"],
+		"<C-l>": ["<cmd>TmuxNavigateRight<CR>", "Navigate to right vim/tmux pane"]
+	},
 	"t": {
-		"<ESC>": ["<C-\\><C-n>", "Escape from the terminal"],
-		"<C-h>": ["<cmd>TmuxNavigateLeft<CR>", "Navigate to left tmux pane"],
-		"<C-j>": ["<cmd>TmuxNavigateDown<CR>", "Navigate to bottom tmux pane"],
-		"<C-k>": ["<cmd>TmuxNavigateUp<CR>", "Navigate to top tmux pane"],
-		"<C-l>": ["<cmd>TmuxNavigateRight<CR>", "Navigate to right tmux pane"]
+		"<ESC>": ["<C-\\><C-n>", "Escape from the terminal"]
 	},
 	"v": {
 		"<": ["<gv", "Indent Left"],
