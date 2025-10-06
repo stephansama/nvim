@@ -48,7 +48,7 @@ return {
 	version = "1.*",
 	opts = opts,
 	opts_extend = { "sources.default" },
-	dependencies = { { "fang2hou/blink-copilot" }, {
+	dependencies = { "fang2hou/blink-copilot", {
 		"windwp/nvim-autopairs",
 		config = true,
 		opts = {
