@@ -1,4 +1,7 @@
 return { {
+	"github/copilot.vim",
+	cmd = { "Copilot" },
+}, {
 	"folke/sidekick.nvim",
 	---@module 'sidekick'
 	---@type sidekick.Config
@@ -63,15 +66,5 @@ return { {
 		end,
 		mode = { "n", "x", "i", "t" },
 		desc = "Sidekick Switch Focus",
-	}, {
-		-- Example of a keybinding to open Claude directly
-		"<leader>ac",
-		function()
-			require("sidekick.cli").toggle({
-				name = "claude",
-				focus = true,
-			})
-		end,
-		desc = "Sidekick Toggle Claude",
 	} },
 } }
