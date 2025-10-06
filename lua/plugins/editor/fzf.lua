@@ -34,6 +34,7 @@ end
 return {
 	"ibhagwan/fzf-lua",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	cmd = { "FzfLua" },
 	config = true,
 	opts = opts,
 	keys = require("keys.plugin").fzf_lua,
