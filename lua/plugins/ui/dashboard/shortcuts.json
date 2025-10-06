@@ -6,7 +6,7 @@
 			"icon": "󰊢",
 			"desc": " Git files",
 			"group": "@variable",
-			"action": "lua require('fzf-lua').git_status()",
+			"action": "FzfLua git_status",
 			"icon_hl": "TodoFgTODO"
 		},
 		{
@@ -14,7 +14,7 @@
 			"icon_hl": "todofgfix",
 			"group": "@variable",
 			"desc": " Files",
-			"action": "lua require('fzf-lua').files()",
+			"action": "FzfLua files",
 			"key": "f"
 		},
 		{
@@ -22,7 +22,7 @@
 			"group": "@variable",
 			"desc": " Words",
 			"icon_hl": "todofghack",
-			"action": "lua require('fzf-lua').live_grep()",
+			"action": "FzfLua live_grep",
 			"key": "w"
 		},
 		{
@@ -30,7 +30,7 @@
 			"group": "@variable",
 			"desc": " Keys",
 			"icon_hl": "deviconterminal",
-			"action": "lua require('fzf-lua').keymaps()",
+			"action": "FzfLua keymaps",
 			"key": "b"
 		},
 		{

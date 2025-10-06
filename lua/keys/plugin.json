@@ -330,6 +330,21 @@
 	"fzf_lua": [
 		["<leader>ff", "<cmd>FzfLua files<CR>", { "desc": "Find files" }],
 		["<leader>f`", "<cmd>FzfLua marks<CR>", { "desc": "Find marks" }],
+		[
+			"<leader>fd",
+			"<cmd>FzfLua diagnostics_document<CR>",
+			{ "desc": "Find help documentation" }
+		],
+		[
+			"<leader>fh",
+			"<cmd>FzfLua helptags<CR>",
+			{ "desc": "Find help documentation" }
+		],
+		[
+			"<leader>fg",
+			"<cmd>FzfLua git_bcommits<CR>",
+			{ "desc": "Find buffer git commits" }
+		],
 		["<leader>fw", "<cmd>FzfLua live_grep<CR>", { "desc": "Find word" }],
 		["<leader>fk", "<cmd>FzfLua keymaps<CR>", { "desc": "Find keymaps" }],
 		["<leader>fo", "<cmd>FzfLua oldfiles<CR>", { "desc": "Find oldfiles" }],
