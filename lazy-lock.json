@@ -15,6 +15,14 @@
 		"branch": "master",
 		"commit": "e300259ec777a40b4b9e3c8e6ade203e78d15881"
 	},
+	"blink-cmp-dictionary": {
+		"branch": "master",
+		"commit": "43b701fe9728a704bc63e4667c5d8b398bf129b2"
+	},
+	"blink-cmp-git": {
+		"branch": "master",
+		"commit": "226b269a50b5ece2ed95933b8d62f103f5d6a05d"
+	},
 	"blink-copilot": {
 		"branch": "main",
 		"commit": "5d35fd07fcc148be20442da1bdd2407e03263d7d"

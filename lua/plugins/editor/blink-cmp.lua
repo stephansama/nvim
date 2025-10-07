@@ -22,13 +22,37 @@ local opts = {
 	},
 	snippets = { preset = "luasnip" },
 	sources = {
-		default = { "copilot", "lsp", "path", "snippets", "buffer" },
+		default = {
+			"copilot",
+			"dictionary",
+			"git",
+			"lsp",
+			"path",
+			"snippets",
+			"buffer",
+		},
 		providers = {
 			copilot = {
 				name = "copilot",
 				module = "blink-copilot",
 				score_offset = 100,
 				async = true,
+			},
+			dictionary = {
+				module = "blink-cmp-dictionary",
+				name = "dictionary",
+				min_keyword_length = 3,
+				opts = {
+					dictionary_files = nil,
+					dictionary_directories = {
+						require("config.constants").DICTIONARY_DIR,
+					},
+				},
+			},
+			git = {
+				module = "blink-cmp-git",
+				name = "Git",
+				opts = {},
 			},
 		},
 	},
@@ -48,12 +72,20 @@ return {
 	version = "1.*",
 	opts = opts,
 	opts_extend = { "sources.default" },
-	dependencies = { "fang2hou/blink-copilot", {
-		"windwp/nvim-autopairs",
-		config = true,
-		opts = {
-			fast_wrap = {},
-			disable_filetype = { "vim" },
+	dependencies = {
+		{ "fang2hou/blink-copilot" },
+		{ "Kaiser-Yang/blink-cmp-git" },
+		{
+			"Kaiser-Yang/blink-cmp-dictionary",
+			dependencies = { "nvim-lua/plenary.nvim" },
 		},
-	} },
+		{
+			"windwp/nvim-autopairs",
+			config = true,
+			opts = {
+				fast_wrap = {},
+				disable_filetype = { "vim" },
+			},
+		},
+	},
 }

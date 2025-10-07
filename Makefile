@@ -1,5 +1,8 @@
 MISE = if [ -f /tmp/mise.sh ]; then . /tmp/mise.sh; fi;
 
+generate-dictionary:
+	curl -L -o ./dictionary/words.txt https://github.com/dwyl/english-words/raw/refs/heads/master/words.txt
+
 install:
 	$(MISE) pnpm install
 
