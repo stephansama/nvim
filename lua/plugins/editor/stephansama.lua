@@ -26,7 +26,6 @@ vim.keymap.set("i", "<C-i>", insert_fzf_nerdfont, {
 
 return { {
 	"stephansama/fzf-nerdfont.nvim",
-	dir = vim.fn.expand("$CODE") .. "/nvim-plugins/fzf-nerdfont.nvim",
 	cmd = "FzfNerdfont",
 	keys = keys.fzf_nerdfont,
 }, {
