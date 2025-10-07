@@ -1,7 +1,6 @@
 **/*schema.json
 **/*schema.lua
 *import.lua
-lazy-lock.json
 lua/config/constants.lua
 lua/icons/*.lua
 lua/keys/*.lua
