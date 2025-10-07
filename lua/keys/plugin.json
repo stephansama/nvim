@@ -315,6 +315,7 @@
 			{ "desc": "Open leet.nvim readme" }
 		]
 	],
+	"fzf_nerdfont": [["<leader>fi", "<cmd>FzfNerdfont<CR>"]],
 	"fzf_tmux_runner": [
 		[
 			"<leader>fm",
