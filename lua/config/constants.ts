@@ -3,10 +3,10 @@ export const PACKAGE_JSON_URL = `https://www.npmjs.com/package/`;
 export const LEADER = " ";
 
 export const HOME = os.getenv("HOME");
-export const NVIM_APPNAME = os.getenv("NVIM_APPNAME") || "nvim";
+export const NVIM_CONFIG_DIR = vim.fn.stdpath("config");
 
+export const DICTIONARY_DIR = NVIM_CONFIG_DIR + "/dictionary";
 export const SNIPPETS_DIR = "./snippets/";
-export const NVIM_CONFIG_DIR = HOME + "/.config/" + NVIM_APPNAME;
 export const ASCII_DIR = NVIM_CONFIG_DIR + "/images/";
 export const PLUGIN_LANG_DIR = NVIM_CONFIG_DIR + "/lua/plugins/lang/";
 export const TREESITTER_PARSER_INSTALL_DIR = HOME + "/.local/share/treesitter";
