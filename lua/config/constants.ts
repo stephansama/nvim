@@ -70,6 +70,21 @@ export const COMMENT_FILETYPES = [
 	"typescriptreact",
 ];
 
+export const BLINK_GIT_CMP_FILETYPES = ["octo", "gitcommit", "markdown"];
+
+export const BLINK_DICTIONARY_FILETYPES = [
+	"gitcommit",
+	"markdown",
+	"note",
+	"pandoc",
+	"rmd",
+	"rst",
+	"scratch",
+	"tex",
+	"text",
+	"txt",
+];
+
 export const VIM_FT_FILENAMES = {
 	[".env.example"]: "sh",
 	[".env.local"]: "sh",

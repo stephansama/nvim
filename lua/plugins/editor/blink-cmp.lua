@@ -1,3 +1,4 @@
+local constants = require("config.constants")
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
 local opts = {
@@ -40,19 +41,31 @@ local opts = {
 			},
 			dictionary = {
 				module = "blink-cmp-dictionary",
-				name = "dictionary",
 				min_keyword_length = 3,
+				name = "dictionary",
 				opts = {
 					dictionary_files = nil,
 					dictionary_directories = {
 						require("config.constants").DICTIONARY_DIR,
 					},
 				},
+				enabled = function()
+					return vim.tbl_contains(
+						constants.BLINK_DICTIONARY_FILETYPES,
+						vim.bo.filetype
+					)
+				end,
 			},
 			git = {
 				module = "blink-cmp-git",
 				name = "Git",
 				opts = {},
+				enabled = function()
+					return vim.tbl_contains(
+						constants.BLINK_GIT_CMP_FILETYPES,
+						vim.bo.filetype
+					)
+				end,
 			},
 		},
 	},
