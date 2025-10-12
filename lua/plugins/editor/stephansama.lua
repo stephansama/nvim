@@ -1,19 +1,5 @@
 local keys = require("keys.plugin")
 
-local fzf_tmux_mise_or_make = function()
-	if vim.fn.filereadable("mise.toml") == 1 then
-		vim.cmd([[FzfTmuxMise]])
-	elseif vim.fn.filereadable("Makefile") == 1 then
-		vim.cmd([[FzfTmuxMake]])
-	else
-		vim.notify([[No mise.toml or Makefile found]], vim.log.levels.WARN)
-	end
-end
-
-vim.api.nvim_create_user_command("FzfTmuxMiseOrMake", fzf_tmux_mise_or_make, {
-	nargs = 0,
-})
-
 local insert_fzf_nerdfont = function()
 	vim.cmd("stopinsert")
 	vim.cmd("FzfNerdfont")
@@ -28,6 +14,7 @@ return { {
 	"stephansama/fzf-nerdfont.nvim",
 	cmd = "FzfNerdfont",
 	keys = keys.fzf_nerdfont,
+	config = true,
 }, {
 	"stephansama/stow.nvim",
 	cmd = "Stow",
@@ -35,9 +22,14 @@ return { {
 	config = true,
 }, {
 	"stephansama/fzf-tmux-runner.nvim",
-	cmd = { "FzfTmuxMake", "FzfTmuxMise", "FzfTmuxPackageJson" },
-	keys = keys.fzf_tmux_runner,
 	config = true,
+	keys = keys.fzf_tmux_runner,
+	cmd = {
+		"FzfTmuxMiseOrMake",
+		"FzfTmuxMise",
+		"FzfTmuxMake",
+		"FzfTmuxPackageJson",
+	},
 	---@module "fzf-tmux-runner"
 	---@type FzfTmuxRunnerOpts
 	opts = {
