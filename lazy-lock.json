@@ -61,7 +61,7 @@
 	},
 	"fzf-nerdfont.nvim": {
 		"branch": "main",
-		"commit": "d27ba448f151366dd9c1aa26f578ce2f6afc7348"
+		"commit": "c76520a3637ed7cbd820fddb941c6e74a2c1427a"
 	},
 	"fzf-tmux-runner.nvim": {
 		"branch": "main",
@@ -133,7 +133,7 @@
 	},
 	"neotest": {
 		"branch": "master",
-		"commit": "2cf3544fb55cdd428a9a1b7154aea9c9823426e8"
+		"commit": "7166dc36af2760a76479e021e0521e23f62165f1"
 	},
 	"neotest-playwright": {
 		"branch": "master",
@@ -249,7 +249,7 @@
 	},
 	"sidekick.nvim": {
 		"branch": "main",
-		"commit": "f5553798f33139a24340bbebc30725350ba12c1e"
+		"commit": "cebcd4415dc73e3713162e4ea317a6e91312f1a8"
 	},
 	"statuscol.nvim": {
 		"branch": "main",

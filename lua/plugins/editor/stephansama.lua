@@ -15,6 +15,9 @@ return { {
 	cmd = "FzfNerdfont",
 	keys = keys.fzf_nerdfont,
 	config = true,
+	---@module "fzf-nerdfont"
+	---@type FzfNerdFontOpts
+	opts = {},
 }, {
 	"stephansama/stow.nvim",
 	cmd = "Stow",
