@@ -105,7 +105,7 @@
 				"language": [
 					"vue"
 				],
-				"path": "./vue/vue.json"
+				"path": "./js/vue.json"
 			}
 		]
 	}
