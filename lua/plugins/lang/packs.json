@@ -99,7 +99,7 @@
 	"lua": {
 		"mason": ["luacheck", "stylua", "lua-language-server"],
 		"linters": { "lua": ["luacheck"] },
-		"formatters": { "lua": ["stylua", "prettier"] },
+		"formatters": { "lua": ["prettier", "stylua"] },
 		"servers": ["lua_ls"],
 		"treesitter": ["lua", "luadoc"]
 	},
@@ -115,6 +115,7 @@
 		"mason": [
 			"astro-language-server",
 			"cssmodules-language-server",
+			"unocss-language-server",
 			"emmet-language-server",
 			"eslint-lsp",
 			"html-lsp",
@@ -137,6 +138,7 @@
 			"cssmodules_ls",
 			"emmet_language_server",
 			"html",
+			"unocss",
 			"stylelint_lsp",
 			"svelte",
 			"tailwindcss",
@@ -151,6 +153,7 @@
 			"typescript": ["eslint"]
 		},
 		"formatters": {
+			"handlebars": ["prettier"],
 			"css": ["prettier"],
 			"vue": ["prettier"],
 			"html": ["prettier"],
