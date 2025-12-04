@@ -19,6 +19,7 @@ export function getLocalTailwindSettings(this: void) {
 	for (const [key, value] of Object.entries(vscodeSettings)) {
 		if (!key.startsWith("tailwindCSS")) continue;
 
+		// eslint-disable-next-line
 		let current: Record<string, any> = twSettings;
 		const sections = key.split(".");
 
@@ -42,7 +43,7 @@ export function getLocalTailwindSettings(this: void) {
 function safeDecode(this: void, str: string) {
 	try {
 		return vim.json.decode(str);
-	} catch (e) {
+	} catch {
 		return false;
 	}
 }

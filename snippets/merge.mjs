@@ -12,6 +12,7 @@ const rlInterface = rl.createInterface({ input, output });
 try {
 	cp.execSync(sh` which degit `);
 } catch (e) {
+	console.error(e);
 	/** please install [degit](https://github.com/Rich-Harris/degit) */
 	console.error("degit is not installed");
 	console.error("please install degit");

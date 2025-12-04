@@ -7,6 +7,7 @@
 		"prebuild": "pnpm run prepare:schema",
 		"build": "tstl",
 		"dev": "tstl --watch",
+		"lint": "eslint .",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
 		"build:schema": "node ./lua/schemas/build.mjs",
@@ -25,8 +26,13 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
+		"@eslint/js": "^9.39.1",
+		"@eslint/json": "^0.14.0",
+		"@eslint/markdown": "^7.5.1",
 		"@gkzhb/lua-types-nvim": "^0.0.7",
 		"@prettier/plugin-lua": "^0.0.3",
+		"eslint": "^9.39.1",
+		"globals": "^16.5.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.6",
 		"lua-types": "^2.13.1",
@@ -34,6 +40,7 @@
 		"prettier-plugin-organize-imports": "^4.2.0",
 		"prettier-plugin-sort-package-json": "^1.1.0",
 		"typescript": "^5.8.2",
+		"typescript-eslint": "^8.48.1",
 		"typescript-to-lua": "^1.32.0",
 		"zod": "^4.1.5"
 	},
@@ -43,6 +50,9 @@
 		]
 	},
 	"lint-staged": {
-		"*": "prettier --write"
+		"*": [
+			"prettier --write",
+			"eslint ."
+		]
 	}
 }
