@@ -7,7 +7,6 @@ declare global {
 	interface KeymapOpts {
 		desc?: string;
 		noremap?: boolean;
-		callback?: Function;
 		replace_keycodes?: boolean;
 	}
 
@@ -17,14 +16,14 @@ declare global {
 			this: void,
 			modes: string | string[],
 			lhs: string,
-			rhs: string | Function,
+			rhs: string,
 			opts?: KeymapOpts,
 		) => void;
 		set: (
 			this: void,
 			modes: string | string[],
 			lhs: string,
-			rhs: string | Function,
+			rhs: string,
 			opts?: KeymapOpts,
 		) => void;
 	}

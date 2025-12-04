@@ -39,7 +39,10 @@
 		"treesitter": ["python"]
 	},
 	"data": {
-		"linters": { "json": ["jsonlint"] },
+		"linters": {
+			"json": ["jsonlint", "eslint"],
+			"yaml": ["yamllint", "eslint"]
+		},
 		"servers": ["sqls", "taplo", "yamlls", "jsonls", "graphql", "lemminx"],
 		"mason": [
 			"json-lsp",

@@ -5,14 +5,16 @@ import * as fsp from "node:fs/promises";
 import * as os from "node:os";
 import * as path from "node:path";
 
-const output = path.resolve("./bloat.json");
+const homedir = os.homedir();
+
+const output = path.join(homedir, "bloat.json");
 
 if (fs.existsSync(output)) {
 	console.info("output file already exists");
 	process.exit(0);
 }
 
-const bloatFn = path.join(os.homedir(), "nvim-bloat-analysis.json");
+const bloatFn = path.join(homedir, "nvim-bloat-analysis.json");
 
 const bloat = await fsp.readFile(bloatFn, { encoding: "utf8" });
 
