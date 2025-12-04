@@ -6,6 +6,7 @@
 	"scripts": {
 		"prebuild": "pnpm run prepare:schema",
 		"build": "tstl",
+		"build:bloat": "node ./lua/plugins/debug/bloat.js",
 		"dev": "tstl --watch",
 		"lint": "eslint .",
 		"fmt:check": "prettier . --check",
