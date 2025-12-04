@@ -33,6 +33,7 @@
 		"@gkzhb/lua-types-nvim": "^0.0.7",
 		"@prettier/plugin-lua": "^0.0.3",
 		"eslint": "^9.39.1",
+		"eslint-plugin-import-zod": "^1.2.1",
 		"globals": "^16.5.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.6",

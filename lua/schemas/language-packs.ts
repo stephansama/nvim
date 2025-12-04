@@ -1,4 +1,4 @@
-import z from "zod";
+import * as z from "zod";
 
 const languageSchema = z.object({
 	formatters: z.record(z.string(), z.string().array()).meta({

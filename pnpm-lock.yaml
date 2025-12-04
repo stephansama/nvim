@@ -32,6 +32,9 @@ importers:
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.5.1)
+      eslint-plugin-import-zod:
+        specifier: ^1.2.1
+        version: 1.2.1(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.5.1))(typescript@5.8.2))(eslint@9.39.1(jiti@2.5.1))
       globals:
         specifier: ^16.5.0
         version: 16.5.0
@@ -511,6 +514,13 @@ packages:
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
+
+  eslint-plugin-import-zod@1.2.1:
+    resolution: {integrity: sha512-L730PghjZLrg6nwAKPtQ7smOIOxE0A/KbnCN7ywIkIWy8HJ9CDdMQyxjyyMcX1tzFJtF6/raLR/pMJD3tx0yYA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@typescript-eslint/utils': ^8.35.1
+      eslint: '>=9'
 
   eslint-scope@8.4.0:
     resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
@@ -1805,6 +1815,11 @@ snapshots:
   escape-string-regexp@4.0.0: {}
 
   escape-string-regexp@5.0.0: {}
+
+  eslint-plugin-import-zod@1.2.1(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.5.1))(typescript@5.8.2))(eslint@9.39.1(jiti@2.5.1)):
+    dependencies:
+      '@typescript-eslint/utils': 8.48.1(eslint@9.39.1(jiti@2.5.1))(typescript@5.8.2)
+      eslint: 9.39.1(jiti@2.5.1)
 
   eslint-scope@8.4.0:
     dependencies:

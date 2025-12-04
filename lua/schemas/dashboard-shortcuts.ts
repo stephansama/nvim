@@ -1,4 +1,4 @@
-import z from "zod";
+import * as z from "zod";
 
 /** @see https://github.com/nvimdev/dashboard-nvim?tab=readme-ov-file#example-config */
 
