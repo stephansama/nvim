@@ -181,3 +181,24 @@ export const EMMET_FILETYPES = [
 	"javascriptreact",
 	"typescriptreact",
 ];
+
+export const PRETTIER_ROOT_CONFIG = [
+	".prettierrc",
+	".prettierrc.json",
+	".prettierrc.json5",
+	".prettierrc.toml",
+	".prettierrc.yaml",
+	".prettierrc.yml",
+	".prettierrc.ts",
+	".prettierrc.cts",
+	".prettierrc.mts",
+	".prettierrc.js",
+	".prettierrc.cjs",
+	".prettierrc.mjs",
+	"prettier.config.ts",
+	"prettier.config.cts",
+	"prettier.config.mts",
+	"prettier.config.js",
+	"prettier.config.cjs",
+	"prettier.config.mjs",
+];
