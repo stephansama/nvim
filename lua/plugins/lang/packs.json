@@ -41,9 +41,10 @@
 	"data": {
 		"linters": {
 			"json": ["jsonlint", "eslint"],
-			"yaml": ["yamllint", "eslint"]
+			"yaml": ["yamllint", "eslint"],
+			"toml": ["tombi"]
 		},
-		"servers": ["sqls", "taplo", "yamlls", "jsonls", "graphql", "lemminx"],
+		"servers": ["sqls", "tombi", "yamlls", "jsonls", "graphql", "lemminx"],
 		"mason": [
 			"json-lsp",
 			"jsonlint",
@@ -58,8 +59,8 @@
 		"formatters": {
 			"jsonc": ["prettier"],
 			"json": ["prettier"],
-			"toml": ["taplo"],
 			"yaml": ["prettier", "yamlfmt"],
+			"toml": ["tombi"],
 			"sql": ["sql_formatter"],
 			"xml": ["xmlformatter"]
 		},

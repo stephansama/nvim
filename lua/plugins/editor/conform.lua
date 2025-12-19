@@ -27,6 +27,7 @@ return {
 						constants.PRETTIER_ROOT_CONFIG
 					),
 				},
+				oxfmt = { command = "./node_modules/.bin/oxfmt" },
 			},
 		}
 	end,
