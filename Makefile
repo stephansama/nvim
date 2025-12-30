@@ -5,7 +5,8 @@ generate-dictionary:
 
 generate-bloat:
 	nvim --version | head -n 1
-	nvim --headless -u ./init.lua \
+	XDG_CONFIG_HOME=$PWD \
+	nvim --headless \
 		+"Bloat bloat.json" \
 		+qa
 
