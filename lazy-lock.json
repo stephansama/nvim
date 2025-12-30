@@ -243,10 +243,6 @@
 		"branch": "main",
 		"commit": "94811c560072352963eac1db5b7bac3610829084"
 	},
-	"streamer-mode.nvim": {
-		"branch": "main",
-		"commit": "b782d823f5796513f5e1db6c69cf683beadbdf99"
-	},
 	"todo-comments.nvim": {
 		"branch": "main",
 		"commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668"
