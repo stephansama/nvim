@@ -1,23 +1,10 @@
 local keys = require("keys.plugin")
 
-local insert_fzf_nerdfont = function()
-	vim.cmd("stopinsert")
-	vim.cmd("FzfNerdfont")
-end
-
-vim.keymap.set("i", "<C-i>", insert_fzf_nerdfont, {
-	noremap = true,
-	silent = true,
-})
-
 return { {
 	"stephansama/fzf-nerdfont.nvim",
 	cmd = "FzfNerdfont",
 	keys = keys.fzf_nerdfont,
 	config = true,
-	---@module "fzf-nerdfont"
-	---@type FzfNerdFontOpts
-	opts = {},
 }, {
 	"stephansama/stow.nvim",
 	cmd = "Stow",

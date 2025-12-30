@@ -183,6 +183,7 @@ export const EMMET_FILETYPES = [
 ];
 
 export const PRETTIER_ROOT_CONFIG = [
+	"package.json",
 	".prettierrc",
 	".prettierrc.json",
 	".prettierrc.json5",

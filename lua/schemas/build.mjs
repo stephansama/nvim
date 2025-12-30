@@ -64,13 +64,14 @@ async function createPossiblePluginsFile() {
 		.map((file) => file.replace("lua/plugins/", ""))
 		.filter((f) => !excluded.some((m) => path.basename(f) === m))
 		.map((file) => {
-			return file
-				.replace(".lua", "")
-				.replace(/\//g, ".")
-				.replace(".init", "");
+			return file.replace(".lua", "").replace(/\//g, ".");
+			// .replace(".init", "");
 		})
 		// remove root plugins.init file
 		.filter((file) => file !== "init")
+		.flatMap((file) =>
+			file.includes("init") ? [file.replace(".init", ""), file] : [file],
+		)
 		.map((file) => [file, []]);
 
 	await fsp.writeFile(

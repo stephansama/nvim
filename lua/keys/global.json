@@ -4,6 +4,8 @@
 		"-": ["<cmd>Ex<CR>", "Open netrw"],
 		"o": ["o<ESC>zz"],
 		"O": ["O<ESC>zz"],
+		"<TAB>": ["<cmd>bnext<CR>"],
+		"<S-TAB>": ["<cmd>bprev<CR>"],
 		"K": ["<cmd>LspHover<CR>", "LSP Hover"],
 		"gd": ["<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"],
 		"<leader>gu": ["<cmd>GoToGitRoot<CR>", "Go to next nearest git root"],

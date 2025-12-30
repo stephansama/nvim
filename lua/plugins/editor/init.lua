@@ -35,14 +35,6 @@ return { { "artemave/workspace-diagnostics.nvim" }, {
 	config = true,
 	keys = keys.gh_navigator,
 }, {
-	"mg979/vim-visual-multi",
-	lazy = false,
-	init = function()
-		vim.g.VM_leader = "<BS>"
-		vim.keymap.set("n", "<A-j>", "<Plug>(VM-Add-Cursor-Down)") -- ∆ macOS specific
-		vim.keymap.set("n", "<A-k>", "<Plug>(VM-Add-Cursor-Up)") -- ˚ macOS equivalent
-	end,
-}, {
 	"mbbill/undotree",
 	keys = keys.undotree,
 	config = function()

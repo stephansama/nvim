@@ -11,7 +11,7 @@ return { {
 	opts = { enable_autocmd = false },
 	config = true,
 }, {
-	"vuki656/package-info.nvim",
+	"stephansama/package-info.nvim",
 	dependencies = "MunifTanjim/nui.nvim",
 	config = true,
 	lazy = false,
