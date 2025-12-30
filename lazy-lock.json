@@ -23,6 +23,10 @@
 		"branch": "main",
 		"commit": "b19413d214068f316c78978b08264ed1c41830ec"
 	},
+	"bloat.nvim": {
+		"branch": "master",
+		"commit": "f90bef655ac40fecbaae53e10db1cf7894d090b1"
+	},
 	"catppuccin": {
 		"branch": "main",
 		"commit": "ce8d176faa4643e026e597ae3c31db59b63cef09"
