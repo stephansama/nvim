@@ -3,6 +3,13 @@ MISE = if [ -f /tmp/mise.sh ]; then . /tmp/mise.sh; fi;
 generate-dictionary:
 	curl -L -o ./dictionary/words.txt https://github.com/dwyl/english-words/raw/refs/heads/master/words.txt
 
+generate-bloat:
+	nvim --version | head -n 1
+	XDG_CONFIG_HOME=$PWD \
+	nvim --headless \
+		+"Bloat bloat.json" \
+		+qa
+
 install:
 	$(MISE) pnpm install
 
