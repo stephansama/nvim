@@ -147,7 +147,7 @@
 			"svelte",
 			"tailwindcss",
 			"vue_ls",
-			"vtsls"
+			"tsgo"
 		],
 		"linters": {
 			"astro": ["eslint"],

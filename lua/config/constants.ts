@@ -1,4 +1,4 @@
-export const PACKAGE_JSON_URL = `https://www.npmjs.com/package/`;
+export const PACKAGE_JSON_URL = `https://www.npmx.dev/package/`;
 
 export const LEADER = " ";
 
