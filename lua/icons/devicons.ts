@@ -47,7 +47,8 @@ const icons = {
 	javascript: { icon: "󰌞", color: "#F7DF1E", name: "javascript" },
 	test_js: { icon: "", color: "#F7DF1E", name: "test_javascript" },
 	test_ts: { icon: "", color: "#3178C6", name: "test_typescript" },
-	unlighthouse: { icon: "󰧿", color: "#F44B21", name: "unlighthouse" },
+	lighthouse: { icon: "󰧿", color: "#F44B21", name: "lighthouse" },
+	unlighthouse: { icon: "󰧿", color: "#A286FC", name: "unlighthouse" },
 } satisfies DeviconMap;
 
 export const override_by_extension = {
@@ -120,6 +121,16 @@ export const override_by_filename = {
 	"auto.config.ts": icons.auto,
 	"auto.config.mjs": icons.auto,
 	"auto.config.mts": icons.auto,
+	".lighthouserc.js": icons.lighthouse,
+	"lighthouserc.js": icons.lighthouse,
+	".lighthouserc.cjs": icons.lighthouse,
+	"lighthouserc.cjs": icons.lighthouse,
+	".lighthouserc.json": icons.lighthouse,
+	"lighthouserc.json": icons.lighthouse,
+	".lighthouserc.yaml": icons.lighthouse,
+	"lighthouserc.yaml": icons.lighthouse,
+	".lighthouserc.yml": icons.lighthouse,
+	"lighthouserc.yml": icons.lighthouse,
 	".commitlintrc.cjs": icons.commitlint,
 	".commitlintrc.cts": icons.commitlint,
 	".commitlintrc.js": icons.commitlint,
