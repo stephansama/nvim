@@ -11,7 +11,7 @@ export const ASCII_DIR = NVIM_CONFIG_DIR + "/images/";
 export const PLUGIN_LANG_DIR = NVIM_CONFIG_DIR + "/lua/plugins/lang/";
 export const TREESITTER_PARSER_INSTALL_DIR = HOME + "/.local/share/treesitter";
 
-export const THEME = "catppuccin";
+export const THEME = "catppuccin-nvim";
 export const THEME_DARKMODE = "catppuccin-mocha";
 export const THEME_LIGHTMODE = "catppuccin-latte";
 

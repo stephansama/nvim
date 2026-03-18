@@ -36,6 +36,11 @@ M.is_package = function(text)
 		return false
 	end
 
+	--- catalog support (default + named catalogs)
+	if value:match("^catalog:.+") then
+		return true
+	end
+
 	local prefixes =
 		{ "beta", "canary", "catalog:", "latest", "next", "patches/" }
 
