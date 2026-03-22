@@ -1,0 +1,16 @@
+{
+	"plugins": [
+		"git-tag",
+		"conventional-commits",
+		[
+			"upload-assets",
+			{
+				"assets": ["./dist/bloat.json"]
+			}
+		]
+	],
+	"owner": "stephansama",
+	"repo": "nvim",
+	"name": "Stephan Randle",
+	"email": "stephanrandle@hotmail.com"
+}

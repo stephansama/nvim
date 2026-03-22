@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 
+import { findRoot } from "@manypkg/find-root";
 import * as fs from "node:fs";
 import * as fsp from "node:fs/promises";
-import * as os from "node:os";
 import * as path from "node:path";
 
-const homedir = os.homedir();
+const { rootDir } = await findRoot(process.cwd());
 
-const output = path.join(homedir, "bloat.json");
+const output = path.resolve(path.join(rootDir, "dist", "bloat.json"));
+const input = path.resolve(path.join(rootDir, "bloat.json"));
+
+await fsp.mkdir(path.dirname(output), { recursive: true });
 
 if (fs.existsSync(output)) {
 	console.info("output file already exists");
 	process.exit(0);
 }
 
-const bloatFn = path.join(homedir, "nvim-bloat-analysis.json");
-
-const bloat = await fsp.readFile(bloatFn, { encoding: "utf8" });
+const bloat = await fsp.readFile(input, { encoding: "utf8" });
 
 const bloatJson = JSON.parse(bloat);
 

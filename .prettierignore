@@ -2,6 +2,7 @@
 *.scm
 .gitignore
 .prettierignore
+.editorconfig
 Makefile
 commit-msg
 pnpm-lock.yaml
