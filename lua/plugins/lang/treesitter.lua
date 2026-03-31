@@ -14,21 +14,30 @@ return { {
 }, {
 	"nvim-treesitter/nvim-treesitter",
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+	branch = "main",
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
-	config = function(_, opts)
-		vim.opt.runtimepath:append(TREESITTER_PARSER_INSTALL_DIR)
-		require("nvim-treesitter.configs").setup(opts)
-		local parsers = lang.TREESITTER_PARSERS
-		local configs = require("nvim-treesitter.parsers").get_parser_configs()
-		configs = vim.tbl_deep_extend("force", configs, parsers)
+	config = function()
+		local treesitter = require("nvim-treesitter")
+		treesitter.setup()
+
+		vim.defer_fn(function()
+			treesitter.install(lang.TREESITTER):wait(300000)
+		end, 0)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = lang.TREESITTER,
+			callback = function()
+				vim.treesitter.start()
+			end,
+		})
 	end,
 	opts = {
 		highlight = { enable = true },
-		auto_install = false,
-		sync_install = false,
+		auto_install = true,
+		sync_install = true,
 		ensure_installed = lang.TREESITTER,
-		parser_install_dir = TREESITTER_PARSER_INSTALL_DIR,
+		install_dir = TREESITTER_PARSER_INSTALL_DIR,
 		incremental_selection = {
 			keymaps = keys.treesitter_incremental_selection,
 			enable = true,

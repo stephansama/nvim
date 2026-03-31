@@ -17,7 +17,7 @@ export const TREESITTER = mergeFlat(pullProperty("treesitter"));
 export const TREESITTER_PARSERS = mergeKV(pullProperty("treesitter_parser"));
 
 function mergeFlat<T>(this: void, arr: T[][]) {
-	const result = [];
+	const result = new Array<T>();
 
 	for (const list of arr) {
 		for (const elem of list) {

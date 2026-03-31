@@ -71,7 +71,6 @@
 			"toml",
 			"yaml",
 			"json",
-			"jsonc",
 			"json5",
 			"graphql"
 		]
@@ -146,27 +145,28 @@
 			"stylelint_lsp",
 			"svelte",
 			"tailwindcss",
-			"vue_ls",
-			"tsgo"
+			"tsgo",
+			"vtsls",
+			"vue_ls"
 		],
 		"linters": {
 			"astro": ["eslint"],
 			"css": ["stylelint"],
 			"html": ["htmlhint"],
-			"javascript": ["eslint"],
-			"typescript": ["eslint"]
+			"javascript": ["oxlint", "eslint"],
+			"typescript": ["oxlint", "eslint"]
 		},
 		"formatters": {
 			"handlebars": ["prettier"],
-			"css": ["prettier"],
-			"vue": ["prettier"],
-			"html": ["prettier"],
-			"astro": ["prettier"],
-			"svelte": ["prettier"],
-			"javascript": ["prettier"],
-			"typescript": ["prettier"],
-			"javascriptreact": ["prettier"],
-			"typescriptreact": ["prettier"]
+			"css": ["oxfmt", "prettier"],
+			"vue": ["oxfmt", "prettier"],
+			"html": ["oxfmt", "prettier"],
+			"astro": ["oxfmt", "prettier"],
+			"svelte": ["oxfmt", "prettier"],
+			"javascript": ["oxfmt", "prettier"],
+			"typescript": ["oxfmt", "prettier"],
+			"javascriptreact": ["oxfmt", "prettier"],
+			"typescriptreact": ["oxfmt", "prettier"]
 		},
 		"treesitter": [
 			"astro",
@@ -175,7 +175,6 @@
 			"http",
 			"javascript",
 			"jsdoc",
-			"robots",
 			"scss",
 			"svelte",
 			"tsx",
