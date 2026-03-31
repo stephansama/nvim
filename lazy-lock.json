@@ -61,7 +61,7 @@
 	},
 	"gitsigns.nvim": {
 		"branch": "main",
-		"commit": "50c205548d8b037b7ff6378fca6d21146f0b6161"
+		"commit": "8a796a440fde3eeed3f33aecce9dab863b2be218"
 	},
 	"grug-far.nvim": {
 		"branch": "main",
