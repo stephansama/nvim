@@ -17,13 +17,11 @@ return { {
 	branch = "main",
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
-	config = function()
+	config = function(_, opts)
 		local treesitter = require("nvim-treesitter")
-		treesitter.setup()
 
-		vim.defer_fn(function()
-			treesitter.install(lang.TREESITTER):wait(300000)
-		end, 0)
+		treesitter.setup(opts)
+		treesitter.install(lang.TREESITTER)
 
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = lang.TREESITTER,

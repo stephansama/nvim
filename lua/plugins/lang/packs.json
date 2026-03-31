@@ -31,6 +31,10 @@
 		"formatters": { "csharp": ["csharpier"] },
 		"treesitter": ["c_sharp"]
 	},
+	"polyglot": {
+		"mason": ["bacon", "bacon-ls"],
+		"servers": ["bacon_ls"]
+	},
 	"python": {
 		"mason": ["ruff", "basedpyright"],
 		"linters": { "python": ["ruff"] },
