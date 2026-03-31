@@ -134,6 +134,7 @@
 			"stylelint-lsp",
 			"svelte-language-server",
 			"tailwindcss-language-server",
+			"css-variables-language-server",
 			"typescript-language-server",
 			"vtsls",
 			"vue-language-server"
@@ -141,6 +142,7 @@
 		"servers": [
 			"astro",
 			"cssls",
+			"css_variables",
 			"eslint",
 			"cssmodules_ls",
 			"emmet_language_server",
