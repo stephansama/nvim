@@ -14,15 +14,17 @@ return { {
 }, {
 	"nvim-treesitter/nvim-treesitter",
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-	branch = "master",
+	branch = "main",
 	build = ":TSUpdate",
 	event = { "BufReadPost", "BufNewFile" },
-	config = function(_, opts)
-		vim.opt.runtimepath:append(TREESITTER_PARSER_INSTALL_DIR)
-		require("nvim-treesitter.configs").setup(opts)
-		local parsers = lang.TREESITTER_PARSERS
-		local configs = require("nvim-treesitter.parsers").get_parser_configs()
-		configs = vim.tbl_deep_extend("force", configs, parsers)
+	config = function()
+		local treesitter = require("nvim-treesitter")
+		treesitter.setup()
+		treesitter.install(lang.TREESITTER)
+
+		vim.api.nvim_create_autocmd("FileType", { callback = function(args)
+			pcall(vim.treesitter.start, args.buf)
+		end })
 	end,
 	opts = {
 		highlight = { enable = true },
