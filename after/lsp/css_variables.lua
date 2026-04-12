@@ -23,6 +23,3 @@ M.settings = {
 }
 
 return M
-
-
----

@@ -1,6 +1,6 @@
 require("config")
 
-_G.start_time = vim.loop.hrtime()
+_G.start_time = vim.uv.hrtime()
 
 require("vim._core.ui2").enable({
 	enable = true,

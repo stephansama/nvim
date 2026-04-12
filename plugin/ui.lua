@@ -160,7 +160,7 @@ vim.api.nvim_create_user_command(
 	{ nargs = 0 }
 )
 
-_G.loaded_time = vim.loop.hrtime()
+_G.loaded_time = vim.uv.hrtime()
 
 require("dashboard").setup({
 	theme = "hyper",
