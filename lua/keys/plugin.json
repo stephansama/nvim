@@ -33,6 +33,38 @@
 			{ "desc": "Focus sidekick", "mode": "n,x,i,t" }
 		]
 	],
+	"multicursor": [
+		[
+			"<up>",
+			"<cmd>lua require('multicursor-nvim').lineAddCursor(-1)<CR>",
+			{ "desc": "Add multicursor up", "mode": "n,x" }
+		],
+		[
+			"<down>",
+			"<cmd>lua require('multicursor-nvim').lineAddCursor(1)<CR>",
+			{ "desc": "Add multicursor up", "mode": "n,x" }
+		],
+		[
+			"<leader>cn",
+			"<cmd>lua require('multicursor-nvim').matchAddCursor(1)<CR>",
+			{ "desc": "Match multicursor next", "mode": "n,x" }
+		],
+		[
+			"<leader>cN",
+			"<cmd>lua require('multicursor-nvim').matchAddCursor(-1)<CR>",
+			{ "desc": "Match multicursor prev", "mode": "n,x" }
+		],
+		[
+			"<leader>cs",
+			"<cmd>lua require('multicursor-nvim').matchSkipCursor(1)<CR>",
+			{ "desc": "skip multicursor next", "mode": "n,x" }
+		],
+		[
+			"<leader>cS",
+			"<cmd>lua require('multicursor-nvim').matchSkipCursor(-1)<CR>",
+			{ "desc": "skip multicursor prev", "mode": "n,x" }
+		]
+	],
 	"stow": [
 		["<leader>sr", "<cmd>Stow remove<CR>", "Remove stow configuration"],
 		["<leader>sa", "<cmd>Stow reapply<CR>", "Reapply stow configuration"]
