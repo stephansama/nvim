@@ -1,21 +1,58 @@
 {
 	"$schema": "../schemas/plugin-keymap.json",
 	"undotree": [
-		["<leader>u", "<CMD>UndotreeToggle<CR>", { "desc": "UndotreeToggle" }]
+		["<leader>u", "<cmd>UndotreeToggle<CR>", { "desc": "UndotreeToggle" }]
 	],
-	"stow": [
-		["<leader>sr", "<cmd>Stow remove<CR>", "Remove stow configuration"],
-		["<leader>sa", "<cmd>Stow reapply<CR>", "Reapply stow configuration"]
-	],
-	"noice": [
-		["<leader>na", "<cmd>NoiceAll<CR>", { "desc": "Open noice log history" }],
-		["<leader>nl", "<cmd>NoiceLast<CR>", { "desc": "Open last noice log" }]
-	],
-	"neogen": [
+	"multicursors": [
+		["<up>", "<cmd>lua require(\"multicursor-nvim\").lineAddCursor(-1)<CR>"],
 		[
-			"<leader>cg",
-			"<cmd>lua require(\"neogen\").generate()<CR>",
-			{ "desc": "Generate comment" }
+			"<leader><up>",
+			"<cmd>lua require(\"multicursor-nvim\").lineSkipCursor(-1)<CR>"
+		],
+		["<down>", "<cmd>lua require(\"multicursor-nvim\").lineAddCursor(1)<CR>"],
+		[
+			"<leader><down>",
+			"<cmd>lua require(\"multicursor-nvim\").lineSkipCursor(1)<CR>"
+		],
+		[
+			"<leader>cn",
+			"<cmd>lua require(\"multicursor-nvim\").matchAddCursor(1)<CR>"
+		],
+		[
+			"<leader>cN",
+			"<cmd>lua require(\"multicursor-nvim\").matchAddCursor(-1)<CR>"
+		],
+		[
+			"<leader>cs",
+			"<cmd>lua require(\"multicursor-nvim\").matchSkipCursor(1)<CR>"
+		],
+		[
+			"<leader>cS",
+			"<cmd>lua require(\"multicursor-nvim\").matchSkipCursor(-1)<CR>"
+		]
+	],
+	"sidekick": [
+		["<leader>aa", "<cmd>Sidekick cli toggle<CR>"],
+		[
+			"<C-.>",
+			"<cmd>Sidekick cli focus<CR>",
+			{ "desc": "Sidekick Switch Focus", "mode": "n,x,i,t" }
+		],
+		[
+			"<leader>ap",
+			"<cmd>Sidekick cli prompt<CR>",
+			{ "desc": "Sidekick Select Prompt", "mode": "n,x" }
+		],
+		["<leader>as", "<cmd>Sidekick cli select<CR>"],
+		[
+			"<leader>at",
+			"<cmd>lua require(\"sidekick.cli\").send({ msg = \"{this}\" })<CR>",
+			{ "desc": "Send This", "mode": "n,x" }
+		],
+		[
+			"<leader>av",
+			"<cmd>lua require(\"sidekick.cli\").send({ msg = \"{selection}\" })<CR>",
+			{ "desc": "Send Visual Selection", "mode": "x" }
 		]
 	],
 	"neotest": [
@@ -38,56 +75,6 @@
 			"<leader>rp",
 			"<cmd>Neotest output-panel<CR>",
 			{ "desc": "Open Neotest output-panel" }
-		]
-	],
-	"project": [
-		["<leader>fr", "<cmd>ProjectFzf<CR>", { "desc": "Find recent projects" }]
-	],
-	"gitsigns": [
-		[
-			"[h",
-			"<cmd>lua require('gitsigns').prev_hunk()<CR>",
-			{ "desc": "Git prev hunk" }
-		],
-		[
-			"]h",
-			"<cmd>lua require('gitsigns').next_hunk()<CR>",
-			{ "desc": "Git next hunk" }
-		],
-		[
-			"<leader>gr",
-			"<cmd>lua require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })<CR>",
-			{ "desc": "Git reset hunk", "buffer": true }
-		],
-		[
-			"<leader>hd",
-			"<cmd>lua require('gitsigns').diffthis()<CR>",
-			{ "desc": "Git diffthis" }
-		],
-		[
-			"<leader>hs",
-			"<cmd>lua require('gitsigns').stage_hunk()<CR>",
-			{ "desc": "Git stage hunk" }
-		],
-		[
-			"<leader>hS",
-			"<cmd>lua require('gitsigns').stage_buffer()<CR>",
-			{ "desc": "Git stage buffer" }
-		],
-		[
-			"<leader>hu",
-			"<cmd>lua require('gitsigns').undo_stage_hunk()<CR>",
-			{ "desc": "Git undo stage hunk" }
-		],
-		[
-			"<leader>hb",
-			"<cmd>lua require('gitsigns').blame_line({ full = true })<CR>",
-			{ "desc": "Git blame line" }
-		],
-		[
-			"<leader>gp",
-			"<cmd>lua require('gitsigns').preview_hunk()<CR>",
-			{ "desc": "Git preview hunk" }
 		]
 	],
 	"neo_tree": [
@@ -179,34 +166,6 @@
 			{ "desc": "Toggle live server" }
 		]
 	],
-	"grug_far_internal": {
-		"replace": { "n": "<localleader>r" },
-		"qflist": { "n": "<localleader>q" },
-		"syncLocations": { "n": "<localleader>s" },
-		"syncLine": { "n": "<localleader>l" },
-		"close": { "n": "<localleader>c" },
-		"historyOpen": { "n": "<localleader>t" },
-		"historyAdd": { "n": "<localleader>a" },
-		"refresh": { "n": "<localleader>f" },
-		"openLocation": { "n": "<localleader>o" },
-		"openNextLocation": { "n": "<down>" },
-		"openPrevLocation": { "n": "<up>" },
-		"gotoLocation": { "n": "<enter>" },
-		"pickHistoryEntry": { "n": "<enter>" },
-		"abort": { "n": "<localleader>b" },
-		"help": { "n": "g?" },
-		"toggleShowCommand": { "n": "<localleader>w" },
-		"swapEngine": { "n": "<localleader>e" },
-		"previewLocation": { "n": "<localleader>i" },
-		"swapReplacementInterpreter": { "n": "<localleader>x" },
-		"applyNext": { "n": "<localleader>j" },
-		"applyPrev": { "n": "<localleader>k" },
-		"syncNext": { "n": "<localleader>n" },
-		"syncPrev": { "n": "<localleader>p" },
-		"syncFile": { "n": "<localleader>v" },
-		"nextInput": { "n": "<tab>" },
-		"prevInput": { "n": "<s-tab>" }
-	},
 	"grug_far": [
 		[
 			"<leader>S",
@@ -349,11 +308,5 @@
 		["<leader>la", "<cmd>Laravel artisan<cr>"],
 		["<leader>lr", "<cmd>Laravel routes<cr>"],
 		["<leader>lt", "<cmd>Laravel related<cr>"]
-	],
-	"ufo": {
-		"scrollU": "<C-u>",
-		"scrollD": "<C-d>",
-		"jumpTop": "[",
-		"jumpBot": "]"
-	}
+	]
 }
