@@ -131,16 +131,15 @@ local function luasnip_config(_, opts)
 		paths = { require("config.constants").SNIPPETS_DIR },
 	})
 
-	local vscode_folder = "./.vscode/"
+	local vscode_folder = vim.fn.getcwd() .. "/.vscode/"
 
-	if vim.fn.isdirectory(vscode_folder) then
+	if vim.fn.isdirectory(vscode_folder) == 1 then
 		local dir = vim.fn.readdir(vscode_folder)
 		if #dir > 0 then
 			for _, filename in ipairs(dir) do
 				if filename:match("%.code%-snippets$") then
 					from_vscode.load_standalone({
 						path = vscode_folder .. filename,
-						override_priority = true,
 					})
 				end
 			end
