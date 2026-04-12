@@ -7,19 +7,19 @@ vim.pack.add({
 
 require("neotest").setup({
 	icons = require("icons").neotest,
-	adapters = { -- require("rustaceanvim.neotest"),
-	require("neotest-vitest")({ filter_dir = function(name, rel_path, root)
-		local full_path = root .. "/" .. rel_path
-
-		if root:match("srandle-blog") then
-			return full_path:match("__tests__") ~= nil
-		else
+	adapters = {
+		vim.tbl_contains(
+			require("lang.enabled").enabled,
+			"rust"
+		) and require("rustaceanvim.neotest") or nil,
+		require("neotest-vitest")({ filter_dir = function(name)
 			return name ~= "node_modules"
-		end
-	end }), require("neotest-playwright").adapter({
-		options = {
-			persist_project_selection = true,
-			enable_dynamic_test_discovery = true,
-		},
-	}) },
+		end }),
+		require("neotest-playwright").adapter({
+			options = {
+				persist_project_selection = true,
+				enable_dynamic_test_discovery = true,
+			},
+		}),
+	},
 })
