@@ -1,0 +1,48 @@
+#:schema https://dystroy.org/bacon/.bacon.schema.json
+
+default_job = "tsc"
+listen = true
+
+[jobs.tsc]
+command = [
+  "tsc",
+  "--noEmit",
+  "--pretty",
+]
+analyzer = "typescript"
+need_stdout = true
+watch = ["lua"]
+
+[jobs.build]
+command = ["pnpm", "run", "build"]
+need_stdout = true
+
+[jobs.dev]
+command = ["pnpm", "run", "dev"]
+need_stdout = true
+allow_warnings = true
+background = false
+on_change_strategy = "kill_then_restart"
+
+[jobs.lint]
+command = ["pnpm", "run", "lint"]
+need_stdout = true
+
+[jobs.fmt-check]
+command = ["pnpm", "run", "fmt:check"]
+need_stdout = true
+
+[jobs.fmt-write]
+command = ["pnpm", "run", "fmt:write"]
+need_stdout = true
+on_success = "back"
+
+[jobs.schema]
+command = ["pnpm", "run", "build:schema"]
+need_stdout = true
+
+[keybindings]
+l = "job:lint"
+d = "job:dev"
+s = "job:schema"
+f = "job:fmt-check"

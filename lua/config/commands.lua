@@ -32,7 +32,6 @@ local function reset_ui()
 
 	vim.cmd([[hi FloatBorder guifg=White guibg=none]])
 	vim.cmd([[hi LspInlayHint guifg=#646464 guibg=none]])
-	vim.cmd([[hi MiniIndentscopeSymbol guifg=#C93638 guibg=none]])
 	vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 	vim.cmd(
 		[[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]

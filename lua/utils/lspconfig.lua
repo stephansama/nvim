@@ -1,5 +1,5 @@
 local utils = require("utils")
-local SERVERS = require("plugins.lang").SERVERS
+local SERVERS = require("lang").SERVERS
 
 local capabilities =
 	vim.tbl_deep_extend(
@@ -17,24 +17,10 @@ capabilities = vim.tbl_deep_extend("force", capabilities, {
 	},
 })
 
-vim.lsp.config("*", { capabilities = capabilities })
-vim.lsp.enable(SERVERS)
-
 local border = utils.border("FloatBorder")
 
-local handler_opts = { border = border }
-
-local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, handler_opts),
-	["textDocument/signatureHelp"] = vim.lsp.with(
-		vim.lsp.handlers.signature_help,
-		handler_opts
-	),
-}
-
-for key, v in pairs(handlers) do
-	vim.lsp.handlers[key] = v
-end
+vim.lsp.config("*", { capabilities = capabilities })
+vim.lsp.enable(SERVERS)
 
 local diagnostic_source = "if_many"
 

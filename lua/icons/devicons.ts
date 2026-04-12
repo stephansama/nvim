@@ -261,6 +261,8 @@ export const override_by_filename = {
 	"next.config.ts": icons.next,
 	"nodemon.json": { icon: "", color: "#76D04B", name: "nodemon" },
 	"nx.json": icons.nx,
+	"bacon.toml": { icon: "", color: "#C12C1F", name: "bacon" },
+	"nvim-pack-lock.json": { icon: "", color: "#57A143", name: "nvim" },
 	"phpunit.xml": icons.php,
 	"playwright.config.ts": { icon: "󰴂", color: "#2EAD33", name: "playwright" },
 	"pnpm-lock.yaml": { icon: "󰛷", color: "#F69220", name: "pnpm-lock.yaml" },

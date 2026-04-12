@@ -54,7 +54,7 @@
 		"<leader>sf": ["<cmd>!open '%:p'<CR>", "Open file using default provider"],
 		"<leader>tc": ["<cmd>tabnew<CR>", "Create new tab"],
 		"<leader>tx": ["<cmd>tabclose<CR>", "Close current tab"],
-		"<leader>ll": ["<cmd>Lazy<CR>", "Lazy plugin manager"],
+		"<leader>ll": ["<cmd>PlugMan<CR>", "plugin TUI manager"],
 		"<leader>lm": ["<cmd>Mason<CR>", "Mason plugin manager"],
 		"<leader><leader>w": ["<cmd>wqa<CR>", "Save and quit all"],
 		"<leader><leader><leader>": ["<cmd>qa<CR>", "Quit all"]

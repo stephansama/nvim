@@ -1,5 +1,6 @@
 *.txt
 *.scm
+*.toml
 .gitignore
 .prettierignore
 Makefile

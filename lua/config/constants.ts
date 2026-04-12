@@ -8,7 +8,7 @@ export const NVIM_CONFIG_DIR = vim.fn.stdpath("config");
 export const DICTIONARY_DIR = NVIM_CONFIG_DIR + "/dictionary";
 export const SNIPPETS_DIR = "./snippets/";
 export const ASCII_DIR = NVIM_CONFIG_DIR + "/images/";
-export const PLUGIN_LANG_DIR = NVIM_CONFIG_DIR + "/lua/plugins/lang/";
+export const PLUGIN_LANG_DIR = NVIM_CONFIG_DIR + "/lua/lang/";
 export const TREESITTER_PARSER_INSTALL_DIR = HOME + "/.local/share/treesitter";
 
 export const THEME = "catppuccin-nvim";
