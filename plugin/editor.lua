@@ -300,6 +300,13 @@ require("conform").setup({
 				"conform.util"
 			).root_file(constants.PRETTIER_ROOT_CONFIG),
 		},
+		vpfmt = {
+			command = "vp",
+			args = { "fmt", "--write", "$FILENAME" },
+			stdin = false,
+			cwd = require("conform.util").root_file({ "vite.config.ts" }),
+			require_cwd = true,
+		},
 		oxfmt = { command = "./node_modules/.bin/oxfmt" },
 	},
 })

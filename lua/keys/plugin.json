@@ -268,11 +268,12 @@
 			{ "desc": "Open leet.nvim readme" }
 		]
 	],
+	"fzf_nerdfont": [["<leader>fi", "<cmd>FzfNerdfont<CR>"]],
 	"fzf_tmux_runner": [
 		[
 			"<leader>fm",
-			"<cmd>FzfTmuxMake<CR>",
-			{ "desc": "launch makefile target" }
+			"<cmd>FzfTmuxMiseOrMake<CR>",
+			{ "desc": "launch makefile target  or mise.toml target" }
 		],
 		[
 			"<leader>fj",
@@ -287,7 +288,17 @@
 		["<leader>fk", "<cmd>FzfLua keymaps<CR>", { "desc": "Find keymaps" }],
 		["<leader>fo", "<cmd>FzfLua oldfiles<CR>", { "desc": "Find oldfiles" }],
 		["<leader>fe", "<cmd>FzfLua grep_cword<CR>", { "desc": "Find exact word" }],
-		["<leader><Tab>", "<cmd>FzfLua tabs<CR>", { "desc": "Find tabs" }],
+		["<leader><Tab>", "<cmd>FzfLua buffers<CR>", { "desc": "Find buffers" }],
+		[
+			"<leader>fh",
+			"<cmd>FzfLua helptags<CR>",
+			{ "desc": "Find help documentation" }
+		],
+		[
+			"<leader>fg",
+			"<cmd>FzfLua git_bcommits<CR>",
+			{ "desc": "Find buffer git commits" }
+		],
 		[
 			"<leader>gss",
 			"<cmd>FzfLua git_status<CR>",

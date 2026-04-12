@@ -32,10 +32,7 @@ local vue_plugin = {
 	enableForWorkspaceTypeScriptVersions = true,
 }
 
-M.filetypes = {
-	-- "javascript", "javascriptreact", "typescript", "typescriptreact",
-	"vue",
-}
+M.filetypes = { "vue" }
 
 local globalPlugins = { astro_plugin, vue_plugin }
 

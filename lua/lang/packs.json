@@ -165,15 +165,15 @@
 		},
 		"formatters": {
 			"handlebars": ["prettier"],
-			"css": ["oxfmt", "prettier"],
-			"vue": ["oxfmt", "prettier"],
-			"html": ["oxfmt", "prettier"],
+			"css": ["vpfmt", "oxfmt", "prettier"],
+			"vue": ["vpfmt", "oxfmt", "prettier"],
+			"html": ["vpfmt", "oxfmt", "prettier"],
 			"astro": ["prettier"],
 			"svelte": ["prettier"],
-			"javascript": ["oxfmt", "prettier"],
-			"typescript": ["oxfmt", "prettier"],
-			"javascriptreact": ["oxfmt", "prettier"],
-			"typescriptreact": ["oxfmt", "prettier"]
+			"javascript": ["vpfmt", "oxfmt", "prettier"],
+			"typescript": ["vpfmt", "oxfmt", "prettier"],
+			"javascriptreact": ["vpfmt", "oxfmt", "prettier"],
+			"typescriptreact": ["vpfmt", "oxfmt", "prettier"]
 		},
 		"treesitter": [
 			"astro",
