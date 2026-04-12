@@ -14,6 +14,7 @@ vim.o.list = true
 vim.o.listchars = "tab:│ ,trail:·"
 vim.o.scrolloff = 999
 vim.o.shiftwidth = 4
+vim.o.cmdheight = 0
 vim.opt.clipboard = "unnamedplus" -- use system clipboard
 vim.opt.conceallevel = 1
 vim.opt.confirm = true

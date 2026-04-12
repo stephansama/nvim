@@ -1,0 +1,53 @@
+{
+	"$schema": "../../../schemas/shortcuts.json",
+	"shortcuts": [
+		{
+			"key": "g",
+			"icon": "󰊢",
+			"desc": " Git files",
+			"group": "@variable",
+			"action": "FzfLua git_status",
+			"icon_hl": "TodoFgTODO"
+		},
+		{
+			"icon": "",
+			"icon_hl": "todofgfix",
+			"group": "@variable",
+			"desc": " Files",
+			"action": "FzfLua files",
+			"key": "f"
+		},
+		{
+			"icon": "󰈬",
+			"group": "@variable",
+			"desc": " Words",
+			"icon_hl": "todofghack",
+			"action": "FzfLua live_grep",
+			"key": "w"
+		},
+		{
+			"icon": "󰌌",
+			"group": "@variable",
+			"desc": " Keys",
+			"icon_hl": "deviconterminal",
+			"action": "FzfLua keymaps",
+			"key": "b"
+		},
+		{
+			"icon": "󰑴",
+			"icon_hl": "cursorlinenr",
+			"key": "c",
+			"desc": " Leetcode",
+			"action": "leet",
+			"group": "@variable"
+		},
+		{
+			"icon": "",
+			"key": "q",
+			"action": "qa",
+			"desc": " ",
+			"group": "@variable",
+			"icon_hl": "todofgfix"
+		}
+	]
+}

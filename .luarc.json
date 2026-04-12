@@ -5,6 +5,6 @@
 	"workspace.library": [
 		"lua",
 		"$VIMRUNTIME",
-		"${env:HOME}/.local/share/nvim/lazy/"
+		"${env:HOME}/.local/share/nvim/site/pack/core/opt"
 	]
 }

@@ -1,4 +1,5 @@
 import * as global from "./global.json";
+import * as plugin from "./plugin.json";
 
 type Schema = Omit<typeof global, "$schema">;
 type SchemaKey = keyof Schema;
@@ -40,5 +41,20 @@ for (const modes in global) {
 				typeof currentKeymap[3] === "object" ? currentKeymap[3] : {},
 			),
 		);
+	}
+}
+
+for (const key in plugin) {
+	if (key === "$schema") continue;
+	const current = plugin[key as keyof typeof plugin];
+	for (const map of current as [
+		string,
+		string,
+		{ desc: string; modes: string },
+	][]) {
+		const modes = map[2]?.modes?.split(",") || "n";
+		vim.keymap.set(modes, map[0], map[1], {
+			desc: map[2]?.desc || "",
+		});
 	}
 }

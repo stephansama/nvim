@@ -1,0 +1,206 @@
+{
+	"$schema": "../../schemas/language-pack.json",
+	"ai": {},
+	"base": {
+		"mason": ["vim-language-server", "cspell", "editorconfig-checker"],
+		"servers": ["vimls"],
+		"linters": { "editorconfig": ["editorconfig-checker"] },
+		"treesitter": [
+			"kdl",
+			"vim",
+			"rasi",
+			"regex",
+			"query",
+			"vimdoc",
+			"kconfig",
+			"hyprlang",
+			"gitignore",
+			"editorconfig"
+		]
+	},
+	"cpp": {
+		"mason": ["clang-format", "checkmake", "codelldb", "cpplint", "cmakelang"],
+		"servers": ["clangd", "cmake"],
+		"linters": { "cpp": ["cpplint"], "make": ["checkmake"] },
+		"formatters": { "cpp": ["clang-format"], "make": ["cmake_format"] },
+		"treesitter": ["c", "cpp", "cmake", "make"]
+	},
+	"csharp": {
+		"mason_registries": ["github:Crashdummyy/mason-registry"],
+		"mason": ["csharpier", "roslyn"],
+		"servers": ["roslyn"],
+		"formatters": { "csharp": ["csharpier"] },
+		"treesitter": ["c_sharp"]
+	},
+	"polyglot": {
+		"mason": ["bacon", "bacon-ls"],
+		"servers": ["bacon_ls"]
+	},
+	"python": {
+		"mason": ["ruff", "basedpyright"],
+		"linters": { "python": ["ruff"] },
+		"formatters": { "python": ["ruff_format", "ruff_organize_imports"] },
+		"servers": ["basedpyright"],
+		"treesitter": ["python"]
+	},
+	"data": {
+		"linters": {
+			"json": ["jsonlint", "eslint"],
+			"yaml": ["yamllint", "eslint"],
+			"toml": ["tombi"]
+		},
+		"servers": ["sqls", "tombi", "yamlls", "jsonls", "graphql", "lemminx"],
+		"mason": [
+			"json-lsp",
+			"jsonlint",
+			"yaml-language-server",
+			"yamlfmt",
+			"yamllint",
+			"sqlfmt",
+			"xmlformatter",
+			"lemminx",
+			"taplo"
+		],
+		"formatters": {
+			"jsonc": ["prettier"],
+			"json": ["prettier"],
+			"yaml": ["prettier", "yamlfmt"],
+			"toml": ["tombi"],
+			"sql": ["sql_formatter"],
+			"xml": ["xmlformatter"]
+		},
+		"treesitter": [
+			"csv",
+			"sql",
+			"xml",
+			"toml",
+			"yaml",
+			"json",
+			"json5",
+			"graphql"
+		]
+	},
+	"docker": {
+		"mason": [
+			"hadolint",
+			"dockerfile-language-server",
+			"docker-compose-language-service"
+		],
+		"servers": ["dockerls", "docker_compose_language_service"],
+		"linters": { "docker": "hadolint" },
+		"treesitter": ["dockerfile"]
+	},
+	"go": {
+		"mason": ["delve", "go-debug-adapter", "gopls", "templ", "golangci-lint"],
+		"formatters": { "go": ["gofmt"] },
+		"linters": { "go": "golangcilint" },
+		"servers": ["gopls", "templ"],
+		"treesitter": ["go", "templ", "gomod", "gosum", "gowork"]
+	},
+	"haskell": {
+		"mason": ["ormolu", "hlint", "haskell-language-server"],
+		"servers": ["hls"],
+		"linters": { "haskell": ["hlint"] },
+		"formatters": { "haskell": ["ormolu"] },
+		"treesitter": ["haskell"]
+	},
+	"lua": {
+		"mason": ["luacheck", "stylua", "lua-language-server"],
+		"linters": { "lua": ["luacheck"] },
+		"formatters": { "lua": ["prettier", "stylua"] },
+		"servers": ["lua_ls"],
+		"treesitter": ["lua", "luadoc"]
+	},
+	"markdown": {
+		"mason": ["markdownlint"],
+		"linters": { "markdown": ["markdownlint"] },
+		"servers": ["marksman", "mdx_analyzer"],
+		"treesitter": ["markdown", "markdown_inline"],
+		"formatters": { "markdown": ["prettier", "markdownlint"] }
+	},
+	"java": { "servers": ["jdtls"], "treesitter": ["java"] },
+	"javascript": {
+		"mason": [
+			"astro-language-server",
+			"cssmodules-language-server",
+			"unocss-language-server",
+			"emmet-language-server",
+			"eslint-lsp",
+			"html-lsp",
+			"htmlhint",
+			"js-debug-adapter",
+			"prettier",
+			"prettierd",
+			"stylelint",
+			"stylelint-lsp",
+			"svelte-language-server",
+			"tailwindcss-language-server",
+			"css-variables-language-server",
+			"typescript-language-server",
+			"vtsls",
+			"vue-language-server"
+		],
+		"servers": [
+			"astro",
+			"cssls",
+			"css_variables",
+			"eslint",
+			"cssmodules_ls",
+			"emmet_language_server",
+			"html",
+			"unocss",
+			"stylelint_lsp",
+			"svelte",
+			"tailwindcss",
+			"tsgo",
+			"vtsls",
+			"vue_ls"
+		],
+		"linters": {
+			"astro": ["eslint"],
+			"css": ["stylelint"],
+			"html": ["htmlhint"],
+			"javascript": ["oxlint", "eslint"],
+			"typescript": ["oxlint", "eslint"]
+		},
+		"formatters": {
+			"handlebars": ["prettier"],
+			"css": ["oxfmt", "prettier"],
+			"vue": ["oxfmt", "prettier"],
+			"html": ["oxfmt", "prettier"],
+			"astro": ["prettier"],
+			"svelte": ["prettier"],
+			"javascript": ["oxfmt", "prettier"],
+			"typescript": ["oxfmt", "prettier"],
+			"javascriptreact": ["oxfmt", "prettier"],
+			"typescriptreact": ["oxfmt", "prettier"]
+		},
+		"treesitter": [
+			"astro",
+			"css",
+			"html",
+			"http",
+			"javascript",
+			"jsdoc",
+			"scss",
+			"svelte",
+			"tsx",
+			"typescript",
+			"vue"
+		]
+	},
+	"rust": { "treesitter": ["rust"] },
+	"shell": {
+		"mason": ["shfmt", "shellcheck", "bash-language-server"],
+		"servers": ["bashls"],
+		"treesitter": ["bash", "tmux"],
+		"linters": { "sh": ["shellcheck"], "zsh": ["zsh"] },
+		"formatters": { "sh": ["shfmt"], "zsh": ["shfmt"], "zshrc": ["shfmt"] }
+	},
+	"zig": {
+		"mason": ["zls"],
+		"servers": ["zls"],
+		"formatters": { "zig": ["zigfmt"] },
+		"treesitter": ["zig"]
+	}
+}

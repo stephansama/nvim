@@ -1,5 +1,5 @@
 local utils = require("utils")
-local SERVERS = require("plugins.lang").SERVERS
+local SERVERS = require("lang").SERVERS
 
 local capabilities =
 	vim.tbl_deep_extend(
