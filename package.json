@@ -22,6 +22,14 @@
 			"prettier-plugin-organize-imports",
 			"prettier-plugin-sort-package-json",
 			"@prettier/plugin-lua"
+		],
+		"overrides": [
+			{
+				"files": "nvim-pack-lock.json",
+				"options": {
+					"useTabs": false
+				}
+			}
 		]
 	},
 	"devDependencies": {
