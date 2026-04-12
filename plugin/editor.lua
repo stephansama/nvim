@@ -171,8 +171,11 @@ require("nvim-highlight-colors").setup({})
 require("bqf").setup()
 require("quicker").setup()
 require("inlay-hints").setup()
-require("urlview").setup({ default_picker = "native" })
 require("outline").setup({})
+require("urlview").setup({
+	default_picker = "fzf_lua",
+	default_action = "system",
+})
 
 local statuscol_builtin = require("statuscol.builtin")
 require("statuscol").setup({
@@ -273,7 +276,7 @@ require("mason").setup({
 	registries = lang.MASON_REGISTRIES,
 	ensure_installed = MASON_ENSURE_INSTALLED,
 	ui = {
-		icons = require("icons").mason,
+		icons = require("icons.init").mason,
 		border = "rounded",
 		keymaps = keymaps.mason,
 	},
