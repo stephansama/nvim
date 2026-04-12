@@ -259,13 +259,11 @@ require("neo-tree").setup({
 	} },
 })
 
-local MASON_ENSURE_INSTALLED = lang.MASON
-
 table.insert(lang.MASON_REGISTRIES, "github:mason-org/mason-registry")
 
 local function MasonInstallAll()
-	if MASON_ENSURE_INSTALLED and #MASON_ENSURE_INSTALLED > 0 then
-		vim.cmd("MasonInstall " .. table.concat(MASON_ENSURE_INSTALLED, " "))
+	if lang.MASON and #lang.MASON > 0 then
+		vim.cmd("MasonInstall " .. table.concat(lang.MASON, " "))
 	end
 end
 
@@ -274,7 +272,7 @@ vim.api.nvim_create_user_command("MasonInstallAll", MasonInstallAll, {})
 require("mason").setup({
 	PATH = "prepend",
 	registries = lang.MASON_REGISTRIES,
-	ensure_installed = MASON_ENSURE_INSTALLED,
+	ensure_installed = lang.MASON,
 	ui = {
 		icons = require("icons.init").mason,
 		border = "rounded",
