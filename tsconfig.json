@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
-	"include": ["lua/**/*.ts"],
+	"include": ["lua/**/*.ts", "lua/**/*.json"],
 	"exclude": ["lua/schemas/*.ts"],
 	"compilerOptions": {
 		"allowJs": false,
