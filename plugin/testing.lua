@@ -7,7 +7,7 @@ vim.schedule(function()
 	})
 
 	require("neotest").setup({
-		icons = require("icons").neotest,
+		icons = require("icons.init").neotest,
 		adapters = {
 			vim.tbl_contains(
 				require("lang.enabled").enabled,

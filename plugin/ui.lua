@@ -1,19 +1,19 @@
 local theme = require("config.constants")
 
-vim.pack.add({ { src = "https://github.com/nvim-lualine/lualine.nvim" }, {
+vim.pack.add({ {
 	src = "https://github.com/catppuccin/nvim",
 	name = "catppuccin",
-}, {
-	src = "https://github.com/onaforeignshore/PackMan.nvim",
-}, {
-	src = "https://github.com/f-person/auto-dark-mode.nvim",
-}, {
-	src = "https://github.com/nvimdev/dashboard-nvim",
-}, {
-	src = "https://github.com/szw/vim-maximizer",
-}, {
-	src = "https://github.com/chentoast/marks.nvim",
-}, { src = "https://github.com/mcauley-penney/visual-whitespace.nvim" } })
+} })
+
+vim.pack.add({
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+	{ src = "https://github.com/onaforeignshore/PackMan.nvim" },
+	{ src = "https://github.com/f-person/auto-dark-mode.nvim" },
+	{ src = "https://github.com/nvimdev/dashboard-nvim" },
+	{ src = "https://github.com/szw/vim-maximizer" },
+	{ src = "https://github.com/chentoast/marks.nvim" },
+	{ src = "https://github.com/mcauley-penney/visual-whitespace.nvim" },
+})
 
 --- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
 
@@ -126,7 +126,7 @@ require("lualine").setup({
 			file_status = true,
 			newfile_status = true,
 			path = 3,
-			symbols = require("icons").lualine,
+			symbols = require("icons.init").lualine,
 		}, { function()
 			return require("package-info").get_status()
 		end } },

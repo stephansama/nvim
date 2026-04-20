@@ -1,8 +1,8 @@
 vim.pack.add({ { src = "https://github.com/ibhagwan/fzf-lua" } })
 
-local fzf_lua = require("fzf-lua")
-local actions = fzf_lua.actions
-fzf_lua.setup({
+local fzf = require("fzf-lua")
+
+fzf.setup({
 	"default-title",
 	winopts = {
 		preview = {
@@ -19,14 +19,14 @@ fzf_lua.setup({
 	files = {
 		cwd_prompt = false,
 		actions = {
-			["alt-i"] = { actions.toggle_ignore },
-			["alt-h"] = { actions.toggle_hidden },
+			["alt-i"] = { fzf.actions.toggle_ignore },
+			["alt-h"] = { fzf.actions.toggle_hidden },
 		},
 	},
 	grep = {
 		actions = {
-			["alt-i"] = { actions.toggle_ignore },
-			["alt-h"] = { actions.toggle_hidden },
+			["alt-i"] = { fzf.actions.toggle_ignore },
+			["alt-h"] = { fzf.actions.toggle_hidden },
 		},
 	},
 })

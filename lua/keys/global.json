@@ -84,7 +84,7 @@
 		">": [">gv", "Indent Right"],
 		"J": [":m '>+1<CR>gv=gvzz", "Move line up", { "silent": true }],
 		"K": [":m '<-2<CR>gv=gvzz", "Move line down", { "silent": true }],
-		"<leader>rg": [":'<,'>Hypersonic<CR>", "Explain regex", { "silent": true }],
+		"<leader>rg": [":'<,'>Rgx<CR>", "Test regex", { "silent": true }],
 		"<leader>sa": [
 			":'<,'>sort<CR>",
 			"Sort lines alphabetically",

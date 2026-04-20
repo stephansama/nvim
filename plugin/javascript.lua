@@ -26,6 +26,6 @@ require("package-info").setup({
 	highlights = require("config.constants").PACKAGE_INFO_COLORS,
 	icons = {
 		enable = true,
-		style = require("icons").packageJSON,
+		style = require("icons.init").packageJSON,
 	},
 })
