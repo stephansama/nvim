@@ -1,0 +1,8 @@
+commit-msg:
+    jobs:
+        - run: pnpm dlx commitlint --edit {1}
+
+pre-commit:
+    parallel: true
+    jobs:
+        - run: lint-staged -v

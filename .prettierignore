@@ -1,7 +1,8 @@
-*.txt
 *.scm
 *.toml
+*.txt
 .gitignore
+.node-version
 .prettierignore
 Makefile
 commit-msg

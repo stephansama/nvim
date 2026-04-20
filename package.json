@@ -13,8 +13,7 @@
 		"fmt:write": "prettier . --write",
 		"build:schema": "node ./lua/schemas/build.mjs",
 		"snippets:merge": "node ./snippets/merge.mjs",
-		"prepare:schema": "ONLY_PREPARE_SCHEMA=true node ./lua/schemas/build.mjs",
-		"prepare": "husky"
+		"prepare:schema": "ONLY_PREPARE_SCHEMA=true node ./lua/schemas/build.mjs"
 	},
 	"prettier": {
 		"quoteProps": "consistent",
@@ -43,7 +42,7 @@
 		"eslint": "^9.39.1",
 		"eslint-plugin-import-zod": "^1.2.1",
 		"globals": "^16.5.0",
-		"husky": "^9.1.7",
+		"lefthook": "^2.1.6",
 		"lint-staged": "^16.1.6",
 		"lua-types": "^2.13.1",
 		"prettier": "^3.6.2",
