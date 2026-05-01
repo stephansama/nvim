@@ -216,6 +216,10 @@
       "rev": "ad58747b955d0743ccfd56e97da1a4c1fac89f58",
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
     },
+    "todo-comments.nvim": {
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
     "urlview.nvim": {
       "rev": "813736e6891b8dccca58aa3baaeabef032f44525",
       "src": "https://github.com/axieax/urlview.nvim"

@@ -113,7 +113,7 @@
 	},
 	"markdown": {
 		"mason": ["markdownlint"],
-		"linters": { "markdown": ["markdownlint"] },
+		"linters": { "markdown": ["markdownlint", "eslint"] },
 		"servers": ["marksman", "mdx_analyzer"],
 		"treesitter": ["markdown", "markdown_inline"],
 		"formatters": { "markdown": ["prettier", "markdownlint"] }

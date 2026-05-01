@@ -2,6 +2,7 @@ type Devicon = { icon: string; name?: string; color?: string };
 type DeviconMap = Record<string, Devicon>;
 
 const icons = {
+	log: { icon: "", name: "log" },
 	env: { icon: "", name: "env" },
 	sitemap: { icon: "", name: "sitemap" },
 	eslintrc: { icon: "󰱺", name: "eslintrc" },
@@ -50,7 +51,7 @@ const icons = {
 	test_js: { icon: "", color: "#F7DF1E", name: "test_javascript" },
 	test_ts: { icon: "", color: "#3178C6", name: "test_typescript" },
 	unlighthouse: { icon: "󰧿", color: "#A286FC", name: "unlighthouse" },
-} satisfies DeviconMap;
+} as const satisfies DeviconMap;
 
 export const override_by_extension = {
 	"7z": icons.archive,
@@ -104,7 +105,7 @@ export const override_by_extension = {
 	"yaml": icons.yaml,
 	"yml": icons.yaml,
 	"zip": icons.archive,
-} satisfies DeviconMap;
+} as const satisfies DeviconMap;
 
 export const override_by_filename = {
 	".babelrc": icons.babel,
@@ -260,8 +261,8 @@ export const override_by_filename = {
 	"lazy-lock.json": { icon: "󰒲", color: "#457BE2", name: "lazy" },
 	"license.md": icons.license,
 	"license.txt": icons.license,
-	"log.txt": { icon: "", name: "log" },
-	"logs.txt": { icon: "", name: "log" },
+	"log.txt": icons.log,
+	"logs.txt": icons.log,
 	"netlify.toml": { icon: "", color: "#00C7B7", name: "netlify" },
 	"next.config.js": icons.next,
 	"next.config.mjs": icons.next,
@@ -318,6 +319,6 @@ export const override_by_filename = {
 	"wrangler.jsonc": icons.wrangler,
 	"wrangler.toml": icons.wrangler,
 	"yarn.lock": icons.yarn,
-} satisfies DeviconMap;
+} as const satisfies DeviconMap;
 
 export const strict = true;

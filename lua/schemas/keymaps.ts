@@ -1,6 +1,5 @@
 import * as z from "zod";
 
-// @ts-expect-error need to import relative file for node
 import { ALL_MODES, MODES } from "./modes.ts";
 
 const rhsSchema = z.object({
