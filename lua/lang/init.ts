@@ -11,12 +11,12 @@ export const SERVERS = mergeFlat(pullProperty("servers"));
 export const TREESITTER = mergeFlat(pullProperty("treesitter"));
 export const TREESITTER_PARSERS = mergeKV(pullProperty("treesitter_parser"));
 
-function mergeFlat<T>(this: void, arr: T[][]) {
+function mergeFlat<T>(this: void, array: T[][]) {
 	const result = new Array<T>();
 
-	for (const list of arr) {
-		for (const elem of list) {
-			result.push(elem);
+	for (const list of array) {
+		for (const element of list) {
+			result.push(element);
 		}
 	}
 

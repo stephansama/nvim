@@ -19,19 +19,22 @@ export function getLocalTailwindSettings(this: void) {
 	for (const [key, value] of Object.entries(vscodeSettings)) {
 		if (!key.startsWith("tailwindCSS")) continue;
 
-		// eslint-disable-next-line
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		let current: Record<string, any> = twSettings;
 		const sections = key.split(".");
 
-		for (let i = 0; i < sections.length; i++) {
-			const section = sections[i];
-			const isLast = i === sections.length - 1;
+		for (let index = 0; index < sections.length; index++) {
+			const section = sections[index];
+			const isLast = index === sections.length - 1;
 
+			// eslint-disable-next-line  @typescript-eslint/no-unsafe-assignment
 			current[section] = isLast
-				? transformValue(key, value)
+				? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+					transformValue(key, value)
 				: current[section] || {};
 
 			if (!isLast) {
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 				current = current[section];
 			}
 		}
@@ -40,9 +43,9 @@ export function getLocalTailwindSettings(this: void) {
 	return twSettings.tailwindCSS || {};
 }
 
-function safeDecode(this: void, str: string) {
+function safeDecode(this: void, string_: string) {
 	try {
-		return vim.json.decode(str);
+		return vim.json.decode(string_);
 	} catch {
 		return false;
 	}
@@ -51,8 +54,8 @@ function safeDecode(this: void, str: string) {
 function transformValue(
 	this: void,
 	key: string,
-	value: string | Record<string, string>,
-	transform = (str: string) => `${vim.fn.getcwd()}/${str}`,
+	value: Record<string, string> | string,
+	transform = (string_: string) => `${vim.fn.getcwd()}/${string_}`,
 ) {
 	if (!key.endsWith("configFile")) return value;
 
@@ -60,8 +63,8 @@ function transformValue(
 
 	const transformed: Record<string, string> = {};
 
-	for (const [currKey, curr] of Object.entries(value)) {
-		transformed[transform(currKey)] = transform(curr);
+	for (const [currentKey, current] of Object.entries(value)) {
+		transformed[transform(currentKey)] = transform(current);
 	}
 
 	return transformed;

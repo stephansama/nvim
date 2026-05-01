@@ -4,10 +4,28 @@ import "./keys/plugin.json";
 import "./plugins/ui/dashboard/shortcuts.json";
 
 declare global {
-	interface KeymapOpts {
-		desc?: string;
-		noremap?: boolean;
-		replace_keycodes?: boolean;
+	interface IVim {
+		json: {
+			decode: (
+				this: void,
+				string_: string,
+				options?: JsonEncodeOptions,
+			) => object;
+			encode: (
+				this: void,
+				object: object,
+				options?: JsonEncodeOptions,
+			) => string;
+		};
+		keymap: Keymap;
+		print: (this: void, ...rest: string[]) => void;
+	}
+
+	interface JsonEncodeOptions {
+		luanil: {
+			object?: boolean;
+			string?: boolean;
+		};
 	}
 
 	// https://neovim.io/doc/user/lua.html#_lua-module:-vim.keymap
@@ -17,31 +35,21 @@ declare global {
 			modes: string | string[],
 			lhs: string,
 			rhs: string,
-			opts?: KeymapOpts,
+			options?: KeymapOptions,
 		) => void;
 		set: (
 			this: void,
 			modes: string | string[],
 			lhs: string,
 			rhs: string,
-			opts?: KeymapOpts,
+			options?: KeymapOptions,
 		) => void;
 	}
 
-	interface JsonEncodeOpts {
-		luanil: {
-			object?: boolean;
-			string?: boolean;
-		};
-	}
-
-	interface IVim {
-		keymap: Keymap;
-		print: (this: void, ...rest: string[]) => void;
-		json: {
-			encode: (this: void, obj: object, opts?: JsonEncodeOpts) => string;
-			decode: (this: void, str: string, opts?: JsonEncodeOpts) => object;
-		};
+	interface KeymapOptions {
+		desc?: string;
+		noremap?: boolean;
+		replace_keycodes?: boolean;
 	}
 }
 

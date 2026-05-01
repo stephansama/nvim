@@ -11,8 +11,8 @@ const rlInterface = rl.createInterface({ input, output });
 
 try {
 	cp.execSync(sh` which degit `);
-} catch (e) {
-	console.error(e);
+} catch (error) {
+	console.error(error);
 	/** please install [degit](https://github.com/Rich-Harris/degit) */
 	console.error("degit is not installed");
 	console.error("please install degit");
@@ -20,8 +20,8 @@ try {
 }
 
 const config = {
-	lang: ["text"],
 	inputDir: "./input/",
+	lang: ["text"],
 	outputFn: "output.json",
 };
 
@@ -56,9 +56,11 @@ const files = fs
 	.filter((item) => item.isFile())
 	.map((file) => config.inputDir + file.name);
 
-const compiledData = files
-	.map((file) => JSON.parse(fs.readFileSync(file, { encoding: "utf8" })))
-	.reduce((prev, curr) => ({ ...prev, ...curr }), {});
+const compiledData = Object.fromEntries(
+	files.map((file) =>
+		JSON.parse(fs.readFileSync(file, { encoding: "utf8" })),
+	),
+);
 
 fs.mkdirSync(path.dirname(config.outputFn), {
 	recursive: true,
@@ -88,26 +90,26 @@ fs.writeFileSync("./package.json", JSON.stringify(pkgJson, undefined, 2));
 
 process.exit(0);
 
+function createSpecialLanguages() {
+	return {
+		js: ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+		["js-only"]: ["javascript", "javascriptreact"],
+		["js-react"]: ["javascriptreact"],
+		ts: ["typescript", "typescriptreact"],
+		["ts-only"]: ["typescript", "typescriptreact"],
+		["ts-react"]: ["typescriptreact"],
+	};
+}
+
 /**
  * @param {string} valueTxt
  * @param {(s: string)=>Promise<void>} cb
  */
-async function queryConfig(valueTxt, cb) {
+async function queryConfig(valueTxt, callback) {
 	const answer = await rlInterface.question(`what is the ${valueTxt}? ->`);
 	if (answer) {
-		await cb(answer);
+		await callback(answer);
 	} else {
 		console.info(`no ${valueTxt} supplied falling back to default`);
 	}
-}
-
-function createSpecialLanguages() {
-	return {
-		js: ["javascript", "typescript", "javascriptreact", "typescriptreact"],
-		ts: ["typescript", "typescriptreact"],
-		["js-only"]: ["javascript", "javascriptreact"],
-		["ts-only"]: ["typescript", "typescriptreact"],
-		["js-react"]: ["javascriptreact"],
-		["ts-react"]: ["typescriptreact"],
-	};
 }
