@@ -3,7 +3,6 @@
 import * as fs from "node:fs";
 import * as fsp from "node:fs/promises";
 import path from "node:path";
-// eslint-disable-next-line zod/consistent-import
 import * as z from "zod";
 
 await prepareSchemas().then(() => console.log("prepared schemas"));
@@ -18,32 +17,30 @@ const excludedFileTypes = ["json", "lua", "mjs"].map(
 );
 
 const schemaFilenames = await fsp.readdir(import.meta.dirname);
+const schemaRelativeFilenames = schemaFilenames
+	.filter((name) => !excludedFileTypes.some((ft) => name.endsWith(ft)))
+	.map((filename) => import.meta.dirname + "/" + filename);
 
-const schemas = await Promise.all(
-	schemaFilenames
-		.filter((name) => !excludedFileTypes.some((ft) => name.endsWith(ft)))
-		.map((filename) => import.meta.dirname + "/" + filename)
-		.map(async (file) => {
-			const filename = path.resolve(file);
-			/** @type Record<string, z.ZodObject> */
-			const module = await import(filename);
-			return { filename, module };
-		}),
-);
+const schemas = [];
 
-await Promise.all(
-	schemas.map((schema) => {
-		const dirname = path.dirname(schema.filename);
-		return Object.entries(schema.module).map(async ([name, zodSchema]) => {
-			if (!name.endsWith("Schema")) return;
-			const jsonSchema = z.toJSONSchema(zodSchema);
-			const jsonFile = JSON.stringify(jsonSchema);
-			const filename = formatKebabCase(name.replace("Schema", ""));
-			const filepath = path.resolve(dirname, filename);
-			await fsp.writeFile(filepath, jsonFile);
-		});
-	}),
-);
+for (const file of schemaRelativeFilenames) {
+	const filename = path.resolve(file);
+	const module = (await import(filename)) as Record<string, z.ZodObject>;
+	schemas.push({ filename, module });
+}
+
+for (const schema of schemas) {
+	const dirname = path.dirname(schema.filename);
+	const exports = Object.entries<z.ZodObject>(schema.module);
+	for (const [name, zodSchema] of exports) {
+		if (!name.endsWith("Schema")) continue;
+		const jsonSchema = z.toJSONSchema(zodSchema);
+		const jsonFile = JSON.stringify(jsonSchema);
+		const filename = formatKebabCase(name.replace("Schema", ""));
+		const filepath = path.resolve(dirname, filename);
+		await fsp.writeFile(filepath, jsonFile);
+	}
+}
 
 async function createAllModesFile() {
 	await fsp.writeFile(
@@ -82,7 +79,7 @@ async function createPossiblePluginsFile() {
 	);
 }
 
-function formatKebabCase(property) {
+function formatKebabCase(property: string) {
 	return (
 		property.replaceAll(/(?<!^)(?=[A-Z])/g, "-") + ".json"
 	).toLowerCase();

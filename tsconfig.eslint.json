@@ -1,0 +1,22 @@
+{
+	"include": ["./scripts/**/*.ts"],
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"composite": true,
+		"allowJs": false,
+		"lib": ["ESNext"],
+		"paths": {
+			"@/*": ["./lua/*"]
+		},
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": [
+			"lua-types/5.1",
+			"@gkzhb/lua-types-nvim",
+			"./lua/vim.d.ts",
+			"node"
+		]
+	}
+}

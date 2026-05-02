@@ -6,15 +6,15 @@
 	"scripts": {
 		"prebuild": "pnpm run prepare:schema",
 		"build": "tstl",
-		"build:bloat": "node ./lua/plugins/debug/bloat.js",
+		"build:bloat": "tsx ./lua/plugins/debug/bloat.ts",
 		"dev": "tstl --watch",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
-		"build:schema": "node ./lua/schemas/build.mjs",
-		"snippets:merge": "node ./snippets/merge.mjs",
-		"prepare:schema": "ONLY_PREPARE_SCHEMA=true node ./lua/schemas/build.mjs"
+		"build:schema": "tsx ./lua/schemas/build.ts",
+		"snippets:merge": "tsx ./snippets/merge.ts",
+		"prepare:schema": "ONLY_PREPARE_SCHEMA=true tsx ./lua/schemas/build.ts"
 	},
 	"prettier": {
 		"quoteProps": "consistent",
@@ -35,18 +35,21 @@
 	"devDependencies": {
 		"@commitlint/cli": "catalog:",
 		"@commitlint/config-conventional": "catalog:",
+		"@eslint/markdown": "catalog:",
 		"@gkzhb/lua-types-nvim": "catalog:",
 		"@prettier/plugin-lua": "catalog:",
 		"@stephansama/eslint-config": "catalog:",
+		"@types/node": "catalog:",
 		"eslint": "catalog:",
 		"eslint-plugin-zod": "catalog:",
 		"globals": "catalog:",
 		"lefthook": "catalog:",
-		"nano-staged": "catalog:",
 		"lua-types": "catalog:",
+		"nano-staged": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-organize-imports": "catalog:",
 		"prettier-plugin-sort-package-json": "catalog:",
+		"tsx": "catalog:",
 		"typescript": "catalog:",
 		"typescript-to-lua": "catalog:",
 		"zod": "catalog:"

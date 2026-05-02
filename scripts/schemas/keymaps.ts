@@ -1,10 +1,10 @@
 import * as z from "zod";
 
-import { ALL_MODES, MODES } from "./modes.ts";
+import { ALL_MODES, MODES } from "@/schemas/modes";
 
 const rhsSchema = z.object({
 	buffer: z.number().or(z.boolean()),
-	desc: z.string(),
+	desc: z.string().trim(),
 	expr: z.boolean(),
 	mode: z.enum(MODES),
 	remap: z.boolean(),
@@ -12,8 +12,8 @@ const rhsSchema = z.object({
 });
 
 const pluginKeymapConfigSchema = z.tuple([
-	z.string().describe("keymap"),
-	z.string().describe("action"),
+	z.string().trim().meta({ description: "keymap" }),
+	z.string().trim().meta({ description: "action" }),
 	rhsSchema.optional(),
 ]);
 
@@ -23,8 +23,8 @@ export const pluginKeymapSchema = z.record(
 );
 
 const globalKeymapConfigSchema = z.tuple([
-	z.string().describe("action"),
-	z.string().describe("description"),
+	z.string().trim().meta({ description: "action" }),
+	z.string().trim().meta({ description: "description" }),
 	rhsSchema.optional(),
 ]);
 
@@ -32,5 +32,8 @@ export type GlobalKeymapConfig = z.infer<typeof globalKeymapConfigSchema>;
 
 export const globalKeymapSchema = z.record(
 	z.enum(ALL_MODES),
-	z.record(z.string().describe("keymap"), globalKeymapConfigSchema),
+	z.record(
+		z.string().meta({ description: "keymap" }),
+		globalKeymapConfigSchema,
+	),
 );

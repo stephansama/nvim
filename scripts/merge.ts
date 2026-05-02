@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
-import cp from "node:child_process";
-import fs from "node:fs";
+import * as cp from "node:child_process";
+import * as fs from "node:fs";
 import path from "node:path";
-import { stdin as input, stdout as output } from "node:process";
+import * as process from "node:process";
 import rl from "node:readline/promises";
 
 const sh = String.raw;
-const rlInterface = rl.createInterface({ input, output });
+const rlInterface = rl.createInterface({
+	input: process.stdin,
+	output: process.stdout,
+});
 
 try {
 	cp.execSync(sh` which degit `);
@@ -32,7 +35,7 @@ await queryConfig("github snippet path", async (input) => {
 		.replace("tree/master/", "");
 
 	if (fs.existsSync(config.inputDir)) {
-		fs.rmSync(config.inputDir, {
+		await fs.promises.rm(config.inputDir, {
 			force: true,
 			recursive: true,
 		});
@@ -41,12 +44,12 @@ await queryConfig("github snippet path", async (input) => {
 	cp.execSync(sh`degit ${degitPath} ${config.inputDir}`);
 });
 
-await queryConfig("output filename", async (input) => {
+await queryConfig("output filename", (input) => {
 	if (!input.endsWith(".json")) input += ".json";
 	config.outputFn = input;
 });
 
-await queryConfig("language (comma separate)", async (input) => {
+await queryConfig("language (comma separate)", (input) => {
 	const specialLanguages = createSpecialLanguages();
 	config.lang = input.split(",").flatMap((a) => specialLanguages[a] || [a]);
 });
@@ -57,9 +60,9 @@ const files = fs
 	.map((file) => config.inputDir + file.name);
 
 const compiledData = Object.fromEntries(
-	files.map((file) =>
-		JSON.parse(fs.readFileSync(file, { encoding: "utf8" })),
-	),
+	files.map((file) => {
+		return JSON.parse(fs.readFileSync(file, { encoding: "utf8" }));
+	}),
 );
 
 fs.mkdirSync(path.dirname(config.outputFn), {
@@ -98,14 +101,13 @@ function createSpecialLanguages() {
 		ts: ["typescript", "typescriptreact"],
 		["ts-only"]: ["typescript", "typescriptreact"],
 		["ts-react"]: ["typescriptreact"],
-	};
+	} as const;
 }
 
-/**
- * @param {string} valueTxt
- * @param {(s: string)=>Promise<void>} cb
- */
-async function queryConfig(valueTxt, callback) {
+async function queryConfig(
+	valueTxt: string,
+	callback: (answer: string) => Promise<void> | void,
+) {
 	const answer = await rlInterface.question(`what is the ${valueTxt}? ->`);
 	if (answer) {
 		await callback(answer);
