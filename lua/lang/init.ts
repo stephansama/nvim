@@ -1,4 +1,4 @@
-import type { Schema } from "~/scripts/schemas/language-packs";
+import type { Schema } from "@/schemas/language-packs";
 
 import { enabled as enabledLanguages } from "./enabled";
 import * as packs from "./packs.json";

@@ -8,7 +8,7 @@ type ZodObject = z.ZodObject<z.core.$ZodLooseShape, z.core.$strip>;
 type ZodSchemaModule = Record<string, ZodObject>;
 
 const schemas = new Array<{ filename: string; module: ZodSchemaModule }>();
-const schemaDirectory = path.join(import.meta.dirname, "./schemas/");
+const schemaDirectory = path.join(import.meta.dirname, "../lua/schemas/");
 const schemaFilenames = await fsp.readdir(schemaDirectory);
 const excludedFileTypes = ["json", "lua", "mjs"].map((extension) => {
 	return `.${extension}`;

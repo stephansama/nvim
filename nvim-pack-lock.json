@@ -4,6 +4,10 @@
       "rev": "a62e1083a3cfe8b6b206e7d3d33a51091df25357",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "PackMan.nvim": {
+      "rev": "81e2b4d4dbbff9e382b93c0747ca0279c315d156",
+      "src": "https://github.com/onaforeignshore/PackMan.nvim"
+    },
     "auto-dark-mode.nvim": {
       "rev": "54058b4fe414bd64bd2904a6f8a63f1f14e3d8df",
       "src": "https://github.com/f-person/auto-dark-mode.nvim"
@@ -21,6 +25,10 @@
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.vim": {
+      "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
+      "src": "https://github.com/github/copilot.vim"
+    },
     "crates.nvim": {
       "rev": "694357861ec9ebf12475ddcdd04ea45a0923c32d",
       "src": "https://github.com/saecki/crates.nvim"
@@ -30,7 +38,7 @@
       "src": "https://github.com/nvimdev/dashboard-nvim"
     },
     "fzf-lua": {
-      "rev": "cf4c30892644f01ebfb1e248eeca9e259856f9dc",
+      "rev": "44816af2465bb0a17ae0f1f2d8a4f9c3df524fcd",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "fzf-nerdfont.nvim": {
@@ -54,7 +62,7 @@
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "live-server.nvim": {
-      "rev": "91e9ffc14e5256f6774b2d237ef9c9bdf2fc507f",
+      "rev": "f1a2defb7bc3bfc37bcb455fafdf6d61113d71c8",
       "src": "https://github.com/barrett-ruth/live-server.nvim"
     },
     "lualine.nvim": {
@@ -227,6 +235,10 @@
     "vim-maximizer": {
       "rev": "2e54952fe91e140a2e69f35f22131219fcd9c5f1",
       "src": "https://github.com/szw/vim-maximizer"
+    },
+    "vim-startuptime": {
+      "rev": "f10474b400c197787a0434548d842a2db583c333",
+      "src": "https://github.com/dstein64/vim-startuptime"
     },
     "vim-table-mode": {
       "rev": "bb025308a45c67c7c8f0763ba37bc2ee3f534df0",

@@ -1,5 +1,5 @@
 {
-	"$schema": "../../scripts/schemas/plugin-keymap.json",
+	"$schema": "../../lua/schemas/plugin-keymap.json",
 	"undotree": [
 		["<leader>u", "<cmd>UndotreeToggle<CR>", { "desc": "UndotreeToggle" }]
 	],

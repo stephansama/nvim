@@ -6,7 +6,7 @@ await createAllModesFile();
 async function createAllModesFile() {
 	const ts = String.raw;
 	await fsp.writeFile(
-		path.join(import.meta.dirname, "./schemas/", "modes.ts"),
+		path.join(import.meta.dirname, "../lua/schemas/", "modes.ts"),
 		ts`
 export const MODES = ["c", "i", "l", "n", "o", "s", "t", "v", "x"] as const;
 
