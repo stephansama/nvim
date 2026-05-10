@@ -13,10 +13,6 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "'v1'"
     },
-    "bloat.nvim": {
-      "rev": "f90bef655ac40fecbaae53e10db1cf7894d090b1",
-      "src": "https://github.com/dundalek/bloat.nvim"
-    },
     "catppuccin": {
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
@@ -24,10 +20,6 @@
     "conform.nvim": {
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
-    },
-    "copilot.vim": {
-      "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
-      "src": "https://github.com/github/copilot.vim"
     },
     "crates.nvim": {
       "rev": "694357861ec9ebf12475ddcdd04ea45a0923c32d",
@@ -235,10 +227,6 @@
     "vim-maximizer": {
       "rev": "2e54952fe91e140a2e69f35f22131219fcd9c5f1",
       "src": "https://github.com/szw/vim-maximizer"
-    },
-    "vim-startuptime": {
-      "rev": "f10474b400c197787a0434548d842a2db583c333",
-      "src": "https://github.com/dstein64/vim-startuptime"
     },
     "vim-table-mode": {
       "rev": "bb025308a45c67c7c8f0763ba37bc2ee3f534df0",

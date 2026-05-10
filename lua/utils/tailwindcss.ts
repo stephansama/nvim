@@ -57,7 +57,7 @@ function transformValue(
 	this: void,
 	key: string,
 	value: Record<string, string> | string,
-	transform = (string_: string) => `${vim.fn.getcwd()}/${string_}`,
+	transform = (input: string) => `${vim.fn.getcwd()}/${input}`,
 ) {
 	if (!key.endsWith("configFile")) return value;
 
