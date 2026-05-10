@@ -15,7 +15,8 @@ const excludedFileTypes = ["json", "lua", "mjs"].map((extension) => {
 	return `.${extension}`;
 });
 
-const schemaFilenames = await fsp.readdir(import.meta.dirname);
+const schemaDirectory = path.join(import.meta.dirname, "./schemas/");
+const schemaFilenames = await fsp.readdir(schemaDirectory);
 
 type ZodSchemaModule = Record<
 	string,
@@ -29,7 +30,7 @@ const schemas = new Array<{
 
 for (const filename of schemaFilenames) {
 	if (excludedFileTypes.some((ft) => filename.endsWith(ft))) continue;
-	const schemaFilename = `${import.meta.dirname}/${filename}`;
+	const schemaFilename = path.join(schemaDirectory, filename);
 	const current = path.resolve(schemaFilename);
 	const module = (await import(schemaFilename)) as ZodSchemaModule;
 	schemas.push({ filename: current, module });

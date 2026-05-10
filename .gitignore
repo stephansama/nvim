@@ -8,11 +8,11 @@
 *.tsbuildinfo
 *import.lua
 lua/config/constants.lua
-lua/schemas/*.json
 lua/schemas/*.lua
 lua/utils/tailwindcss.lua
 lualib_bundle.lua
 node_modules
 scripts/**/*.lua
 scripts/language-pack.json
+scripts/schemas/*.json
 scripts/schemas/modes.ts
