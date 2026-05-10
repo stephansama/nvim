@@ -7,7 +7,6 @@
 		"prebuild": "pnpm run scripts:modes",
 		"build": "tstl -p ./tsconfig.lua.json",
 		"postbuild": "pnpm run scripts:clean",
-		"build:schema": "tsx ./scripts/build.ts",
 		"dev": "tstl -p ./tsconfig.lua.json --watch",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
