@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"prebuild": "pnpm run prepare:schema",
+		"prebuild": "pnpm run scripts:modes",
 		"build": "tstl -p ./tsconfig.lua.json",
 		"postbuild": "pnpm run scripts:clean",
 		"build:schema": "tsx ./scripts/build.ts",
@@ -13,11 +13,12 @@
 		"fmt:write": "prettier . --write",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-		"prepare:schema": "ONLY_PREPARE_SCHEMA=true pnpm run scripts:build",
+		"prepare": "pnpm run scripts:modes && pnpm run scripts:build",
 		"scripts:bloat": "tsx ./scripts/bloat.ts",
 		"scripts:build": "tsx ./scripts/build.ts",
 		"scripts:clean": "tsx ./scripts/clean.ts",
-		"scripts:merge": "tsx ./scripts/merge.ts"
+		"scripts:merge": "tsx ./scripts/merge.ts",
+		"scripts:modes": "tsx ./scripts/modes.ts"
 	},
 	"commitlint": {
 		"extends": [

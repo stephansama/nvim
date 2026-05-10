@@ -9,8 +9,8 @@ import * as rl from "node:readline/promises";
 import type snippet from "../snippets/base/lua.json";
 import type pkg from "../snippets/package.json";
 
-const sh = String.raw;
 const rlInterface = rl.createInterface({ input, output });
+const sh = String.raw;
 
 type Snippet = (typeof snippet)[keyof typeof snippet];
 
@@ -72,33 +72,30 @@ const compiledData = Object.assign(
 	}),
 ) as Snippet;
 
-fs.mkdirSync(path.dirname(config.outputFn), {
+await fs.promises.mkdir(path.dirname(config.outputFn), {
 	recursive: true,
 });
 
-fs.writeFileSync(config.outputFn, JSON.stringify(compiledData, undefined, 2), {
-	flag: "wx",
-});
+await fs.promises.writeFile(
+	config.outputFn,
+	JSON.stringify(compiledData, undefined, 2),
+	{ flag: "wx" },
+);
 
 console.info("successfully created compiled snippet pack");
 
-fs.rmSync(config.inputDir, {
-	force: true,
-	recursive: true,
-});
+await fs.promises.rm(config.inputDir, { force: true, recursive: true });
 
 const pkgFile = fs.readFileSync("./package.json", "utf8");
 const pkgJson = JSON.parse(pkgFile) as typeof pkg;
-const next = {
-	language: config.lang,
-	path: config.outputFn,
-};
+const next = { language: config.lang, path: config.outputFn };
 
 pkgJson.contributes.snippets = [...pkgJson.contributes.snippets, next];
 
-fs.writeFileSync("./package.json", JSON.stringify(pkgJson, undefined, 2));
-
-process.exit(0);
+await fs.promises.writeFile(
+	"./package.json",
+	JSON.stringify(pkgJson, undefined, 2),
+);
 
 function createSpecialLanguages() {
 	return {
@@ -108,8 +105,9 @@ function createSpecialLanguages() {
 		ts: ["typescript", "typescriptreact"],
 		["ts-only"]: ["typescript", "typescriptreact"],
 		["ts-react"]: ["typescriptreact"],
-	};
+	} as const;
 }
+
 async function queryConfig(
 	valueTxt: string,
 	callback: (input: string) => void,
