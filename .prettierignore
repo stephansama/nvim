@@ -1,6 +1,7 @@
 *.scm
 *.toml
 *.txt
+.editorconfig
 .gitignore
 .node-version
 .prettierignore

@@ -1,5 +1,5 @@
 {
-	"$schema": "../schemas/global-keymap.json",
+	"$schema": "../../scripts/schemas/global-keymap.json",
 	"n": {
 		"-": ["<cmd>Ex<CR>", "Open netrw"],
 		"o": ["o<ESC>zz"],

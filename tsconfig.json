@@ -1,28 +1,26 @@
 {
-	"$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
-	"include": ["lua/**/*.ts", "lua/**/*.json"],
-	"exclude": ["lua/schemas/*.ts"],
+	"include": [
+		"./scripts/*.ts",
+		"./scripts/schemas/*.ts",
+		"eslint.config.ts",
+		"lua/**/*.ts",
+		"lua/**/*.json"
+	],
 	"compilerOptions": {
-		"allowJs": false,
-		"allowSyntheticDefaultImports": true,
-		"lib": ["ESNext"],
-		"moduleResolution": "node",
-		"outDir": "lua",
-		"baseUrl": "./lua/",
+		"moduleResolution": "bundler",
+		"lib": ["DOM", "ESNext"],
 		"paths": {
-			"@/*": ["./*"]
+			"*": ["./lua/*"],
+			"~/*": ["./*"],
+			"@/*": ["./lua/*"]
 		},
+		"composite": true,
 		"resolveJsonModule": true,
-		"esModuleInterop": true,
-		"rootDir": "lua",
-		"strict": true,
-		"target": "ESNext",
-		"types": ["lua-types/5.1", "@gkzhb/lua-types-nvim", "./lua/vim.d.ts"]
-	},
-	"tstl": {
-		"luaLibImport": "require-minimal",
-		"luaTarget": "JIT",
-		"noResolvePaths": ["zod", "node:fs"],
-		"tstlVerbose": false
+		"types": [
+			"lua-types/5.1",
+			"@gkzhb/lua-types-nvim",
+			"./lua/vim.d.ts",
+			"node"
+		]
 	}
 }

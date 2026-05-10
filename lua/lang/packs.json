@@ -1,6 +1,5 @@
 {
-	"$schema": "../../schemas/language-pack.json",
-	"ai": {},
+	"$schema": "../../scripts/schemas/language-pack.json",
 	"base": {
 		"mason": ["vim-language-server", "cspell", "editorconfig-checker"],
 		"servers": ["vimls"],

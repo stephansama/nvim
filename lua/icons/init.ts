@@ -4,17 +4,17 @@ export const indent_blankline = "│";
 
 export const diagnostics = {
 	Error: "󰅙 ",
-	Warn: " ",
 	Hint: "󰌵 ",
 	Info: " ",
+	Warn: " ",
 };
 
 export const notify = {
-	INFO: "",
-	WARN: "",
-	ERROR: "",
 	DEBUG: "",
+	ERROR: "",
+	INFO: "",
 	TRACE: "✎",
+	WARN: "",
 };
 
 export const packageJSON = {
@@ -23,8 +23,8 @@ export const packageJSON = {
 };
 
 export const mason = {
-	package_pending: "󰶻",
 	package_installed: "󰄴",
+	package_pending: "󰶻",
 	package_uninstalled: "󰅘",
 };
 
@@ -37,52 +37,52 @@ export const lazy = {
 
 export const lualine = {
 	modified: "",
+	newfile: "",
 	readonly: "",
 	unnamed: "󰡯",
-	newfile: "",
 };
 
 export const grug_far = {
+	actionEntryBullet: " ",
 	enabled: true,
 	fileIconsProvider: "first_available",
-	actionEntryBullet: " ",
-	searchInput: " ",
-	replaceInput: " ",
 	filesFilterInput: " ",
 	flagsInput: "󰮚 ",
-	pathsInput: " ",
-	resultsStatusReady: "󱩾 ",
-	resultsStatusError: " ",
-	resultsStatusSuccess: "󰗡 ",
-	resultsActionMessage: "  ",
-	resultsEngineLeft: "⟪",
-	resultsEngineRight: "⟫",
-	resultsChangeIndicator: "┃",
-	resultsAddedIndicator: "▒",
-	resultsRemovedIndicator: "▒",
-	resultsDiffSeparatorIndicator: "┊",
-	historyTitle: "   ",
 	helpTitle: " 󰘥  ",
+	historyTitle: "   ",
 	lineNumbersEllipsis: " ",
 	newline: " ",
+	pathsInput: " ",
+	replaceInput: " ",
+	resultsActionMessage: "  ",
+	resultsAddedIndicator: "▒",
+	resultsChangeIndicator: "┃",
+	resultsDiffSeparatorIndicator: "┊",
+	resultsEngineLeft: "⟪",
+	resultsEngineRight: "⟫",
+	resultsRemovedIndicator: "▒",
+	resultsStatusError: " ",
+	resultsStatusReady: "󱩾 ",
+	resultsStatusSuccess: "󰗡 ",
+	searchInput: " ",
 };
 
 export const grug_spinner = spinners.clock;
 
 export const neotest = {
-	running_animated: spinners.unicode_square,
-	watching: "󰈈",
-	unknown: "",
-	running: "",
-	skipped: "",
-	notify: "󱈸",
-	passed: "",
-	failed: "",
-	non_collapsible: "─",
+	child_indent: "│",
+	child_prefix: "├",
 	collapsed: "─",
 	expanded: "╮",
-	child_prefix: "├",
-	final_child_prefix: "╰",
-	child_indent: "│",
+	failed: "",
 	final_child_indent: " ",
+	final_child_prefix: "╰",
+	non_collapsible: "─",
+	notify: "󱈸",
+	passed: "",
+	running: "",
+	running_animated: spinners.unicode_square,
+	skipped: "",
+	unknown: "",
+	watching: "󰈈",
 };

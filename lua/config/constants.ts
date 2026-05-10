@@ -16,8 +16,8 @@ export const THEME_DARKMODE = "catppuccin-mocha";
 export const THEME_LIGHTMODE = "catppuccin-latte";
 
 export const PACKAGE_INFO_COLORS = {
-	up_to_date: { fg: "#9CDAE9" },
 	outdated: { fg: "#F5E3B5" },
+	up_to_date: { fg: "#9CDAE9" },
 };
 
 export const DASHBOARD_LIGHTMODE = [
@@ -103,8 +103,8 @@ export const VIM_FT_EXTENSIONS = {
 	http: "http",
 	ini: "toml",
 	j2: "jinja",
-	jinja2: "jinja",
 	jinja: "jinja",
+	jinja2: "jinja",
 	mdx: "markdown.mdx",
 	pcss: "css",
 	postcss: "css",
