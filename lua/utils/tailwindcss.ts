@@ -45,9 +45,9 @@ export function getLocalTailwindSettings(this: void) {
 	return twSettings.tailwindCSS || {};
 }
 
-function safeDecode<T = object>(this: void, string_: string) {
+function safeDecode<T = object>(this: void, input: string) {
 	try {
-		return vim.json.decode(string_) as T;
+		return vim.json.decode(input) as T;
 	} catch {
 		return false;
 	}
