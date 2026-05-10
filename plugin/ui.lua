@@ -7,7 +7,6 @@ vim.pack.add({ {
 
 vim.pack.add({
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
-	{ src = "https://github.com/onaforeignshore/PackMan.nvim" },
 	{ src = "https://github.com/f-person/auto-dark-mode.nvim" },
 	{ src = "https://github.com/nvimdev/dashboard-nvim" },
 	{ src = "https://github.com/szw/vim-maximizer" },
@@ -110,7 +109,6 @@ local blank_separators = {
 
 require("marks").setup({})
 require("visual-whitespace").setup()
-require("plugman").setup()
 
 require("lualine").setup({
 	options = {

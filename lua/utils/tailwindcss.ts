@@ -5,7 +5,10 @@ export function getLocalTailwindSettings(this: void) {
 
 	const file = vim.fn.readfile(vscodeSettingsPath) as string[];
 
-	const vscodeSettings = safeDecode(table.concat(file));
+	const vscodeSettings = safeDecode<{ tailwindCSS: Record<string, string> }>(
+		// eslint-disable-next-line unicorn/prefer-spread
+		table.concat(file),
+	);
 
 	if (vscodeSettings === false) {
 		vim.print(
@@ -14,24 +17,26 @@ export function getLocalTailwindSettings(this: void) {
 		return {};
 	}
 
-	const twSettings: { tailwindCSS?: unknown } = {};
+	const twSettings: {
+		[key: string]: Record<string, string> | string;
+	} = {};
 
 	for (const [key, value] of Object.entries(vscodeSettings)) {
 		if (!key.startsWith("tailwindCSS")) continue;
 
-		// eslint-disable-next-line
-		let current: Record<string, any> = twSettings;
+		let current = twSettings;
 		const sections = key.split(".");
 
-		for (let i = 0; i < sections.length; i++) {
-			const section = sections[i];
-			const isLast = i === sections.length - 1;
+		for (let index = 0; index < sections.length; index++) {
+			const section = sections[index];
+			const isLast = index === sections.length - 1;
 
 			current[section] = isLast
 				? transformValue(key, value)
 				: current[section] || {};
 
 			if (!isLast) {
+				// @ts-expect-error dont wanna fix rn
 				current = current[section];
 			}
 		}
@@ -40,9 +45,9 @@ export function getLocalTailwindSettings(this: void) {
 	return twSettings.tailwindCSS || {};
 }
 
-function safeDecode(this: void, str: string) {
+function safeDecode<T = object>(this: void, string_: string) {
 	try {
-		return vim.json.decode(str);
+		return vim.json.decode(string_) as T;
 	} catch {
 		return false;
 	}
@@ -51,8 +56,8 @@ function safeDecode(this: void, str: string) {
 function transformValue(
 	this: void,
 	key: string,
-	value: string | Record<string, string>,
-	transform = (str: string) => `${vim.fn.getcwd()}/${str}`,
+	value: Record<string, string> | string,
+	transform = (string_: string) => `${vim.fn.getcwd()}/${string_}`,
 ) {
 	if (!key.endsWith("configFile")) return value;
 
@@ -60,8 +65,8 @@ function transformValue(
 
 	const transformed: Record<string, string> = {};
 
-	for (const [currKey, curr] of Object.entries(value)) {
-		transformed[transform(currKey)] = transform(curr);
+	for (const [currentKey, current] of Object.entries(value)) {
+		transformed[transform(currentKey)] = transform(current);
 	}
 
 	return transformed;

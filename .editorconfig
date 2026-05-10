@@ -11,5 +11,5 @@ indent_size = 4
 indent_style = tab
 insert_final_newline = true
 
-[*.json]
+[*.{json,yml,yaml}]
 indent_size = 2

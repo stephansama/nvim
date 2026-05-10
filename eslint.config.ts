@@ -1,42 +1,15 @@
-import js from "@eslint/js";
-import json from "@eslint/json";
-import markdown from "@eslint/markdown";
-import importZod from "eslint-plugin-import-zod";
-import { defineConfig } from "eslint/config";
-import globals from "globals";
-import tseslint from "typescript-eslint";
+import { config, presets } from "@stephansama/eslint-config";
 
-export default defineConfig([
-	{
-		files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-		plugins: { js },
-		extends: ["js/recommended"],
-		languageOptions: { globals: globals.node },
-	},
-	importZod.configs.recommended,
-	tseslint.configs.recommended,
-	{
-		files: ["**/*.json"],
-		plugins: { json },
-		language: "json/json",
-		extends: ["json/recommended"],
-	},
-	{
-		files: ["**/*.jsonc"],
-		plugins: { json },
-		language: "json/jsonc",
-		extends: ["json/recommended"],
-	},
-	{
-		files: ["**/*.json5"],
-		plugins: { json },
-		language: "json/json5",
-		extends: ["json/recommended"],
-	},
-	{
-		files: ["**/*.md"],
-		plugins: { markdown },
-		language: "markdown/gfm",
-		extends: ["markdown/recommended"],
-	},
-]);
+export default await config({
+	...presets.base,
+	ignore: [
+		"**/.editorconfig",
+		"**/.gitignore",
+		"**/.prettierignore",
+		"**/*.lua",
+		"**/pnpm-lock.yaml",
+	],
+	json: true,
+	markdown: true,
+	zod: true,
+});

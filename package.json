@@ -1,27 +1,42 @@
 {
-	"private": true,
 	"name": "nvim",
 	"version": "0.0.0",
+	"private": true,
 	"type": "module",
 	"scripts": {
 		"prebuild": "pnpm run prepare:schema",
-		"build": "tstl",
-		"build:bloat": "node ./lua/plugins/debug/bloat.js",
-		"dev": "tstl --watch",
-		"lint": "eslint .",
+		"build": "tstl -p ./tsconfig.lua.json",
+		"postbuild": "pnpm run scripts:clean",
+		"build:schema": "tsx ./scripts/build.ts",
+		"dev": "tstl -p ./tsconfig.lua.json --watch",
 		"fmt:check": "prettier . --check",
 		"fmt:write": "prettier . --write",
-		"build:schema": "node ./lua/schemas/build.mjs",
-		"snippets:merge": "node ./snippets/merge.mjs",
-		"prepare:schema": "ONLY_PREPARE_SCHEMA=true node ./lua/schemas/build.mjs"
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"prepare:schema": "ONLY_PREPARE_SCHEMA=true pnpm run scripts:build",
+		"scripts:bloat": "tsx ./scripts/bloat.ts",
+		"scripts:build": "tsx ./scripts/build.ts",
+		"scripts:clean": "tsx ./scripts/clean.ts",
+		"scripts:merge": "tsx ./scripts/merge.ts"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"nano-staged": {
+		"*": [
+			"prettier --write",
+			"eslint --fix"
+		]
 	},
 	"prettier": {
-		"quoteProps": "consistent",
 		"plugins": [
 			"prettier-plugin-organize-imports",
-			"prettier-plugin-sort-package-json",
+			"prettier-plugin-packagejson",
 			"@prettier/plugin-lua"
 		],
+		"quoteProps": "consistent",
 		"overrides": [
 			{
 				"files": "nvim-pack-lock.json",
@@ -32,36 +47,30 @@
 		]
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.1",
-		"@commitlint/config-conventional": "^19.8.1",
-		"@eslint/js": "^9.39.1",
-		"@eslint/json": "^0.14.0",
-		"@eslint/markdown": "^7.5.1",
-		"@gkzhb/lua-types-nvim": "^0.0.7",
-		"@prettier/plugin-lua": "^0.0.3",
-		"eslint": "^9.39.1",
-		"eslint-plugin-import-zod": "^1.2.1",
-		"globals": "^16.5.0",
-		"lefthook": "^2.1.6",
-		"lint-staged": "^16.1.6",
-		"lua-types": "^2.13.1",
-		"prettier": "^3.6.2",
-		"prettier-plugin-organize-imports": "^4.2.0",
-		"prettier-plugin-sort-package-json": "^1.1.0",
-		"typescript": "5.9.3",
-		"typescript-eslint": "^8.48.1",
-		"typescript-to-lua": "1.34.0",
-		"zod": "^4.1.5"
+		"@commitlint/cli": "catalog:",
+		"@commitlint/config-conventional": "catalog:",
+		"@eslint/json": "catalog:",
+		"@eslint/markdown": "catalog:",
+		"@gkzhb/lua-types-nvim": "catalog:",
+		"@prettier/plugin-lua": "catalog:",
+		"@stephansama/eslint-config": "catalog:",
+		"@types/node": "catalog:",
+		"eslint": "catalog:",
+		"eslint-plugin-jsonc": "catalog:",
+		"eslint-plugin-zod": "catalog:",
+		"globals": "catalog:",
+		"lefthook": "catalog:",
+		"lua-types": "catalog:",
+		"nano-staged": "catalog:",
+		"prettier": "catalog:",
+		"prettier-plugin-organize-imports": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:",
+		"typescript-to-lua": "catalog:",
+		"zod": "catalog:"
 	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
-	"lint-staged": {
-		"*": [
-			"prettier --write",
-			"eslint --fix"
-		]
+	"engines": {
+		"node": ">=24"
 	}
 }

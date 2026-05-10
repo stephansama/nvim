@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 
-import cp from "node:child_process";
-import fs from "node:fs";
+import * as cp from "node:child_process";
+import * as fs from "node:fs";
 import path from "node:path";
 import { stdin as input, stdout as output } from "node:process";
-import rl from "node:readline/promises";
+import * as rl from "node:readline/promises";
+
+import type snippet from "../snippets/base/lua.json";
+import type pkg from "../snippets/package.json";
 
 const sh = String.raw;
 const rlInterface = rl.createInterface({ input, output });
 
+type Snippet = (typeof snippet)[keyof typeof snippet];
+
 try {
 	cp.execSync(sh` which degit `);
-} catch (e) {
-	console.error(e);
+} catch (error) {
+	console.error(error);
 	/** please install [degit](https://github.com/Rich-Harris/degit) */
 	console.error("degit is not installed");
 	console.error("please install degit");
@@ -20,12 +25,12 @@ try {
 }
 
 const config = {
-	lang: ["text"],
 	inputDir: "./input/",
+	lang: ["text"],
 	outputFn: "output.json",
 };
 
-await queryConfig("github snippet path", async (input) => {
+await queryConfig("github snippet path", (input) => {
 	const degitPath = input
 		.replace("https://github.com/", "")
 		.replace("tree/main/", "")
@@ -41,14 +46,16 @@ await queryConfig("github snippet path", async (input) => {
 	cp.execSync(sh`degit ${degitPath} ${config.inputDir}`);
 });
 
-await queryConfig("output filename", async (input) => {
+await queryConfig("output filename", (input) => {
 	if (!input.endsWith(".json")) input += ".json";
 	config.outputFn = input;
 });
 
-await queryConfig("language (comma separate)", async (input) => {
+await queryConfig("language (comma separate)", (input) => {
 	const specialLanguages = createSpecialLanguages();
-	config.lang = input.split(",").flatMap((a) => specialLanguages[a] || [a]);
+	config.lang = input.split(",").flatMap<string>((a) => {
+		return specialLanguages[a as keyof typeof specialLanguages] || [a];
+	});
 });
 
 const files = fs
@@ -56,9 +63,14 @@ const files = fs
 	.filter((item) => item.isFile())
 	.map((file) => config.inputDir + file.name);
 
-const compiledData = files
-	.map((file) => JSON.parse(fs.readFileSync(file, { encoding: "utf8" })))
-	.reduce((prev, curr) => ({ ...prev, ...curr }), {});
+const compiledData = Object.assign(
+	{},
+	...files.map((file) => {
+		return JSON.parse(
+			fs.readFileSync(file, { encoding: "utf8" }),
+		) as Snippet;
+	}),
+) as Snippet;
 
 fs.mkdirSync(path.dirname(config.outputFn), {
 	recursive: true,
@@ -75,8 +87,8 @@ fs.rmSync(config.inputDir, {
 	recursive: true,
 });
 
-const pkgFile = fs.readFileSync("./package.json", { encoding: "utf8" });
-const pkgJson = JSON.parse(pkgFile);
+const pkgFile = fs.readFileSync("./package.json", "utf8");
+const pkgJson = JSON.parse(pkgFile) as typeof pkg;
 const next = {
 	language: config.lang,
 	path: config.outputFn,
@@ -88,26 +100,32 @@ fs.writeFileSync("./package.json", JSON.stringify(pkgJson, undefined, 2));
 
 process.exit(0);
 
-/**
- * @param {string} valueTxt
- * @param {(s: string)=>Promise<void>} cb
- */
-async function queryConfig(valueTxt, cb) {
-	const answer = await rlInterface.question(`what is the ${valueTxt}? ->`);
-	if (answer) {
-		await cb(answer);
-	} else {
-		console.info(`no ${valueTxt} supplied falling back to default`);
-	}
-}
-
 function createSpecialLanguages() {
 	return {
 		js: ["javascript", "typescript", "javascriptreact", "typescriptreact"],
-		ts: ["typescript", "typescriptreact"],
 		["js-only"]: ["javascript", "javascriptreact"],
-		["ts-only"]: ["typescript", "typescriptreact"],
 		["js-react"]: ["javascriptreact"],
+		ts: ["typescript", "typescriptreact"],
+		["ts-only"]: ["typescript", "typescriptreact"],
 		["ts-react"]: ["typescriptreact"],
 	};
+}
+async function queryConfig(
+	valueTxt: string,
+	callback: (input: string) => void,
+): Promise<void>;
+async function queryConfig(
+	valueTxt: string,
+	callback: (input: string) => Promise<void>,
+): Promise<void>;
+async function queryConfig(
+	valueTxt: string,
+	callback: (input: string) => Promise<void> | void,
+) {
+	const answer = await rlInterface.question(`what is the ${valueTxt}? ->`);
+	if (answer) {
+		await callback(answer);
+	} else {
+		console.info(`no ${valueTxt} supplied falling back to default`);
+	}
 }

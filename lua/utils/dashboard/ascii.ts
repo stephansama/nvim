@@ -3,12 +3,12 @@ import { ASCII_DIR } from "@/config/constants";
 export function loadAscii(this: void) {
 	math.randomseed(os.time());
 
-	const collected = [];
-	const filenames = vim.fn.readdir(ASCII_DIR);
+	const collected = new Array<string>();
+	const filenames = vim.fn.readdir(ASCII_DIR) as Array<string>;
 
 	if (filenames.length === 0) return [];
 	for (const filename of filenames) {
-		const fullPath = ASCII_DIR + filename;
+		const fullPath = `${ASCII_DIR}${filename}`;
 		if (vim.fn.filereadable(fullPath) === 1) {
 			collected.push(fullPath);
 		}

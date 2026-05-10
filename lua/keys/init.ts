@@ -2,9 +2,9 @@ import * as global from "./global.json";
 import * as plugin from "./plugin.json";
 
 type Schema = Omit<typeof global, "$schema">;
-type SchemaKey = keyof Schema;
 type SchemaElement = Schema[SchemaKey];
 type SchemaElementKey = keyof SchemaElement;
+type SchemaKey = keyof Schema;
 
 function isSchemaElementKey(key: string): key is SchemaElementKey {
 	return !!key;
@@ -22,7 +22,7 @@ for (const modes in global) {
 	}
 
 	const modeList = modes.split(",");
-	const current = global[modes as SchemaKey] as SchemaElement;
+	const current = global[modes] as SchemaElement;
 
 	if (typeof current === "string") continue;
 
@@ -32,15 +32,10 @@ for (const modes in global) {
 		}
 		const currentKeymap = current[keymap];
 
-		vim.keymap.set(
-			modeList,
-			keymap,
-			currentKeymap[1],
-			Object.assign(
-				{ desc: currentKeymap[2] },
-				typeof currentKeymap[3] === "object" ? currentKeymap[3] : {},
-			),
-		);
+		vim.keymap.set(modeList, keymap, currentKeymap[1], {
+			desc: currentKeymap[2],
+			...(typeof currentKeymap[3] === "object" ? currentKeymap[3] : {}),
+		});
 	}
 }
 

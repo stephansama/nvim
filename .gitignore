@@ -4,12 +4,15 @@
 **/icons/*.lua
 **/keys/*.lua
 **/lang/*.lua
+*.d.ts
+*.tsbuildinfo
 *import.lua
 lua/config/constants.lua
 lua/schemas/*.json
 lua/schemas/*.lua
-lua/schemas/modes.ts
 lua/utils/tailwindcss.lua
 lualib_bundle.lua
 node_modules
+scripts/**/*.lua
 scripts/language-pack.json
+scripts/schemas/modes.ts

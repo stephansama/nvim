@@ -1,7 +1,6 @@
 import * as packs from "./packs.json";
 
 export const enabled = [
-	"ai",
 	"base",
 	"cpp",
 	"polyglot",
