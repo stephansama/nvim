@@ -2,29 +2,21 @@
 
 import * as fs from "node:fs";
 
-const buildInformationFiles = fs.globSync("**/*.tsbuildinfo");
+await rm("build information files", ...fs.globSync("**/*.tsbuildinfo"));
 
-console.info("deleting build information files", buildInformationFiles);
+await rm(
+	"declartion files",
+	...fs.globSync("{lua,scripts}/**/*.d.ts", { exclude: ["**/vim.d.ts"] }),
+);
 
-await rm(...buildInformationFiles);
+await rm(
+	"unwanted lua files",
+	...fs.globSync("./scripts/**/*.lua", { exclude: ["lua/**/*.lua"] }),
+);
 
-const declarations = fs.globSync("{lua,scripts}/**/*.d.ts", {
-	exclude: ["**/vim.d.ts"],
-});
+async function rm(fileType: string, ...files: Array<string>) {
+	console.info(`--- deleting ${fileType}:`, files);
 
-console.info("deleting declartion files", declarations);
-
-await rm(...declarations);
-
-const unwantedLuaFiles = fs.globSync("./scripts/**/*.lua", {
-	exclude: ["lua/**/*.lua"],
-});
-
-console.info("deleting unwanted lua files", unwantedLuaFiles);
-
-await rm(...unwantedLuaFiles);
-
-async function rm(...files: Array<string>) {
 	for (const file of files) {
 		await fs.promises.rm(file);
 	}
