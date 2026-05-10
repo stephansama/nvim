@@ -4,10 +4,8 @@ import * as fsp from "node:fs/promises";
 import path from "node:path";
 import * as z from "zod";
 
-type ZodSchemaModule = Record<
-	string,
-	z.ZodObject<z.core.$ZodLooseShape, z.core.$strip>
->;
+type ZodObject = z.ZodObject<z.core.$ZodLooseShape, z.core.$strip>;
+type ZodSchemaModule = Record<string, ZodObject>;
 
 const schemas = new Array<{ filename: string; module: ZodSchemaModule }>();
 const schemaDirectory = path.join(import.meta.dirname, "./schemas/");
