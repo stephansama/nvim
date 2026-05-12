@@ -283,6 +283,7 @@ export const override_by_filename = {
 	"postcss.config.cjs": icons.postcss,
 	"postcss.config.js": icons.postcss,
 	"postcss.config.mjs": icons.postcss,
+	"postcss.config.ts": icons.postcss,
 	"prettier.config.js": icons.prettier,
 	"project.json": icons.nx,
 	"readme.md": { color: "#5EA3EF", icon: "󰋼", name: "readme" },
