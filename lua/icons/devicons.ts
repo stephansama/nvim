@@ -88,6 +88,7 @@ export const override_by_extension = {
 	"Jenkinsfile": { color: "white", icon: "", name: "jenkins" },
 	"js": icons.javascript,
 	"jsonc": { color: "#FFF000", icon: "󰘦", name: "jsonc" },
+	"lit.ts": { color: "#324FFF", icon: "󰈸", name: "lit" },
 	"mjs": icons.javascript,
 	"mts": icons.typescript,
 	"njk": { color: "#1C4913", icon: "", name: "nunjucks" },

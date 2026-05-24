@@ -9,7 +9,7 @@ catalog:
   "@eslint/markdown": 7.5.1
   "@gkzhb/lua-types-nvim": 0.0.7
   "@prettier/plugin-lua": 0.0.3
-  "@stephansama/eslint-config": 0.2.0
+  "@stephansama/eslint-config": 0.2.2
   "@types/node": 25.6.0
   eslint-plugin-jsonc: 3.1.2
   eslint-plugin-zod: 3.12.0
