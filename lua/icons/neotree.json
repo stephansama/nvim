@@ -18,6 +18,7 @@
 	},
 	"icons": {
 		"admin": "󰉐",
+		"agents": "󰚩",
 		"alfred": "󰮤",
 		"android": "",
 		"animation": "󰗘",
@@ -47,7 +48,7 @@
 		"changeset": "",
 		"ci": "󰴋",
 		"circleci": "",
-		"claude": "󰚩",
+		"claude": "󰛄",
 		"cli": "",
 		"client": "󰦉",
 		"cloudflare": "☁",

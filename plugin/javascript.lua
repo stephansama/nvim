@@ -8,7 +8,7 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-ts-autotag" },
 	{ src = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring" },
 	{ src = "https://github.com/stephansama/package-info.nvim" },
-	{ src = "https://github.com/barrett-ruth/live-server.nvim" },
+	{ src = "https://git.barrettruth.com/barrettruth/live-server.nvim" },
 })
 
 require("kulala").setup({
