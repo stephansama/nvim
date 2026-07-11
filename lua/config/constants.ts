@@ -87,10 +87,12 @@ export const BLINK_DICTIONARY_FILETYPES = [
 
 export const VIM_FT_FILENAMES = {
 	[".autorc"]: "json",
+	[".env.d.ts"]: "typescript",
 	[".env.example"]: "sh",
 	[".env.local"]: "sh",
 	[".env.production"]: "sh",
 	[".env.sample"]: "sh",
+	[".env.schema"]: "sh",
 	[".zsh_plugins.txt"]: "conf",
 	["hyprland.conf"]: "hyprlang",
 	["hyprpaper.conf"]: "hyprlang",

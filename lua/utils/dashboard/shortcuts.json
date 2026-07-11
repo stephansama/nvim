@@ -34,11 +34,11 @@
 			"key": "b"
 		},
 		{
-			"icon": "󰑴",
+			"icon": "󰜉",
 			"icon_hl": "cursorlinenr",
-			"key": "c",
-			"desc": " Leetcode",
-			"action": "leet",
+			"key": "r",
+			"desc": "restart",
+			"action": "restart",
 			"group": "@variable"
 		},
 		{

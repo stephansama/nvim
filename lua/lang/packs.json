@@ -45,7 +45,7 @@
 	"data": {
 		"linters": {
 			"json": ["jsonlint", "eslint"],
-			"yaml": ["yamllint", "eslint"],
+			"yaml": ["yamllint", "eslint", "zizmor"],
 			"toml": ["tombi"]
 		},
 		"servers": ["sqls", "tombi", "yamlls", "jsonls", "graphql", "lemminx"],
@@ -164,15 +164,15 @@
 		},
 		"formatters": {
 			"handlebars": ["prettier"],
-			"css": ["vpfmt", "oxfmt", "prettier"],
-			"vue": ["vpfmt", "oxfmt", "prettier"],
-			"html": ["vpfmt", "oxfmt", "prettier"],
+			"css": ["prettier", "vpfmt", "oxfmt"],
+			"vue": ["prettier", "vpfmt", "oxfmt"],
+			"html": ["prettier", "vpfmt", "oxfmt"],
 			"astro": ["prettier"],
 			"svelte": ["prettier"],
-			"javascript": ["vpfmt", "oxfmt", "prettier"],
-			"typescript": ["vpfmt", "oxfmt", "prettier"],
-			"javascriptreact": ["vpfmt", "oxfmt", "prettier"],
-			"typescriptreact": ["vpfmt", "oxfmt", "prettier"]
+			"javascript": ["prettier", "vpfmt", "oxfmt"],
+			"typescript": ["prettier", "vpfmt", "oxfmt"],
+			"javascriptreact": ["prettier", "vpfmt", "oxfmt"],
+			"typescriptreact": ["prettier", "vpfmt", "oxfmt"]
 		},
 		"treesitter": [
 			"astro",
