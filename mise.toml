@@ -1,0 +1,30 @@
+[tasks.setup]
+run = """
+mise run clean
+mise run install
+mise run build
+"""
+
+[tasks.dev]
+depends = ["install"]
+run = """
+pnpm run dev
+"""
+
+[tasks.clean]
+run = """
+git clean -dfX
+"""
+
+[tasks.build]
+run = """
+pnpm run build
+"""
+
+[tasks.install]
+run = """
+pnpm install
+"""
+
+[settings]
+node.corepack = true
