@@ -8,6 +8,11 @@ vim.g.table_mode_tableize_map = "<leader>mc"
 vim.api.nvim_create_autocmd("PackChanged", { callback = function(ev)
 	local name, kind = ev.data.spec.name, ev.data.kind
 	local is_valid = kind == "install" or kind == "update"
+
+	if name == "nvim-treesitter" and is_valid then
+		vim.cmd([[TSUpdate]])
+	end
+
 	if name == "markdown-preview.nvim" and is_valid then
 		vim.cmd.packadd("markdown-preview.nvim")
 		vim.fn["mkdp#util#install"]()
